@@ -24,11 +24,18 @@
       .top-area {
         /* 가로크기 w - width:크기값
         가로크기를 안주면 auto가 기본값 */
-        width: 1280px;
+        /* width: 1280px; */
         /* 크기를 주면 기본적으로 내부
         컨텐트 영역의 크기이며 패딩과
         보더는 바깥쪽에 생긴다!
         이런박스를 컨텐트박스라고 한다! */
+
+        /* 최대가로크기 maw */
+        max-width: 1280px;
+        /* 효과는?  1280px보다 부모박스 크기가
+        작아지면 auto로 전환되고 이것보다 커지면
+        더 이상 커지지 않고 크기를 유지함! */
+
 
         /* 보더박스만들기(크기에 보더까지 포함) */
         box-sizing: border-box;
@@ -39,10 +46,9 @@
         -> 마영오!!! */
         margin: 0 auto;
 
-        background-color:navajowhite;
 
         /* 테두리 bd - border:두께 종류 색상 */
-        border: 10px dotted skyblue;
+        border: 10px dotted hotpink;
         /* 글자중앙정렬 tac */
         text-align: center;
         /* 패딩 p
@@ -57,6 +63,9 @@
           padding-right, padding-left
         */
         padding: 30px;
+
+        /* 배경색 bgc */
+        background-color: #ffe89b;
       }
 
       /* 메뉴박스 */
