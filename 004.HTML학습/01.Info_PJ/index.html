@@ -8,7 +8,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 탭메뉴출력 타이틀 -->
     <title>네이버 요약 뉴스 ㅋㅋㅋ</title>
+    <!-- 스타일시트 인터널방식 코딩구역 -->
+    <style>
+      /* css문법만 사용하는 구역 */
+      /* 기본문법 = 선택자{속성:값;} */
+
+      /* 기본값 초기화 - 마진,패딩 0 */
+      html, body h1 h2 h3 ul,li {
+        margin: 0; padding: 0; 
+      }
+
+      /* 상단영역 */
+      .top-area {
+        border: 10px dotted palevioletred;
+      }
+
+      /* 메뉴박스 */
+      .menu ul {
+        /* 기본블릿없앰 */
+        list-style: none;
+        /* 자식요소 옆으로 흐르게 */
+        display: flex;
+        /* 사이간격 */
+        gap: 10px;
+
+        float: left;
+        
+      }
+
+      /* 리스트 요소 */
+      .menu li {
+      }
+      
+    </style>
   </head>
+
   <!-- body요소 : 웹문서 본문출력 -->
   <body>
     <!-- 1. 상단영역  -->
@@ -17,8 +51,13 @@
       <h1 id="main-title">네이버 요약 뉴스 ㅋㅋㅋ</h1>
 
       <!-- div요소 : 내용구분박스 -->
-      <nav>
-        <ul style="list-style: none; display: flex; gap: 10px">
+      <nav class="menu">
+        <!-- style속성에 값으로 css를 셋팅할 수 있다 -->
+        <!-- <ul style="list-style: none; display: flex; gap: 10px"> -->
+
+        <!-- ul요소 : 순서없는리스트 (unordered list)
+         하위필수요소는 li다 (반드시사용!)-->
+        <ul>
           <li>네이버로고</li>
           <li>경제</li>
           <li>사회</li>
@@ -31,7 +70,11 @@
     <!-- 2. 메인영역  -->
     <main class="main-area">
       <!-- 메인이미지 -->
-      <img src="./images/naver_news.png" alt="네이버 뉴스 자랑스런 내 이미지" style="width: 100%; "/>
+      <img
+        src="./images/naver_news.png"
+        alt="네이버 뉴스 자랑스런 내 이미지"
+        style="width: 100%"
+      />
     </main>
     <!-- 3. 하단영역  -->
     <footer class="bottom-area">
