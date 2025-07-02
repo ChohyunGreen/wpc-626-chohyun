@@ -35,23 +35,8 @@
         보더는 바깥쪽에 생긴다!
         이런박스를 컨텐트박스라고 한다! */
 
-        /* 테두리 bd - border:두께 종류 색상 */
-        border: 10px dotted hotpink;
         /* 글자중앙정렬 tac */
         text-align: center;
-        /* 패딩 p
-          패딩 셋팅법(마진도 동일함)
-          padding: 값; (4방향공통)
-          padding: 값 값;(위아래 양쪽)
-          padding: 값 값 값;(위 양쪽 아래)
-          padding: 값 값 값 값;(위 오른 아래 왼)
-
-          -> 물론 방향별 속성이 따로 있음!
-          padding-top, padding-bottom
-          padding-right, padding-left
-        */
-        padding: 30px;
-
         /* 배경색 bgc */
         background-color: #ffe89b;
       }
@@ -91,6 +76,38 @@
         margin: 0 auto;
         -> 마영오!!! */
         margin: 0 auto;
+
+        /* 테두리 bd - border:두께 종류 색상 */
+        border: 4px dashed hotpink;
+        /* 패딩 p
+          패딩 셋팅법(마진도 동일함)
+          padding: 값; (4방향공통)
+          padding: 값 값;(위아래 양쪽)
+          padding: 값 값 값;(위 양쪽 아래)
+          padding: 값 값 값 값;(위 오른 아래 왼)
+
+          -> 물론 방향별 속성이 따로 있음!
+          padding-top, padding-bottom
+          padding-right, padding-left
+        */
+        padding: 30px;
+      }
+
+      /* 둥근 보더 모서리 - border-radius */
+      border-radius:20px;
+    
+      /* 2.메인영역 */
+      .main-area {
+        /* 위 아래 마진 */
+        margin-top: 120px;
+        margin-bottom: 20px;
+      }
+      /* 3. 하단영역 */
+      .bottom-area {
+        /* 블록내부 인라인 중앙정렬 tac */
+        text-align: center;
+        /* 배경색 bgc */
+        background-color: #d6d6d6;
       }
     </style>
   </head>
