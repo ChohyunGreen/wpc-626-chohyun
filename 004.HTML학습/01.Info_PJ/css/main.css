@@ -190,4 +190,20 @@ ul {
   text-align: center;
   /* 배경색 bgc */
   background-color: #d4d4d4;
+
 }
+  /* 주소요소 */
+  .bottom-area address {
+    /* 기본 이탤릭 해제! fsn */
+    font-style: normal;
+    font-size: 25px;
+    /* 줄간격 lh line-height 
+    값으로 기본 숫자만 쓰는 배수를 사용함 (글자크기의 몇배)
+    단위를 사용하면 구체적인 크기로 줄간격을 줄 수 있음 */
+    line-height: 1.7;
+    /* 글자의 1.7배 */
+
+    /* 글자색 c */
+    color: #333;
+    
+  }
