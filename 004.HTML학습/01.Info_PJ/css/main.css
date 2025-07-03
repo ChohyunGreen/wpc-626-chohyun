@@ -79,14 +79,14 @@ ul {
   /* 글자 그림자로 글자 테두리 추가
   글자 그림자를 4개 사용함! 콤마로 여러개 줄 수 있음 */
   text-shadow: 
-  1px 0 #000,
-  -1px 0 #000,
-  0 1px #000,
-  0 -1px #000;
+  /* 4방향으로 그림자 1px씩 보냄 */ 2px 0 #000, -2px 0 #000,
+    0 2px #000, 0 -2px #000, /* 그림자 셋팅은 추가로! */ 3px 3px 2px #0000008e;
 }
 
 /* 메뉴박스 */
 .menu ul {
+  /* 웹폰트 글자체 */
+
   /* 기본블릿없앰 */
   list-style: none;
   /* 자식요소 옆으로 흐르게
@@ -102,6 +102,41 @@ ul {
   display: inline-block;
   /* 패딩 p - padding: 위아래 양쪽 */
   padding: 0 5px;
+}
+
+/* 리스트 링크 */
+.menu a {
+  /* 웹폰트 적용하기 */
+  font-family: "Noto Sans KR", sans-serif;
+
+  /* 글자크기 fz */
+  font-style: 25px;
+
+  /* 글자색 c */
+  color: forestgreen;
+
+  /* 기본밑줄 없애기! */
+  text-decoration: line-through;
+
+  /* 이미지를 포함한 글자 인라인요소간 진행방향 세로정렬 vertical-align */
+  vertical-align: top;
+  /* 사용값 top/middle/bottom/숫자값 */
+}
+
+/* a에 마우스 오버시 요소:hover 
+가상클래스 :hover사용 */
+.menu a:hover {
+  /* 글자색 변경 */
+  color: slateblue;
+  /* 윗줄 생성 */
+  text-decoration: overline;
+  /* 줄 종류변경 : 파도모양 wavy */
+  text-decoration-style: wavy;
+}
+
+/* 네이버 로고 */
+.menu img {
+  width: 50px;
 }
 
 /* 공통클래스 */
