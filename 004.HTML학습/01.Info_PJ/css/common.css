@@ -1,0 +1,209 @@
+@charset "utf-8";
+/* 공통모듈 css- common.css */
+
+
+/* 웹폰트 CDN으로 불러오기 
+CDN(Content Delivery Network)은 어떤 웹파일을 네트워크로 불러오는 것임! */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&family=Noto+Sans+KR:wght@100..900&family=Single+Day&display=swap");
+
+/* 웹폰트 적용코드 */
+/* font-family: "Noto Sans KR", sans-serif; */
+/* font-family: "Dongle", sans-serif;
+  font-family: "Single Day", cursive;
+ */
+
+/* CSS문법만 사용하는 구역! */
+/* 기본문법
+      선택자{속성:값;} */
+/* 전체 글씨체 적용하기  */
+body {
+  /* 웹폰트체를 전체에 적용함! */
+  font-family: "Noto Sans KR", sans-serif;
+}
+/* 기본값 초기화 - 마진,패딩 0 */
+html,
+body,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* 1.상단영역 */
+.top-area {
+  /* 가로크기 w - width:크기값
+        가로크기를 안주면 auto가 기본값 */
+  /* width: 1280px; */
+  /* 크기를 주면 기본적으로 내부
+        컨텐트 영역의 크기이며 패딩과
+        보더는 바깥쪽에 생긴다!
+        이런박스를 컨텐트박스라고 한다! */
+
+  /* 글자중앙정렬 tac */
+  text-align: center;
+
+  /* 배경색 bgc */
+  background-color: #ffe89b;
+}
+
+/* 메인타이틀 */
+#main-title {
+  /* 글자체 ff 
+  글자체를 뒤에 콤마로 여러개 쓰면 지원되는 글자체를 순서대로 적용함 만약 없으면 브라우저 기본체 출력 */
+  /* 웹폰트 적용하기 */
+
+  /* 글자체에 따라 기본 h1의 두꺼운 설정을 해제함 */
+  font-weight: normal;
+  font-family: "Noto Sans KR", sans-serif;
+
+  /* 글자크기 fz */
+  font-size: 70px;
+
+  /* 글자색 c */
+  color: forestgreen;
+
+  /* 자간 ls */
+  letter-spacing: -1px;
+
+  /* 단어간격 ws */
+  word-spacing: 12px;
+
+  /* 글자그림자 ts 
+  text-shadow: x축 y축 블러 색상;
+  */
+  /* text-shadow: 3px 3px 2px #333333; */
+
+  /* 글자 그림자로 글자 테두리 추가
+  글자 그림자를 4개 사용함! 콤마로 여러개 줄 수 있음 */
+  text-shadow: 
+  /* 4방향으로 그림자 1px씩 보냄 */ 2px 0 #000, -2px 0 #000,
+    0 2px #000, 0 -2px #000, /* 그림자 셋팅은 추가로! */ 3px 3px 2px #0000008e;
+
+  /* 하단마진 mb */
+  margin-bottom: 30px;
+}
+
+/* 메뉴박스 */
+.menu ul {
+  /* 웹폰트 글자체 */
+
+  /* 기본블릿없앰 */
+  list-style: none;
+  /* 자식요소 옆으로 흐르게
+        -> 플렉스는 나중에 적용할 예정! */
+  /* display: flex; */
+  /* 사이간격 */
+  /* gap: 10px; */
+}
+
+/* 리스트 요소 */
+.menu li {
+  /* 인라인 블록으로 display 변경 */
+  display: inline-block;
+  /* 패딩 p - padding: 위아래 양쪽 */
+  padding: 0 5px;
+}
+
+/* 리스트 링크 */
+.menu a {
+  /* 웹폰트 적용하기 */
+  font-family: "Noto Sans KR", sans-serif;
+
+  /* 글자크기 fz */
+  font-style: 32px;
+
+  /* 글자색 c */
+  color: forestgreen;
+
+  /* 기본밑줄 없애기! */
+  text-decoration: line-through;
+
+  /* 이미지를 포함한 글자 인라인요소간 진행방향 세로정렬 vertical-align */
+  vertical-align: top;
+  /* 사용값 top/middle/bottom/숫자값 */
+}
+
+/* a에 마우스 오버시 요소:hover 
+가상클래스 :hover사용 */
+.menu a:hover {
+  /* 글자색 변경 */
+  color: slateblue;
+  /* 윗줄 생성 */
+  text-decoration: overline;
+  /* 줄 종류변경 : 파도모양 wavy */
+  text-decoration-style: wavy;
+  /* 그림자 생성 ts */
+  text-shadow: 2px 2px 2px #0000009f;
+}
+
+/* 네이버 로고 */
+.menu img {
+  width: 50px;
+}
+
+/* 공통클래스 */
+.common-box {
+  /* 최대가로크기 maw */
+  max-width: 1280px;
+  /* 효과는?  1280px보다 부모박스 크기가
+        작아지면 auto로 전환되고 이것보다 커지면
+        더 이상 커지지 않고 크기를 유지함! */
+
+  /* 보더박스만들기(크기에 보더까지 포함) */
+  box-sizing: border-box;
+
+  /* 블록요소 가로 중앙정렬하기
+        -> 양쪽마진을 auto로 주면된다!
+        margin: 0 auto;
+        -> 마영오!!! */
+  margin: 0 auto;
+
+  /* 테두리 bd - border:두께 종류 색상 */
+  border: 4px dashed hotpink;
+  /* 패딩 p
+          패딩 셋팅법(마진도 동일함)
+          padding: 값; (4방향공통)
+          padding: 값 값;(위아래 양쪽)
+          padding: 값 값 값;(위 양쪽 아래)
+          padding: 값 값 값 값;(위 오른 아래 왼)
+
+          -> 물론 방향별 속성이 따로 있음!
+          padding-top, padding-bottom
+          padding-right, padding-left
+        */
+  padding: 30px;
+
+  /* 둥근 보더 모서리 bdrs - border-radius */
+  border-radius: 20px;
+}
+
+/* 2.메인 영역 */
+.main-area {
+  /* 위 아래 마진 */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* 3.하단 영역 */
+.bottom-area {
+  /* 블록내부 인라인 중앙정렬 tac */
+  text-align: center;
+  /* 배경색 bgc */
+  background-color: #d4d4d4;
+}
+/* 주소요소 */
+.bottom-area address {
+  /* 기본 이탤릭 해제! fsn */
+  font-style: normal;
+  font-size: 25px;
+  /* 줄간격 lh line-height 
+    값으로 기본 숫자만 쓰는 배수를 사용함 (글자크기의 몇배)
+    단위를 사용하면 구체적인 크기로 줄간격을 줄 수 있음 */
+  line-height: 1.7;
+  /* 글자의 1.7배 */
+
+  /* 글자색 c */
+  color: #333;
+}
