@@ -57,10 +57,10 @@ ul {
 
   /* 글자체에 따라 기본 h1의 두꺼운 설정을 해제함 */
   font-weight: normal;
-  font-family: "Dongle", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 
   /* 글자크기 fz */
-  font-size: 60px;
+  font-size: 70px;
 
   /* 글자색 c */
   color: forestgreen;
@@ -110,7 +110,7 @@ ul {
   font-family: "Noto Sans KR", sans-serif;
 
   /* 글자크기 fz */
-  font-style: 25px;
+  font-style: 32px;
 
   /* 글자색 c */
   color: forestgreen;
@@ -132,6 +132,8 @@ ul {
   text-decoration: overline;
   /* 줄 종류변경 : 파도모양 wavy */
   text-decoration-style: wavy;
+  /* 그림자 생성 ts */
+  text-shadow: 2px 2px 2px #0000009f;
 }
 
 /* 네이버 로고 */
