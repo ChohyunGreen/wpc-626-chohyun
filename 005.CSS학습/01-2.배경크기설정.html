@@ -36,11 +36,40 @@
         /* 테두리 bd */
         border: 3px solid yellowgreen;
         /* 블록요소 가로 중앙정렬 마영오! */
-        margin:0 auto;
+        margin: 0 auto;
         /* 하단마진 mb20 */
         margin-bottom: 20px;
         /* 둥근모서리 bdrs20 */
         border-radius: 20px;
+      }
+
+      /* 가상클래스로 자식요소 선택하기 
+      요소 : nth-of-type(순번) 
+      여러종류가 섞여있는 자식요소중 순번으로 선택하는 가상클래스!
+
+      한가지 종류의 자식요소일때는?
+      요소:nth-child(순번)
+      */
+
+      /* 1번 div박스 */
+      .wrap > div:nth-of-type(1) {
+        background-size: 100% auto;
+      }
+      /* 2번 div박스 */
+      .wrap > div:nth-of-type(2) {
+        background-size : auto 100%
+      }
+      /* 3번 div박스 */
+      .wrap > div:nth-of-type(3) {
+        background-size : 100% 100%
+      }
+      /* 4번 div박스 */
+      .wrap > div:nth-of-type(4) {
+        background-size: contain;
+      }
+      /* 5번 div박스 */
+      .wrap > div:nth-of-type(5) {
+        background-size: cover;
       }
     </style>
   </head>
