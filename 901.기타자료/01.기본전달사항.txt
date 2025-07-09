@@ -1,0 +1,66 @@
+[ (디지털디자인)UIUX 반응형 웹디자인 & 
+웹퍼블리셔(디자인&코딩) 양성 C 1회차 - 기본전달사항 ]
+
+★탐쌤이멜: tombap@naver.com
+
+1. 교재: NCS 1권, 시중교재 3권
+
+2. 평가: 2회차의 프로젝트 산출물, NCS과목 평가
+
+3. 공식교과서: w3c 스쿨
+https://www.w3schools.com/
+
+4. 소스 빌드용 폴더 생성하기!
+
+5. 강의 동영상 백업 유튜브: 탐쌤의 웹퍼코딩626
+https://www.youtube.com/channel/UCDBesppZjXck_U-wyr0vOVQ
+
+6. 소스 깃허브 : 탐쌤코딩 프론트엔드 2024
+https://github.com/tombap8/WPC-626-TOM
+
+7. 노션 강의내용 사이트
+https://cerulean-spy-f57.notion.site/626-21de4c9eb92880fda6cded9a6c8f7772
+
+8. 사이트 벤치마킹 포털
+
+(1) 디비컷
+https://www.dbcut.com/
+
+(2) 굿디자인웹
+https://www.gdweb.co.kr/main/
+
+(3) 어워즈
+https://www.awwwards.com/
+
+9. 필수 회원가입
+
+(1) 닷홈: 회원가입 후 무료호스팅하기!
+https://www.dothome.co.kr/
+
+(2) 깃허브: 회원가입 후 레파지토리 만들기!
+https://github.com/
+
+(3) 피그마: 회원가입하기
+
+10. 포트폴리오
+- 개인포폴 주제선정 후 분기별 제출 및 발표
+예시)
+https://tombap8.github.io/KNG-FED211/index.html
+
+
+11. UI/UX 참고자료
+
+1) UX 개념의 예 :  피아노건반 계단
+- The Fun Theory 동영상 시리즈 1번
+https://www.youtube.com/watch?v=tCVr5vmsat0
+
+2) 인터페이스 개념
+- 나건교수 동영상
+https://youtu.be/EKFM5yeXdck
+
+-> 소통이 이루지는 장소에서 사용되는 
+수단과 방법을 인터페이스라고함!
+
+
+
+
