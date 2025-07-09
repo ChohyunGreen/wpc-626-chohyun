@@ -78,99 +78,115 @@
 .press-logo img {
   height: 32px;
 }
-/* 2-3. 기사제목 */
+  /* 2-3. 기사제목 */
 .article-title {
   font-size: 33px;
 }
 
 /* 스페셜박스(추가정보박스) */
 .special-box {
-    font-size: 18px;
+  font-size: 18px;
 }
 /* 스페셜제목 */
 .special-box h4 {
-    /* 왼쪽 보더 bl */
-    border-left: 2px solid #000;
-    /* 왼쪽 패딩 pl */
-    padding-left: 20px;
-    /* 아래쪽 간격 mb */
-    margin-bottom: 30px;
+  /* 왼쪽 보더 bl */
+  border-left: 2px solid #000;
+  /* 왼쪽 패딩 pl */
+  padding-left: 20px;
+  /* 아래쪽 간격 mb */
+  margin-bottom: 30px;
 }
 
 /* 스페셜 내용 */
 .special-box p {
-    line-height: 1.7;
+  line-height: 1.7;
 }
 
 /* 2-4. 기사사진  */
 .article-picture img {
-    width: 100%;
+  width: 100%;
 }
 /* 이미지설명 
 -> figcaption 도 블록요소이므로 가운데정렬이 됨 */
 .article-picture figcaption {
-    /* 박스설정 */
-    /* 마진 위아래 20px 좌,우 0 */
-    margin: 20px 0;
-    text-align: center;
+  /* 박스설정 */
+  /* 마진 위아래 20px 좌,우 0 */
+  margin: 20px 0;
+  text-align: center;
 
-    /* 글자설정 */
-    font-size: 15px;
-    color: #f90;
+  /* 글자설정 */
+  font-size: 15px;
+  color: #f90;
 }
 
 /* 2-5. 기사내용 */
 .contents p {
-    /* 글자설정 fz18 */
-    font-size: 18px;
-    /* 줄간격 lh2 (글자크기의 2배) 
+  /* 글자설정 fz18 */
+  font-size: 18px;
+  /* 줄간격 lh2 (글자크기의 2배) 
     -> 숫자값은 배수! */
-    line-height: 2;
+  line-height: 2;
 }
-
+/* mark요소 디자인 변경 */
+.contents mark {
+  /* 기존 inline에서 block으로 변경! */
+  display: block;
+  /* 박스설정 */
+  background-color: #3b3b3b;
+  margin: 15px auto;
+  padding: 20px 50px;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  text-transform: uppercase;
+  width: auto;
+  line-height: 1.6;
+  /* 글자설정 */
+  font-size: 25px;
+  color: wheat;
+  font-family: "Montserrat", "Noto Sans KR", "Pretendard";
+  text-shadow: 0 0 #116d15;
+}
 /* 2-6. 기자정보 */
 .reporter {
-    font-size: 16px;
-    color: #333;
+  font-size: 16px;
+  color: #333;
 }
 /* 2-7. 기사원문 */
 .article-link {
-    /* 인라인 오른쪽 정렬 */
-    text-align: right;
+  /* 인라인 오른쪽 정렬 */
+  text-align: right;
 }
 /* 버튼 a요소 */
 .article-link a {
-    /* 디자인적용 및 부모박스의 문자열 정렬 적용되도록 인라인블록으로 변경! */
-    display: inline-block;
-    /* (1) 박스설정 */
-        width: 100px;
-    display: block;
-    height: 100px;
-    border: 2px dotted orange;
-    border-radius: 50%;
-    background-color: lightyellow;
-    text-align: center;
-    line-height: 100px;
-    /* (2) 글자설정 */
-    font-family: "Noto Sans KR","Pretendard";
-    font-size: 25px;
-    color: steelblue;
+  /* 디자인적용 및 부모박스의 문자열 정렬 적용되도록 인라인블록으로 변경! */
+  display: inline-block;
+  /* (1) 박스설정 */
+  width: 100px;
+  display: block;
+  height: 100px;
+  border: 2px dotted orange;
+  border-radius: 50%;
+  background-color: lightyellow;
+  text-align: center;
+  line-height: 100px;
+  /* (2) 글자설정 */
+  font-family: "Noto Sans KR", "Pretendard";
+  font-size: 25px;
+  color: steelblue;
 }
 /* 버튼 a 마우스오버시 
 -> 가상클래스 :hvoer 사용! */
 .article-link a:hover {
-    /* 배경색 bgc */
-    background-color: darkorchid;
-    /* 박스그림자 bxsh 
+  /* 배경색 bgc */
+  background-color: darkorchid;
+  /* 박스그림자 bxsh 
     box-shadow: inset(내부그림자) x축 y축 블러 그림자색;
     -> 글자그림자에는 없는 "확장"(spread)가 있음
     즉, 그림자를 크게 만들 수 있음!
     그리고 콤마로 설정을 연결하면 여러개의 그림자 사용가능!
      */
-    box-shadow: 
-    /* 내부그림자 */
-    inset 0 0 5px 5px #00000087,
-    /* 외부그림자 */
-    outset 4px 4px 3px #00000087;
+  box-shadow: 
+    /* 내부그림자 */ inset 0 0 5px 5px #00000087,
+    /* 외부그림자 */ outset 4px 4px 3px #00000087;
 }
-
