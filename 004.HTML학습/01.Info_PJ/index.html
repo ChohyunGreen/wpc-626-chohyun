@@ -49,7 +49,90 @@
         alt="네이버 뉴스 자랑스런 내 이미지"
         style="width: 100%"
       />
+
+      <!-- 테크뉴스: ul사용 -->
+       <article class="tech-news news-box">
+          <!-- 제목 -->
+           <h3>테크뉴스</h3>
+           <!-- ul,li는 반드시 같이 사용해야 함!
+            ul은 순서없는 리스트 (unordered list) -->
+           <ul>
+            <li>
+              <a href="https://n.news.naver.com/mnews/hotissue/article/031/0000761570?cid=1087779" target="_blank">
+                올해 장마…연강수량 3분의1, 엿새 만에 쏟아져
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank"></a>
+            </li>
+           </ul>
+       </article>
+
+       <!-- 랭킹뉴스: ol사용 -->
+        <article class="rank-news news-box">
+          <h3>랭킹뉴스</h3>
+          <!-- ol,li는 반드시 같이 사용해야 함!
+           ol은 순서있는 리스트 (ordered list) -->
+           <ol>
+            <li><a href="https://n.news.naver.com/mnews/article/003/0013359979" target="_blank">11번가, 삼성 '갤럭시 Z폴드7·Z플립7' 사전 판매 라이브방송</a></li>
+            <li><a href="https://n.news.naver.com/mnews/article/008/0005221016" target="_blank">카카오모빌리티 '운전자 반응 기반 AI 경로 안내 기술', SCI 저널 등재</a></li>
+            <li><a href="https://n.news.naver.com/mnews/article/374/0000451226" target="_blank">SKT 위약금 면제기한 앞두고…이통3사 "뺏고 지켜라"</a></li>
+           </ol>
+        </article>
+
+        <!-- 분야별 뉴스 : dl>dt,dd -->
+         <article class="sec-news news-box">
+          <!-- 제목 -->
+           <h3>분야별 뉴스</h3>
+           <!-- dl은 반드시 dt,dd가 나와야함! -->
+            <dl>
+              <!-- 경제파트 -->
+               <dt>경제</dt>
+               <dd>
+                <a href="https://n.news.naver.com/mnews/article/119/0002978843" target="_blank">ICT 수출, 상반기 1151억 달러…반도체·AI 서버 수요에 역대 2위</a>
+               </dd>
+               <dd>
+                <a href="https://n.news.naver.com/mnews/article/032/0003382499" target="_blank">올 상반기 해외증권 결제액, 3% 감소…서학개미 ‘테슬라 사랑’은 여전</a>
+               </dd>
+              <!-- 사회파트 -->
+               <dt>사회</dt>
+               <dd>
+                <a href="https://n.news.naver.com/mnews/article/047/0002480808" target="_blank">"세계중요농업유산 '죽방렴', 전승-보전 넘어 성장동력 계획"</a>
+               </dd>
+               <dd>
+                <a href="https://n.news.naver.com/mnews/article/014/0005376741" target="_blank">"이진숙 후보자 논문 표절·중복게재 아냐"</a>
+               </dd>
+              <!-- TV/연예파트 -->
+               <dt>TV/연예파트</dt>
+               <dd>
+                <a href="https://n.news.naver.com/mnews/article/422/0000759519?sid=292" target="_blank">코스피 3,200선 마감…3년 10개월만 기록</a>
+               </dd>
+               <dd>
+                <a href="https://n.news.naver.com/mnews/article/055/0001275032?sid=292" target="_blank">[D리포트] &quot;농산물도 전략적 판단&quot;…&quot;8월 1일 관세는 진짜&quot;</a>
+               </dd>
+            </dl>
+         </article>
+
+
+        <!--  
+        [용어정의 리스트 : dl > dt + dd] 
+        dl:용어리스트
+        (defines the description list)
+        dt:용어
+        (defines the term)
+        dd:용어설명
+        (description each term)
+        ---------------------------------------------
+        주의 - dl은 반드시 자식요소로 dt와 dd가 한번이상 사용되야 함!!!
+        또 주의 - dt와 dd는 형제관계임!(부모자식아님)
+                -->
+
+
+
     </main>
+
+
+
     <!-- 3. 하단영역 -->
     <footer class="bottom-area common-box">
       <!-- br요소 : 줄바꿈 -->
