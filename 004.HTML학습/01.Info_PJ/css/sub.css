@@ -192,3 +192,13 @@
 }
 
 
+/* 뉴스 공통 제목 디자인 */
+.news-box h3 {
+    font-size: 30px;
+    padding: 15px;
+    display: inline-block;
+    border: 2px dotted limegreen;
+    border-radius: 20px;
+    background-color: lightcyan;
+    margin-bottom: 19px;
+}
