@@ -78,7 +78,7 @@
 .press-logo img {
   height: 32px;
 }
-  /* 2-3. 기사제목 */
+/* 2-3. 기사제목 */
 .article-title {
   font-size: 33px;
 }
@@ -147,6 +147,7 @@
   font-family: "Montserrat", "Noto Sans KR", "Pretendard";
   text-shadow: 0 0 #116d15;
 }
+
 /* 2-6. 기자정보 */
 .reporter {
   font-size: 16px;
@@ -191,14 +192,114 @@
     /* 외부그림자 */ outset 4px 4px 3px #00000087;
 }
 
+/* 인용블록박스  */
+.quote-box img {
+  width: 180px;
+  /* float속성을 인라인요소에 사용할 경우 나 자신은 설정한 위치에 오고 다른인라인 요소는 그 옆으로 흘러간다. 
+  여기서는 이미지의 글자는 한줄만 옆에 오는데, 이미지 높이 만큼 글자가 옆으로 흘러가게 할때 사용한다. */
+  float: right;
+  margin-left: 15px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px #999;
+  text-align: justify;
+}
 
 /* 뉴스 공통 제목 디자인 */
 .news-box h3 {
-    font-size: 30px;
-    padding: 15px;
-    display: inline-block;
-    border: 2px dotted limegreen;
-    border-radius: 20px;
-    background-color: lightcyan;
-    margin-bottom: 19px;
+  font-size: 30px;
+  padding: 15px;
+  display: inline-block;
+  border: 2px dotted limegreen;
+  border-radius: 20px;
+  background-color: lightcyan;
+  margin-bottom: 19px;
+}
+
+/* 기사설명 공통 내용박스 디자인 
+공통이지만 인용블록은 blockquote이고 
+주해는 p요소를 쓰고 있으므로 공통은 
+.desc-box h4 + *
+설명: h4요소 다음 형제(+) 요소 선택인데 별(*)을 사용하여 어떤 타입이든 모두 선택함!
+*/
+
+.desc-box {
+  /* 경계선을 위와 아래만 설정함 */
+  border-top: 2px dotted limegreen;
+  border-bottom: 2px dotted oragne;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+.desc-box h4 + * {
+  color: green;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* 기사설명 공통 제목 디자인 */
+.desc-box h4 {
+  font-size: 30px;
+  padding: 15px;
+  display: inline-block;
+  border: 2px dotted limegreen;
+  border-radius: 20px;
+  background-color: lightcyan;
+  margin-bottom: 19px;
+  /* 양쪽정렬은 text-align:justify 로 설정함. */
+  text-align: justify;
+}
+
+/* 오늘의 작품&느낌 */
+/*.work {
+    background-image: linear-gradient(270deg, #26a39d 20%, #5167d5 60%, #ff6600);
+}
+*/
+.work {
+  background-image: linear-gradient(127deg, green, limegreen, lightcyan);
+  padding: 35px;
+  text-align: center;
+  /* 박스그림자 bxsh (inset 내부그림자) */
+  /* box-shadow : inset x축 y축 블러 확장 색; */
+  box-shadow: inset hoff voff blur darkgreen;
+}
+
+.work h4 {
+  font-family: Noto sans Kr;
+  font-size: 45px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: darkmagenta;
+  -webkit-text-stroke: 2.65px white;
+
+}
+
+.work figcaption {
+  font-family: Noto Sans Kr;
+  color: #000;
+  font-style: normal;
+}
+.work figcaption cite{
+  font-style: normal;
+}
+/* 
+그라데이션 -> 배경 이미지속성에 쓴다! (왜? 예전에는 모두 이미지로 만들었기때문!)
+    [ 선형 그라데이션 : linear-gradient ]
+    linear-gradient(방향,색1,색2,...);
+    linear-gradient(방향,색1 몇%,색2 몇%,...);
+    linear-gradient(각도,색1 몇%,색2 몇%,...);
+    - 옵션 : 
+    1. 방향: to top, to bottom, to left, to right
+    2. 각도: 각도deg
+    3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능
+*/
+
+/* 테크뉴스 파트
+가상요소를 사용하여 앞에 아이콘 넣기
+앞에넣기 ::before
+뒤에넣기 ::after
+-> 필수속성 -> content */
+.tech-news a::before {
+content: '💛';
+}
+.tech-news a::after {
+content: '🧡';
 }

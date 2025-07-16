@@ -3,35 +3,59 @@
 /* info PJ 초기화 css - reset.css */
 
 /* 1. 모든 기본 마진,패딩을 0으로 초기화 */
-html,body,h1,h2,h3,h4,h5,h6,h7,figure,ul,ol,li,p,a,span,div {
-    margin: 0;
-    padding: 0;
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+figure,
+ul,
+ol,
+li,
+p,
+blockquote,
+a,
+span,
+div {
+  margin: 0;
+  padding: 0;
 }
 
 /* 2. heading요소 글자크기 초기화 */
-h1,h2,h3,h4,h5,h6,h7 {
-    font-size: 100%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+  font-size: 100%;
 }
 
 /* 3. a요소 초기화 */
-a{
-    /* 글자색 */
-    color:#222;
-    /* 밑줄없앰 */
-    text-decoration: none;
+a {
+  /* 글자색 */
+  color: #222;
+  /* 밑줄없앰 */
+  text-decoration: none;
 }
 
 /* 4. 이미지 초기화 */
 img {
-    /* 이미지 링크 시 서버에 올리면 테두리가 생김
+  /* 이미지 링크 시 서버에 올리면 테두리가 생김
     이것을 없앰 bdn */
-    border: none;
-    /* 블록박스내에 단독 이미지를 넣으면 하단에 4px정도의 공백이 생김 이것을 초기화
+  border: none;
+  /* 블록박스내에 단독 이미지를 넣으면 하단에 4px정도의 공백이 생김 이것을 초기화
     값은 top/middle/bottom 중 아무거나! */
-    vertical-align: top;
+  vertical-align: top;
 }
 /* 5. ul,ol 초기화 */
-ul,ol {
-    /* 블릿, 번호 없앰 */
-    list-style: none;
+ul,
+ol {
+  /* 블릿, 번호 없앰 */
+  list-style: none;
 }

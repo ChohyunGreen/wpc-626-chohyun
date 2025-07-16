@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent body scroll from preview */
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%; /* Adjust as needed for responsiveness */
+    max-width:100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    cursor: grab;
+}
+
+.carousel-wrapper.dragging {
+    cursor: grabbing;
+    transition: none; /* Disable transition during drag */
+}
+
+.carousel-slide {
+    min-width: calc(100% / 3); /* Show current, prev, and next */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+    padding: 10px; /* Space between slides */
+    width: ;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Adjust slide width for different viewports to achieve preview effect */
+@media (max-width: 768px) {
+    .carousel-slide {
+        min-width: calc(100% / 2); /* Show current and one preview */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide {
+        min-width: 100%; /* Only show current slide */
+    }
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-container:hover .carousel-button {
+    opacity: 1;
+}
+
+.carousel-button.prev {
+    left: calc(50% - 500px);
+}
+
+.carousel-button.next {
+    right: calc(50% - 500px);
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.carousel-fraction {
+    margin-right: 10px;
+}
+
+.carousel-play-pause {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+}

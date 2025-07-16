@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+/* font-family: 'Nanum Myeongjo', serif; */
+@import url('//fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+@import url('//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Noto Sans KR (korean) http://www.google.com/fonts/earlyaccess */ 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 100; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 300; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'), 
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype'); 
+} 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 400; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 500; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 700; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype'); 
+ } 
+@font-face { 
+  font-family: 'Noto Sans KR'; 
+  font-style: normal; 
+  font-weight: 900; 
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'), 
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype'); 
+ } 
+@font-face {
+     font-family: 'S-CoreDream-6Bold';
+     src: url('//cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 12px;
+	font-family:'Montserrat','Noto Sans KR', 'Malgun Gothic', '맑은 고딕', dotum, sans-serif;
+}
+input, button {
+   -webkit-appearance: none;
+   -webkit-border-radius: 0;
+}
+
+* {margin:0; padding:0;}
+body {margin:0; padding:0; background-color:#fff; color:#666; font-style:normal; font-size:12px; font-family:'Montserrat','Noto Sans KR', '맑은 고딕', dotum, sans-serif; letter-spacing:-0.2px;}
+
+div, ul, ol, li, dl, dt, dd, form, fieldset, input,textarea, button, p, h1, h2, h3, h4, h5, h6, blockquote, iframe, th, td { margin:0; padding:0;-webkit-text-size-adjust:none}
+img {border: 0 none; vertical-align:middle; max-width:100%;}
+li {list-style:none;}
+button{background:transparent; cursor:pointer; vertical-align:middle; margin:0;}
+button, input[type="submit"], input[type="button"] {background:transparent; cursor:pointer; *overflow:visible;}
+button span{display:none;}
+input, button {
+   -webkit-appearance: none;
+   -webkit-border-radius: 0;
+}
+h1, h2, h3, h4, h5, h6{font-size:100%; font-style:normal;}
+
+/* table */
+table { border-collapse:collapse; border-spacing:0; width:100%; }
+th {vertical-align:middle;}
+th, td { border-collapse:collapse; }
+legend, hr { display:none; }
+caption{text-indent:-9999em;overflow:hidden;height:0;font-size:0;line-height:0; }
+
+/* form */
+form { display:inline; }
+select, input, textarea { color:#666; font-family:'Montserrat','Noto Sans KR', 'Malgun Gothic', '맑은 고딕', dotum, sans-serif; font-size:inherit; vertical-align:middle; }
+fieldset, blockquote, iframe, button { border:none; }
+
+/* font */
+i, em, u, cite {font-style:normal;}
+em{font-weight:bold;}
+
+/* link */
+a {color:#666; text-decoration:none; cursor:pointer;}
+a:visited{text-decoration: none}
+a:focus{text-decoration: none}
+a:active{text-decoration: none}
+a:hover{text-decoration: none}
+
+h2.blind {display:none; font-size:0; letter-spacing:-9999px;}
+
+.file_list img {padding-left:3px;}
+
+
+/* 에디터 속성 재정의*/
+.view_cont div, .view_cont dl, .view_cont dt, .view_cont dd, .view_cont ul, .view_cont ol, .view_cont li, .view_cont h1, .view_cont h2, .view_cont h3, .view_cont h4, .view_cont h5, .view_cont h6, .view_cont pre, .view_cont code, .view_cont p, .view_cont th, .view_cont td, .view_cont input, .view_cont select, .view_cont button {margin:auto;padding:initial;color:initial;}
+.view_cont i, .view_cont em {font-style:italic;color:initial;}
+.view_cont em {font-weight:inherit;}
+.view_cont dl, .view_cont ul, .view_cont ul li {list-style:disc;list-style-position:inside;}
+.view_cont ol, .view_cont ol li {list-style:decimal;list-style-position:inside;}
+.view_cont sup, .view_cont sub {font-size:x-small;}
+.view_cont table {border-spacing:initial;border-width:inherit;}
+.view_cont th, .view_cont td {border-spacing:initial;border-width:inherit;}

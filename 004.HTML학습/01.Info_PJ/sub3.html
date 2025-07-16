@@ -87,7 +87,7 @@
       </figure>
       <!-- 2-5. 기사내용 -->
       <section class="contents">
-        <zz>
+        <div>
           <b
             >독일 막스플랑크 동물행동 연구소(<abbr
               title="MPI-AB
@@ -157,11 +157,12 @@ Max Planck Institute of Animal Behavior"
             수면의 진화적 기원과 궁극적 기능 이해에 필수적 </q
           >이라며 "이는 유인원과 인간 조상에서 수면이 어떻게 진화해왔는지 이해할
           수 있는 창을 열어준다"고 덧붙였다.
-        </zz>
+        </div>
 
-        <!-- 인용블록 영역 -->
+        <!-- 인용블록 영역
+         .desc-box는 인용블록,주해 박스공통 클래스 -->
         <!-- article 은 독립된 내용을 표시 -->
-        <article class="quote-box">
+        <article class="quote-box desc-box">
           <!-- 제목 -->
           <h4>막스 플랑크 신경생물학 연구소</h4>
           <!-- 블록쿼트박스 
@@ -172,6 +173,8 @@ Max Planck Institute of Animal Behavior"
             cite="https://en.wikipedia.org/wiki/Max_Planck_Institute_of_Neurobiology"
             title="막스플랑크 동물행동 연구소와 동일 기관임!"
           >
+          <!-- 블록인용 내부에는 다른 블록요소를 넣을 수  없지만 인라인요소는 가능함! -->
+           <img src="./images/marks.jpg" alt="연구소사진">
             막스 플랑크 신경생물학 연구소 ( 독일어 : Max -Planck-Institut für
             Neurobiologie , 약칭 MPIN )는 독일 뮌헨 교외 마틴스리트 에 위치한
             막스 플랑크 학회 산하 연구소 였습니다. 1984년부터 2022년까지
@@ -231,9 +234,7 @@ Max Planck Institute of Animal Behavior"
           - 글방향이 반대일때 사용함
           - Bi-Directional Override(줄임)
           - dir 속성 :  rtl(right to left : 오른쪽에서 왼쪽으로 진행)
-          - 아랍어, 이스라엘어 등 반대방향으로 
-          출력해야하는 문자를 인용할때 사용함!
-
+          - 아랍어, 이스라엘어 등 반대방향으로 출력해야하는 문자를 인용할때 사용함!
       __________________________________
 
   -->
@@ -252,6 +253,19 @@ Max Planck Institute of Animal Behavior"
         >
         <!-- a링크 설정시 href에는 이동할 페이지 주소 target="_blank"는 새창으로 열 경우 사용함! -->
       </div>
+
+
+      <!-- 기사 주석표시 박스(주해) -->
+       <article class="comment-box desc-box">
+        <!-- 제목 -->
+         <h4>주해</h4>
+         <!-- 내용 -->
+          <p>
+            ① 수마트라 : 동남아시아의 서부에 있는 섬. 현재 인도네시아의 영토이다. 섬의 명칭은 대해를 뜻하는 산스크리트어 단어에서 유래되었다. 세계에서 6번째로 큰 섬으로 넓이는 일본 혼슈의 2배쯤 되는 47만 3,481km²이다.<br><br>
+            ② 오랑우탄 : 서남아시아의 북부에 있는 땅. 섬의 명칭은 대해를 뜻하는 산스크리트어 단어에서 유래되었다. 세계에서 6번째로 큰 섬으로 넓이는 일본 혼슈의 2배쯤 되는 47만 3,481km²이다.
+          </p>
+       </article>
+
 
       <!-- 2-7. 오늘의 작품&느낌 -->
        <article class="work">
