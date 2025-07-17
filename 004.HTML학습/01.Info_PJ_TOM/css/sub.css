@@ -192,10 +192,8 @@
     그리고 콤마로 설정을 연결하면 여러개의 그림자 사용가능!
     */
   box-shadow: 
-    /* 내부그림자 */ inset
-      0 0 5px 5px #0062ffb4,
-    /* 외부그림자 */ 5px 5px 3px
-      #00000052;
+    /* 내부그림자 */ inset 0 0 5px 5px #0062ffb4,
+    /* 외부그림자 */ 5px 5px 3px #00000052;
 }
 
 /* 기사 설명 공통 박스 디자인 */
@@ -264,11 +262,7 @@
   /* background-color: #ededed; */
   margin-bottom: 17px;
   /* 배경 그라데이션 */
-  background-image: linear-gradient(
-    to right,
-    lightblue,
-    transparent
-  );
+  background-image: linear-gradient(to right, lightblue, transparent);
   /* 최대크기 설정 */
   max-width: 300px;
 }
@@ -381,16 +375,18 @@
   font-size: 25px;
 }
 
-/* 개별적으로 dt를 선택하여 글자색, 배경색 바꾸기 */
-.sec-news dl:first-child dt:first-of-type{
+/* 개별적으로 dt를 선택하여 글자색, 배경색 바꾸기
+-> 이때 dl은 다른 h3형제 요소와 섞여 있으므로
+child선택자가 아닌 of type선택자를 써야한다! */
+.sec-news dl:first-of-type dt {
   color: red;
   background-color: lightgreen;
 }
-.sec-news dl:nth-child(2) dt:first-of-type{
+.sec-news dl:nth-of-type(2) dt {
   color: blue;
   background-color: lightsalmon;
 }
-.sec-news dl:last-child dt:first-of-type{
+.sec-news dl:last-of-type dt {
   color: green;
   background-color: lightblue;
 }
@@ -417,14 +413,77 @@ dd타입중에 첫번째 선택하기
   /* 윈도우 이모지는 윈도우키+콤마(.) */
 }
 
+/* 포토뉴스 박스 */
+/* 전체 테이블 */
+.photo-news table {
+  max-width: 500px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-collapse: collapse;
+}
+/* td 비율 설정 */
+/* 첫번째 td */
+.photo-news td:nth-child(1) {  
+  /* 가로10%에 조금진한 회색배경 글자중앙 글자두껍게 */
+  width: 10%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ccc;
+}
+/* 두번째 td */
+.photo-news td:nth-child(2) {
+  /* 가로60%에 옅은회색배경 양쪽패딩 20px */
+  width: 60%;
+  background-color: #e4e4e4;
+  padding: 0 20px;
+}
+/* 세번째 td */
+.photo-news td:nth-child(3) {  
+  /* 가로30%에 옅은회색배경 패딩 5px */
+  width: 30%;
+  padding: 5px;
+  background-color: #e4e4e4;
+}
+
+/* 두번째 tr의 모든 td에 위,아래 테두리 넣기
+-> 주의사항: 디자인은 항상 td에 한다! */
+.photo-news table tr:nth-child(2) td {
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+}
+
+/* a글자 셋팅변경 */
+.photo-news a {
+  /* 공통뉴스 .news-box에서 
+  줄바꿈방지 셋팅했었음! */
+  /* 줄바꿈 다시 허용!->여러줄 처리시 필요! */
+  white-space: normal;
+
+  /* 여러줄 처리 말줄임 셋팅하기 : 5가지!!! */
+  /* 1.웹킷용 박스 디스플레이 */
+  display: -webkit-box;
+  /* 2.넘치는 자식요소 숨기기 */
+  overflow: hidden;
+  /* 3.넘치는 텍스트 말줄임 설정 */
+  text-overflow: ellipsis;
+  /* 4.말줄임 처리 줄수 설정
+    (값 숫자가 처리줄수임) */
+  -webkit-line-clamp: 2;
+  /* 5.말줄임 처리 방향설정
+    (라인진행은 수직방향vertical) */
+  -webkit-box-orient: vertical;
+}
+/* 테이블 이미지 */
+.photo-news img {
+  width: 100%;
+  /* 이미지 비율 강제 설정속성
+  aspect-ratio 값을 2/1 가로:세로 가 2:1임 */
+  aspect-ratio: 4/3;
+}
+
 /* 오늘의 작품&느낌 */
 .work {
-  background-image: linear-gradient(
-    45deg,
-    lightcoral,
-    lightgreen,
-    lightblue
-  );
+  background-image: linear-gradient(45deg, lightcoral, lightgreen, lightblue);
   padding: 16px 46px 35px;
   text-align: center;
   /* 박스그림자 : bxsh (inset내부그림자) */
