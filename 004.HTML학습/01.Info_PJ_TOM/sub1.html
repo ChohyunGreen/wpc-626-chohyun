@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head요소 : 웹페이지 기본설정 -->
+  <head>
+    <!-- 문자열 셋팅 -->
+    <meta charset="UTF-8" />
+    <!-- 모바일 크기처리 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 탭메뉴출력 타이틀 -->
+    <title>네이버 요약 뉴스 -  경제</title>
+    <!-- 스타일시트 인터널방식 코딩구역 -->
+    <style>
+      /* CSS문법만 사용하는 구역! */
+      /* 기본문법
+      선택자{속성:값;} */
+    </style>
+    <!-- 외부 CSS 연결하기 -->
+    <link rel="stylesheet" href="./css/sub.css" />
+  </head>
+  <!-- body요소 : 웹문서 본문출력  -->
+  <body>
+    <!--********* 1. 상단영역 *********-->
+    <header class="top-area common-box">
+      <!-- h1요소 : 큰제목 -->
+      <h1 id="main-title">네이버 요약 뉴스</h1>
+
+      <!-- div요소 : 내용구분박스 -->
+      <nav class="menu">
+        <!-- style속성에 값으로 
+         CSS를 셋팅할 수 있다 -->
+        <!-- <ul style="list-style: none; display: flex; gap: 10px;"> -->
+
+        <!-- ul요소 : 
+           순서없는리스트(unordered list)
+           -> 하위필수요소는 li다!(반드시사용!) -->
+        <ul>
+          <li>
+            <a href="index.html"
+              ><img src="./images/naver_logo.png" alt="네이버 로고"
+            /></a>
+          </li>
+          <li><a href="sub1.html">경제</a></li>
+          <li><a href="sub2.html">사회</a></li>
+          <li><a href="sub3.html">IT/과학</a></li>
+          <li><a href="sub4.html">TV/연예</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--********* 2. 메인영역 *********-->
+    <main class="main-area common-box">
+      <!-- 2-1. 서브타이틀 -->
+      <h2 class="sub-title economics">경제</h2>
+      <!-- 2-2. 언론사로고 -->
+      <div class="press-logo"></div>
+      <!-- 2-3. 기사제목 -->
+      <h3 class="article-title"></h3>
+      <!-- 2-4. 기사사진 및 정보 -->
+      <figure class="article-picture"></figure>
+      <!-- 2-5. 기사내용 -->
+      <section class="contents"></section>
+      <!-- 2-6. 기자정보 -->
+      <div class="reporter"></div>
+      <!-- 2-7. 기사원문 -->
+      <div class="article-link"></div>
+    </main>
+
+    <!--*********** 3. 하단영역 ***********-->
+    <footer class="bottom-area common-box">
+      <!-- br요소 : 줄바꿈 -->
+      <address>
+        서울시 강남구 역삼동 119 대호B 8F <br />
+        대표: Tom Brace Parker <br />
+        전화: 010-2222-3333
+      </address>
+    </footer>
+
+    <!-- 
+    [ HTML5에서 등장한 div 친구들 ]
+        - div에 내용을 구분하는 이름을 지어줌
+        - 의미가 있는요소를 시멘틱(sementic)태그라고 함!
+        1. header : 머릿부분
+        2. footer : 아랫부분
+        3. main : 메인부분(한번만 사용가능!)
+        4. nav : 네비게이션 부분
+        5. aside : 부가정보
+        6. section : 내용구분파트
+        7. article : 독립된 내용구분파트
+        ( section/article 내부에 h1~h6 태그사용권고)     
+         
+        [ 요소 명명법 ]
+        1. 아이디는 #, 클래스는 . (약어로만들기)
+        2. 이름은 구체적으로 만들고
+        단어마다 데쉬(-)를 사용함(케밥케이스)
+        3. 아이디는 유일함, 클래스는 다중적용가능
+        예) <div class="aa bb cc" id="ee"></div>
+
+
+        [ img 요소 ]
+        - img 는 이미지를 불러오는 요소
+        - 필수속성
+            1) src : 이미지경로
+            2) alt : 대체텍스트(웹접근성 필수)
+            -> alternative text
+
+        [ 요소의 구성 ]
+        1. 요소명 - 요소별 특징을 구분하는 이름
+        2. 속성 - 요소가 가지는 개별 셋팅값을 저장함
+        -> 속성값은 쌍따옴표안에 표기함
+        표기) <요소명 속성="값">
+        -> 요소의 문자는 모두 소문자를 원칙으로 한다!
+
+
+        [ 요소 공통속성 ]
+        1. style 속성 : 요소에 인라인으로 CSS속성값을 셋팅함
+        예) <요소명 style="속성:값;속성:값;">
+        2. title 속성 : 툴팁제공속성(마우스오버시 등장)
+    -->
+  </body>
+</html>

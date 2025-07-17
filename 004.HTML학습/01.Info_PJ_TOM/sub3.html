@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head요소 : 웹페이지 기본설정 -->
+  <head>
+    <!-- 문자열 셋팅 -->
+    <meta charset="UTF-8" />
+    <!-- 모바일 크기처리 -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- 탭메뉴출력 타이틀 -->
+    <title>
+      네이버 요약 뉴스 - IT/과학
+    </title>
+    <!-- 스타일시트 인터널방식 코딩구역 -->
+    <style>
+      /* CSS문법만 사용하는 구역! */
+      /* 기본문법
+      선택자{속성:값;} */
+    </style>
+    <!-- 외부 CSS 연결하기 -->
+    <link
+      rel="stylesheet"
+      href="./css/sub.css"
+    />
+  </head>
+  <!-- body요소 : 웹문서 본문출력  -->
+  <body>
+    <!--********* 1. 상단영역 *********-->
+    <header class="top-area common-box">
+      <!-- h1요소 : 큰제목 -->
+      <h1 id="main-title">
+        네이버 요약 뉴스
+      </h1>
+
+      <!-- div요소 : 내용구분박스 -->
+      <nav class="menu">
+        <!-- style속성에 값으로 
+         CSS를 셋팅할 수 있다 -->
+        <!-- <ul style="list-style: none; display: flex; gap: 10px;"> -->
+
+        <!-- ul요소 : 
+           순서없는리스트(unordered list)
+           -> 하위필수요소는 li다!(반드시사용!) -->
+        <ul>
+          <li>
+            <a href="index.html"
+              ><img
+                src="./images/naver_logo.png"
+                alt="네이버 로고"
+            /></a>
+          </li>
+          <li>
+            <a href="sub1.html">경제</a>
+          </li>
+          <li>
+            <a href="sub2.html">사회</a>
+          </li>
+          <li>
+            <a href="sub3.html"
+              >IT/과학</a
+            >
+          </li>
+          <li>
+            <a href="sub4.html"
+              >TV/연예</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--********* 2. 메인영역 *********-->
+    <main class="main-area common-box">
+      <!-- 2-1. 서브타이틀 -->
+      <h2 class="sub-title it">
+        IT/과학
+      </h2>
+      <!-- 2-2. 언론사로고 -->
+      <div class="press-logo">
+        <img
+          src="./images/press_logo3.png"
+          alt="연합뉴스"
+        />
+      </div>
+      <!-- 2-3. 기사제목 -->
+      <h3 class="article-title">
+        [사이테크+] "오랑우탄도 밤잠
+        설치면 낮잠으로 보충한다"
+      </h3>
+
+      <!-- 스페셜 박스(추가내용박스) -->
+      <section class="special-box">
+        <!-- 제목 -->
+        <h4>
+          獨 연구팀 "야생 오랑우탄 수면
+          연구…잠의 기원·진화 이해 기여"
+        </h4>
+        <!-- 내용 -->
+        <p>
+          (서울=연합뉴스) 이주영 기자 =
+          동물에게 생리적으로 매우
+          중요하지만, 취약한 상태가 될
+          수 있는 수면의 기원과 진화
+          과정을 밝히는 것은 중요한 연구
+          주제 중 하나다. 인간과 가까운
+          영장류 중 하나인 오랑우탄도
+          밤잠을 충분히 자지 못하면
+          사람처럼 낮잠으로 보충하는
+          것으로 밝혀졌다.
+        </p>
+      </section>
+
+      <!-- 2-4. 기사사진 및 정보
+       figure는 이미지나 표를 넣는박스 -->
+      <figure class="article-picture">
+        <img
+          src="./images/arti_img3.jpg"
+          alt="오랑우탄이미지"
+        />
+        <!-- 이미지설명은 figcaption하위요소사용! -->
+        <figcaption>
+          <small>
+            낮잠 둥지에서 낮잠 자는
+            수마트라 오랑우탄 '시시'
+            인도네시아 수마트라 수아크에
+            서식하는 오랑우탄 무리에
+            속한 암컷 시시(Cissy)가 낮잠
+            둥지에서 낮잠을 자고
+            있다.</small
+          >
+          [Natasha Bartalotta / Suaq
+          제공. 재판매 및 DB 금지]
+        </figcaption>
+      </figure>
+      <!-- 2-5. 기사내용 -->
+      <section class="contents">
+        <p>
+          <b>
+            독일 막스플랑크 동물행동
+            연구소(<abbr
+              title="Max Planck Institute of Animal Behavior"
+              >MPI-AB</abbr
+            >) </b
+          >와 콘스탄츠대 연구팀은 26일
+          과학 저널 커런트
+          바이올로지(Current
+          Biology)에서 수마트라 남아체주
+          <!-- strong 요소 : "중요하다"라는 의미! -->
+          <strong>
+            오랑우탄(Pongo abelii)
+            53마리의 수면 행동을 14년간
+            관찰, 이런 사실을 확인 </strong
+          >했다고 밝혔다. <br /><br />
+          논문 제1 저자 겸 공동
+          교신저자인
+          <i>앨리슨 애쉬버리</i> 박사는
+          <!-- em 요소 : "강조"의 의미! -->
+          <em>
+            "나무 위에서 움직이며 먹이를
+            찾고 문제를 해결하고 사회적
+            관계를 탐색하는 것은
+            피곤하고 인지적 부담이 큰
+            일" </em
+          >이라며
+          <mark>
+            "오랑우탄도 밤잠을 잘 자지
+            못했을 땐 인간처럼 낮에
+            침대를 만들어 낮잠을 자는
+            것으로 보충한다" </mark
+          >고 말했다.
+          <del
+            >오랑우탄도 나
+            같네...ㅎㅎㅎ</del
+          >
+
+          <br /><br />
+          야생 오랑우탄은 매일 저녁 약
+          10분간 나무 위 안전한 곳에
+          나뭇가지를 구부리고 꺾어
+          둥지를 짓고 잎으로 매트리스와
+          베개까지 만들어
+          <ins>편안하게 한 후</ins>
+          다음날 동이 틀 때까지 잠을
+          잔다. 어미와 젖먹이를 제외하면
+          성체 오랑우탄은 대부분 혼자
+          잔다. <br /><br />
+          지상에서는 둥지를 볼 수 없어
+          오랑우탄의 수면 패턴을
+          연구하는 것은 쉽지 않다.
+          하지만 연구팀은 오랑우탄이
+          둥지에서 편안한 자세를 찾는
+          소리는 들을 수 있다며 소리를
+          통해 수면 시간을 조사할 수
+          있다고 말했다.
+          <br /><br />
+          이들은 수마트라<sup>①</sup>
+          남아체주 클루엣 습지<sub
+            >Kluet swamps</sub
+          >에 있는 수아크 발림빙
+          관측소(SUAQ 프로젝트)에서
+          14년간 수마트라 오랑우탄<sup
+            >②</sup
+          >
+          성체 53마리를 대상으로 455일간
+          밤과 낮 수면 행동을 관찰했다.
+          <br /><br />
+          밤에 둥지에서 소리가 나지 않는
+          시간을 '수면시간'으로 정하고
+          이를 활용해 분석한 결과
+          오랑우탄의 평균 수면시간은
+          12시간 50분에 달했다.
+          <br /><br />
+          또 낮에는 관찰이 이루어진
+          455일 중 41%에서 최소 한 번
+          이상 낮잠을 자는 모습이
+          목격됐고, 평균 낮잠 시간은
+          76분이었다. 이들은 보통 2분
+          미만의 짧은 시간에 밤 둥지보다
+          단순하지만 안전한 낮잠 둥지를
+          만들어 낮잠을 잤다.
+          <br /><br />
+          밤잠 시간과 낮잠의 관계 분석
+          결과 밤잠 시간이 짧을수록
+          낮잠이 길어졌고, 전날 밤
+          수면시간이 한 시간 줄 때마다
+          낮잠 시간은 5~10분 늘어났다.
+          이는 낮잠이 밤잠 부족을
+          보충한다는 것을 시사한다.
+          <br /><br />
+          또 밤잠에 영향을 미치는 요인을
+          분석한 결과 전날 낮에 섭취한
+          열량이 적을 때, 기온이 낮을
+          때, 비가 왔을 때, 먼 거리를
+          이동했을 때 밤잠이 짧아졌고,
+          다른 오랑우탄이 근처에서 잠잘
+          때도 수면시간이 짧아지고 다음
+          날 낮잠이 길어졌다.
+          <br /><br />
+          애쉬버리 박사는 "밤 둥지
+          주변에 다른 오랑우탄이 있을 때
+          수면시간이 짧아진다는 점은
+          정말 흥미롭다"며 "이는
+          친구들과 늦게까지 놀다 자는
+          상황과 비슷하고 오랑우탄이
+          사회적 활동을 잠보다
+          우선시하는 것으로 볼 수도
+          있다"고 설명했다.
+          <br /><br />
+          공동 교신저자인 메그 크로풋
+          박사는 수아크 오랑우탄들은
+          다른 지역 오랑우탄보다 낮잠
+          둥지 짓는 빈도가 더 높다며
+          "사람도 짧은 낮잠이 회복에 큰
+          도움이 되는 것처럼 오랑우탄도
+          낮잠이 생리적, 인지적 회복을
+          돕는 것일 수 있다"고 말했다.
+          <br /><br />
+          이어
+          <q>
+            수면이 진화해온 야생의
+            사회적·생태적 환경에서
+            수면을 연구하는 것은 수면의
+            진화적 기원과 궁극적 기능
+            이해에 필수적
+          </q>
+          이라며 "이는 유인원과 인간
+          조상에서 수면이 어떻게
+          진화해왔는지 이해할 수 있는
+          창을 열어준다"고 덧붙였다.
+        </p>
+
+        <!-- 인용블록 영역
+         .desc-box는 인용블록, 주해 박스공통 클래스 -->
+        <article
+          class="quote-box desc-box"
+        >
+          <!-- 제목 -->
+          <h4>
+            막스 플랑크 신경생물학
+            연구소
+          </h4>
+          <!-- 블록쿼트박스
+            이 박스 내부에 다른 블록요소 사용불가!
+            속성인 cite는 필수는 아님. 내용으로 인용된
+            내용의 URL을 쓴다! 
+           -->
+          <blockquote
+            cite="https://en.wikipedia.org/wiki/Max_Planck_Institute_of_Neurobiology"
+            title="독일 막스플랑크 동물행동
+            연구소와 동일 기관임!"
+          >
+            <!-- 블록인용 내부에는 다른 블록요소를
+           넣을 수 없지만 인라인요소는 가능함!
+           여기에 img태그를 넣어보자! -->
+            <img
+              src="./images/marks.jpg"
+              alt="막스연구소전경"
+            />
+            막스 플랑크 신경생물학
+            연구소 ( 독일어 : Max
+            -Planck-Institut für
+            Neurobiologie , 약칭 MPIN
+            )는 독일 뮌헨 교외
+            마틴스리트 에 위치한 막스
+            플랑크 학회 산하 연구소
+            였습니다. 1984년부터
+            2022년까지 운영되었으며,
+            2023년 막스 플랑크 조류학
+            연구소 와 합병하여 새로운
+            막스 플랑크 생물지능
+            연구소가 탄생했습니다 .
+          </blockquote>
+        </article>
+      </section>
+      <!-- 
+        [ 1. 서식 태그 확장 ]
+        <b>- 굵은 글씨
+        <strong>- 중요한 텍스트
+        <i>- 이탤릭체 텍스트
+        <em>- 강조된 텍스트
+        <mark>- 표시된 텍스트
+        <small>- 더 작은 텍스트
+        <del>- 삭제된 텍스트
+        <ins>- 삽입된 텍스트
+        <sub>- 아래 첨자 텍스트
+        <sup>- 상위 첨자 텍스트    
+         
+      __________________________________
+      
+      
+      [ 2. HTML 인용관련 요소 ]
+
+      1. 블록인용요소
+      <blockquote>
+          - 블록요소로 별도의 인용구를 구분하는 박스
+          - 주의: 내부에 p요소와 같은 다른 블록요소 사용불가!
+          - cite 속성 : 출처표시
+          (필수속성은 아니지만 url 주소가 들어가기 때문에
+          링크로 오해할 수 있으나 아님! 단순출처정보임)
+
+      2. 인라인 인용요소
+      <q>
+          - 작은 이용구(쌍따옴표가 자동생성됨!)
+          - 주의: 인라인요소임(blockquote와 구분할것!)
+
+      3. 줄임말 인용
+      <abbr>
+          - 줄임말의 원래 뜻을 표시하는 요소
+          - 필수속성 ->> title 속성 -> 툴팁으로 원래뜻을 표시
+      (참고: title 툴팁속성은 어느요소든 사용가능함!)
+          - 기본디자인 : 점선 밑줄
+          text-decoration: underline dotted;
+
+      4. 주소인용
+      <address>
+          - 주소, 대표자, 전화번호 등 사이트 정보표시
+      
+      5. 작품명 인용
+      <cite>
+          - 인용하고 있는 작품을 표시하기 위한 요소
+
+      6. 반대방향글 인용
+      <bdo>
+          - 글방향이 반대일때 사용함
+          - Bi-Directional Override(줄임)
+          - dir 속성 :  rtl(right to left : 오른쪽에서 왼쪽으로 진행)
+          - 아랍어, 이스라엘어 등 반대방향으로 
+          출력해야하는 문자를 인용할때 사용함!
+
+
+      -->
+
+      <!-- 2-6. 기자정보 -->
+      <div class="reporter">
+        이주영(scitech@yna.co.kr) <br />
+        <bdo dir="rtl"
+          >정확하고 신속하게 보도하는
+          좋은기자임</bdo
+        >
+      </div>
+      <!-- 2-7. 기사원문 -->
+      <div class="article-link">
+        <a
+          href="https://n.news.naver.com/mnews/hotissue/article/001/0015470776?type=series&cid=1087298"
+          target="_blank"
+          >기사원문</a
+        >
+        <!-- 
+          a링크 설정시 href에는 이동할 페이지 주소
+          target="_blank"는 새창으로 열 경우 사용함!
+        -->
+      </div>
+
+      <!-- 기사 주석표시 박스(주해) -->
+      <article
+        class="comment-box desc-box"
+      >
+        <!-- 제목 -->
+        <h4>주해</h4>
+        <!-- 내용 -->
+        <p>
+          ① 수마트라 : 동남아시아의
+          서부에 있는 섬. 현재
+          인도네시아의 영토이다. 섬의
+          명칭은 대해를 뜻하는
+          산스크리트어 단어에서
+          유래되었다. 세계에서 6번째로
+          큰 섬으로 넓이는 일본 혼슈의
+          2배쯤 되는 47만 3,481km²이다.
+          <br /><br />
+          ② 오랑우탄 : 오랑우탄이라는
+          이름은 마인어로 '숲의
+          사람'이라는 뜻이다.
+          '오랑(Orang)'은 사람이라는
+          뜻이고, '우탄(Hutan)'은
+          숲이라는 뜻이다. 원래 말
+          그대로 숲에 사는 사람을
+          지칭하는 단어였으나 후에
+          의미가 확장되었다.
+        </p>
+      </article>
+
+      <!-- 2-7. 오늘의 작품&느낌 -->
+      <article class="work">
+        <!-- 제목 -->
+        <h4>오늘의 작품 &amp; 느낌</h4>
+        <!-- 그림박스 -->
+        <figure>
+          <img
+            src="./images/img_the_scream.jpg"
+            alt="뭉크의 절규"
+          />
+          <!-- 이미지설명 -->
+          <figcaption>
+            뭉크의
+            <cite>&lt;절규&gt;</cite>
+          </figcaption>
+        </figure>
+      </article>
+      <!-- 
+        [ HTML 태그 내부에서 특수문자처리 ]
+        & 나 <> 태그에 사용하는 기호 등은
+        특수문자인데 아래와 같이 처리함
+        & 는 &amp; (amp는 앰퍼샌드(empersand))
+        < 는 &lt; (lt는 less than ~보다작은)
+        > 는 &gt; (gt는 greater than ~보다큰)
+       -->
+
+      <!-- 
+      [ 순서없는 리스트 : ul ]
+      unordered list
+
+      (참고: 블릿옵션
+      https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ul_type_css)
+
+      [ 순서있는 리스트 : ol ]
+      ordered list
+
+      (참고: 순서표시옵션
+      https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ol_type_all_css)
+
+      [ ul/ol 공통사항 ]
+      - 하위필수요소 : li (개별리스트)
+      - 주의 : 하위에 li 이외의 블록요소나 
+      그 어떤 요소도 직계자식으로 사용할 수 없다!
+      예) <ul><li></li><div></div></ul> -> 사용불가!
+      -->
+
+      <!-- 테크뉴스 : ul사용! -->
+      <article
+        class="tech-news news-box"
+      >
+        <!-- 제목 -->
+        <h3>테크뉴스</h3>
+        <!-- ul li는 반드시 같이 사용해야함!
+         ul은 순서없는 리스트임(unordered list) -->
+        <ul>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/hotissue/article/001/0015473464?type=series&cid=1087298"
+              target="_blank"
+            >
+              "깊은 수면, '유레카
+              순간'으로 이어질 가능성
+              높다"
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/hotissue/article/001/0015470559?type=series&cid=1087298"
+              target="_blank"
+            >
+              제임스웹, 110광년 밖
+              원시행성원반서 준목성급
+              외계행성 포착
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <!-- 랭킹뉴스 : ol사용 -->
+      <article
+        class="rank-news news-box"
+      >
+        <!-- 제목 -->
+        <h3>랭킹뉴스</h3>
+        <!-- ol li는 반드시 같이 사용해야함!
+          ol 순서있는 리스트임(ordered list) -->
+        <ol>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/001/0015505262"
+              target="_blank"
+              >안랩 "휴가 떠나기 전
+              인프라 보안
+              업데이트하세요"</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/079/0004044417"
+              target="_blank"
+              >카카오내비, AI로 '불편한
+              길'도 학습한다…SCI 저널
+              등재</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://n.news.naver.com/mnews/article/029/0002967757"
+              target="_blank"
+              >수소연료전지 성능·내구성
+              성능 4배 ‘UP’…상온서 촉매
+              합성</a
+            >
+          </li>
+        </ol>
+      </article>
+
+      <!-- 분야별 뉴스 : dl > dt,dd -->
+      <article
+        class="sec-news news-box"
+      >
+        <!-- 제목 -->
+        <h3>분야별 뉴스</h3>
+        <!-- dl은 반드시 dt,dd가 나와야함! -->
+        <!-- 경제파트 -->
+        <dl>
+          <dt>경제</dt>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/654/0000131227  "
+              target="_blank"
+              >억대 수익에도 세금은
+              나몰라라…유튜버 21명에
+              89억 부과</a
+            >
+          </dd>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/018/0006065210"
+              target="_blank"
+              >전기·보험료 등 50만원
+              지원…‘소상공인 부담경감
+              크레딧’ 개시</a
+            >
+          </dd>
+        </dl>
+
+        <!-- 사회파트 -->
+        <dl>
+          <dt>사회</dt>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/022/0004051277"
+              target="_blank"
+              >선사시대 삶 새긴 ‘걸작’…
+              “6000년 암각화 전통 독보적
+              증거”</a
+            >
+          </dd>
+          <dd>
+            <a
+              href="https://n.news.naver.com/mnews/article/079/0004044617"
+              target="_blank"
+              >"민생회복 소비쿠폰
+              차질없이 지급하자"…민관
+              업무협약</a
+            >
+          </dd>
+        </dl>
+
+        <!-- TV/연예파트 -->
+        <dl>
+          <dt>TV/연예</dt>
+          <dd>
+            <a
+              href="https://m.entertain.naver.com/home/article/108/0003347156"
+              target="_blank"
+              >김준호♥김지민, 하객
+              1200명에 안심
+              스테이크+갈비탕 대접
+              [스타이슈]</a
+            >
+          </dd>
+          <dd>
+            <a
+              href="https://m.entertain.naver.com/home/article/311/0001891113"
+              target="_blank"
+              >'이병헌♥' 이민정, 아들과
+              '26억' 美저택
+              관리하더니…할리우드 만끽
+              [★해시태그]</a
+            >
+          </dd>
+        </dl>
+      </article>
+
+      <!-- 
+        [ 용어정의 리스트 : dl > dt + dd ] 
+        dl : 용어리스트
+        (defines the description list)
+        dt : 용어
+        (defines the term)
+        dd : 용어설명
+        (description each term)
+        ___________________________
+
+        주의 - dl은 반드시 자식요소로 dt와 dd가
+        한번이상 사용되야 함!!!
+        또 주의 - dt와 dd는 형제관계임!(부모자식아님!)
+
+        참고링크)
+        https://www.w3schools.com/html/html_lists_other.asp
+       -->
+    </main>
+
+    <!--*********** 3. 하단영역 ***********-->
+    <footer
+      class="bottom-area common-box"
+    >
+      <!-- br요소 : 줄바꿈 -->
+      <address>
+        서울시 강남구 역삼동 119 대호B
+        8F <br />
+        대표: Tom Brace Parker <br />
+        전화: 010-2222-3333
+      </address>
+    </footer>
+
+    <!-- 
+    [ HTML5에서 등장한 div 친구들 ]
+        - div에 내용을 구분하는 이름을 지어줌
+        - 의미가 있는요소를 시멘틱(sementic)태그라고 함!
+        1. header : 머릿부분
+        2. footer : 아랫부분
+        3. main : 메인부분(한번만 사용가능!)
+        4. nav : 네비게이션 부분
+        5. aside : 부가정보
+        6. section : 내용구분파트
+        7. article : 독립된 내용구분파트
+        ( section/article 내부에 h1~h6 태그사용권고)     
+         
+        [ 요소 명명법 ]
+        1. 아이디는 #, 클래스는 . (약어로만들기)
+        2. 이름은 구체적으로 만들고
+        단어마다 데쉬(-)를 사용함(케밥케이스)
+        3. 아이디는 유일함, 클래스는 다중적용가능
+        예) <div class="aa bb cc" id="ee"></div>
+
+
+        [ img 요소 ]
+        - img 는 이미지를 불러오는 요소
+        - 필수속성
+            1) src : 이미지경로
+            2) alt : 대체텍스트(웹접근성 필수)
+            -> alternative text
+
+        [ 요소의 구성 ]
+        1. 요소명 - 요소별 특징을 구분하는 이름
+        2. 속성 - 요소가 가지는 개별 셋팅값을 저장함
+        -> 속성값은 쌍따옴표안에 표기함
+        표기) <요소명 속성="값">
+        -> 요소의 문자는 모두 소문자를 원칙으로 한다!
+
+
+        [ 요소 공통속성 ]
+        1. style 속성 : 요소에 인라인으로 CSS속성값을 셋팅함
+        예) <요소명 style="속성:값;속성:값;">
+        2. title 속성 : 툴팁제공속성(마우스오버시 등장)
+    -->
+  </body>
+</html>

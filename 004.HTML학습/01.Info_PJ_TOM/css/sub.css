@@ -1,0 +1,421 @@
+@charset "utf-8";
+/* 서브 페이지 CSS - sub.css */
+
+/* 공통 외부 CSS 불러오기 */
+/* @import url(경로/파일명); */
+
+/* 초기화CSS */
+@import url(./reset.css);
+
+/* 상단,하단 공통모듈 */
+@import url(./common.css);
+
+/* 공통설정 */
+/* .main-area 직계자식(>) 모두 선택
+별(*)은 모든것을 선택하는 문자열 */
+.main-area > * {
+  margin-bottom: 20px;
+}
+
+/* 2-1. 서브타이틀 */
+.sub-title {
+  /* (1)박스디자인 */
+  /* 패딩 p40 */
+  padding: 40px;
+  /* 글자중앙 tac */
+  text-align: center;
+  /* 테두리 bd */
+  border: 2px solid darkblue;
+  /* 둥근모서리 bdrs20 */
+  border-radius: 20px;
+
+  /* 배경공통 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  /* 배경넣기 bg -> 색이반고윙/크 */
+  /* background: url(../images/titbg4.jpg) no-repeat 0/cover; */
+
+  /* (2)글자디자인 */
+  /* 글자체 ff */
+  font-family: "Jua", sans-serif;
+  /* 글자크기 fz30 */
+  font-size: 40px;
+
+  /* 글자테두리 webtst
+    -> 테두리 두께를 더 얇게 하려면
+    px단위 숫자를 소수점 아래로 쓰면됨 */
+  -webkit-text-stroke: 0.1px #000;
+  /* 접두어란? 
+    속성앞에 -webkit- 라고 쓰면
+    크롬, 사파리 브라우저용 속성임
+    -ms- 마이크로소프트
+    -o- 오페라 브라우저
+    -moz- 파이어폭스
+    이 속성은 이미 공식적으로는 아니지만
+    다른 최신브라우저에서 사용됨!
+    */
+}
+/* 각 서브별 타이틀 셋팅 변경하기 */
+/* (1) 경제페이지 */
+.economics {
+  color: lightsalmon;
+  background-image: url(../images/titbg2.jpg);
+}
+/* (2) 사회페이지 */
+.social {
+  color: lightgreen;
+  background-image: url(../images/titbg3.jpg);
+}
+/* (3) IT/과학페이지 */
+.it {
+  color: aqua;
+  background-image: url(../images/titbg4.jpg);
+}
+/* (4) TV/연예페이지 */
+.tv {
+  color: lightgoldenrodyellow;
+  background-image: url(../images/titbg5.jpg);
+}
+
+/* 2-2. 언론사로고 */
+.press-logo img {
+  height: 32px;
+}
+/* 2-3. 기사제목 */
+.article-title {
+  font-size: 33px;
+}
+
+/* 스페셜 박스(추가정보박스) */
+.special-box {
+  font-size: 18px;
+}
+/* 스페셜 제목 */
+.special-box h4 {
+  /* 왼쪽 보더 bl */
+  border-left: 3px solid #000;
+  /* 왼쪽패딩 pl */
+  padding-left: 20px;
+  /* 아랫쪽 간격 mb */
+  margin-bottom: 40px;
+}
+/* 스페셜 내용 */
+.special-box p {
+  line-height: 1.7;
+}
+
+/* 2-4. 기사사진  */
+.article-picture img {
+  width: 100%;
+}
+/* 이미지설명 */
+.article-picture figcaption {
+  /* 박스설정 */
+  /* 마진 위아래 20px 양쪽0 */
+  margin: 20px 0;
+  text-align: center;
+
+  /* 글자설정 */
+  font-size: 15px;
+  color: #555;
+}
+/* 2-5. 기사내용 */
+.contents p {
+  /* 글자설정 */
+  font-size: 18px;
+  /* 줄간격 lh - 숫자값은 배수임! */
+  line-height: 1.7;
+}
+
+/* mark요소 디자인변 */
+.contents mark {
+  /* 기존 inline에서 block으로 변경! */
+  display: block;
+
+  /* 박스설정 */
+  background-color: #e7e7e7;
+  margin: 20px 100px;
+  padding: 60px;
+  border-bottom: 2px solid #222;
+  border-top: 2px solid #222;
+
+  /* 글자설정 */
+  font-family: "Jua", sans-serif;
+  font-size: 28px;
+  color: darkorange;
+  text-shadow: 2px 2px 2px #00000073;
+}
+
+/* 2-6. 기자정보 */
+.reporter {
+  font-size: 16px;
+  color: #333;
+}
+/* 2-7. 기사원문 */
+.article-link {
+  /* 인라인 오른쪽 정렬 */
+  text-align: right;
+}
+/* 버튼 a요소 */
+.article-link a {
+  /* 디자인 적용 및 부모박스의 문자열
+    정렬 적용되도록 인라인블록으로 변경! */
+  display: inline-block;
+
+  /* (1) 박스설정 */
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 100px;
+
+  /* (2) 글자설정 */
+  font-family: "Single Day", cursive;
+  font-size: 25px;
+  color: darkblue;
+}
+
+/* 버튼 a 마우스 오버시
+-> 가상클래스 :hover사용! */
+.article-link a:hover {
+  /* 배경색 bgc */
+  background-color: lightgreen;
+  /* 박스그림자 bxsh
+    box-shadow: 
+    inset(내부그림자) x축 y축 블러 확장 그림자색; 
+    -> 글자그림자에는 없는 "확장"(spread)가 있음
+    즉, 그림자를 크게 만들 수 있음!
+    그리고 콤마로 설정을 연결하면 여러개의 그림자 사용가능!
+    */
+  box-shadow: 
+    /* 내부그림자 */ inset
+      0 0 5px 5px #0062ffb4,
+    /* 외부그림자 */ 5px 5px 3px
+      #00000052;
+}
+
+/* 기사 설명 공통 박스 디자인 */
+.desc-box {
+  /* 경계선을 위와 아래만 설정함! */
+  border-top: 2px dashed #ccc;
+  border-bottom: 2px dashed #ccc;
+
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* 기사 설명 공통 제목 디자인 */
+.desc-box h4 {
+  display: inline-block;
+  font-size: 25px;
+  padding: 15px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  background-color: #ededed;
+  margin-bottom: 17px;
+}
+
+/* 기사 설명 공통 내용박스 디자인
+공통이지만 인용블록은 blockquote이고
+주해는 p요소를 쓰고 있으므로 공통은
+.desc-box h4 + * 
+설명: h4요소 다음 형제(+)요소 선택인데
+별(*)을 사용하여 어떤 타입이든 모든 선택함!
+*/
+.desc-box h4 + * {
+  font-size: 18px;
+  line-height: 1.7;
+  /* 양쪽정렬은 text-align:justify 로 설정함! */
+  text-align: justify;
+}
+
+/* 인용블록 박스 */
+.quote-box img {
+  width: 200px;
+  /* float속성을 인라인요소에 사용할 경우
+    나자신은 설정한 위치에 오고 다른인라인 요소는
+    그 옆으로 흘러간다. 여기서는 이미지의 글자는
+    한줄만 옆에 오는데 이미지 높이 만큼 글자가
+    옆으로 흘러가게 할때 사용한다! */
+  float: right;
+  margin-left: 20px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 7px #00000057;
+}
+
+/* 뉴스 공통 박스 디자인 */
+.news-box {
+  border-top: 2px dashed #ccc;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* 뉴스 공통 제목 디자인 */
+.news-box h3 {
+  /* display: inline-block; */
+  font-size: 25px;
+  padding: 15px;
+  /* border: 2px solid gray; */
+  /* border-radius: 20px; */
+  /* background-color: #ededed; */
+  margin-bottom: 17px;
+  /* 배경 그라데이션 */
+  background-image: linear-gradient(to right, lightblue, transparent);
+  /* 최대크기 설정 */
+    max-width: 300px;
+}
+
+/* 뉴스 공통 a링크 */
+.news-box a{
+  font-size: 18px;
+  line-height: 38px;
+}
+/* a 오버시 가상클래스 :hover  */
+.news-box a:hover {
+  /* 글자색, 글자그림자 적용! */
+  color: hotpink;
+  text-shadow: 1px 1px 1px #0000007e;
+}
+
+/* 테크뉴스 파트
+가상요소를 사용하여 앞에 아이콘 넣기
+  앞에 넣기 ::before
+  뒤에 넣기 ::after
+  -> 필수 속성 ->>> content
+*/
+.tech-news a::before {
+  content: '😍';
+}
+.tech-news a::after {
+  content: '🎃';
+}
+
+/* [테크뉴스 a요소 기본 색 변경하기]
+  순서대로 따로 선택하려면 원래 class를 따로주고
+  그 이름으로 선택하면 되는데 class이름 주지않고
+  선택하는 방법은? 가상클래스 중 first-child
+  같은 가상클래스를 사용한것!
+
+  첫번째 자식 -> 선택요소:first-child
+  마지막째 자식 -> 선택요소:last-child
+  n번째 자식 -> 선택요소:nth-child(순번숫자)
+  -> 주의사항 : 같은종류의 자식요소로 구성된 경우에만
+  사용가능하다!!!
+*/
+/* .tech-news li:first-child a { */
+.tech-news li:nth-child(1) a {
+  color: red;
+}
+/* .tech-news li:last-child a { */
+.tech-news li:nth-child(2) a {
+  color: blue;
+}
+
+/* 랭킹뉴스 박스 */
+.rank-news ol {
+  /* 리스트 스타일 숫자형으로 다시사용
+   ol요소의 기본auto 스타일은 decimal 즉, 숫자형 */
+  list-style: auto;
+  /* 기본 왼쪽패딩을 초기화했으므로 다시 조정함 */
+  padding-left: 10px;
+}
+
+/* 분야별 뉴스 박스 */
+/* dt - 분류타이틀 */
+.sec-news dt{
+  /* 박스설정 */
+  display: block;
+  width: 85px;
+  /* 가로크기를 안주고 자동으로
+  내용만큼 박스 크기를 잡으려고
+  display를 inline-block으로 했었으나
+  가로 크기를 정할 경우 block으로
+  해도 무방하다! */
+  margin: 25px 0 10px;
+  padding: 20px;
+  border: 3px dashed #000;
+  /* 원형보더는 값이 50%임! (bdrs50p) */
+  border-radius: 50%;
+  text-align: center;
+  background-color: lightcoral;
+  /* 타이틀 글자 랩핑방지(글자줄바꿈방지) */
+  white-space: nowrap;
+
+  /* 글자설정 */
+  font-family: "Jua", sans-serif;
+  font-size: 25px;
+}
+
+/*  */
+
+
+
+/* 오늘의 작품&느낌 */
+.work{
+  background-image: 
+  linear-gradient(45deg,lightcoral,lightgreen,lightblue);
+  padding: 16px 46px 35px;
+    text-align: center;
+    /* 박스그림자 : bxsh (inset내부그림자) */
+    box-shadow: inset 0 0 20px #00000080;
+    /* box-shadow: inset x축 y축 블러 확장 색; */
+
+    /* 최대크기 설정시 부모박스가 그 크기보다
+    작아지면 auto로 전환하여 크기가 유동적으로 바뀐다! */
+    max-width: 500px;
+    /* 블록요소 무대중앙! 마영오씨! */
+    margin: 0 auto;
+    /* 마진 중첩의 원리에 따라 작은 마진값이 큰 마진값에 포함됨
+    따라서 위에 마진값인 20px보다 더 큰 값을 주면 위아래 박스
+    사이의 실제 마진값이 설정된다! */
+    margin-top: 50px;
+    border-radius: 20px;
+    
+}
+
+/* 
+    그라데이션 -> 배경 이미지속성에 쓴다!
+    (왜? 예전에 모두 이미지로 만들었으니까!!!)
+
+    [ 선형 그라데이션 : linear-gradient ]
+    linear-gradient(방향,색1,색2,...);
+    linear-gradient(방향,색1 몇%,색2 몇%,...);
+    linear-gradient(각도,색1 몇%,색2 몇%,...);
+    - 옵션 : 
+    1. 방향: to top, to bottom, to left, to right
+    2. 각도: 각도deg
+    3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능
+*/
+
+/* 제목 */
+.work h4 {
+    font-family: "Single Day", cursive;
+    font-weight: normal;
+    font-size: 32px;
+    color: lightyellow;
+    -webkit-text-stroke: 0.6px #000;
+    margin-bottom: 14px;
+}
+
+/* 이미지 */
+.work img {
+    border: 20px ridge goldenrod;
+}
+
+/* 작품설명 */
+.work figcaption {
+    font-family: "Jua", sans-serif;
+    font-size: 23px;
+    color: darkgreen;
+    margin-top: 12px;
+}
+
+/* 작품명 */
+.work figcaption cite {
+    font-style: normal;
+    color: red;
+}
