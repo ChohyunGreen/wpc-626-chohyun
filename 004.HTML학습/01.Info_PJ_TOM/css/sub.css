@@ -264,13 +264,27 @@
   /* background-color: #ededed; */
   margin-bottom: 17px;
   /* 배경 그라데이션 */
-  background-image: linear-gradient(to right, lightblue, transparent);
+  background-image: linear-gradient(
+    to right,
+    lightblue,
+    transparent
+  );
   /* 최대크기 설정 */
-    max-width: 300px;
+  max-width: 300px;
 }
 
 /* 뉴스 공통 a링크 */
-.news-box a{
+.news-box a {
+  /* [ 말줄임표시 셋팅하기 : 1,2,3,4 네가지!] */
+  /* 1. 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+  /* 2. 넘치는 텍스트 말줄임표시 나오게하기 */
+  text-overflow: ellipsis;
+  /* 3. 줄바꿈 방지 */
+  white-space: nowrap;
+  /* 4. 말줄임 해당박스는 블록요소로 변경 */
+  display: block;
+
   font-size: 18px;
   line-height: 38px;
 }
@@ -288,10 +302,10 @@
   -> 필수 속성 ->>> content
 */
 .tech-news a::before {
-  content: '😍';
+  content: "😍";
 }
 .tech-news a::after {
-  content: '🎃';
+  content: "🎃";
 }
 
 /* [테크뉴스 a요소 기본 색 변경하기]
@@ -325,17 +339,26 @@
 }
 
 /* 분야별 뉴스 박스 */
+/* dl - dt와 dd의 부모박스 */
+.sec-news dl {
+  /* 넘치는 자식요소 숨기기
+  -> 부가적으로 자식의 float설정이
+  바깥요소로 나가는 것을 차단한다! */
+  overflow: hidden;
+}
 /* dt - 분류타이틀 */
-.sec-news dt{
+.sec-news dt {
   /* 박스설정 */
-  display: block;
+  /* display: block; -> dt는 원래 block임! */
   width: 85px;
   /* 가로크기를 안주고 자동으로
   내용만큼 박스 크기를 잡으려고
   display를 inline-block으로 했었으나
   가로 크기를 정할 경우 block으로
   해도 무방하다! */
-  margin: 25px 0 10px;
+
+  /* 마진순서: 위 오른 아래 왼 */
+  margin: 25px 10px 10px 0;
   padding: 20px;
   border: 3px dashed #000;
   /* 원형보더는 값이 50%임! (bdrs50p) */
@@ -345,36 +368,79 @@
   /* 타이틀 글자 랩핑방지(글자줄바꿈방지) */
   white-space: nowrap;
 
+  /* dt박스 옆으로 dd가 올라오도록
+  나는 왼쪽(left) 너는 오른쪽으로 올라와!
+  흘러가는 속성 float:left */
+  float: left;
+  /* 다른 블록요소에 영향을 주므로
+  부모박스인 dl에 overflow:hidden으로
+  이를 차단한다! */
+
   /* 글자설정 */
   font-family: "Jua", sans-serif;
   font-size: 25px;
 }
 
-/*  */
+/* 개별적으로 dt를 선택하여 글자색, 배경색 바꾸기 */
+.sec-news dl:first-child dt:first-of-type{
+  color: red;
+  background-color: lightgreen;
+}
+.sec-news dl:nth-child(2) dt:first-of-type{
+  color: blue;
+  background-color: lightsalmon;
+}
+.sec-news dl:last-child dt:first-of-type{
+  color: green;
+  background-color: lightblue;
+}
 
+/* dd - 용어설명박스
+dd타입중에 첫번째 선택하기 
 
+[ 자식요소가 여러가지 섞인 경우 선택하기 ]
+ 가상클래스 ...-of-type 사용
+ 첫번째 타입 -> 요소:first-of-type
+ 마지막째 타입 -> 요소:last-of-type
+ n번째 타입 -> 요소:nth-of-type(순번)
+*/
+.sec-news dd:first-of-type {
+  /* 첫번째 dd를 마진탑을 밀면 
+  아래있는 다른요소도 밀린다! */
+  margin-top: 25px;
+}
+
+/* 가상요소 아이콘넣기 -> 대상요소::before */
+.sec-news dd a::before {
+  /* 필수속성 content -> ct */
+  content: "🍉";
+  /* 윈도우 이모지는 윈도우키+콤마(.) */
+}
 
 /* 오늘의 작품&느낌 */
-.work{
-  background-image: 
-  linear-gradient(45deg,lightcoral,lightgreen,lightblue);
+.work {
+  background-image: linear-gradient(
+    45deg,
+    lightcoral,
+    lightgreen,
+    lightblue
+  );
   padding: 16px 46px 35px;
-    text-align: center;
-    /* 박스그림자 : bxsh (inset내부그림자) */
-    box-shadow: inset 0 0 20px #00000080;
-    /* box-shadow: inset x축 y축 블러 확장 색; */
+  text-align: center;
+  /* 박스그림자 : bxsh (inset내부그림자) */
+  box-shadow: inset 0 0 20px #00000080;
+  /* box-shadow: inset x축 y축 블러 확장 색; */
 
-    /* 최대크기 설정시 부모박스가 그 크기보다
+  /* 최대크기 설정시 부모박스가 그 크기보다
     작아지면 auto로 전환하여 크기가 유동적으로 바뀐다! */
-    max-width: 500px;
-    /* 블록요소 무대중앙! 마영오씨! */
-    margin: 0 auto;
-    /* 마진 중첩의 원리에 따라 작은 마진값이 큰 마진값에 포함됨
+  max-width: 500px;
+  /* 블록요소 무대중앙! 마영오씨! */
+  margin: 0 auto;
+  /* 마진 중첩의 원리에 따라 작은 마진값이 큰 마진값에 포함됨
     따라서 위에 마진값인 20px보다 더 큰 값을 주면 위아래 박스
     사이의 실제 마진값이 설정된다! */
-    margin-top: 50px;
-    border-radius: 20px;
-    
+  margin-top: 50px;
+  border-radius: 20px;
 }
 
 /* 
@@ -393,29 +459,29 @@
 
 /* 제목 */
 .work h4 {
-    font-family: "Single Day", cursive;
-    font-weight: normal;
-    font-size: 32px;
-    color: lightyellow;
-    -webkit-text-stroke: 0.6px #000;
-    margin-bottom: 14px;
+  font-family: "Single Day", cursive;
+  font-weight: normal;
+  font-size: 32px;
+  color: lightyellow;
+  -webkit-text-stroke: 0.6px #000;
+  margin-bottom: 14px;
 }
 
 /* 이미지 */
 .work img {
-    border: 20px ridge goldenrod;
+  border: 20px ridge goldenrod;
 }
 
 /* 작품설명 */
 .work figcaption {
-    font-family: "Jua", sans-serif;
-    font-size: 23px;
-    color: darkgreen;
-    margin-top: 12px;
+  font-family: "Jua", sans-serif;
+  font-size: 23px;
+  color: darkgreen;
+  margin-top: 12px;
 }
 
 /* 작품명 */
 .work figcaption cite {
-    font-style: normal;
-    color: red;
+  font-style: normal;
+  color: red;
 }
