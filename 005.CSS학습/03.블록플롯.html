@@ -155,22 +155,29 @@
 
         /* clear설정을 위한 빈 블록요소를 만들기 어려우므로
         편리하게 가상요소 after를 사용한 clear설정을 셋팅함! */
-        
+        .flclb::after {
+            content: '';
+            /* 블록으로 안바꾸면 마치 span태그 쓴 것 같음. */
+            display: block;
+            /* 블록요소만이 클리어 할 수 있음. */
+            clear: both;
+            /* float을 제거하여 부모박스를 보존함. */
+        }
 
         /* 경우4 */
-        /* .case4 .bx{
+        .case4 .bx{
             float: left;
-        } */
+        }
         /* 플롯 자식의 부모박스가 overflow:hidden이면 
         자식요소의 높이값이 체크됨! */
-        /* .case4{
+        .case4{
             overflow: hidden;
-        } */
+        }
 
         /* 경우5 */
-        /* .case5 .bx{
+        .case5 .bx{
             float: right;
-        } */
+        }
 
     </style>
 </head>
@@ -196,11 +203,14 @@
         clear:both를 위한 div를 마지막에 사용함!
     </h3>
     <div class="wrap">
-        <div class="bx bx1"></div>
-        <div class="bx bx2"></div>
-        <div class="bx bx3"></div>
+        <div class="bx bx1 fll"></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 clb fll"></div>
+        <!-- 세번째 요소에서 clear하지 않으면 이전에 있던 float 흐름에 이어서 요소가 배치된다.
+         새로운 라인에서 다시 시작하려면 clear를 셋팅한다. -->
         <div class="bx bx4"></div>
-        <!-- clear속성은 블록인 형제요소에만 적용됨! -->
+        <!-- clear속성은 블록인 형제요소에만 적용됨! 
+        자기자신이 float 설정이 없는 요소에 적용해야 부모요소가 망가지는 것을 막을 수 있다. -->
         <div style="clear: both;"></div>
     </div>
 
@@ -222,7 +232,7 @@
         모든 .bx박스에 float:left 적용하기 <br>
         부모박스에 overflow:hidden 적용하기
     </h3>
-    <div class="wrap case4">
+    <div class="wrap case4 ">
         <div class="bx bx1"></div>
         <div class="bx bx2"></div>
         <div class="bx bx3"></div>
