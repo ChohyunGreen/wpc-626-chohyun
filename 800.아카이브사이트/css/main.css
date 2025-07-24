@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/* 아카이브사이트 메인 CSS - main.css */
+
+/* 외부 css 불러오기 */
+@import url(./core.css);
+@import url(./reset.css);
+
+/* 전체배경 */
+body {
+  background-color: #000;
+}
+
+/* 1.상단영역 */
+/* 겉박스 */
+#top-area {
+  background-color: #fff;
+}
+/* 속박스 */
+.top-area .part-box {
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+/* 로고이미지 */
+.logo {
+  width: 100%;
+}
