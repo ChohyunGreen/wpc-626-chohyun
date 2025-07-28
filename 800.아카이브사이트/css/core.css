@@ -1,48 +1,56 @@
 @charset "utf-8";
 
+/* 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+/* font-family: "Noto Sans KR", sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+/* font-family: "Noto Sans", sans-serif; */
+
+/* 웹폰트 전체 적용하기 */
+body {
+  font-family: "Pretendard","Noto Sans KR", "Noto Sans", sans-serif;
+}
+
 /* 아카이브사이트 공통셋팅 CSS - core.css */
 
 /* 1. 웹폰트 */
 /* 2. 공통클래스 */
 /* 2-1. 속박스 */
 .inbox {
-    max-width: 1400px;
-    /* 마영오! */
-    margin:0 auto;
-
+  max-width: 1400px;
+  /* 마영오! */
+  margin: 0 auto;
 }
 
 /* 인박스 클리어세팅 */
 .inbox::after {
-    content: '';
-    display: block;
-    clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* 2-2. 파티션박스 
 .inbox 내부에 옆으로 흘러가는 파티션박스를 구성한다. 
 float방식으로 구현할 경우 부모박스의 가상요소로 clear한다. */
 .part-box {
-    float: left;
+  float: left;
 
+  /* 임시 최소높이 */
+  /* min-height: 200px; */
 
-    /* 임시 최소높이 */
-    /* min-height: 200px; */
-    
-    /* 임시 외곽선 */
-    outline: 2px dotted #ccc;
-    /* outline은 border와 셋팅법은 같음
+  /* 임시 외곽선 */
+  outline: 2px dotted #ccc;
+  /* outline은 border와 셋팅법은 같음
     단 크기를 차지하지 않고 바깥쪽으로 아무런 영향없이 보이기만 함! */
-
 }
 
 /* 2-3. 파티션박스 12그리드 비율 클래스 */
 /* 기본 컬럼 설정 */
 [class*="col-"] {
-    /* [] 대괄호는 속성선택자 
+  /* [] 대괄호는 속성선택자 
     class*="col-" 클래스명이 col-가 들어가있는 클래스찾기 */
 
-    /* 컬럼당 양쪽패딩값 10px */
+  /* 컬럼당 양쪽패딩값 10px */
   padding: 0 15px;
   /* 컬럼크기에 패딩값 포함설정 bxb */
   box-sizing: border-box;
