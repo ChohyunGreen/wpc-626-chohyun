@@ -34,7 +34,7 @@ body {
 }
 
 #gnb::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -44,7 +44,7 @@ body {
   line-height: 112px;
 }
 /* 두번째 li부터 끝까지 왼쪽마진 */
-#gnb li+li {
+#gnb li + li {
   margin-left: 18.8%;
   /* 마진의 %값의 기준은 부모박스의 크기이다. */
 }
@@ -55,8 +55,42 @@ body {
   font-size: 47px;
   line-height: 112px;
 }
+.git-box img {
+  width: 25%;
+  margin-top: 20px;
+}
 
-/* 메인영역 */
+/* 나의 캐릭터 링크박스 */
+a.my-cha-link {
+  /* a요소는 위아래 마진 적용안되므로 인라인블록으로 display 변경함. */
+  display: inline;
+  margin-top: 22px;
+  /* 인라인요소간 진행방향 세로정렬 -> 옆에 있는 깃허브로고가 영향을 받으므로 이 정렬속성으로 세로위치를 조정함. */
+  vertical-align: -22px;
+
+  
+}
+
+/* 처음에 마지막째 이미지는 안보이게 함 */
+.my-cha-link img:last-child {
+display: none;
+}
+
+
+/* 마우스 오버시 첫번째 이미지는 안보이게 함 */
+.my-cha-link img:first-child {
+display: none;
+}
+
+/* 마우스 오버시 마지막째 이미지는 보이게 함 */
+.my-cha-link img:last-child {
+display: inline;
+}
+
+
+
+
+/************************** 메인영역 **************************/
 .main-area {
   /* 글자색 모두 흰색 */
   color: #fff;
@@ -65,10 +99,13 @@ body {
 /* 2-1. 자기소개 박스 */
 /* 자기소개 겉박스 */
 #intro-box {
-    /* 가로폭 끝까지 그라데이션 나오게 겉박스에 셋팅함! */
-  background-image: 
-  linear-gradient(
-    to bottom, #d1d7fe 0%, #333f8c 19%, #000 40%);
+  /* 가로폭 끝까지 그라데이션 나오게 겉박스에 셋팅함! */
+  background-image: linear-gradient(
+    to bottom,
+    #d1d7fe 0%,
+    #333f8c 19%,
+    #000 40%
+  );
 }
 /* 자기소개 속박스 */
 .intro-box {
@@ -100,4 +137,3 @@ body {
     비율 맞춰서 빈틈없이 보이게 하기! */
   object-fit: cover;
 }
-
