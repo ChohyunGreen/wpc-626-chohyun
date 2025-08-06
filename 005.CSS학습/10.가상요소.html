@@ -54,10 +54,35 @@
 
              */
       /* h2요소 맨앞에 이미지 넣기 */
-      
+      h2::before {
+        content: "🥨";
+      }
+      h2::after {
+        content: 🍖;
+      }
 
       /* 맨뒤 추가요소 ::after */
-      
+      h2::after{
+        content: url(./imgs/bg_logo_a_01.png);
+        /* 디자인 적용위해 inline-block */
+        display: inline-block;
+        width: 40px;
+        border: 2px solid gainsboro;
+        /* 둥근모서리 bdrs */
+        border-radius: 5px;
+
+        /* 배경넣기 */
+        background: thistle url(./imgs/bg_logo_a_01.png) no-repeat center/90%;
+
+        /* 박스그림자 bxsh */
+        box-shadow: 5px 5px 3px darkmagenta,
+        10px 10px 5px 2px seagreen;
+
+        /* 인라인요소간 세로정렬 va */
+        vertical-align: middle;
+        /* 왼쪽마진 ml */
+        margin-left: 30px;
+      }
 
       /* dl요소 디자인 */
       dl {
@@ -74,28 +99,69 @@
       }
 
       /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-      
+      dt::before {
+        content: 🍔;
+        /* 글자크기변경 fz30 */
+        font-size: 30px;
+        vertical-align: 3px;
+        color: lightcyan;
+      }
       /* dt아이콘 변경 */
+      dt::after {
+        content: 🍔;
+        /* 글자크기변경 fz30 */
+        font-size: 30px;
+        vertical-align: 3px;
+        color: lightcyan;
+      }
       /* dt중 두번째 */
-      
+      dt::before{
+        content: '';
+      }
       /* dt중 세번째 */
       
       /* dt중 네번째 */
       
 
       /* dd전체 before적용하기 */
-      
+      dd::before {
+        content: 🌻;
+        font-size: 40px;
+        vertical-align: 5px;
+      }
       /* 여자인 경우 이모지 변경 */
-      
+      dd:nth-of-type(3)::before,
+      dd:nth-of-type(4)::before,
+      dd:nth-of-type(5)::before,
+      dd:nth-of-type(6)::before,
+      dd:nth-of-type(7)::before{
+        content: ☕;
+      }
       /* 남자,여자 같이 출력
       "찬열,펀치" */
       
 
       
       /* 스토리의 dd는 가상요소 없애기 */
-      
+      dd.story::before{
+        display: none;
+      }
 
       /* 스토리의 dd 아래 h3 이모지넣기 */
+      dd.story h3::before{
+        content: 🍦🍦;
+        margin-right: 20px;
+      }
+      .story p:nth-of-type(1)::first-letter {
+          font-size: 50px;
+          color: burlywood;
+          font-weight: bold;
+      }
+      .story p:nth-of-type(1)::first-line {
+          font-size: 50px;
+          color: burlywood;
+          font-weight: bold;
+      }
       
 
       /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
@@ -116,9 +182,19 @@
             font-family: '궁서';
         }
 
+
       /* 기타 가상요소 ::selection */
       /* 드래그 선택시 글자색 배경색 설정변경! */
-      
+
+      p::selection {
+        color: cadetblue;
+        background-color: blanchedalmond;
+      }
+      /* 전체적용 하고 싶으면 앞에 선택자 없이 바로 ::selection을 사용 */
+      ::selection {
+        color:darkmagenta;
+        background-color:thistle ;
+      }
       
     </style>
   </head>
