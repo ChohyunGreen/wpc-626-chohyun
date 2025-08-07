@@ -54,13 +54,22 @@ https://tombap8.github.io/KNG-FED211/index.html
 - The Fun Theory 동영상 시리즈 1번
 https://www.youtube.com/watch?v=tCVr5vmsat0
 
-2) 인터페이스 개념
-- 나건교수 동영상
-https://youtu.be/EKFM5yeXdck
+2) 디자인 개념 참고영상
 
--> 소통이 이루지는 장소에서 사용되는 
-수단과 방법을 인터페이스라고함!
+    [1] 나건교수 동영상
 
+        (1) 디자이너가 알아야 하는 인터페이스의 정의
+        https://youtu.be/EKFM5yeXdck
+
+            -> 소통이 이루지는 장소에서 사용되는 
+            수단과 방법을 인터페이스라고함!
+
+        (2) 디자인 트렌드 리서치를 잘하는 방법은?
+        https://www.youtube.com/watch?v=GjgQIg5iS3o
+
+    [2] 한아람
+        - 아마존의 한국인 UX 디자이너 한아람
+        https://www.youtube.com/watch?v=EpQNtUNL2Us
 
 
 
