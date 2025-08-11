@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜스폼 기본연습</title>
+    <style>
+        /* 전체 배경보기*/
+        /* background : 색이반고윙/크/ */
+        /* background: 색 이미지 반복 고정 위치/크기 */
+        body {
+            background: url(./images/wonderful_day_01.jpg) no-repeat fixed center top/cover;
+            background-size: auto;
+
+            /* 1. 이미지 */
+            background-image: url(./images/wonderful_day_01.jpg);
+            /* 2. 반복  */
+            background-repeat: no-repeat;
+            /* 3.  */
+        }
+
+        /* 1. 제목 */
+        .main-title {
+            /* 박스세팅 */
+            text-align: center;
+            background-color: #00000087;
+            border-radius: 50px;
+            /* 글자세팅 */
+            color: #fff;
+            font-size: 50px;
+            line-height: 130px;
+        }
+
+        /* 글자테두리 */
+        text-shadow {
+        1px 0 #cc3333,
+        -1px 0 #cc3333,
+        0 1px #cc3333,
+        0 -1px #cc3333;
+        }
+        /* -webkit-text-stroke: 1px lightgreen; */
+
+        /* 전체 부모박스 */
+        .main-contents {
+            /* 박스세팅  mw1500 */
+            max-width: 1500px;
+            margin:100px auto;
+        border: 10px solid lightcyan;
+        border-radius: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        height: auto;
+
+        /* 기본적으로 박스크기를 잡으면 그 크기는 컨텐츠영역의 크기임.
+        보더와 패딩은 바깥쪽으로 생김. 그래서 박스가 커짐!
+        보더, 패딩을 크기셋팅에 포함시키려면 
+        box-sizing:border-box 를 세팅해야함. */
+
+        /* 겹쳐지는 부분 배경 흐리게 처리하기
+        -> 백드롭필터! 블러! */
+        /*
+        backdrop-filter: blur(2px);
+backdrop-filter: brightness(60%);
+backdrop-filter: contrast(40%);
+backdrop-filter: drop-shadow(4px 4px 10px blue);
+backdrop-filter: grayscale(30%);
+backdrop-filter: hue-rotate(120deg);
+backdrop-filter: invert(70%);
+backdrop-filter: opacity(20%);
+backdrop-filter: sepia(90%);
+backdrop-filter: saturate(80%);
+        */
+        backdrop-filter: drop-shadow(3px 4px 10px blue);
+        }
+
+        /* 캐릭터 박스 공통 */
+        .main-contents > div {
+            float:left;
+        }
+        .main-contents > div img {
+            width: 200px;
+            height: 200px;
+            /* 원형 */
+            border-radius: 50%;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- 1. 제목 -->
+     <h1 class="tit main-title">트랜스폼 연습</h1>
+     <!-- 2. 컨텐츠 박스 -->
+      <section class="main-contents">
+        <!-- #transform-box$*10>img[src=images/cast0$.jpg alt=캐릭터] -->
+        <div id="transform-box1"><img src="images/cast01.jpg" alt="캐릭터"></div>
+        <div id="transform-box2"><img src="images/cast02.jpg" alt="캐릭터"></div>
+        <div id="transform-box3"><img src="images/cast03.jpg" alt="캐릭터"></div>
+        <div id="transform-box4"><img src="images/cast04.jpg" alt="캐릭터"></div>
+        <div id="transform-box5"><img src="images/cast05.jpg" alt="캐릭터"></div>
+        <div id="transform-box6"><img src="images/cast06.jpg" alt="캐릭터"></div>
+        <div id="transform-box7"><img src="images/cast07.jpg" alt="캐릭터"></div>
+        <div id="transform-box8"><img src="images/cast01.jpg" alt="캐릭터"></div>
+        <div id="transform-box9"><img src="images/cast02.jpg" alt="캐릭터"></div>
+        <div id="transform-box10"><img src="images/cast04.jpg" alt="캐릭터"></div>
+      </section>
+    
+</body>
+</html>

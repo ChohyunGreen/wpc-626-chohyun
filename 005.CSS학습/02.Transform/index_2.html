@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>트랜스폼 기본 사용법</title>
+        <style>
+            body {
+                background: url(./images/wonderful_day_01.jpg) no-repeat fixed center top/cover;
+            }
+            /* 타이틀 */
+            .tit {
+                /* 박스셋팅 */
+                border-radius: 50px;
+                background-color: rgba(0, 0, 0, 0.478);
+                text-align: center;
+
+                /* 글자셋팅 */
+                color: #fff;
+                font-size: 50px;
+                line-height: 100px;
+                /* 글자그림자로 테두리주기 */
+                text-shadow: 1px 0 lightsalmon, -1px 0 darksalmon, 0 1px lightsalmon, 0 -1px darksalmon;
+            }
+
+            /* 전체부모박스 */
+            .cont {
+                /* 박스셋팅 */
+                max-width: 1500px;
+                border: 10px solid lightsalmon;
+                border-radius: 20px;
+                padding: 20px;
+                margin: 100px auto;
+                box-sizing: border-box;
+
+                /* 겹쳐지는 부분 배경 흐르게하기
+                -> 백드롭필터! 블러! */
+                backdrop-filter: blur(0px);
+            }
+
+            /* 가상요소로 clear셋팅 */
+            .cont::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /* 캐릭터 공통 div */
+            .cont > div {
+                /* 옆으로 흐르게 */
+                float: left;
+                /* 5등분 가로크기 */
+                width: 20%;
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            /* 이미지를 원형으로! */
+            .cont > div > img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                /* 트랜지션: 속시이지 */
+                transition: transform 0.6s;
+            }
+
+            /* 
+                [ Transform 효과주기 ]
+                - 선택요소의 크기, 회전, 이동, 기울임
+                 등 변형을 하기위한 속성
+                - 2D, 3D 지원됨
+
+                1. rotateY(각도deg) - Y축회전
+                - deg 는 각도의 단위(도:degree)
+
+                [ 각도 단위 확장 ]
+                (1) deg: 도 단위 (360 deg는 한 바퀴 회전)
+                (2) grad: 그라디언트 (400 grad는 한 바퀴 회전)
+                (3) rad: 라디안 (2π rad는 한 바퀴 회전)
+                (4) turn: 턴 (1 turn은 한 바퀴 회전)
+
+
+            */
+            #trans1:hover img {
+                /* y축회전 : tfry */
+                transform: rotateY(180deg);
+
+                /* 필터 적용하기(흑백) */
+                filter: grayscale(100%);
+                /* CSS 필터 적용하기
+                    : 필터속성은 흑백,흐림,세피아,명암,
+                    채도 등 출력이미지를 변경하고자 할때
+                    사용하는 속성
+                    (참고)
+                    https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)
+                */
+
+
+            }
+
+            /* 
+                2. rotateX(각도deg) - X축회전
+                - deg 는 각도의 단위(도:degree)
+            */
+            #trans2 img {
+                /* x축회전 : tfrx */
+                transform: rotateX(180deg);
+                /* 필터블러 */
+                filter: blur(2px);
+            }
+            #trans2:hover img {
+                /* x축회전 : tfrx */
+                transform: rotateX(0deg);
+                /* 필터블러 */
+                filter: blur(0px);
+            }
+
+            /* 
+                3. translateX(거리) - X축이동
+                - 단위 : px, % 등
+                - 현재 위치로부터 이동
+                - 기준점은 요소의 왼쪽
+                - % 단위를 쓸경우 기준은 요소의 width값
+                - 이동방향: + 오른쪽, -는 왼쪽
+            */
+            #trans3:hover img {
+                /* x축이동 : tftx */
+                transform: translateX(-50%);
+                
+            }
+            /* 
+                4. translateY(거리) - Y축이동
+                - 단위 : px, % 등
+                - 현재 위치로부터 이동
+                - 기준점은 요소의 윗쪽
+                - % 단위를 쓸경우 기준은 요소의 height값
+                - 이동방향: + 아랫쪽, -는 윗쪽
+            */
+            #trans4:hover img {
+                /* y축이동 : tfty */
+                transform: translateY(200px);
+            }
+            /* 
+                5. translate(x축거리,y축거리) - X,Y축이동
+                - 단위 : px, % 등
+                - 현재 위치로부터 이동
+                - 기준점은 요소의 윗쪽, 왼쪽선
+                - % 단위를 쓸경우 기준은 요소의 
+                    width,height값
+                - 이동방향: + 오른쪽/아랫쪽, -는 왼쪽/윗쪽
+            */
+            #trans5:hover img {
+                /* x,y축 동시이동 : tft */
+                /* transform: translate(-50%, -100%); */
+
+                /* 
+                    [ translate 속성 ]
+                     translate: 값 값; -> x,y축 이동설정
+                     translate: 값; -> x축 이동설정
+                     translate: 0 값; -> y축 이동설정
+                
+                */
+                translate: -50% -100%;
+                /* x축이동 */
+                /* translate: -50%; */
+                /* y축이동 */
+                /* translate: 0 -100%; */
+
+                /* translate의 사용율이 높아짐에 따라
+                transform 하위속서에서 독립하여 사용될 수
+                있다! translate: x축 y축; 
+                    y축값을 안쓰면 비워놓고
+                    x축값을 안쓰면 0쓰고 지나감
+                */
+
+
+                transition: .5s;
+
+
+                /* CSS에서 기존 하위속성이 사용율이 높아지면 별도의 속성으로 독립시켜주기도함! */
+                /* filter:opacity(50%); */
+                opacity: 0.5;
+            }
+
+            /* 
+                6. rotate(각도deg) - 원형회전
+                - 각도의 숫자가 양수이면 시계방향
+                음수는 반시계방향
+                - 기본회전축은 정중앙
+                (변경가능: transform-origin)
+            */
+            #trans6:hover img {
+                /* 원형회전 : tfr */
+                 /* transform: rotate(2589deg); */
+
+                 /* 
+                    [ rotate 속성 ]
+                     rotate: 각도; -> 평면회전
+                     rotate: x 각도; -> x축회전
+                     rotate: y 각도; -> y축회전
+                     rotate: z 각도; -> z축회전
+
+                     ((축별조합하기)) 1은 사용, 0은 미사용
+                     rotate: 1 1 0 45deg; -> x,y조합
+                     rotate: 1 1 1 45deg; -> x,y,z 조합
+                 
+                 
+                 */
+                 /* rotate: 4568deg; */
+                 rotate: 3turn;
+                 /* rotate: x 4568deg; */
+                 /* rotate: y 4568deg; */
+                 /* rotate: 1 1 0 4568deg; */
+
+                 /* 트랜지션 종류 변경 */
+                 transition-property: rotate;
+                 /* 트랜지션 시간 늘리기 */
+                 transition-duration: 5s;
+
+            /* 
+                transition: 속시이지
+                개별 설정이 가능함!
+
+                1. 속성 : 
+                    transition-property
+                2. 시간 :
+                    transition-duration
+                3. 이징(가속도) :
+                    transition-timing-function
+                4. 지연시간 :
+                    transition-delay
+                */
+
+            }
+
+            /* 회전축 변경하기 */
+            #trans6 img {
+                /* transform-origin: right bottom; */
+                transform-origin: 70% 20%;
+            /* 
+                [ 트랜스폼 회전축 변경속성 ]
+                transform-origin: 가로 세로;
+                - 가로값 : left, right, center, 몇px,몇%
+                - 세로값 : top, bottom, center, 몇px,몇%
+                - 기본값 : 가로, 세로 center임! 
+            */
+
+            }
+
+            /* 
+                7. skew - x,y축 기울임
+                - skewX(각도deg), skewY(각도deg)
+                - skew(x축,y축)
+                - 각도가 양수/음수에 따라 기울임 방향이 달라짐
+            */
+            #trans7:hover img {
+                transform: skewY(-30deg);
+            }
+
+            /* 
+                8. scale(x축배수, y축배수)
+                - 값을 하나만쓰면 양방향 같은 값 셋팅
+                - 배수가 1보다 크면 확대, 작으면 축소
+                - scaleX(배수), scaleY(배수) - x,y별셋팅
+                - 값이 0이면 사라짐
+                -> 가끔 크기가 정해진 요소를 일정크기로
+                축소, 확대해서 크기를 맞출때도 용이함!
+            */
+            #trans8:hover img {
+                /* 스케일 : tf:s */
+                /* transform: scale(2); */
+
+                /* 
+                    [ scale 속성 ] 
+                     scale: 값; -> 전체확대
+                     scale: 값 값; -> x,y 따로확대
+                     scale: 값 1; -> x확대
+                     scale: 1 값; -> y확대
+                 */
+                /* scale: 2; */
+                /* scale: 2 4; */
+                /* scale: 2 1; */
+                scale: 1 2;
+            }
+            /* 초기배율설정 */
+            #trans8 img {
+                /* 소수점값은 축소임 */
+                /* transform: scale(.5); */
+                scale: .5;
+
+                /* 트랜지션 속성변경 */
+                transition-property: scale;
+            }
+
+            /* 
+                9. 복합적용하기
+                transform: 속성1 속성2 속성3 ....; 
+            */
+
+            #trans9:hover img {
+                transform: scale(5) translate(-200%,-100%) rotateX(1200deg) skewX(50deg) rotate(5300deg);
+
+                /* 트랜지션 시간 늘리기 */
+                transition-duration: 30s;
+            }
+
+            /* 
+                10. 앞뒤로 있는 이미지 뒤집기
+                - 셋팅: 한 박스 안에 이미지가 2장 있고 이것을
+                겹치게 셋팅한다-> 앱솔루트로 셋팅!
+                - 순서는 나중 것이 위에 온다!
+                - 적절한 트랜스폼, 트랜지션을 이용한다!
+            */
+            #trans10{
+                /* 앱솔루트 자식은 잡히지 않으므로
+                가로,세로 크기를 설정함! */
+                width: 200px;
+                height: 200px;
+                
+                /* 텍스트 중앙해제 */
+                text-align: left;
+            }
+            #trans10 img{
+                position: absolute;
+                /* 앱솔루트는 서로 겹친다! */
+                /* 위치값 없으면 부모박스에 가만히 있는다!
+                즉, 젠틀하다! 젠틀앱솔루트~!!! */
+            }
+            /*  원본 회전하여 숨기기 */
+            #trans10 img:first-child{
+                /* y축 90도회전 */
+                rotate: y 90deg;
+                /* transform: rotateY(90deg); */
+
+                /* 트랜지션: trs 처음에 천천히 */
+                transition: .4s ease-in;
+            }
+
+            /*  오버시 회전하여 보이기 */
+            #trans10:hover img:first-child{
+                /* y축 0도회전 */
+                rotate: y 0deg;
+                /* transform: rotateY(0deg); */
+
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간) 
+                마지막에 천천히 */
+                transition: .4s ease-out .4s;
+            }
+
+            /*  원본 회전하기 */
+            #trans10 img:last-child{
+                /* y축 0도회전 */
+                rotate: y 0deg;
+                /* transform: rotateY(0deg); */
+
+                /* 트랜지션 : trs 속시이지 (뒤에 지연시간)
+                마지막에 천천히 */
+                transition: .4s ease-out .4s;
+            }
+
+            /*  오버시 회전하기 */
+            #trans10:hover img:last-child{
+                /* y축 90도회전 */
+                rotate: y 90deg;
+                /* transform: rotateY(90deg); */
+
+                /* 트랜지션: trs 처음에 천천히 */
+                transition: .4s ease-in;
+
+            }
+
+            /* 
+                [ CSS 애니메이션 가속도 ]
+
+                (1) linear : 등속도
+                (2) ease : 앞뒤로 약간느려짐(기본값)
+                (3) ease-in : 처음에 느리게 출발
+                (4) ease-out : 마지막에 느리게 멈춤
+                (5) ease-in-out : 앞뒤로 느려짐
+
+                https://www.w3schools.com/cssref/playit.php?filename=playcss_animation-timing-function&preval=linear
+            */
+
+            /* 5번째 div 이후 자식 margin-top 주기 */
+            .cont div.trans1 {
+                /* 위쪽 마진 */
+                margin-top:120px !important;
+                /* 트랜지션 trs */
+                transition: .6s time;
+            }
+            
+
+            /* 
+                [ Transform 효과주기 ]
+                - 선택요소의 크기, 회전, 이동, 기울임
+                 등 변형을 하기위한 속성
+                - 2D, 3D 지원됨
+
+                1. rotateY(각도deg) - Y축회전
+                - deg 는 각도의 단위(도:degree)
+
+                [ 각도 단위 확장 ]
+                (1) deg: 도 단위 (360 deg는 한 바퀴 회전)
+                (2) grad: 그라디언트 (400 grad는 한 바퀴 회전)
+                (3) rad: 라디안 (2π rad는 한 바퀴 회전)
+                (4) turn: 턴 (1 turn은 한 바퀴 회전)
+
+
+            */
+
+            #transform-box1:hover img {
+                /* y축회전 : tfry */
+                transform: rotateY(angle);
+            }
+        
+
+        /* 
+                    2. rotateX(각도deg) - X축회전
+                    - deg 는 각도의 단위(도:degree)
+                */
+
+                
+        </style>
+    </head>
+    <body>
+        <!-- 타이틀 -->
+        <h1 class="tit">트랜스폼 연습</h1>
+        <!-- 내용박스 -->
+        <div class="cont">
+            <div id="trans1">
+                <img src="images/cast01.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans2">
+                <img src="images/cast02.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans3">
+                <img src="images/cast03.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans4">
+                <img src="images/cast04.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans5">
+                <img src="images/cast05.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans6">
+                <img src="images/cast01.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans7">
+                <img src="images/cast02.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans8">
+                <img src="images/cast03.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans9">
+                <img src="images/cast04.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans10">
+                <img src="images/cast02.jpg" alt="캐릭터" />
+                <img src="images/cast03.jpg" alt="캐릭터" />
+            </div>
+        </div>
+    </body>
+</html>
