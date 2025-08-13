@@ -168,6 +168,13 @@ display: inline;
   height: 1px;
   background-color: #ccc;
 }
+
+/* 파트제목 */
+.part-title {
+  color:green;
+  font-size: 36px;
+  text-align: center;
+}
 /********** 2-2-2.링크박스 **********/
 .link-box{
   /* 가로크기는 레이아웃은 아니지만
