@@ -10,7 +10,7 @@
 body {
   background-color: #000;
 }
-
+select { background-color: palegoldenrod;}
 /* 1.상단영역 */
 /* 겉박스 */
 #top-area {
@@ -136,4 +136,133 @@ display: inline;
   /* 이미지를 마치 배경처럼 박스에
     비율 맞춰서 빈틈없이 보이게 하기! */
   object-fit: cover;
+}
+
+
+
+/*********** 2-2 트레이닝 프로젝트 박스 ***********/
+/* 공통 pj박스 직계 속박스 div */
+.pj-box > div {
+  /* 위,아래 패딩 */
+  padding: 18px 0;
+}
+/*********** 2-2-1.제목박스 ***********/
+.sub-part-title {
+  /* 박스설정 */
+  padding-bottom: 28px;
+  text-align: center;
+
+  /* 글자설정 */
+  font-size: 36px;
+}
+
+/* 구분선은 타이틀박스의 가상요소로 구현함 */
+.sub-part-title::before {
+  content: '';
+  display: block;
+  margin:0 auto;
+
+  /* 하단마진28px */
+  margin:0 auto 28px;
+  max-width: 865px;
+  height: 1px;
+  background-color: #ccc;
+}
+/********** 2-2-2.링크박스 **********/
+.link-box{
+  /* 가로크기는 레이아웃은 아니지만
+  12그리드 크기를 기준해서 준다! */
+  width: calc(100%/12*10);
+  /* 마영오! - 블록요소 가로중앙 */
+  margin: 0 auto;
+  /* 둥근모서리 20 : bdrs20 */
+  border-radius: 20px;
+  /* 배경색 흰색 반투명(80%)
+  rgba형식에서 a는 알파값으로 투명도이며 0.8이면
+  80%를 의미함!
+    예전형식:
+    rgba(숫자,숫자,숫자,알파값)
+    새로운형식:
+    rgba(숫자 숫자 숫자 / 알파값)
+  */
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: #fce9accc;
+}
+/* 플롯팅 설정하기 */
+.link-box>div{
+  /* 옆으로 흐르게 */
+  float: left;
+  /* 절반 크기셋팅 */
+  width: 50%;
+  /* 패딩
+  ->값을 %로 잡을 경우 기준은 부모박스의 width다! 
+  (이 기준은 margin도 동일함!) */
+  padding: 5% 7%;
+
+  /* 패딩,보더 포함박스셋팅 bxb */
+  box-sizing: border-box;
+}
+/* 플롯팅 해제 clear는 
+core.css의 clb클래스로 처리함! */
+
+
+
+/* 왼쪽박스 */
+.left-part{
+  /* 부모자격 - 가상요소 after 앱솔루트자식의 부모 */
+  position: relative;
+}
+/* 가상요소 중앙구분선 넣기! */
+.left-part::after{
+  content: '';
+  position: absolute;
+  /* 앱솔루트는 자동block! */
+  top: 15%;
+  right: 0;
+  /* 부모는? .left-part */
+  width: 1px;
+  height: 70%;
+  background-color: gray;
+}
+/* 링크박스 a요소 */
+.link-box a{
+  /* 가상요소 자식이 block이므로 최소한 
+  display를 inline-block로 해야 자신의 크기만큼
+  크기를 가지게 된다! 왜? inline내부의 block은
+  inline부모를 무시하고 바깥박스를 기준하여
+  끝까지 width를 차지한다! */
+  display: inline-block;
+  font-size: 24px;
+  line-height: 37px;
+}
+/* 가상요소로 애니메이션 밑줄만들기 */
+.link-box a::before{
+  content: '';
+  display: block;
+  /* 처음에 가로크기0 (돌아올때) */
+  width: 0;
+  /* 마진값으로 돌아올때 오른쪽으로 나가는것 처럼 보이기 */
+  margin-left: 100%;
+  /* 마진값의 %는 부모박스(a요소)의 가로크기다! */
+  height: 30px;
+  /* background-color: red; */
+  border-bottom: 2px solid #000;
+  /* 트랜지션 trs */
+  transition: 1.5s linear;
+
+  /* gif애니메이션 이미지 배경으로 넣기 */
+  background: url(../images/train.gif) no-repeat right/auto 100%;
+  /* 이미지 x축 뒤집기(scale값을 -1줌)
+  -> transform: scaleX(-1) 
+  참고) Y축 뒤집기는 transform: scaleY(-1) */
+  transform: scaleX(-1);
+}
+/* a에 오버시 가상요소 밑줄 글씨만큼 늘어나기! */
+.link-box a:hover::before{
+  width: 100%;
+  /* 왼쪽마진값은 오버시 0이 되여야하고
+  애니메이션 처리하지 말아야함! 따라서
+  transition 속성값을 width로 써서 처리한다! */
+  margin-left: 0;
+  transition: width 1.5s linear;
 }

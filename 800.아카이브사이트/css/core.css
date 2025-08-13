@@ -22,8 +22,8 @@ body {
   margin: 0 auto;
 }
 
-/* 인박스 클리어세팅 */
-.inbox::after {
+/* 인박스 클리어세팅 + 클리어클래스 세팅 */
+.inbox::after, .clb::after {
   content: "";
   display: block;
   clear: both;

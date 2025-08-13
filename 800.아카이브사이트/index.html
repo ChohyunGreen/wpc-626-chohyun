@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>나의 아카이브 사이트</title>
-    <!-- 폰트어썸 css -->
+    <!-- 폰트어썸 css : 아이콘을 위한 CSS CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
     />
     <!-- 메인 css -->
     <link rel="stylesheet" href="./css/main.css" />
+    <!-- 
+    참고 : 경로잡기
+    1.절대경로 : 웹 서버의 url로 되어있는 경로
+    2.상대경로 : 현재 웹페이지의 상대위치 찾는 경로
+    -> ./현재위치(아무것도 안써도 현재위치)
+    -> ../한폴더 위로 경로이동
+    3.절대/상대경로 : 프로젝트 최상위 폴더 기준 경로 
+    -> / 맨 앞에 슬래쉬만 있고 이 표시가 최상위 root폴더의미
+    -->
   </head>
   <body>
     <!-- 1. 상단영역 -->
@@ -76,11 +85,45 @@
             <div class="part-box col-8 img-box">
               <!-- 이미지박스 -->
               <div class="img-box">
-                <img src="./images/worksbg.jpg" alt="내이미지" />
+                <img src="./images/money_big.jpg" alt="내이미지" />
               </div>
             </div>
           </div>
         </section>
+        <!-- 2-2 트레이닝 프로젝트 박스 -->
+         <section id="traning-pj-part" class="pj-box">
+          <div class="traning-pj-part inbox">
+          <!-- 2-2-1.제목박스 -->
+           <h2 class="sub-part-title">
+            트레이닝 프로젝트 파트
+           </h2>
+           <!-- 2-2-2. 링크박스 
+            clb 클래스를 넣어서 float설정을 위한 clear 세팅 가상요소가 적용된다. -->
+            <article class="link-box clb">
+              <!-- 왼쪽박스 -->
+              <div class="left-part">
+                <ul class="link-list">
+                  <li><a href="" target="_blank">왼쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">왼쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">왼쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">왼쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">왼쪽링크 바로가기</a></li>
+                </ul>
+              </div>
+              
+              <!-- 오른쪽박스 -->
+              <div class="right-part">
+                <ul class="link-list">
+                  <li><a href="" target="_blank">오른쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">오른쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">오른쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">오른쪽링크 바로가기</a></li>
+                  <li><a href="" target="_blank">오른쪽링크 바로가기</a></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+         </section>
       </main>
     </div>
     <!-- 3. 하단영역 -->
