@@ -31,7 +31,7 @@ overflow: hidden;
 
 
 /* 임시로 숨기기 */
-.door ~ * {
+.lisa ~ * {
     display: none;
 }
 
@@ -55,4 +55,28 @@ overflow: hidden;
     transform-origin: right;
     /* 문 y축회전 테스트 */
     /* rotate: y 130deg; */
+}
+
+/* 3. 마지심슨 */
+.marge {
+    position: absolute;
+    bottom: -211px;
+    /* right: -231px; */
+    right: -300px;
+    width: 370px;
+    transform-origin: bottom;
+    /* rotate: -18deg; */
+    rotate: 0deg;
+}
+
+/* 4. 리사심슨 */
+.lisa {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: 170px;
+    transform-origin: top;
+    rotate: 90deg;
+    /* 애니메이션: 이시이지반방마 */
+    animation: lisa .6s ease-in-out 13.6s forwards;
 }
