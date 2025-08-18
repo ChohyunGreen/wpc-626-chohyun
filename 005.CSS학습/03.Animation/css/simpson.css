@@ -2,3 +2,57 @@
 /* 심슨 가족 인사 애니메이션 CSS - simpson.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+
+/* 전체박스 */
+.house{
+    position: relative;
+    /* 부모자격 - 하위 앱솔루트 요소들 */
+    width: 800px;
+    height: 441px;
+
+    margin: 0 auto;
+
+    /* 배경이미지 */
+    background: url(../images/house.png) no-repeat;
+
+    /* 문짝(.door)을 원근 입체로 보이게 하기위해
+    부모요소인 .house에 원근 설정을 한다!
+        perspective: 수치값;
+        -> 수치값의 의미는 기준축으로 부터 소실점까지의 거리!
+        -> 이 값이 어떤 기준수치값 보다 작으면 원근이 커진다!
+    */
+    perspective: 480px;
+
+/* 넘치는 자식요소 숨기기 */
+overflow: hidden;
+
+}
+
+
+
+/* 임시로 숨기기 */
+.door ~ * {
+    display: none;
+}
+
+/* 1. 심슨 */
+.simpson{
+    position: absolute;
+    top: 305px;
+    left: 351px;
+    /* 부모는? .house */
+    width: 31px;
+}
+
+/* 2. 문짝 */
+.door{
+    position: absolute;
+    top: 284px;
+    left: 356px;
+    /* 부모는? .house */
+
+    /* 문 회전축 오른쪽끝으로 변경 */
+    transform-origin: right;
+    /* 문 y축회전 테스트 */
+    /* rotate: y 130deg; */
+}
