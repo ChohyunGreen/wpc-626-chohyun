@@ -59,15 +59,15 @@
     top: 307px;
     left: 356px;
     width: 33px;
-    rotate: -70deg;
+    rotate:55deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   33% {
     top: 280px;
-    left: 426px;
+    left: 329px;
     width: 33px;
-    rotate: 135deg;
+    rotate: -38deg;
     /* 문짝보다위 */
     z-index: 1;
   }
@@ -75,7 +75,7 @@
     top: 313px;
     left: 376px;
     width: 39px;
-    rotate: 0deg;
+    rotate: -22deg;
     /* 문짝보다위 */
     z-index: 1;
   }
@@ -142,6 +142,43 @@
   to {
       right: -231px;
       rotate: -18deg;
+
+  }
+}
+
+
+/* 4-1. 리사심슨 애니메이션 호출설정 */
+.lisa {
+    /* 애니메이션 - animation : 이시이지반방마 */
+    animation: lisa-ani .6s ease-out 4.7s forwards;
+}
+
+/* 4-2. 리사심슨 애니 키프레임 */
+@keyframes lisa-ani {
+  /* from 혹은 0%는 설정이 원본세팅과 같다면 생략할 수 있다. */
+  /* to 혹은 100% 세팅만 설정 */
+  to {
+      left: 80px;
+      rotate: -27deg;
+
+  }
+}
+
+
+
+/* 5-1. 매기심슨 애니메이션 호출설정 */
+.maggie {
+    /* 애니메이션 - animation : 이시이지반방마 */
+    animation: maggie-ani .6s ease-out 4.7s forwards;
+}
+
+/* 5-2. 매기심슨 애니 키프레임 */
+@keyframes maggie-ani {
+  /* from 혹은 0%는 설정이 원본세팅과 같다면 생략할 수 있다. */
+  /* to 혹은 100% 세팅만 설정 */
+  to {
+      left: 80px;
+      rotate: -27deg;
 
   }
 }
