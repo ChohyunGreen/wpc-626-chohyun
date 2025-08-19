@@ -59,6 +59,15 @@
     top: 307px;
     left: 356px;
     width: 33px;
+    rotate: -70deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  33% {
+    top: 280px;
+    left: 426px;
+    width: 33px;
+    rotate: 135deg;
     /* 문짝보다위 */
     z-index: 1;
   }
