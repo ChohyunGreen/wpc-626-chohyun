@@ -169,17 +169,32 @@
 /* 5-1. 매기심슨 애니메이션 호출설정 */
 .maggie {
     /* 애니메이션 - animation : 이시이지반방마 */
-    animation: maggie-ani .6s ease-out 4.7s forwards;
+    animation: maggie-ani 6s ease-in-out 4.7s infinite alternate;
 }
 
 /* 5-2. 매기심슨 애니 키프레임 */
 @keyframes maggie-ani {
-  /* from 혹은 0%는 설정이 원본세팅과 같다면 생략할 수 있다. */
-  /* to 혹은 100% 세팅만 설정 */
-  to {
-      left: 80px;
-      rotate: -27deg;
-
+  0% {
+    left: 0;
+    top: 360px;
+    width: 160px;
+    rotate:35deg;
+  }
+  20% {
+    left: 275px;
+    top: 351px;
+    width: 160px;
+    rotate:35deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  50% {
+    left: 575px;
+    top: 351px;
+    width: 160px;
+    rotate:35deg;
+    /* 문짝보다위 */
+    z-index: 1;
   }
 }
 

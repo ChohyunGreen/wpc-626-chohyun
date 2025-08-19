@@ -89,7 +89,7 @@ overflow: hidden;
     left: 10px;
     width: 163px;
     transform-origin: top;
-    rotate: 90deg;
+    rotate: 0;
     /* 애니메이션: 이시이지반방마 */
     animation: lisa .6s ease-in-out 13.6s forwards;
 }
