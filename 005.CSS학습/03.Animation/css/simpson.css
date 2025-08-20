@@ -38,7 +38,7 @@ overflow: hidden;
 /* 1. 심슨 */
 .simpson{
     position: absolute;
-    top: 305px;
+top: 305px; 
     left: 351px;
     /* 부모는? .house */
     width: 31px;
