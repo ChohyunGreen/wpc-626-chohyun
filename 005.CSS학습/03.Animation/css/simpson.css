@@ -28,7 +28,52 @@ overflow: hidden;
 
 }
 
+/* 말풍선 */
+.words {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    /* 부모는? .house */
 
+    /* 박스설정 */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    border: 6px dashed #fc9c20;
+    text-align: center;
+
+    /* 글자설정 */
+    font: 24px/1.6 Poppins sans-serif;
+    text-transform: uppercase;
+}
+
+
+/* 말풍선 삼각형 가상요소로 만들기 */
+.words::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+
+    /* border로 삼각형만들기 
+    -> 가로,세로는 모두 0
+    -> 위 또는 아래 border주기
+    -> 양쪽보다는 동일하고 투명색설정
+    */
+
+    /* 트랜스폼으로 위치이동 및 회전 */
+
+    /* translate : x축이동 y축이동 */
+    translate: -70px -8px;
+    /* rotate: 각도deg */
+    rotate: 25deg;
+
+    width: 0;
+    height: 0;
+    border-top: 30px solid #fc9c20;
+    border-right: 30px solid green;
+    border-left: 30px solid sienna;
+}
 
 /* 임시로 숨기기 */
 .maggie ~ * {
