@@ -1,0 +1,85 @@
+@charset "utf-8";
+/*  가족 인사 애니메이션 CSS - bread.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+
+
+
+
+/* 전체박스 */
+.house{
+    position: relative;
+    /* 부모자격 - 하위 앱솔루트 요소들 */
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+
+    /* 배경이미지 */
+    background: url(../images/bg_barbershop.jpg) no-repeat;
+    background-size: cover;
+
+    /* 문짝(.door)을 원근 입체로 보이게 하기위해
+    부모요소인 .house에 원근 설정을 한다!
+        perspective: 수치값;
+        -> 수치값의 의미는 기준축으로 부터 소실점까지의 거리!
+        -> 이 값이 어떤 기준수치값 보다 작으면 원근이 커진다!
+    */
+    perspective: 600px;
+
+/* 넘치는 자식요소 숨기기 */
+overflow: hidden;
+}
+
+
+
+
+
+
+/* 브래드 */
+.bread{
+    position: absolute;
+top: 305px; 
+    left: -351px;
+    /* 부모는? .house */
+    width: 31px;
+}
+
+
+
+/* 윌크 */
+.wilk {
+    position: absolute;
+    bottom: -211px;
+    /* right: -231px; */
+    right: -300px;
+    width: 370px;
+    transform-origin: bottom;
+    /* rotate: -18deg; */
+    rotate: 0deg;
+}
+
+/* 초코 */
+.choco {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: 170px;
+    transform-origin: top;
+    rotate: 90deg;
+    /* 애니메이션: 이시이지반방마 */
+    animation: choco .6s ease-in-out 13.6s forwards;
+}
+
+
+/* 소시지 */
+.sausage {
+    position: absolute;
+    bottom: -80px;
+    left: 10px;
+    width: 163px;
+    transform-origin: top;
+    rotate: 0;
+    /* 애니메이션: 이시이지반방마 */
+    animation: sausage .6s ease-in-out 13.6s forwards;
+}
+

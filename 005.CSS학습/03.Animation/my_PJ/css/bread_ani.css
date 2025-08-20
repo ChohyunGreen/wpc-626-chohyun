@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+/*  가족 애니메이션 코드 : bread_ani.css */
+
+/* 
+    [ 트랜스폼 사용법 ]
+    ((y축회전))
+    transform: rotateY(각도deg)
+    -> 같은셋팅 
+    rotate: y 각도deg
+*/
+
+/* 문짝에 애니메이션 호출적용! */
+.door {
+  /* 애니메이션 - animation:이시이지반방마 */
+  animation: door-ani 2s ease-in-out;
+
+  /* animation: door-ani 1s ease-in-out 1s 3 alternate forwards; */
+  /* 
+        alternate는 from->to 경로 애니를
+        반대방향도 진행해주는 옵션값임
+
+        forwards는 애니가 끝나면 처음값으로
+        돌아가는 기본값(backwards)이 아닌
+        끝나는 값으로 유지하게 하는 옵션값임
+    */
+}
+/* 문열기 애니 키프레임 */
+@keyframes door-ani {
+  0% {
+    rotate: y 0deg;
+  }
+  30% {
+    rotate: y 130deg;
+  }
+  70% {
+    rotate: y 130deg;
+  }
+  100% {
+    rotate: y 0deg;
+  }
+}
+
+
+
+
+
+
+
+/* 브래드 애니호출 설정 */
+.bread{
+    /* 애니메이션 - animation: 이시이지반방마 */
+    animation: bread-ani 5s .5s forwards;
+}
+
+
+/* 브래드 걸어나오기 키프레임 */
+@keyframes bread-ani {
+  0% {
+    top: 305px;
+    left: 351px;
+    width: 31px;
+  }
+  20% {
+    top: 307px;
+    left: 356px;
+    width: 33px;
+    rotate:55deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  33% {
+    top: 310px;
+    left: 329px;
+    width: 33px;
+    rotate: -38deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  40% {
+    top: 313px;
+    left: 376px;
+    width: 39px;
+    rotate: -22deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  60% {
+    top: 322px;
+    left: 385px;
+    width: 48px;
+    rotate: -10deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  70% {    
+    top: 336px;
+    left: 368px;
+    width: 58px;
+    rotate: 3deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  80% {    
+    top: 338px;
+    left: 357px;
+    width: 76px;
+    rotate: -8deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  90% {    
+    top: 343px;
+    left: 333px;
+    width: 101px;
+    rotate: 5deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  95% {   
+    top: 319px;
+    left: 310px;
+    width: 130px;
+    rotate: -8deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  100% {   
+    top: 261px;
+    left: 289px;
+    width: 180px;
+    rotate: 0deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+}
+
+
+
+
+
+
+/* 윌크 애니메이션 호출설정 */
+.wilk {
+    /* 애니메이션 - animation : 이시이지반방마 */
+    animation: marge-ani .6s ease-out 4.7s forwards;
+}
+
+/* 윌크 애니 키프레임 */
+@keyframes wilk-ani {
+  /* from 혹은 0%는 설정이 원본세팅과 같다면 생략할 수 있다. */
+  /* to 혹은 100% 세팅만 설정 */
+  to {
+      right: -231px;
+      rotate: -18deg;
+
+  }
+}
+
+
+
+
+
+
+
+
+/* 초코 애니메이션 호출설정 */
+.choco {
+    /* 애니메이션 - animation : 이시이지반방마 */
+    animation: lisa-ani .6s ease-out 4.7s forwards;
+}
+
+/* 초코 애니 키프레임 */
+@keyframes choco-ani {
+  /* from 혹은 0%는 설정이 원본세팅과 같다면 생략할 수 있다. */
+  /* to 혹은 100% 세팅만 설정 */
+  to {
+      left: 80px;
+      rotate: -27deg;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+/* 소시지 애니메이션 호출설정 */
+.sausage {
+    /* 애니메이션 - animation : 이시이지반방마 */
+    animation: lisa-ani .6s ease-out 4.7s forwards;
+}
+
+/* 소시지 애니 키프레임 */
+@keyframes sausage-ani {
+  /* from 혹은 0%는 설정이 원본세팅과 같다면 생략할 수 있다. */
+  /* to 혹은 100% 세팅만 설정 */
+  0% {
+    left: 0;
+    top: 360px;
+    width: 160px;
+    rotate:35deg;
+  }
+  20% {
+    left: 275px;
+    top: 351px;
+    width: 160px;
+    rotate:35deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  50% {
+    left: 575px;
+    top: 351px;
+    width: 160px;
+    rotate:35deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+}
+
+
+
