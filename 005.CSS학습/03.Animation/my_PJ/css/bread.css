@@ -16,7 +16,7 @@
 
     /* 배경이미지 */
     background: url(../images/bg_barbershop.jpg) no-repeat;
-    background-size: cover;
+    background-size: contain;
 
     /* 문짝(.door)을 원근 입체로 보이게 하기위해
     부모요소인 .house에 원근 설정을 한다!
@@ -34,11 +34,10 @@ overflow: hidden;
 
 
 
-
 /* 브래드 */
 .bread{
     position: absolute;
-top: 305px; 
+top: 0; 
     left: -351px;
     /* 부모는? .house */
     width: 31px;
