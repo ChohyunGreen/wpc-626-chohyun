@@ -55,78 +55,52 @@
 /* 브래드 걸어나오기 키프레임 */
 @keyframes bread-ani {
   0% {
-    top: 0;
-    left: 351px;
-    width: 31px;
+    width: 231px;
   }
   20% {
-    top: 307px;
-    left: 356px;
-    width: 33px;
+    width: 200px;
     rotate:55deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   33% {
-    top: 310px;
-    left: 329px;
-    width: 33px;
+    width: 220px;
     rotate: -38deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   40% {
-    top: 313px;
-    left: 376px;
-    width: 39px;
+    width: 240px;
     rotate: -22deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   60% {
-    top: 322px;
-    left: 385px;
-    width: 48px;
+    width: 280px;
     rotate: -10deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   70% {    
-    top: 336px;
-    left: 368px;
-    width: 58px;
+    width: 290px;
     rotate: 3deg;
     /* 문짝보다위 */
     z-index: 1;
   }
-  80% {    
-    top: 338px;
-    left: 357px;
-    width: 76px;
-    rotate: -8deg;
-    /* 문짝보다위 */
-    z-index: 1;
-  }
-  90% {    
-    top: 343px;
-    left: 333px;
-    width: 101px;
+  87% {    
+    width: 300px;
     rotate: 5deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   95% {   
-    top: 319px;
-    left: 310px;
-    width: 130px;
+    width: 310px;
     rotate: -8deg;
     /* 문짝보다위 */
     z-index: 1;
   }
   100% {   
-    top: 261px;
-    left: 289px;
-    width: 180px;
+    width: 320px;
     rotate: 0deg;
     /* 문짝보다위 */
     z-index: 1;

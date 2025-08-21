@@ -37,10 +37,9 @@ overflow: hidden;
 /* 브래드 */
 .bread{
     position: absolute;
-top: 0; 
-    left: -351px;
+    bottom: 60px;
+    right: 330px;
     /* 부모는? .house */
-    width: 31px;
 }
 
 
@@ -48,7 +47,7 @@ top: 0;
 /* 윌크 */
 .wilk {
     position: absolute;
-    bottom: -211px;
+    bottom: 0;
     /* right: -231px; */
     right: -300px;
     width: 370px;
