@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS1. 자바스크립트 기본 + DOM선택법</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* 보이는 화면에 채우기 */
+      }
+      body {
+        overflow: hidden;
+      }
+
+      .pbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 부모는? window(보이는화면) */
+        margin: 0;
+        padding: 0;
+
+        width: 500px;
+        height: 500px;
+        padding-top: 200px;
+
+        /* 글자 */
+        line-height: 50px;
+        font-size: 30px;
+        text-align: center;
+        /* 줄바꿈방지 */
+        white-space: nowrap;
+
+        border: 4px solid purple;
+        /* 보더박스:보더,패딩포함 */
+        box-sizing: border-box;
+      }
+    </style>
+
+<!-- 자바스크립트 코딩구역! -->
+ <script>
+  // 인터널 JS코딩구역 ///////
+
+  // 함수 만들기 ////////
+  // 함수형식 -> function 함수명(){코드구역}
+  function 김비서나와라(){
+
+    // 1. 함수호출확인!
+    console.log('메롱메롱메롱!');
+
+    // 2. 변경대상에 변경반하기
+
+    // 2-1. 배경이미지 넣기
+    document
+    // 클래스 가져오기
+    .getElementsByClassName('pbox')
+    // 클래스는 여러개일 수 있으므로 0부터 시작!
+    .item(0)
+    // CSS배경 변경하기
+    .style.background = 'url(./images/kimbs.jpg) no-repeat top/cover';
+
+  } //////////// 김비서나와라 함수 ////////////
+  ////////////////////////////////////////////
+
+
+
+
+  ///////////////////////////
+ </script>
+
+  </head>
+  <body>
+    <!-- 드라마 소개박스 -->
+    <p 
+    class="pbox" 
+    title="클릭하시면 김비서가 나옵니다!"
+    
+    onclick="
+    // onclick 이벤트속성은 JS와 연결되는
+    // 기본속성이다!
+    // 이벤트 속성 이름은 아래와 같이 구성된다!
+    // -> on+이벤트명 예) onclick, onmouseover,...
+    // 이벤트 속성은 모든 html요소에 줄 수 있다!
+
+    // 이 구역은 JS코드구역임!
+    // 여기는 JS문법만 적용됨!
+    // JS한줄주석
+    // 경고창 띄우기
+    // alert('김비서! 어서나와!!!');
+
+    // 콘솔찍기
+    console.log('약오르지~');
+
+    // JS는 전체 HTML의 지도를 가지고 있음
+    // 그 지도명은 document다!
+    document
+    // 가져온 요소들 중 id명으로된 요소를 선택한다!
+    // -> getElementById(아이디명)
+    // document하위 요소선택시 점(.)을 찍는다!
+    // -> get 가져와! Element 요소를! By Id 아이디로!
+    .getElementById('name')
+    // 하위로 내려갈때 점(.)
+    // innerHTML = 코드
+    // JS 에서 이퀄은 이퀄 오른쪽의 값이 이퀄 왼쪽으로
+    // 들어감을 의미한다!
+    // innerHTML은
+    // inner 안쪽에 HTML 태그를 넣는속성
+    // 오른쪽값을 감싸줄때 백틱(`)으로 싸고
+    // 내부 속성값은 홑따옴표를 사용하여 
+    // 가장 바깥쪽의 쌍따옴표와 충돌을 막는다!
+    .innerHTML=`
+      <img 
+      src='./images/kim.png' 
+      alt='김비서가 왜그럴까?'>
+    `;
+
+    // [ 따옴표규칙 ]
+    // 따옴표 내부에 같은 따옴표를 쓸 수 없다!
+    // -> 쌍따옴표 내부에 홑따옴표
+    // -> 홑따옴표 내부에 쌍따옴표
+    // -> 쌍따옴표 나 홑따옴표 내부에 백틱!
+
+
+    // 나머지 기능은 외부 함수를 호출해서 구현하자!
+    // 함수란? 함 해보슈(수)
+    // -> 특정 명령문을 호출할때 실행하는 코드저장소!
+    // 호출은 함수이름으로 호출한다!
+    // 호출시 소괄호()를 뒤에 사용한다!
+
+    김비서나와라('아이스크림');
+    
+    "
+    >
+      나는 요즘 매일 생각한다! <br />
+      도대체 <span id="name"></span>
+
+      
+    </p>
+  </body>
+</html>
