@@ -32,6 +32,16 @@ overflow: hidden;
 
 
 
+h1 {
+    font-family: 'Pretendard';
+    text-transform: uppercase;
+    text-align: center;
+    color: blueviolet;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+
 
 
 /* 브래드 */
@@ -44,17 +54,17 @@ overflow: hidden;
 
 
 
+
 /* 윌크 */
 .wilk {
     position: absolute;
     bottom: 0;
-    /* right: -231px; */
-    right: -300px;
-    width: 370px;
     transform-origin: bottom;
-    /* rotate: -18deg; */
     rotate: 0deg;
 }
+
+
+
 
 /* 초코 */
 .choco {
@@ -67,6 +77,7 @@ overflow: hidden;
     /* 애니메이션: 이시이지반방마 */
     animation: choco .6s ease-in-out 13.6s forwards;
 }
+
 
 
 /* 소시지 */
