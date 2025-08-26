@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커피전문점 웹사이트 리뉴얼 시장조사 분석보고서</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .title-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .title-section h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B4513;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2::before {
+            content: "☕";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #8B4513;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(139, 69, 19, 0.3);
+            margin: 10px 0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .positioning-map {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            height: 500px;
+            border: 2px solid #ddd;
+        }
+        
+        .axis-label {
+            position: absolute;
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .axis-label.x {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .axis-label.y {
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        
+        .brand-dot {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .brand-dot:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+        
+        .competitor-analysis {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .competitor-card {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .competitor-logo {
+            width: 60px;
+            height: 60px;
+            background: #8B4513;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .keyword-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .keyword {
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .keyword:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .keyword.large { font-size: 18px; padding: 12px 24px; }
+        .keyword.medium { font-size: 16px; padding: 10px 20px; }
+        .keyword.small { font-size: 14px; padding: 8px 16px; }
+        
+        .trend-item {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #8B4513;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .trend-icon {
+            width: 40px;
+            height: 40px;
+            background: #8B4513;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            float: left;
+            margin-right: 15px;
+        }
+        
+        .website-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .website-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .website-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .website-preview {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .website-info {
+            padding: 20px;
+        }
+        
+        .website-info h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .tag {
+            background: #e9ecef;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #495057;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2, .competitor-analysis {
+                grid-template-columns: 1fr;
+            }
+            
+            .title-section h1 {
+                font-size: 2rem;
+            }
+            
+            .positioning-map {
+                height: 400px;
+            }
+            
+            .brand-dot {
+                width: 60px;
+                height: 60px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 타이틀 섹션 -->
+        <div class="title-section">
+            <h1>커피전문점 웹사이트 리뉴얼</h1>
+            <p class="subtitle">시장조사 및 경쟁사 분석 보고서</p>
+            <p style="color: #95a5a6;">2024-2025 시장 동향 기반 분석</p>
+        </div>
+
+        <!-- 1. 시장 환경 및 동향 -->
+        <div class="section">
+            <h2>시장의 환경이나 동향에 대한 자료</h2>
+            <div class="grid-3">
+                <div class="stat-box">
+                    <span class="stat-number">10만+</span>
+                    <span class="stat-label">국내 커피전문점 수 (2024)</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">6.8조원</span>
+                    <span class="stat-label">2023년 커피산업 매출규모</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">9.7%</span>
+                    <span class="stat-label">연평균 성장률 (CAGR)</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>주요 시장 특징</h3>
+                <ul class="feature-list">
+                    <li>커피전문점 수가 편의점을 넘어서며 최고 밀도 달성</li>
+                    <li>브랜드 수 886개로 치킨 프랜차이즈보다 200개 이상 많음</li>
+                    <li>홈카페 문화 확산으로 원두 소매시장 동반 성장</li>
+                    <li>개인화와 지속가능성이 2025년 핵심 트렌드</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. 시장 니즈 -->
+        <div class="section">
+            <h2>시장에서의 니즈</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎯 소비자 니즈</h3>
+                    <ul class="feature-list">
+                        <li>개인 맞춤형 음료 주문 시스템</li>
+                        <li>모바일 주문 및 픽업 서비스</li>
+                        <li>멤버십 적립 및 혜택 관리</li>
+                        <li>매장 위치 및 혼잡도 실시간 확인</li>
+                        <li>친환경 정책 및 투명한 원두 정보</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🏢 비즈니스 니즈</h3>
+                    <ul class="feature-list">
+                        <li>통합 주문 관리 시스템</li>
+                        <li>고객 데이터 분석 및 CRM</li>
+                        <li>브랜드 스토리텔링 강화</li>
+                        <li>소셜미디어 연동 마케팅</li>
+                        <li>반응형 웹 및 앱 연동</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 포지셔닝 맵 -->
+        <div class="section">
+            <h2>이미지 기반 포지셔닝 맵</h2>
+            <div class="positioning-map">
+                <div class="axis-label y">프리미엄 지향</div>
+                <div class="axis-label x">혁신적 → ← 전통적</div>
+                
+                <!-- 브랜드 포지셔닝 -->
+                <div class="brand-dot" style="top: 20%; left: 25%; background: #00704A;" title="스타벅스">
+                    스타벅스
+                </div>
+                <div class="brand-dot" style="top: 60%; left: 70%; background: #8B4513;" title="이디야">
+                    이디야
+                </div>
+                <div class="brand-dot" style="top: 70%; left: 30%; background: #FF6B35;" title="메가커피">
+                    메가커피
+                </div>
+                <div class="brand-dot" style="top: 65%; left: 45%; background: #2E5BBA;" title="컴포즈커피">
+                    컴포즈커피
+                </div>
+                <div class="brand-dot" style="top: 40%; left: 60%; background: #8B008B;" title="투썸플레이스">
+                    투썸플레이스
+                </div>
+                <div class="brand-dot" style="top: 75%; left: 55%; background: #FFD700;" title="빽다방">
+                    빽다방
+                </div>
+                
+                <!-- 축 라인 -->
+                <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #ddd;"></div>
+                <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: #ddd;"></div>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 20px;">
+                * Y축: 가격대/서비스 수준, X축: 브랜드 이미지/혁신성
+            </p>
+        </div>
+
+        <!-- 4. 주요 경쟁사 분석 -->
+        <div class="section">
+            <h2>주요 경쟁사를 선정하고 분석</h2>
+            <div class="competitor-analysis">
+                <div class="competitor-card">
+                    <div class="competitor-logo">S</div>
+                    <h3>스타벅스 (Starbucks)</h3>
+                    <div class="card" style="margin: 15px 0;">
+                        <h4>웹사이트 특징</h4>
+                        <ul class="feature-list">
+                            <li>글로벌 일관성 있는 브랜드 디자인</li>
+                            <li>스타벅스 리워드 중심의 UX</li>
+                            <li>매장 찾기 및 주문 기능 통합</li>
+                            <li>계절별 프로모션 강조</li>
+                            <li>모바일 앱과의 완벽한 연동</li>
+                        </ul>
+                    </div>
+                    <div class="stat-box" style="font-size: 0.9rem;">
+                        <span class="stat-number">1위</span>
+                        <span class="stat-label">브랜드 인지도</span>
+                    </div>
+                </div>
+                
+                <div class="competitor-card">
+                    <div class="competitor-logo" style="background: #8B4513;">E</div>
+                    <h3>이디야커피 (Ediya)</h3>
+                    <div class="card" style="margin: 15px 0;">
+                        <h4>웹사이트 특징</h4>
+                        <ul class="feature-list">
+                            <li>합리적 가격 중심의 메시징</li>
+                            <li>깔끔하고 직관적인 네비게이션</li>
+                            <li>멤버십 혜택 명확한 표시</li>
+                            <li>가맹점 정보 상세 제공</li>
+                            <li>원두 정보 및 품질 강조</li>
+                        </ul>
+                    </div>
+                    <div class="stat-box" style="font-size: 0.9rem;">
+                        <span class="stat-number">2위</span>
+                        <span class="stat-label">매장 수 기준</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 시장 트렌드 -->
+        <div class="section">
+            <h2>시장 트렌드 관련 자료</h2>
+            <div class="trend-item">
+                <div class="trend-icon">🌱</div>
+                <div>
+                    <h4>지속가능성과 친환경</h4>
+                    <p>소비자들이 친환경 원두, 재활용 가능한 컵, 탄소 중립 매장 등을 선호하는 추세</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">📱</div>
+                <div>
+                    <h4>디지털 주문 시스템</h4>
+                    <p>모바일 앱을 통한 사전 주문, 픽업 서비스, 무인 주문 키오스크 확산</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">🎯</div>
+                <div>
+                    <h4>개인화 서비스</h4>
+                    <p>개인 취향에 맞춘 음료 추천, 맞춤형 마케팅, AI 기반 주문 예측</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">🏠</div>
+                <div>
+                    <h4>홈카페 & O2O 서비스</h4>
+                    <p>집에서 즐기는 카페 경험, 원두 배송 서비스, 커피 용품 온라인 판매</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">💝</div>
+                <div>
+                    <h4>구독 & 멤버십</h4>
+                    <p>정기 구독 서비스, 등급별 멤버십 혜택, 포인트 적립 시스템 고도화</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. 주요 키워드 -->
+        <div class="section">
+            <h2>주제와 관련된 주요 키워드</h2>
+            <div class="keyword-cloud">
+                <span class="keyword large">모바일 퍼스트</span>
+                <span class="keyword medium">반응형 웹</span>
+                <span class="keyword large">개인화</span>
+                <span class="keyword small">AI 추천</span>
+                <span class="keyword medium">옴니채널</span>
+                <span class="keyword large">지속가능성</span>
+                <span class="keyword small">원클릭 주문</span>
+                <span class="keyword medium">실시간 알림</span>
+                <span class="keyword small">소셜 로그인</span>
+                <span class="keyword large">멤버십</span>
+                <span class="keyword medium">위치 기반</span>
+                <span class="keyword small">QR 코드</span>
+                <span class="keyword medium">다크모드</span>
+                <span class="keyword large">사용자 경험</span>
+                <span class="keyword small">빅데이터</span>
+                <span class="keyword medium">클라우드</span>
+                <span class="keyword small">보안</span>
+                <span class="keyword medium">접근성</span>
+                <span class="keyword large">브랜드 스토리</span>
+                <span class="keyword small">마이크로 인터랙션</span>
+            </div>
+        </div>
+
+        <!-- 7. 웹사이트 트렌드 -->
+        <div class="section">
+            <h2>유사업체 웹사이트의 시각적·기능적 트렌드</h2>
+            <div class="website-gallery">
+                <div class="website-card">
+                    <div class="website-preview">스타벅스</div>
+                    <div class="website-info">
+                        <h4>시각적 트렌드</h4>
+                        <p>그린 컬러 중심의 브랜드 아이덴티티, 대형 히어로 이미지, 카드 기반 레이아웃</p>
+                        <div class="feature-tags">
+                            <span class="tag">미니멀리즘</span>
+                            <span class="tag">반응형</span>
+                            <span class="tag">브랜드 일관성</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-preview" style="background: linear-gradient(135deg, #8B4513, #D2691E);">이디야</div>
+                    <div class="website-info">
+                        <h4>기능적 트렌드</h4>
+                        <p>직관적 네비게이션, 매장 찾기 중심, 가격 정보 투명성, 모바일 최적화</p>
+                        <div class="feature-tags">
+                            <span class="tag">사용자 친화적</span>
+                            <span class="tag">정보 중심</span>
+                            <span class="tag">가격 투명성</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-preview" style="background: linear-gradient(135deg, #FF6B35, #F7931E);">메가커피</div>
+                    <div class="website-info">
+                        <h4>2024 웹 디자인 트렌드</h4>
+                        <p>다이나믹 스크롤링, 마이크로 애니메이션, 대화형 요소, 다크모드 지원</p>
+                        <div class="feature-tags">
+                            <span class="tag">인터랙티브</span>
+                            <span class="tag">애니메이션</span>
+                            <span class="tag">다크모드</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-preview" style="background: linear-gradient(135deg, #667eea, #764ba2);">전체 트렌드</div>
+                    <div class="website-info">
+                        <h4>공통 특징</h4>
+                        <p>모바일 우선 설계, PWA 지원, 음성 주문, AR 메뉴, 실시간 채팅</p>
+                        <div class="feature-tags">
+                            <span class="tag">PWA</span>
+                            <span class="tag">음성UI</span>
+                            <span class="tag">AR/VR</span>
+                            <span class="tag">실시간</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>🎨 시각적 트렌드 2024-2025</h3>
+                    <ul class="feature-list">
+                        <li>그라데이션과 글래스모피즘 효과</li>
+                        <li>대담한 타이포그래피 활용</li>
+                        <li>다크모드와 라이트모드 전환</li>
+                        <li>3D 요소와 이미지 깊이감</li>
+                        <li>브랜드 색상 중심의 일관된 팔레트</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>⚙️ 기능적 트렌드 2024-2025</h3>
+                    <ul class="feature-list">
+                        <li>원페이지 스크롤링과 앵커 네비게이션</li>
+                        <li>스마트 검색과 필터링 시스템</li>
+                        <li>실시간 알림과 푸시 서비스</li>
+                        <li>소셜 로그인과 간편 결제</li>
+                        <li>AI 챗봇과 고객지원 자동화</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 결론 및 제언 -->
+        <div class="section">
+            <h2>결론 및 제언</h2>
+            <div class="card">
+                <h3>🎯 웹사이트 리뉴얼 핵심 포인트</h3>
+                <div class="grid-2" style="margin-top: 20px;">
+                    <div>
+                        <h4>우선순
