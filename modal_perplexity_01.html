@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모달 캐러셀</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* 모달이 뜰 때 배경 스크롤 차단 */
+  }
+
+  /* 모달 배경 */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  /* 모달 본체 */
+  .modal {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    cursor: grab;
+  }
+
+  /* 닫기 버튼 */
+  .modal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  /* 캐러셀 영역 */
+  .carousel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slide {
+    width: 800px;
+    height: 500px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #fff;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 좌우 화살표 */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    user-select: none;
+    z-index: 5;
+  }
+  .modal:hover .arrow {
+    opacity: 1;
+  }
+  .arrow.left { left: 10px; }
+  .arrow.right { right: 10px; }
+
+  /* 하단 컨트롤 */
+  .controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* 동그라미 페이지네이션 */
+  .dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background: #333;
+  }
+
+  /* 재생/일시정지 버튼 */
+  .play-pause {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px 8px;
+    background: #eee;
+    border-radius: 4px;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- 모달 오버레이 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="carouselModal">
+    <div class="close-btn" id="closeBtn">&times;</div>
+
+    <!-- 캐러셀 내용 -->
+    <div class="carousel" id="carousel">
+      <div class="slide" style="background:#0077b6">슬라이드 1<br><small>텍스트 예시</small></div>
+      <div class="slide"><img src="https://picsum.photos/800/500?random=1" alt="이미지"></div>
+      <div class="slide" style="background:#ef476f">슬라이드 3<br><small>텍스트+컬러배경</small></div>
+      <div class="slide"><img src="https://picsum.photos/800/500?random=2" alt="이미지"></div>
+    </div>
+
+    <!-- 좌우 버튼 -->
+    <div class="arrow left" id="prevBtn">&#10094;</div>
+    <div class="arrow right" id="nextBtn">&#10095;</div>
+
+    <!-- 하단 컨트롤 -->
+    <div class="controls">
+      <div class="dots" id="dots"></div>
+      <div class="play-pause" id="playPauseBtn">⏸</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modalOverlay = document.getElementById('modalOverlay');
+  const closeBtn = document.getElementById('closeBtn');
+  const carousel = document.getElementById('carousel');
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('dots');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const modal = document.getElementById('carouselModal');
+
+  let currentIndex = 0;
+  let intervalId;
+  let playing = true; // 자동재생 상태
+
+  // 초기 dots 생성
+  slides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 800}px)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  function play() {
+    intervalId = setInterval(nextSlide, 3000);
+    playing = true;
+    playPauseBtn.textContent = "⏸";
+  }
+
+  function pause() {
+    clearInterval(intervalId);
+    playing = false;
+    playPauseBtn.textContent = "▶";
+  }
+
+  playPauseBtn.addEventListener('click', () => {
+    playing ? pause() : play();
+  });
+
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+  closeBtn.addEventListener('click', () => modalOverlay.style.display = "none");
+
+  // 드래그 이동 기능
+  let isDragging = false;
+  let startX, scrollLeft;
+
+  modal.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - modal.offsetLeft;
+    scrollLeft = modal.scrollLeft;
+    modal.style.cursor = "grabbing";
+  });
+
+  modal.addEventListener('mouseleave', () => {
+    isDragging = false;
+    modal.style.cursor = "grab";
+  });
+
+  modal.addEventListener('mouseup', () => {
+    isDragging = false;
+    modal.style.cursor = "grab";
+  });
+
+  modal.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - modal.offsetLeft;
+    const walk = (x - startX);
+    modal.scrollLeft = scrollLeft - walk;
+  });
+
+  // 자동 재생 시작
+  play();
+</script>
+
+</body>
+</html>
