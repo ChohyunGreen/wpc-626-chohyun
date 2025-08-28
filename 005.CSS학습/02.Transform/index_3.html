@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>트랜스폼 기본연습</title>
+    <!-- 트랜스폼 셈플 사이트
+     https://tombap8.github.io/FED-RV-TOM-2024/002.HTML%ED%95%99%EC%8A%B5/05.Transform_PJ/index.html -->
+    <style>
+      /* 전체 배경넣기 */
+      body {
+        /* background: 색이반고윙/크; */
+        /* background: 색 이미지 반복 고정 위치/크기; */
+        /* background: url(./images/bg-main.jpg) no-repeat fixed center top/cover; */
+
+        /* 1. 이미지 */
+        background-image: url(./images/wonderful_day_01.jpg);
+        /* 2. 반복여부 */
+        background-repeat: no-repeat;
+        /* 3. 고정 : 배경이미지 화면고정  */
+        background-attachment: fixed;
+        /* 4. 위치 : 가로(x축) 세로(y축)
+                가로값 - left(기본값), right, center, 수치값
+                세로값 - top, bottom, center(기본값), 수치값
+            */
+        background-position: center top;
+        /* 5. 크기 : 가로(width) 세로(height)
+                - 특이한 값들
+                1) contain -> 배경이미지가 모두보임(비율맞게)
+            2) cover -> 비율에 맞게 대상박스의 빈공간이 없음! 
+                3) 모두 채운후 비율없이 만드는 방법 100% 100%
+            */
+        background-size: cover;
+
+        /* 자식요소 가로방향 스크롤 숨기기 */
+        overflow-x: hidden;
+      }
+
+      /* 1. 제목 */
+      .main-title {
+        /* 박스 셋팅 */
+        text-align: center;
+        background-color: #00000072;
+        border-radius: 50px;
+
+        /* 글자 셋팅 */
+        color: #fff;
+        font-size: 50px;
+        line-height: 100px;
+
+        /* 글자 테두리 */
+        text-shadow: 4px 0 darkorange, -4px 0 darkorange, 0 4px darkorange,
+          0 -4px darkorange;
+        /* -webkit-text-stroke: 1px red; */
+      }
+
+      /* 전체 부모박스 */
+      .main-contents {
+        /* 박스셋팅 */
+        max-width: 1500px;
+        margin: 100px auto;
+        border: 10px solid darkorange;
+        border-radius: 20px;
+        padding: 20px;
+
+        /* 기본적으로 박스 크기를 잡으면
+        그 크기는 컨텐트영역의 크기임.
+        보더와 패딩은 바깥쪽으로 생김
+        그래서 박스가 커짐!
+        보더, 패딩을 크기셋팅에 포함시키려면
+        box-sizing:border-box 셋팅해야함! */
+        box-sizing: border-box;
+
+        /* 겹쳐지는 부분 배경 흐리게 처리하기
+        -> 백드롭필터! 블러! */
+        backdrop-filter: blur(3px);
+        /* backdrop-filter: sepia(90%); */
+        /* backdrop-filter: invert(70%); */
+        /* backdrop-filter: hue-rotate(120deg); */
+        /* backdrop-filter: grayscale(100%); */
+      }
+      /* 부모박스 가상요소 clear셋팅(float때문에) */
+      .main-contents::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      /* 캐릭터 박스 공통 */
+      .main-contents > div {
+        /* 옆으로 흐르게 */
+        float: left;
+        /* 5등분하기 */
+        width: calc(100% / 5);
+        /* 중앙정렬 tac */
+        text-align: center;
+      }
+      /* 5번째 div 이후 자식 마진탑주기 */
+      .main-contents > div:nth-child(5) ~ div {
+        /* 위쪽 마진 */
+        margin-top: 20px;
+      }
+      /* 캐릭터 이미지 공통 */
+      .main-contents > div img {
+        width: 200px;
+        height: 200px;
+        /* 원형 */
+        border-radius: 50%;
+
+        /* 트랜지션 trs */
+        transition: 0.6s;
+      }
+
+      /********************************************** 
+        [ Transform 효과주기 ]
+        - 선택요소의 크기, 회전, 이동, 기울임
+            등 변형을 하기위한 속성
+        - 2D, 3D 지원됨
+      ********************************************
+        1. transform : rotateY(각도deg) - Y축회전
+        - deg 는 각도의 단위(도:degree)
+
+        [ 각도 단위 확장 ]
+        (1) deg: 도 단위 (360 deg는 한 바퀴 회전)
+        (2) grad: 그라디언트 (400 grad는 한 바퀴 회전)
+        (3) rad: 라디안 (2π rad는 한 바퀴 회전)
+        (4) turn: 턴 (1 turn은 한 바퀴 회전)
+
+    **********************************************/
+
+      #transform-box1:hover img {
+        /* y축회전 : tfry */
+        transform: rotateY(180deg);
+
+        /* 동시효과중 필터주기 */
+        filter: grayscale(100%);
+        /* CSS 필터 적용하기
+            : 필터속성은 흑백,흐림,세피아,명암,
+            채도 등 출력이미지를 변경하고자 할때
+            사용하는 속성
+            (참고)
+            https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)
+        */
+      }
+
+      /********************************************** 
+        2. transfrom : rotateX(각도deg) - X축회전
+        - deg 는 각도의 단위(도:degree)
+    **********************************************/
+      #transform-box2 img {
+        /* 미리 x축 회전 해놓기 : tfrx */
+        transform: rotateX(180deg);
+        /* 필터블러 */
+        filter: blur(2px);
+      }
+      /* 오버시 원상복귀 */
+      #transform-box2:hover img {
+        /* 미리 x축 회전 해놓기 : tfrx */
+        transform: rotateX(0deg);
+        /* 필터블러 */
+        filter: blur(0px);
+      }
+
+      /********************************************** 
+        3. transform : translateX(거리) - X축이동
+            - 단위 : px, % 등
+            - 현재 위치로부터 이동
+            - 기준점은 요소의 왼쪽
+            - % 단위를 쓸경우 기준은 요소의 width값
+            - 이동방향: + 오른쪽, -는 왼쪽
+    **********************************************/
+      #transform-box3:hover img {
+        /* x축이동 tftx */
+        transform: translateX(-50%);
+        /* -> %단위 기준은 항상 자기자신의 크기다!!! */
+      }
+
+      /********************************************** 
+        4. transform : translateY(거리) - Y축이동
+        - 단위 : px, % 등
+        - 현재 위치로부터 이동
+        - 기준점은 요소의 윗쪽
+        - % 단위를 쓸경우 기준은 요소의 height값
+        - 이동방향: + 아랫쪽, -는 윗쪽
+    **********************************************/
+      #transform-box4:hover img {
+        /* y축이동 tfty */
+        transform: translateY(200%);
+        /* -> %단위 기준은 항상 자기자신의 크기다!!! */
+      }
+
+      /********************************************** 
+        5. transform : translate(x축거리,y축거리) - X,Y축이동
+        - 단위 : px, % 등
+        - 현재 위치로부터 이동
+        - 기준점은 요소의 윗쪽, 왼쪽선
+        - % 단위를 쓸경우 기준은 요소의 
+            width,height값
+        - 이동방향: + 오른쪽/아랫쪽, -는 왼쪽/윗쪽
+    **********************************************/
+
+      #transform-box5:hover img {
+        /* x,y축이동 tft */
+        /* transform: translate(-100%, -100%); */
+        /* -> %단위 기준은 항상 자기자신의 크기다!!! */
+
+        /* translate: -100%; -> x축이동 */
+        /* translate: 0 -100%; -> y축이동 */
+        translate: -100% -100%; /* -> x,y축 동시이동 */
+
+        /************************************************ 
+        원래는 translate는 transform하위 셋팅속성임!
+        translate의 사용율이 높아짐에 따라 속성값으로 독립됨!
+
+        [ translate 속성 ]
+        translate: 값 값; -> x,y축 이동설정값
+        translate: 값; -> x축 이동설정값
+        translate: 0 값; -> y축 이동설정값
+        
+        ************************************************/
+
+        /* 투명도조정 - opacity속성 */
+        opacity: 0.5;
+      }
+
+      /************************************** 
+        6. transform : rotate(각도deg) - 원형회전
+        - 각도의 숫자가 양수이면 시계방향
+        음수는 반시계방향
+        - 기본회전축은 정중앙
+        (변경가능: transform-origin)
+
+        [ 트랜스폼 회전축 변경속성 ]
+        transform-origin: 가로 세로;
+        - 가로값 : left, right, center, 몇px,몇%
+        - 세로값 : top, bottom, center, 몇px,몇%
+        - 기본값 : 가로, 세로 center임! 
+    **************************************/
+
+      /* 이미지 회전축 변경하기 */
+      #transform-box6 img {
+        /* transform-origin: right bottom; */
+        transform-origin: 20% 20%;
+      }
+      #transform-box6:hover img {
+        /* 원형회전 : tfr */
+        /* transform: rotate(4587deg); */
+
+        rotate: 4586deg;
+        /* rotate: x 4586deg; */
+        /* rotate: y 4586deg; */
+
+        /************************************ 
+            [ rotate 속성 ]
+
+            rotate : 각도; -> 평면회전
+            rotate : x 각도; -> x축회전
+            rotate : y 각도; -> y축회전
+            rotate : z 각도; -> z축회전
+
+            ((참고: 축회전조합하기))
+            rotate : 숫자 숫자 숫자 각도
+            -> 숫자에 1을 쓰면 순서대로 x,y,z축 사용표시
+            -> 숫자에 0을 쓰면 순서대로 x,y,z축 미사용표시
+
+            예)
+            rotate : 1 1 0 45deg; -> x,y축 동시 45도회전
+            rotate : 1 1 1 180deg; -> x,y,z축 동시 180도회전
+            
+        ************************************/
+
+        /* 트랜지션 시간 늘리기 */
+        transition-duration: 10s;
+      }
+
+      /****************************************** 
+        7. transform : skew - x,y축 기울임
+        - skewX(각도deg), skewY(각도deg)
+        - skew(x축,y축)
+        - 각도가 양수/음수에 따라 기울임 방향이 달라짐
+    ******************************************/
+      #transform-box7:hover img {
+        /* x축 skew  */
+        /* transform: skewX(-30deg); */
+        /* y축 skew  */
+        transform: skewY(30deg);
+      }
+
+    /******************************************** 
+        8. transform : scale(x축배수, y축배수)
+        - 값을 하나만쓰면 양방향 같은 값 셋팅
+        - 배수가 1보다 크면 확대, 작으면 축소
+        - scaleX(배수), scaleY(배수) - x,y별셋팅
+        - 값이 0이면 사라짐
+        -> 가끔 크기가 정해진 요소를 일정크기로
+        축소, 확대해서 크기를 맞출때도 용이함!
+      ***************************************
+
+      [ scale 속성 ]
+       scale: 값; -> 전체확대/축소
+       scale: 값 값; -> x,y 따로 확대/축소
+       scale: 값 1; -> x확대/축소
+       scale: 1 값; -> y확대/축소
+
+
+    ********************************************/
+    #transform-box8:hover img {
+        /* transform:scale(2); */
+        scale: 2;
+    }
+
+    /***************************************** 
+        9. 복합적용하기
+        transform: 속성1 속성2 속성3 ....;
+    *****************************************/
+    #transform-box9:hover img {
+        transform: 
+        scale(5) 
+        translate(-200%,-100%)
+        rotateX(1200deg)
+        skewX(50deg)
+        rotate(5300deg);
+
+        /* 트랜지션 시간 늘리기 */
+        transition: 30s;
+    }
+    /* 내가 여러개 주기! */
+    #transform-box10:hover img {
+        transform: 
+        scale(2) 
+        translate(-100%,-100%)
+        rotateY(4turn)
+        rotate(360deg);
+
+        /* 트랜지션 시간 늘리기 */
+        transition: 10s ease-in-out;
+    }
+
+
+    /* 인트로 등장 애니메이션 설정하기 */
+    /* animate를 배우기 전이므로 :hover를 사용! */
+    .main-contents{
+        /* 오른쪽 바깥에 나가있게 셋팅함! translate사용! */
+        translate: 110%;
+        /* 트랜지션 trs */
+        transition: .8s ease-out 1s;
+
+        /* 애니메이션이 있는 경우 트랜지션 불필요. */
+        /* animation : 이시이지반방마 */
+        animation: first-ani .8s ease-out 1s forwards;
+    }
+
+    /* 오버시 등장 */
+    body:hover .main-contents{
+        translate: 0;
+    }
+
+    /* 첫등장 키프레임 */
+    @keyframes first-ani {
+      to {
+
+      }
+    }
+
+
+    /* 뒤집어 애니 박스 */
+    #transform-special {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      /* 부모는? 보이는화면! */
+    }
+    /* 이미지가 겹치게 앱솔루트 셋팅 */
+    #transform-special img{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+    /* 1.첫번째 img자식 - 메롱 원본(돌아올때) */
+    #transform-special img:first-child{
+      /* 처음에 90도로 숨겨짐 */
+      transform: rotateY(90deg);
+      /* 트랜지션 trs : 바로출발, 처음만 천천히 ease-in */
+      transition: .4s ease-in;
+    }
+    /* 2.첫번째 img자식 - 메롱 오버시 */
+    #transform-special:hover img:first-child{
+      /* 처음에 90도로 숨겨짐 */
+      transform: rotateY(0deg);
+      /* 트랜지션 trs : 
+      바보돌동안 0.4초 기다려 / 
+      그대로 받아서 끝에 천천히 ease-out */
+      transition: .4s ease-out .4s;
+    }
+
+    /* 3.마지막째 img자식 - 바보 원본(돌아올때) */
+    #transform-special img:last-child{
+      /* 처음에 0도로 보임 */
+      transform: rotateY(0deg);
+      /* 트랜지션 trs : 
+      돌아올때 메롱 0.4초 기다려 / 
+      그대로 받아서 끝에 천천히 ease-out */
+      transition: .4s ease-out .4s;
+    }
+    /* 4.마지막째 img자식 - 바보 오버시 */
+    #transform-special:hover img:last-child{
+      /* 오버시 90도로 숨겨짐 */
+      transform: rotateY(90deg);
+      /* 트랜지션 trs : 바로출발, 처음만 천천히 ease-in */
+      transition: .4s ease-in;
+    }
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- 1. 제목 -->
+    <h1 class="main-title">트랜스폼 연습</h1>
+
+    <!-- 2. 뒤집어애니박스 -->
+     <div id="transform-special">
+        <img src="images/cast02.jpg" alt="캐릭터" />
+        <img src="images/cast03.jpg" alt="캐릭터" />
+      </div>
+
+    <!-- 3. 컨텐츠 박스 -->
+    <section class="main-contents my">
+      <div id="transform-box1">
+        <img src="images/cast01.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box2">
+        <img src="images/cast02.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box3">
+        <img src="images/cast03.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box4">
+        <img src="images/cast04.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box5">
+        <img src="images/cast05.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box6">
+        <img src="images/cast01.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box7">
+        <img src="images/cast02.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box8">
+        <img src="images/cast03.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box9">
+        <img src="images/cast04.jpg" alt="캐릭터" />
+      </div>
+      <div id="transform-box10">
+        <img src="images/cast05.jpg" alt="캐릭터" />
+      </div>
+    </section>
+  </body>
+</html>
