@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS1. 자바스크립트 기본 + DOM선택법</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* 보이는 화면에 채우기 */
+      }
+      body {
+        overflow: hidden;
+      }
+
+      .pbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 부모는? window(보이는화면) */
+        margin: 0;
+        padding: 0;
+
+        width: 500px;
+        height: 500px;
+        padding-top: 200px;
+
+        /* 글자 */
+        line-height: 50px;
+        font-size: 30px;
+        text-align: center;
+        /* 줄바꿈방지 */
+        white-space: nowrap;
+
+        border: 4px solid purple;
+        /* 보더박스:보더,패딩포함 */
+        box-sizing: border-box;
+      }
+
+      /* 원모양 박스 만들기 */
+      .원이야{
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* 부모는? 보이는 상단화면 */
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* 배경공통 */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* 보더박스 */
+        box-sizing: border-box;
+      }
+      /* 원모양 개별셋팅 */
+      .원이야:nth-child(1){
+        right: 400px;
+        background-image: url(./images/apt1.jpg);
+      }
+      .원이야:nth-child(2){
+        right: 200px;
+        background-image: url(./images/apt2.jpg);
+      }
+      .원이야:nth-child(3){
+        background-image: url(./images/apt3.jpg);
+        background-position: center;
+      }
+
+      /* 원이야 클래스에 돌아 클래스를 넣으면 돌게한다! */
+      .원이야.돌아{
+        /* 애니메이션 - animation:이시이지반방마 */
+        animation: 돌아애니 2s linear infinite;
+      }
+
+      /* 키프레임 - 회전하는 키프레임 */
+      @keyframes 돌아애니 {
+        to{
+          rotate: 1turn;
+          /* rotate: 360deg; */
+        }
+      }
+    </style>
+
+<!-- 자바스크립트 코딩구역! -->
+ <script>
+  // 인터널 JS코딩구역 ///////
+
+  // 함수 만들기 ////////
+  // 함수형식 -> function 함수명(){코드구역}
+  // -> 함수는 명령어코드가 있는 실행 메모리공간!
+  // -> 이 함수를 호출하기 위한 주소가 함수이름이다!
+  function 김비서나와라(주머니){
+    // 주머니 - 전달변수 : 함수호출시 보낸값을 담는
+    // 값의 메모리 공간이름!
+
+    // 1. 함수호출확인!
+    // console.log('나왔다!오바!'+주머니);
+    console.log('나왔다!오바!',주머니);
+
+    // 2. 변경대상에 변경반영하기
+
+    // 반복되는 변경대상을 특정 메모리공간에 넣기!
+    // 봐 여기 = 값
+    // -> 이퀄오른쪽의 값을 여기에 넣는다!(할당한다!)
+    // var 여기 = 값
+    var 피박스 =
+    document
+    // 클래스 가져오기
+    // get 가져와라! Elements 요소들을! 
+    // By Class Name 클래스명으로!
+    .getElementsByClassName('pbox')
+    // 클래스는 여러개일 수 있으므로 0부터 시작!
+    .item(0);
+
+    // 피박스 라는 저장공간주소에 .pbox요소를 넣음!
+    // console.log(값,값,값) -> +기호대신 콤마(,)사용 가능
+    console.log('내가 담은 것이 뭐지?',피박스);
+
+    // [ 문자에 대한 매우 중요한 구분! ]
+    // 일반적으로 변수라고 하는 메모리공간 주소는
+    // 문자열로 되어 있음! 그래서 문자 데이터와 헷갈림!
+    // 메모리공간 주소이름은 따옴표로 싸지 않는다!!!
+    // 반면 문자 데이터는 따옴표로 반드시 싼다!!!
+
+    // 2-1. 배경이미지 넣기
+    // CSS배경 변경하기
+    // style 객체안에 각종 css속성이 모두 만들어져있음!
+    피박스.style.background = 'url(./images/kimbs.jpg) no-repeat top/cover';
+
+    // 2-2. 글자색 변경하기
+    피박스.style.color = 'white';
+
+    // 2-3. 글자그림자 넣기
+    피박스.style.textShadow = '1px 1px 1px red';
+
+    // 2-4. 박스 둥글게 만들기
+    피박스.style.borderRadius = '50%';
+
+    // 2-5. 트랜지션 넣기
+    피박스.style.transition = '2s';
+
+    // 2-6. 두바퀴 회전하기 : 720deg 또는 2turn
+    피박스.style.rotate = '2turn';
+
+    // 2-7. 4사분면으로 이동하기 -> top:50% , left:50%
+    피박스.style.top = '50%';
+    피박스.style.left = '50%';
+
+    // 2-8. 트랜스폼으로 중앙이동하기 -> translate: -50% -50%
+    피박스.style.translate = '-50% -50%';
+
+    // body요소를 메모리공간주소에 넣기
+    var 바디 = document.body;
+
+    // 2-9. body에 배경색넣기
+    바디.style.backgroundColor = 'lightskyblue';
+    
+    // 2-10. body에 트랜지션 넣기
+    바디.style.transition = '5s';
+
+    // 요청 클래스 요소를 메모리공간주소에 담는다!
+    var 요청 =
+    document.getElementsByClassName('요청').item(0);
+
+    // 2-11. 김비서에 요청내용 찍기 -> 주머니 사용!
+    // innerText 속성은 요소 내부 데이터로 문자열을 넣는 역할을함
+    요청.innerText = 주머니;
+
+    // 2-12. 요청 클래스 요소에 css 한번에 넣기
+    // -> cssText속성 : css설정값을 한번에 넣는 속성
+    // -> 한번에 설정하면 기존값도 지워짐!
+    // -> 한번에 완전히 변경이 필요한 경우 사용함!
+    // -> 값을 하나만 넣어도 기존값이 지워짐!
+    요청.style.cssText = `
+      position: absolute;
+      top: 0;
+      right: -30px;
+      border: 4px solid darkgreen;
+      background-color: white;
+      padding: 20px;
+      rotate: 15deg;
+      color: darkorange;
+    `;
+
+
+
+  } //////////// 김비서나와라 함수 ////////////
+  ////////////////////////////////////////////
+
+
+
+
+  ///////////////////////////
+ </script>
+
+ <!-- 외부JS파일 불러오기 : 익스터널 방식 JS
+  외부JS파일의 확장자는 .js다! -->
+<script src="./js/JS1.기본사용법.js"></script>
+  </head>
+  <body>
+    <!-- 드라마 소개박스 -->
+    <p 
+    class="pbox" 
+    title="클릭하시면 김비서가 나옵니다!"
+    
+    onclick="
+    // onclick 이벤트속성은 JS와 연결되는
+    // 기본속성이다!
+    // 이벤트 속성 이름은 아래와 같이 구성된다!
+    // -> on+이벤트명 예) onclick, onmouseover,...
+    // 이벤트 속성은 모든 html요소에 줄 수 있다!
+
+    // 이 구역은 JS코드구역임!
+    // 여기는 JS문법만 적용됨!
+    // JS한줄주석
+    // 경고창 띄우기
+    // alert('김비서! 어서나와!!!');
+
+    // 콘솔찍기
+    console.log('클릭했네~!');
+
+    // JS는 전체 HTML의 지도를 가지고 있음
+    // 그 지도명은 document다!
+    document
+    // 가져온 요소들 중 id명으로된 요소를 선택한다!
+    // -> getElementById(아이디명)
+    // document하위 요소선택시 점(.)을 찍는다!
+    // -> get 가져와! Element 요소를! By Id 아이디로!
+    .getElementById('name')
+    // 하위로 내려갈때 점(.)
+    // innerHTML = 코드
+    // JS 에서 이퀄은 이퀄 오른쪽의 값이 이퀄 왼쪽으로
+    // 들어감을 의미한다!
+    // innerHTML은
+    // inner 안쪽에 HTML 태그를 넣는속성
+    // 오른쪽값을 감싸줄때 백틱(`)으로 싸고
+    // 내부 속성값은 홑따옴표를 사용하여 
+    // 가장 바깥쪽의 쌍따옴표와 충돌을 막는다!
+    .innerHTML=`
+      <img 
+      src='./images/kim.png' 
+      alt='김비서가 왜그럴까?'>
+    `;
+
+    // [ 따옴표규칙 ]
+    // 따옴표 내부에 같은 따옴표를 쓸 수 없다!
+    // -> 쌍따옴표 내부에 홑따옴표
+    // -> 홑따옴표 내부에 쌍따옴표
+    // -> 쌍따옴표 나 홑따옴표 내부에 백틱!
+
+
+    // 나머지 기능은 외부 함수를 호출해서 구현하자!
+    // 함수란? 함 해보슈(수)
+    // -> 특정 명령문을 호출할때 실행하는 코드저장소!
+    // 호출은 함수이름으로 호출한다!
+    // 호출시 소괄호()를 뒤에 사용한다!
+
+    김비서나와라('아이스크림 사와!');
+    
+    "
+    >
+      나는 요즘 매일 생각한다! <br />
+      도대체 <span id="name"></span>
+
+      <!-- 김비서에 전달된 요청찍기 -->
+      <b class="요청"></b>
+    </p>
+
+    <!-- 원모양박스 -->
+    <div class="박스야">
+      <div class="원이야" onclick="돌아랏(0)"></div>
+      <div class="원이야" onclick="돌아랏(1)"></div>
+      <div class="원이야" onclick="돌아랏(2)"></div>
+    </div>
+  </body>
+</html>
