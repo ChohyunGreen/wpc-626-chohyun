@@ -1,0 +1,26 @@
+.sample {
+    font-weight: 900;
+  margin: 0;
+  background: linear-gradient(88.89deg, #2BF2FF 0.48%, #2F76FF 42.46%, #2BF2FF 84.45%);
+    background-size: auto;
+    background-clip: border-box;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  font-size: 120px;
+}
+
+@keyframes textclip { 
+    to 
+    { background-position: 200% center;}
+}
