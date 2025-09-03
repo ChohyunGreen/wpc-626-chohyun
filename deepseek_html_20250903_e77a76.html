@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 템플릿</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 최상단 영역 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .categories {
+            display: flex;
+            gap: 20px;
+        }
+
+        .categories a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .categories a:hover {
+            color: #4a89dc;
+        }
+
+        .icon-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon-menu a {
+            color: #555;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .icon-menu a:hover {
+            color: #4a89dc;
+        }
+
+        /* 배너 슬라이드 */
+        .banner-slider {
+            margin-top: 20px;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .swiper-pagination {
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .swiper-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .play-pause {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 섬네일 아이콘 */
+        .thumbnail-icons {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .thumbnail-item {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .thumbnail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .thumbnail-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .thumbnail-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* 상품 영역 */
+        .product-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4a89dc;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .sale-price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 18px;
+        }
+
+        .discount-rate {
+            background: #e74c3c;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* 유튜브 영역 */
+        .youtube-section {
+            display: flex;
+            gap: 30px;
+            margin: 60px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            flex: 1;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-text h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .video-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* 이벤트 슬라이드 */
+        .event-slider {
+            margin: 60px 0;
+            padding: 20px 0;
+        }
+
+        .event-swiper {
+            padding: 30px 0;
+        }
+
+        .event-slide {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 340px;
+        }
+
+        .event-slide img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .event-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .event-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #4a89dc;
+        }
+
+        /* 탭형식 슬라이드 */
+        .tab-slider {
+            display: flex;
+            gap: 30px;
+            margin: 60px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tab {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab.active {
+            background: #4a89dc;
+            color: white;
+        }
+
+        .tab img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .tab-content {
+            flex: 3;
+            min-height: 300px;
+            position: relative;
+        }
+
+        .content-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-item.active {
+            opacity: 1;
+        }
+
+        .content-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* 제품후기 */
+        .review-section {
+            margin: 60px 0;
+        }
+
+        .review-list {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 0;
+            scrollbar-width: thin;
+        }
+
+        .review-list::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .review-list::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        .review-item {
+            flex: 0 0 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+        }
+
+        .review-rating {
+            color: #ffc107;
+            margin-left: auto;
+        }
+
+        .review-content {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 인스타그램 */
+        .instagram-section {
+            margin: 60px 0;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+        }
+
+        .instagram-item {
+            width: 100px;
+            height: 100px;
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* 푸터 */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ecf0f1;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 1200px) {
+            .thumbnail-icons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .youtube-section {
+                flex-direction: column;
+            }
+            
+            .tab-slider {
+                flex-direction: column;
+            }
+            
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .banner-slider {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .thumbnail-icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .event-slide {
+                height: 280px;
+            }
+            
+            .event-slide img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 최상단 영역 -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-left">
+                    <a href="#" class="logo">
+                        <i class="fas fa-shopping-bag"></i>
+                        SHOPPING MALL
+                    </a>
+                    <nav class="categories">
+                        <a href="#">패션</a>
+                        <a href="#">뷰티</a>
+                        <a href="#">가전디지털</a>
+                        <a href="#">식품</a>
+                        <a href="#">홈데코</a>
+                    </nav>
+                </div>
+                <div class="icon-menu">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 배너 슬라이드 -->
+        <section class="banner-slider">
+            <div class="swiper mainSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/1300x500/4a89dc/ffffff?text=Main+Banner+1" alt="Banner 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/1300x500/e74c3c/ffffff?text=Main+Banner+2" alt="Banner 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/1300x500/2ecc71/ffffff?text=Main+Banner+3" alt="Banner 3">
+                    </div>
+                </div>
+                <div class="swiper-controls">
+                    <div class="swiper-pagination"></div>
+                    <button class="play-pause">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+
+        <!-- 섬네일 아이콘 -->
+        <section class="thumbnail-icons">
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/3498db/ffffff?text=1" alt="Icon 1">
+                <a href="#">패션의류</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/e74c3c/ffffff?text=2" alt="Icon 2">
+                <a href="#">뷰티</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/2ecc71/ffffff?text=3" alt="Icon 3">
+                <a href="#">가전제품</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/f1c40f/ffffff?text=4" alt="Icon 4">
+                <a href="#">식품</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/9b59b6/ffffff?text=5" alt="Icon 5">
+                <a href="#">생활용품</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/1abc9c/ffffff?text=6" alt="Icon 6">
+                <a href="#">스포츠</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/34495e/ffffff?text=7" alt="Icon 7">
+                <a href="#">유아용품</a>
+            </div>
+            <div class="thumbnail-item">
+                <img src="https://via.placeholder.com/70/e67e22/ffffff?text=8" alt="Icon 8">
+                <a href="#">반려동물</a>
+            </div>
+        </section>
+
+        <!-- 상품 영역 1 -->
+        <section class="product-section">
+            <h2 class="section-title">인기 상품</h2>
+            <div class="product-grid">
+                <!-- 상품 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/3498db/ffffff?text=Product+1" alt="Product 1">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">스트라이프 셔츠</h3>
+                        <p class="product-desc">편안한 착용감의 베이직 셔츠</p>
+                        <div class="product-price">
+                            <span class="original-price">39,000원</span>
+                            <span class="sale-price">29,000원</span>
+                            <span class="discount-rate">25%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/e74c3c/ffffff?text=Product+2" alt="Product 2">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">스키니 진</h3>
+                        <p class="product-desc">슬림하게 떨어지는 핏의 데님</p>
+                        <div class="product-price">
+                            <span class="original-price">59,000원</span>
+                            <span class="sale-price">49,000원</span>
+                            <span class="discount-rate">17%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/2ecc71/ffffff?text=Product+3" alt="Product 3">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">레더 자켓</h3>
+                        <p class="product-desc">고급스러운 소가죽 자켓</p>
+                        <div class="product-price">
+                            <span class="original-price">129,000원</span>
+                            <span class="sale-price">99,000원</span>
+                            <span class="discount-rate">23%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/f1c40f/ffffff?text=Product+4" alt="Product 4">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">니트 카디건</h3>
+                        <p class="product-desc">보들보들한 감촉의 니트</p>
+                        <div class="product-price">
+                            <span class="original-price">79,000원</span>
+                            <span class="sale-price">59,000원</span>
+                            <span class="discount-rate">25%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/9b59b6/ffffff?text=Product+5" alt="Product 5">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">슬립온 스니커즈</h3>
+                        <p class="product-desc">가벼운 발걸음을 위한 슬립온</p>
+                        <div class="product-price">
+                            <span class="original-price">89,000원</span>
+                            <span class="sale-price">69,000원</span>
+                            <span class="discount-rate">22%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/1abc9c/ffffff?text=Product+6" alt="Product 6">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">크로스 바디백</h3>
+                        <p class="product-desc">수납력 좋은 데일리 백</p>
+                        <div class="product-price">
+                            <span class="original-price">69,000원</span>
+                            <span class="sale-price">49,000원</span>
+                            <span class="discount-rate">29%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/34495e/ffffff?text=Product+7" alt="Product 7">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">스트레치 팬츠</h3>
+                        <p class="product-desc">활동성이 좋은 스트레치 팬츠</p>
+                        <div class="product-price">
+                            <span class="original-price">49,000원</span>
+                            <span class="sale-price">39,000원</span>
+                            <span class="discount-rate">20%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 상품 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300/e67e22/ffffff?text=Product+8" alt="Product 8">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">패딩 조끼</h3>
+                        <p class="product-desc">가벼운 보온성을 위한 조끼</p>
+                        <div class="product-price">
+                            <span class="original-price">79,000원</span>
+                            <span class="sale-price">59,000원</span>
+                            <span class="discount-rate">25%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 유튜브 동영상 영역 -->
+        <section class="youtube-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6g4dkBF5anU?autoplay=1&mute=1&loop=1&playlist=6g4dkBF5anU" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="video-text">
+                <h2>2023 봄/여름 컬렉션</h2>
+                <p>자연과 조화를 이루는 새로운 컬렉션을 만나보세요. 지속 가능한 소재와 현대적인 디자인의 만남으로 탄생한 특별한 컬렉션입니다.</p>
+                <p>편안하면서도 스타일리시한 디자인으로 일상에서 특별한 순간까지 함께할 수 있는 아이템들을 선보입니다.</p>
+            </div>
+        </section>
+
+        <!-- 이벤트 슬라이드 -->
+        <section class="event-slider">
+            <h2 class="section-title">진행 중인 이벤트</h2>
+            <div class="swiper eventSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="event-slide">
+                            <img src="https://via.placeholder.com/520x220/3498db/ffffff?text=Event+1" alt="Event 1">
+                            <div class="event-content">
+                                <h3>신규 회원 할인</h3>
+                                <p>첫 구매시 30% 할인 쿠폰 증정</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="event-slide">
+                            <img src="https://via.placeholder.com/520x220/e74c3c/ffffff?text=Event+2" alt="Event 2">
+                            <div class="event-content">
+                                <h3>시즌 오프 세일</h3>
+                                <p>여름 상품 최대 70% 할인</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="event-slide">
+                            <img src="https://via.placeholder.com/520x220/2ecc71/ffffff?text=Event+3" alt="Event 3">
+                            <div class="event-content">
+                                <h3>생일 축하 쿠폰</h3>
+                                <p>생일 당월 50% 할인 쿠폰 증정</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="event-slide">
+                            <img src="https://via.placeholder.com/520x220/f1c40f/ffffff?text=Event+4" alt="Event 4">
+                            <div class="event-content">
+                                <h3>무료 배송의 날</h3>
+                                <p>매주 금요일 전 상품 무료 배송</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+
+        <!-- 탭형식 슬라이드 -->
+        <section class="tab-slider">
+            <div class="tabs">
+                <div class="tab active" data-tab="tab1">
+                    <img src="https://via.placeholder.com/30/3498db/ffffff?text=T1" alt="Tab 1">
+                    <span>신상품</span>
+                </div>
+                <div class="tab" data-tab="tab2">
+                    <img src="https://via.placeholder.com/30/e74c3c/ffffff?text=T2" alt="Tab 2">
+                    <span>베스트</span>
+                </div>
+                <div class="tab" data-tab="tab3">
+                    <img src="https://via.placeholder.com/30/2ecc71/ffffff?text=T3" alt="Tab 3">
+                    <span>알뜰쇼핑</span>
+                </div>
+                <div class="tab" data-tab="tab4">
+                    <img src="https://via.placeholder.com/30/f1c40f/ffffff?text=T4" alt="Tab 4">
+                    <span>이벤트</span>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="content-item active" id="tab1">
+                    <img src="https://via.placeholder.com/800x300/3498db/ffffff?text=New+Products" alt="New Products">
+                    <h3>신상품 특별 기획전</h3>
+                    <p>이번 시즌에 선보이는 다양한 신상품들을 만나보세요. 한정 수량 특별 할인 중입니다.</p>
+                </div>
+                <div class="content-item" id="tab2">
+                    <img src="https://via.placeholder.com/800x300/e74c3c/ffffff?text=Best+Items" alt="Best Items">
+                    <h3>베스트셀러 모음</h3>
+                    <p>고객들에게 가장 사랑받는 인기 상품들을 모았습니다. 지금 확인해보세요.</p>
+                </div>
+                <div class="content-item" id="tab3">
+                    <img src="https://via.placeholder.com/800x300/2ecc71/ffffff?text=Special+Deals" alt="Special Deals">
+                    <h3>알뜰쇼핑 찬스</h3>
+                    <p>합리적인 가격으로 만나는 특별한 기회! 지금만 있는 특가 상품을 확인해보세요.</p>
+                </div>
+                <div class="content-item" id="tab4">
+                    <img src="https://via.placeholder.com/800x300/f1c40f/ffffff?text=Events" alt="Events">
+                    <h3>진행 중인 이벤트</h3>
+                    <p>다양한 이벤트와 프로모션으로 특별한 혜택을 누려보세요.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 제품후기 -->
+        <section class="review-section">
+            <h2 class="section-title">제품 후기</h2>
+            <div class="review-list">
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/40/3498db/ffffff?text=U1" alt="User 1" class="reviewer-avatar">
+                        <span class="reviewer-name">김소비</span>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">배송이 빨라서 좋았어요. 사이즈도 딱 맞고 품질도 생각보다 훨씬 좋네요. 다음에 또 구매할게요!</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/40/e74c3c/ffffff?text=U2" alt="User 2" class="reviewer-avatar">
+                        <span class="reviewer-name">이구매</span>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">가격대비 품질이 좋습니다. 다만 색상이 이미지보다 약간 연하게 나왔어요.</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/40/2ecc71/ffffff?text=U3" alt="User 3" class="reviewer-avatar">
+                        <span class="reviewer-name">박고객</span>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">착용감이 좋고 디자인도 예뻐서 자주 입게 되네요. 친구들도 다 좋아하더라고요.</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/40/f1c40f/ffffff?text=U4" alt="User 4" class="reviewer-avatar">
+                        <span class="reviewer-name">최만족</span>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">이 가격에 이 퀄리티라니! 정말 만족스러운 구매였습니다. 추천합니다!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 인스타그램 -->
+        <section class="instagram-section">
+            <h2 class="section-title">인스타그램</h2>
+            <div class="instagram-grid">
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/3498db/ffffff?text=I1" alt="Instagram 1">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/e74c3c/ffffff?text=I2" alt="Instagram 2">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/2ecc71/ffffff?text=I3" alt="Instagram 3">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/f1c40f/ffffff?text=I4" alt="Instagram 4">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/9b59b6/ffffff?text=I5" alt="Instagram 5">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/1abc9c/ffffff?text=I6" alt="Instagram 6">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/34495e/ffffff?text=I7" alt="Instagram 7">
+                </div>
+                <div class="instagram-item">
+                    <img src="https://via.placeholder.com/100/e67e22/ffffff?text=I8" alt="Instagram 8">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-section">
+                    <h3>회사 정보</h3>
+                    <p>주식회사 쇼핑몰</p>
+                    <p>대표이사: 홍길동</p>
+                    <p>주소: 서울특별시 강남구 테헤란로 123</p>
+                    <p>사업자등록번호: 123-45-67890</p>
+                    <p>통신판매업신고: 제2023-서울강남-01234호</p>
+                </div>
+                <div class="footer-section">
+                    <h3>고객센터</h3>
+                    <p>전화: 1588-1234</p>
+                    <p>이메일: help@shoppingmall.com</p>
+                    <p>근무시간: 평일 09:00 ~ 18:00</p>
+                    <p>점심시간: 12:00 ~ 13:00</p>
+                    <p>휴무: 주말 및 공휴일</p>
+                </div>
+                <div class="footer-section">
+                    <h3>계좌 정보</h3>
+                    <p>국민은행: 123456-01-234567</p>
+                    <p>예금주: (주)쇼핑몰</p>
+                    <p>우리은행: 1234-567-890123</p>
+                    <p>예금주: (주)쇼핑몰</p>
+                    <p>신한은행: 123-456-789012</p>
+                    <p>예금주: (주)쇼핑몰</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Shopping Mall. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // 메인 배너 슬라이더
+        const mainSwiper = new Swiper('.mainSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'fraction',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+
+        // 이벤트 슬라이더
+        const eventSwiper = new Swiper('.eventSwiper', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            centeredSlides: true,
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '"></span>';
+                },
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 15
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                }
+            }
+        });
+
+        // 탭 기능
+        const tabs = document.querySelectorAll('.tab');
+        const contentItems = document.querySelectorAll('.content-item');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // 모든 탭 비활성화
+                tabs.forEach(t => t.classList.remove('active'));
+                // 모든 콘텐츠 숨기기
+                contentItems.forEach(item => item.classList.remove('active'));
+                
+                // 현재 탭 활성화
+                tab.classList.add('active');
+                // 해당 콘텐츠 표시
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // 재생/일시정지 버튼
+        const playPauseBtn = document.querySelector('.play-pause');
+        playPauseBtn.addEventListener('click', function() {
+            if (mainSwiper.autoplay.running) {
+                mainSwiper.autoplay.stop();
+                this.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                mainSwiper.autoplay.start();
+                this.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
