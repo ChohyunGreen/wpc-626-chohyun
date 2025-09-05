@@ -14,6 +14,18 @@ body {
      rgb(255, 190, 247)
      );
   height: 100vh;
+  /*************************************** 
+  [ 기존 기본커서 대신 이미지나오게 하기 ]
+  cursor: url(이미지경로) 핫스팟, auto;
+  -> 핫스팟은 커서 포인트위치 지정
+  아무것도 안주면 0 0 설정됨
+  설정된 값이 커서 포인터 위치값이 됨
+  예)
+  cursor: url("../images/cursor.png") 10 10, auto;
+  참고설명:
+  https://cerulean-spy-f57.notion.site/17-265e4c9eb928809993f1c5c8511af64a
+  ***************************************/
+  /* cursor: url("../images/cursor.png") 128 128, auto; */
   cursor: url("../images/cursor.png"), auto;
 }
 

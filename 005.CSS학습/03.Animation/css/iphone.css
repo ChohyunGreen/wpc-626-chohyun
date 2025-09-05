@@ -41,7 +41,6 @@ body {
 
   /* outline: 1px solid red; */
 }
-
 /* 아이폰 각면 공통 */
 .iphone span {
   position: absolute;
@@ -52,17 +51,24 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   /* 배경 투명부분을 흰색으로 채움 */
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 /* 1. 앞면 */
 .iphone span:nth-child(1) {
-   background-image: url(../images/ip01.png); 
-   translate: 0 0 10px;
+  background-image: url(../images/ip01.png);
+
+  /* z축으로 10px 앞으로 이동하기 */
+  translate: 0 0 10px;
 }
 /* 2. 뒷면 */
 .iphone span:nth-child(2) {
-  /* background-image: url(../images/ip02.png); */
+  background-image: url(../images/ip02.png);
+
+  /* z축으로 10px 뒤로 이동하기 */
+  translate: 0 0 -10px;
+  /* 뒷면에서 바로 보여야하므로 y축 180도회전 */
+  rotate: y 180deg;
 }
 /* 3. 오른쪽면 */
 .iphone span:nth-child(3) {
@@ -112,4 +118,17 @@ body {
   top: -10px;
   /* x축 90도 회전 */
   rotate: x 90deg;
+}
+
+/* 아이폰 애니 클래스 */
+.rotate-iphone {
+  animation: iphone-ani 2s ease-in-out 1s 2 alternate;
+  /* 2초간 처음과끝천천히 1초기다린후 2번실행 반대방향애니셋팅 */
+}
+
+/* 아이폰 회전 애니 키프레임 */
+@keyframes iphone-ani {
+  to{
+    transform: rotateX(-350deg) rotateY(390deg);
+  }
 }
