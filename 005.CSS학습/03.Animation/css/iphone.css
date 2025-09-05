@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* 아이폰 회전 애니 CSS */
+
+/* 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #fff 20%,
+    skyblue 40%,
+    #fff
+  );
+  /* 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+}
+
+/* 아이폰박스 */
+.iphone {
+  position: absolute;
+  /* 박스 정중앙 보내기 */
+  top: calc(50% - 400px / 2);
+  left: calc(50% - 200px / 2);
+  /* calc() CSS계산함수
+    - 더하기, 빼기 사용시 기호앞뒤공백 필수 */
+  width: 200px;
+  height: 400px;
+
+  /* 입체적용설정 */
+  transform-style: preserve-3d;
+
+  /* 회전적용 : x축 10도, y축 30도 */
+  transform: rotateX(10deg) rotateY(30deg);
+
+  outline: 1px solid red;
+}
+/* 아이폰 각면 공통 */
+.iphone span {
+  position: absolute;
+  width: 200px;
+  height: 400px;
+
+  /* 배경공통 */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* 배경 투명부분을 흰색으로 채움 */
+  /* background-color: #fff; */
+}
+
+/* 1. 앞면 */
+.iphone span:nth-child(1) {
+  /* background-image: url(../images/ip01.png); */
+}
+/* 2. 뒷면 */
+.iphone span:nth-child(2) {
+  /* background-image: url(../images/ip02.png); */
+}
+/* 3. 오른쪽면 */
+.iphone span:nth-child(3) {
+  background-image: url(../images/ip03.png);
+
+  /* 가로크기 재설정 */
+  width: 20px;
+
+  /* 오른쪽 끝으로 위치이동 */
+  right: -10px;
+  /* y축 90도 회전 */
+  rotate: y 90deg;
+}
+/* 4. 왼쪽면 */
+.iphone span:nth-child(4) {
+  background-image: url(../images/ip04.png);
+
+  /* 가로크기 재설정 */
+  width: 20px;
+
+  /* 왼쪽 끝으로 위치이동 */
+  left: -10px;
+  /* y축 -90도 회전 */
+  rotate: y -90deg;
+}
+/* 5. 아랫면 */
+.iphone span:nth-child(5) {
+  background-image: url(../images/ip05.png);
+
+  /* 세로크기 재설정 */
+  height: 20px;
+
+  /* 아래쪽 끝으로 위치이동 */
+  bottom: -10px;
+  /* x축 90도 회전 */
+  rotate: x 90deg;
+}
+
+/* 6. 아랫면 */
+.iphone span:nth-child(6) {
+  background-image: url(../images/ip06.png);
+
+  /* 세로크기 재설정 */
+  height: 20px;
+  
+  /* 윗쪽 끝으로 위치이동 */
+  top: -10px;
+  /* x축 90도 회전 */
+  rotate: x 90deg;
+}
