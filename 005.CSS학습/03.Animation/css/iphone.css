@@ -39,8 +39,9 @@ body {
   /* 회전적용 : x축 10도, y축 30도 */
   transform: rotateX(10deg) rotateY(30deg);
 
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
+
 /* 아이폰 각면 공통 */
 .iphone span {
   position: absolute;
@@ -51,12 +52,13 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   /* 배경 투명부분을 흰색으로 채움 */
-  /* background-color: #fff; */
+  background-color: #fff; 
 }
 
 /* 1. 앞면 */
 .iphone span:nth-child(1) {
-  /* background-image: url(../images/ip01.png); */
+   background-image: url(../images/ip01.png); 
+   translate: 0 0 10px;
 }
 /* 2. 뒷면 */
 .iphone span:nth-child(2) {
