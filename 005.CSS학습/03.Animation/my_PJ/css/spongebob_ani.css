@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* 심슨 가족 애니메이션 코드 : simpson_ani.css */
+/* 스폰지밥 가족 애니메이션 코드 : simpson_ani.css */
 
 /* 
     [ 트랜스폼 사용법 ]
@@ -41,22 +41,22 @@
   }
 }
 
-/* 2-1.심슨 애니호출 설정 */
-.simpson {
+/* 2-1.스폰지밥 애니호출 설정 */
+.spongebob {
   /* 애니메이션 - animation: 이시이지반방마 */
-  animation: simpson-ani 5s 0.5s forwards;
+  animation: spongebob-ani 5s 0.5s forwards;
 }
 
-/* 2-2. 심슨 걸어나오기 키프레임 */
-@keyframes simpson-ani {
+/* 2-2. 스폰지밥 걸어나오기 키프레임 */
+@keyframes spongebob-ani {
   0% {
     top: 305px;
-    left: 351px;
+    left: 381px;
     width: 31px;
   }
   5% {
     top: 307px;
-    left: 356px;
+    left: 386px;
     width: 33px;
     /* 문짝보다위 */
     z-index: 1;
@@ -131,35 +131,35 @@
   }
 }
 
-/* 3-1. 마지심슨 애니메이션 호출설정 */
-.marge {
+/* 3-1. 징징이 애니메이션 호출설정 */
+.gingging {
   /* 애니메이션 - animation: 이시이지반방마 */
-  animation: marge-ani 0.8s ease-out 5.5s forwards;
+  animation: gingging-ani 0.8s ease-out 5.5s forwards;
 }
-/* 3-2. 마지심슨 애니 키프레임 */
-@keyframes marge-ani {
+/* 3-2. 징징이 애니 키프레임 */
+@keyframes gingging-ani {
   /* from 혹은 0% 설정이 원본셋팅과 같다면
     생략할 수 있다! */
   /* to 혹은 100% 셋팅만 설정 */
   to {
-    right: -231px;
+    right: -131px;
     rotate: -18deg;
   }
 }
 
-/* 4-1. 리사심슨 애니메이션 호출 설정 */
+/* 4-1. 리사스폰지밥 애니메이션 호출 설정 */
 .lisa {
   /* 애니메이션 - animation: 이시이지반방마 */
   animation: lisa-ani 0.8s ease-out 6s forwards;
 }
-/* 4-2. 리사심슨 애니 키프레임 */
+/* 4-2. 리사스폰지밥 애니 키프레임 */
 @keyframes lisa-ani {
   to {
     left: -37px;
   }
 }
 
-/* 5-1. 메기심슨 애니메이션 호출설정 */
+/* 5-1. 메기스폰지밥 애니메이션 호출설정 */
 .maggie {
   /* 애니메이션 - animation: 이시이지반방마 */
   animation: 
@@ -170,26 +170,26 @@
     /* 왔다갔다애니 */ 
     maggie-comego-ani 8s ease-in-out 17s infinite alternate;
 }
-/* 5-2-1. 메기심슨 애니 키프레임 : 등장애니 */
+/* 5-2-1. 메기스폰지밥 애니 키프레임 : 등장애니 */
 @keyframes maggie-ani {
   to {
     bottom: -55px;
   }
 }
-/* 5-2-2. 메기심슨 애니 키프레임 : 오르락내리락 애니 */
+/* 5-2-2. 메기스폰지밥 애니 키프레임 : 오르락내리락 애니 */
 @keyframes maggie-updown-ani {
   to {
     translate: 0 5%;
   }
 }
-/* 5-2-3. 메기심슨 애니 키프레임 : 왔다갔다 애니 */
+/* 5-2-3. 메기스폰지밥 애니 키프레임 : 왔다갔다 애니 */
 @keyframes maggie-comego-ani {
   to {
     left: 633px;
   }
 }
 
-/* 6-1. 바트심슨 애니메이션 설정하기 */
+/* 6-1. 바트스폰지밥 애니메이션 설정하기 */
 .bart {
   /* 애니메이션 - animation: 이시이지반방마 */
   animation: 
@@ -200,23 +200,23 @@
   /* 바트올라옴 */
   bart-up-ani 1s ease-in 17s forwards;
 }
-/* 6-2-1. 바트심슨 키프레임 : 등장 애니 */
+/* 6-2-1. 바트스폰지밥 키프레임 : 등장 애니 */
 @keyframes bart-ani {
   to {
     top: -149px;
   }
 }
-/* 6-2-2. 바트심슨 키프레임 : 떨어지는 애니 */
+/* 6-2-2. 바트스폰지밥 키프레임 : 떨어지는 애니 */
 @keyframes bart-falling-ani {
   to {
     top: 458px;
     rotate: -36deg;
   }
 }
-/* 6-2-3. 바트심슨 키프레임 : 다시올라오는 애니 */
+/* 6-2-3. 바트스폰지밥 키프레임 : 다시올라오는 애니 */
 @keyframes bart-up-ani {
   to {
-    top: 306px;
+    top: 197px;
     right: 118px;
     z-index: 1;
     rotate: 0deg;

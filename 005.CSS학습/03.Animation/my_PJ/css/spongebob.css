@@ -1,7 +1,8 @@
 @charset "utf-8";
-/* 심슨 가족 인사 애니메이션 CSS - simpson.css */
+/* 심슨 가족 인사 애니메이션 CSS - spongebob.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
 
 html,body{
     /* 높이값 보이는 화면에 맞춤! */
@@ -16,14 +17,17 @@ body{
 /* 타이틀 */
 .tit{
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 50%;
     translate: -50%;
-    font-family: 'Black And White Picture', sans-serif;
-    font-size: 100px;
-    color: #fff;
+    font-family: "Sigmar One", sans-serif;
+    font-size: 60px;
+    color: aquamarine;
     white-space: nowrap;
     font-weight: normal;
+    margin: 0;
+
+    -webkit-text-stroke: 2px salmon;
 }
 
 /* 전체박스 */
@@ -59,11 +63,11 @@ body{
     display: none;
 } */
 
-/* 1. 심슨 */
-.simpson{
+/* 1. 스폰지밥 */
+.spongebob{
     position: absolute;
     top: 305px;
-    left: 351px;
+    left: 381px;
     /* 부모는? .house */
     width: 31px;
 }
@@ -71,8 +75,8 @@ body{
 /* 2. 문짝 */
 .door{
     position: absolute;
-    top: 284px;
-    left: 356px;
+    top: 274px;
+    left: 372px;
     /* 부모는? .house */
 
     /* 문 회전축 오른쪽끝으로 변경 */
@@ -85,24 +89,27 @@ body{
 .words {
     /* 앱솔루트 poa */
     position: absolute;
-    top: -11px;
-    left: 140px;
+    top: -38px;
+    left: 0;
     /* 부모는? .house */
 
     /* 트랜스폼 스케일로 축소 */
-    scale: .85;
+    scale: 0.7;
     /* transform: scale(.85); */
 
     /* 박스설정 */
     background-color: #fff;
     padding: 35px;
     border-radius: 50%;
-    border: 10px solid #738aff;
+    border: 10px solid hotpink;
     text-align: center;
+    background-color: aqua;
 
     /* 글자설정 
     font:스두크/줄체->크체 필수! */
-    font: 20px/1.7 Verdana;
+    font: 20px/1.7 "Sigmar One";
+    color: darkblue;
+    text-shadow: 2px 2px 2px #0000005c;
 
     /* 처음에 투명하게 처리 op0 */
     opacity: 0;
@@ -127,7 +134,7 @@ body{
     -> 양쪽보더는 동일하고 투명색설정 */
     width: 0;
     height: 0;
-    border-top: 42px solid #738aff;
+    border-top: 42px solid hotpink;
     border-right: 20px solid transparent;
     border-left: 20px solid transparent;
 }
@@ -150,17 +157,17 @@ body{
     -> 양쪽보더는 동일하고 투명색설정 */
     width: 0;
     height: 0;
-    border-top: 49px solid white;
+    border-top: 49px solid aqua;
     border-right: 20px solid transparent;
     border-left: 20px solid transparent;
 }
 
-/* 3. 마지심슨 */
-.marge{
+/* 3. 징징이 */
+.gingging{
     position: absolute;
     bottom: -211px;
     right: -300px;/* -231px; */
-    width: 424px;
+    width: 200px;
     transform-origin: bottom;
     rotate: 0deg;/* -18deg; */
 }
