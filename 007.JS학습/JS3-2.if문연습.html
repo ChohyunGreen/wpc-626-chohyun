@@ -23,19 +23,21 @@
             height: 50vh;
             overflow: hidden;
           }
+          /* 클래스 off를 이미지에 주면 왼쪽으로 사라짐! */
           .photo img.off {
-            position: relative;
             left: -100%;
             opacity: 0;
           }
+          /* 기본 이미지 셋팅 : 트랜지션 적용!
+          클래스 off를 줬다가, on을 주고 지우면 등장! */
           .photo img {
             position: relative;
             left: 0;
             opacity: 1;
             transition: .5s ease-out;
           }
+          /* 오른쪽 바깥쪽으로 이미지를 이동함! */
           .photo img.on {
-            position: relative;
             left: 100%;
             opacity: 0;
           }
@@ -61,7 +63,7 @@
 
          <!-- 외부JS호출하기
           defer 속성을 사용하면 html로딩후 실행함 -->
-         <script src="./js/JS3-2.if문연습.js"></script>
+         <script src="./js/JS3-2.if문연습.js" defer></script>
          
     </head>
 
