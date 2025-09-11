@@ -56,13 +56,18 @@
 
     ****************************************************/
       /* 타이틀 */
+      ::selection {
+        background: gainsboro;
+      }
       .tit {
         text-align: center;
         font-size: max(3vw, 25px);
+        color: sandybrown;
       }
       /* 그리드박스 */
       .grid {
-        
+        /* 그리드 디스플레이 */
+        display: grid;
 
         /* 박스중앙위치 및 최대크기설정 */
         max-width: 1200px;
@@ -101,12 +106,14 @@
             예1)
             grid-template-columns: 
             repeat(2, 100px 200px 300px);
+            -> 100px 200px 300px 을 2번 반복
+            -> 총 6개의 컬럼이 만들어짐!
 
             예2)
             grid-template-columns: repeat(5,1fr);
           
           **************************************/
-        
+        grid-template-columns: repeat(5, 1fr);
 
         /******************************************** 
             [ 세로 그리드 템플릿 ]
@@ -142,6 +149,24 @@
                 grid-auto-rows: 400px;
                 
         ********************************************/
+        /* 본 그리드에서는 박스별 비율이 있으므로
+        grid-template-rows 속성을 셋팅하지 않는다! */
+
+
+        /* 그리드 박스 사이간격 */
+        /* grid-column-gap 은 컬럼 사이간격 */
+        /* grid-column-gap: 10px; */
+        /* grid-row-gap 은 줄사이간격 */
+        /* grid-row-gap: 20px; */
+
+        /* 그리드 사이간격 한번에 설정하기 */
+        grid-gap: min(1.5vw, 15px);
+        /* grid-gap: 줄간격 컬럼간격;
+        -> 값을 하나만쓰면 두방향 모두 하나로 셋팅됨 */
+
+        /* flex 사이간격 속성은? gap이다!
+        -> grid에서도 이 속성을 사용할 수 있다! */
+        /* gap: 10px 30px; */        
         
       }
 
@@ -217,7 +242,61 @@
     */
 
       /* 그리드 구성박스 변경주기 */
-      
+    /* 
+      [ 미디어쿼리 - 그리드 개수변경 ]
+      방법) 미디어쿼리를 사용하여 특정 사이즈일때
+      그리드 개수를 변경할 수 있음!
+
+      [ 미디어쿼리 작성시 유의사항 ]
+      - max-width 사용시 큰 사이즈 부터 작은 사이즈로
+      내려오면서 적용됨
+      - min-width 사용시 작은 사이즈 부터 큰 사이즈로
+      올라가면서 적용됨
+      - 그래서 사이즈의 순차적인 순서로 작성해야
+      의도한 대로 적용됨!
+      - 변경하고자 하는 CSS 선택자와 동일하게 작성해야
+      기존 값을 덮어쓸 수 있음!
+
+      (명령 프롬프트:
+      1200px, 1000px, 800px, 500px 사이즈일때 그리드
+       개수를 4,3,2,1로 변경하는 미디어쿼리를 작성해)
+    */
+
+    /* 1200px 이하 사이즈 미디어쿼리 시작 */
+    @media (max-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    /* 1200px 이하 사이즈 미디어쿼리 끝 */
+
+    /* 1000px 이하 사이즈 미디어쿼리 시작 */
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    /* 1000px 이하 사이즈 미디어쿼리 끝 */
+
+    /* 800px 이하 사이즈 미디어쿼리 시작 */
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    /* 800px 이하 사이즈 미디어쿼리 끝 */
+
+    /* 500px 이하 사이즈 미디어쿼리 시작 */
+    @media (max-width: 500px) {
+      .grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      /* 귀염둥이, 글자크기 변경 */
+      .grid > div aside {
+        font-size: 4vw;
+      }
+    }
+    /* 500px 이하 사이즈 미디어쿼리 끝 */
 
       
     </style>
@@ -225,37 +304,383 @@
   <body>
     <!-- 타이틀 -->
     <h1 class="tit">
-      그리드1 - 이미지갤러리
+      그리드1 - 귀염둥이 갤러리
     </h1>
     <!-- 그리드 레이아웃박스 -->
-    <div class="grid"></div>
-    <script>
-      // 위의 .grid에 태그 반복해서 넣기
-      // 50개의 이미지를 for문으로 반복하여 태그생성후
-      // 요소에 삽입한다!
-      let hCode = "";
-      for (let i = 1; i <= 50; i++) {
-        hCode += `
-          <div ${
-            i == 1
-              ? 'class="first"'
-              : i == 33
-              ? 'class="second"'
-              : ""
-          }>
-            <img src="./images/${i}.jpg" alt="dress">
+    <!-- 기본젠코딩폼
+     .grid>div*50>img[]+aside>h2{}+h3{}
+     [] : 속성
+     {} : 내용
+     $ : 자동증가숫자
+     *50 : 50개반복
+     > : 자식요소
+     + : 형제요소
+     -->
+    <div class="grid">
+      <div>
+        <img src="./images/1.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이1</h2>
+          <h3>강아지1</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/2.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이2</h2>
+          <h3>강아지2</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/3.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이3</h2>
+          <h3>강아지3</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/4.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이4</h2>
+          <h3>강아지4</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/5.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이5</h2>
+          <h3>강아지5</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/6.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이6</h2>
+          <h3>강아지6</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/7.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이7</h2>
+          <h3>강아지7</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/8.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이8</h2>
+          <h3>강아지8</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/9.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이9</h2>
+          <h3>강아지9</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/10.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이10</h2>
+          <h3>강아지10</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/11.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이11</h2>
+          <h3>강아지11</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/12.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이12</h2>
+          <h3>강아지12</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/13.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이13</h2>
+          <h3>강아지13</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/14.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이14</h2>
+          <h3>강아지14</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/15.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이15</h2>
+          <h3>강아지15</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/16.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이16</h2>
+          <h3>강아지16</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/17.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이17</h2>
+          <h3>강아지17</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/18.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이18</h2>
+          <h3>강아지18</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/19.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이19</h2>
+          <h3>강아지19</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/20.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이20</h2>
+          <h3>강아지20</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/21.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이21</h2>
+          <h3>강아지21</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/22.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이22</h2>
+          <h3>강아지22</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/23.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이23</h2>
+          <h3>강아지23</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/24.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이24</h2>
+          <h3>강아지24</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/25.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이25</h2>
+          <h3>강아지25</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/26.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이26</h2>
+          <h3>강아지26</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/27.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이27</h2>
+          <h3>강아지27</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/28.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이28</h2>
+          <h3>강아지28</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/29.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이29</h2>
+          <h3>강아지29</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/30.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이30</h2>
+          <h3>강아지30</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/31.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이31</h2>
+          <h3>강아지31</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/32.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이32</h2>
+          <h3>강아지32</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/33.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이33</h2>
+          <h3>강아지33</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/34.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이34</h2>
+          <h3>강아지34</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/35.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이35</h2>
+          <h3>강아지35</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/36.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이36</h2>
+          <h3>강아지36</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/37.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이37</h2>
+          <h3>강아지37</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/38.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이38</h2>
+          <h3>강아지38</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/39.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이39</h2>
+          <h3>강아지39</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/40.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이40</h2>
+          <h3>강아지40</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/41.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이41</h2>
+          <h3>강아지41</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/42.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이42</h2>
+          <h3>강아지42</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/43.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이43</h2>
+          <h3>강아지43</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/44.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이44</h2>
+          <h3>강아지44</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/45.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이45</h2>
+          <h3>강아지45</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/46.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이46</h2>
+          <h3>강아지46</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/47.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이47</h2>
+          <h3>강아지47</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/48.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이48</h2>
+          <h3>강아지48</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/49.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이49</h2>
+          <h3>강아지49</h3>
+        </aside>
+      </div>
+      <div>
+        <img src="./images/50.jpg" alt="dress">
+        <aside>
+          <h2>귀염둥이50</h2>
+          <h3>강아지50</h3>
+        </aside>
+      </div>
+    </div>
+
+
+    <!-- 
+    그리드 박스 셈플 구조
+    <div class="grid">
+      <div>
+            <img src="./images/2.jpg" alt="dress">
             <aside>
-              <h2>상품명${i}</h2>
-              <h3>상품가격${i}</h3>
+              <h2>귀염둥이2</h2>
+              <h3>강아지2</h3>
             </aside>
           </div>
-        `;
-      } ///// for //////
-
-      // .grid에 요소출력
-      document.querySelector(
-        ".grid"
-      ).innerHTML = hCode;
-    </script>
+    </div> -->
+    
   </body>
 </html>
