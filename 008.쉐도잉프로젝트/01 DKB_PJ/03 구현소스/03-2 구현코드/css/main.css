@@ -17,22 +17,44 @@ body * {
 .top-area{
     height: 122px;
 }
-/* 상단영역 flex 부모박스 */
+/* 상단영역 플렉스 부모박스 */
 .top-area .cont-box{
     justify-content: space-between;
 }
+/* 로고박스 */
+.logo-box{    
+    width: 126px;
+    text-align: center;
+    padding: 10px 0;
+}
 
-.menu-group {
+/* 메뉴박스 */
+.menu-box{
+    padding-right: 10px;
+}
+
+/* 메뉴그룹 플렉스 */
+.menu-group{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-evenly;
+    height: 100%;
 }
-
 /* 상단영역 메뉴 공통 플렉스 */
-.menu-group ul {
+.menu-group ul{
     display: flex;
+}
+/* 탑메뉴 */
+.top-menu ul{
+    font-size: 1.6rem;
+    gap: 2rem;
+}
+/* GNB메뉴 */
+.gnb-menu ul{
     font-size: 1.8rem;
+    gap: 3.2rem;
+
 }
 /***************** 1.5. 드라마파트메뉴 *****************/
 /***************** 2. 메인영역 *****************/
@@ -42,7 +64,7 @@ body * {
     aspect-ratio: 1380 / 598;
     
     /* 임시이미지 */
-    background: url(../images/dokaebi_poster01.jpg) no-repeat center/cover;
+    background: url(../../01.구현디자인/결과물/배너포스터/dokaebi_poster01.jpg) no-repeat center/cover;
 }
 /***************** 2-2. 캐릭터영역 *****************/
 .cat-part{
