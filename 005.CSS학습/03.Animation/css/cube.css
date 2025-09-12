@@ -1,6 +1,32 @@
 @charset "utf-8";
 /* 큐브 애니메이션 CSS - cube.css */
 
+/**************************************** 
+    [ CSS에서 변수 사용하기 ]
+
+    1. 변수 셋팅법
+    :root{
+        --변수명1: 값1;
+        --변수명2: 값2;
+        --변수명3: 값3;
+    }
+
+    2. 변수 호출 사용법
+    var(--변수명)
+
+    ->>> 변수는 언제 사용하나?
+    - 같은 값이 여러부분에서 사용될때
+    미디어쿼리 등에서 변경이 필요한 경우
+    변수값만 변경하면 복잡한 값변경이 대체됨!
+
+****************************************/
+
+:root{
+    /* 큐브사이즈 지정 */
+    --cube-size: 300px;
+}
+
+
 html,
 body {
   margin: 0;
@@ -27,6 +53,11 @@ body {
   ***************************************/
   /* cursor: url("../images/cursor.png") 128 128, auto; */
   cursor: url("../images/cursor.png"), auto;
+
+  
+  /* 회전하는 큐브를 더 입체적으로 
+  보이게 하기위해 원근설정하기 */
+  perspective: 50vh;
 }
 
 /* 큐브박스 */
@@ -35,8 +66,8 @@ body {
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    width: 300px;
-    height: 300px;
+    width: var(--cube-size);
+    height: var(--cube-size);
     /* outline: 1px solid red; */
 
     /* 입체가 잘보이도록 살짝회전 x축 10도, y축 30도
@@ -73,7 +104,7 @@ body {
 /* 첫번째 큐브 앞면 */
 .cube span:nth-child(1){
     /* 화면방향(z축)으로 이동하기 */
-    transform: translateZ(150px);
+    transform: translateZ(calc(var(--cube-size)/2));
 
 
     /* 배경이미지 */
@@ -83,7 +114,7 @@ body {
 .cube span:nth-child(2){
     /* Y축회전 +  화면방향(z축)으로 이동하기
     적용순서에 따라 결과가 달라진다! 회전부터해라!*/
-    transform: rotateY(90deg) translateZ(150px);
+    transform: rotateY(90deg) translateZ(calc(var(--cube-size)/2));
 
     /* 배경이미지 */
     background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
@@ -92,7 +123,7 @@ body {
 .cube span:nth-child(3){
     /* Y축회전 +  화면방향(z축)으로 이동하기
     적용순서에 따라 결과가 달라진다! 회전부터해라!*/
-    transform: rotateY(180deg) translateZ(150px);
+    transform: rotateY(180deg) translateZ(calc(var(--cube-size)/2));
 
     /* 배경이미지 */
     background: url(../images/parisCity.jpg) no-repeat center/cover;
@@ -101,7 +132,7 @@ body {
 .cube span:nth-child(4){
     /* Y축회전 +  화면방향(z축)으로 이동하기
     적용순서에 따라 결과가 달라진다! 회전부터해라!*/
-    transform: rotateY(-90deg) translateZ(150px);
+    transform: rotateY(-90deg) translateZ(calc(var(--cube-size)/2));
 
     /* 배경이미지 */
     background: url(../images/cityMain.jpg) no-repeat center/cover;
@@ -110,7 +141,7 @@ body {
 .cube span:nth-child(5){
     /* X축회전 +  화면방향(z축)으로 이동하기
     적용순서에 따라 결과가 달라진다! 회전부터해라!*/
-    transform: rotateX(90deg) translateZ(150px);
+    transform: rotateX(90deg) translateZ(calc(var(--cube-size)/2));
 
     /* 배경이미지 */
     background: url(../images/citys.jpg) no-repeat center/cover;
@@ -119,7 +150,7 @@ body {
 .cube span:nth-child(6){
     /* X축회전 +  화면방향(z축)으로 이동하기
     적용순서에 따라 결과가 달라진다! 회전부터해라!*/
-    transform: rotateX(-90deg) translateZ(150px);
+    transform: rotateX(-90deg) translateZ(calc(var(--cube-size)/2));
 
     /* 배경이미지 */
     background: url(../images/London_city.jpg) no-repeat center/cover;
@@ -154,5 +185,25 @@ body {
 */
 
 
+/* 큐브의 바닥 그림자박스 */
+.shadow {
+  position: absolute;
+  bottom: 0; /* 바닥에 위치 */
+  left: 50%;
+  translate: -50% 0;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  background: rgba(0,0,0,0.4);
+  border-radius: 20%;
+  transform: rotateX(90deg) scale(1.2, 0.6); /* 납작하게 눌림 */
+  filter: blur(25px);
+  animation: shadow-ani 3s linear infinite;
+}
 
+/* 큐브 바닥 그림자 키프레임 */
+@keyframes shadow-ani {
+  0% { transform: rotateX(90deg) scale(1.5, 0.6) rotateZ(0); }
+  50%   { transform: rotateX(90deg) scale(1.8, 0.4) rotateZ(180deg); }
+  100%   { transform: rotateX(90deg) scale(1.5, 0.6) rotateZ(360deg); }
+}
 
