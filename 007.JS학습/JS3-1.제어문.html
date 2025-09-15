@@ -169,8 +169,12 @@
     <!-- for문 연습 -->
     <h2 class="tit">for문 연습</h2>
     <h3>구구단 출력하기</h3>
-    <!-- 선택박스로 구구단 선택만들기 -->
-    <select name="selbx" id="selbx">
+    <!-- 선택박스로 구구단 선택만들기 
+    onchange이벤트 속성은 선택박스의 값이 바꾸을 때
+    함수를 실행
+    this키워드는 선택박스 자신을 함수에 전달-->
+    <select name="selbx" id="selbx" 
+    onchange="구구단보여줘(this)">
       <option value="1">구구단을 선택하세요!</option>
       <option value="2">2단</option>
       <option value="3">3단</option>
@@ -221,8 +225,9 @@
 
     <!-- while문 연습 -->
     <h2 class="tit">while문 연습</h2>
-    <!-- 선택박스로 구구단 선택만들기 -->
-    <select name="selbx2" id="selbx2">
+    <!-- 선택박스로 구구단 선택만들기 
+     onchange 이베트 속-->
+    <select name="selbx2" id="selbx2" onchange="구구단보여줘(this)">
       <option value="1">구구단을 선택하세요!</option>
       <option value="2">2단</option>
       <option value="3">3단</option>
