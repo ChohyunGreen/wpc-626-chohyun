@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+/* CGV PJ 메인페이지 CSS - main.css */
+
+/* 외부CSS 불러오기 */
+/* 리셋CSS */
+@import url(./reset.css);
+/* 공통CSS */
+@import url(./core.css);
+
+/* 전체 디자인 */
+body {
+  background-color: #000;
+}
+
+/* 공사중 표시 : 구현시 박스표시 */
+/* *별표시는 모든요소를 선택함 */
+body * {
+  /* 아웃라인은 아무런 영향이 없음 */
+  outline: 2px dashed #ccc;
+}
+
+/*************** 1. 상단영역 ***************/
+.top-area{
+  height: 80px;
+}
+
+/*************** 2. 메인영역 ***************/
+.main-area{
+  position: relative;
+  /* 부모자격 - 자식요소들 */
+  height: 788px;
+  /* 극장 배경이미지 넣기 */
+  background: url(../images/bg.jpg) no-repeat center top/cover;
+}
+/* 스크린박스 */
+.screen{
+  position: absolute;
+    top: 17.2%;
+    left: 21.4%;
+    width: 58.5%;
+    height: 50.4%;
+  background-color: red;
+}
+/* 스크린박스 하위 아이프레임 */
+.screen iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/*************** 3. 하단영역 ***************/
+.bottom-area{
+  height: 100px;
+}
