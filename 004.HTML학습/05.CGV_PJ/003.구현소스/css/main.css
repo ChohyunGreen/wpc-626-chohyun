@@ -21,12 +21,12 @@ body * {
 }
 
 /*************** 1. 상단영역 ***************/
-.top-area{
+.top-area {
   height: 80px;
 }
 
 /*************** 2. 메인영역 ***************/
-.main-area{
+.main-area {
   position: relative;
   /* 부모자격 - 자식요소들 */
   height: 788px;
@@ -34,22 +34,22 @@ body * {
   background: url(../images/bg.jpg) no-repeat center top/cover;
 }
 /* 스크린박스 */
-.screen{
+.screen {
   position: absolute;
-    top: 17.2%;
-    left: 21.4%;
-    width: 58.5%;
-    height: 50.4%;
-  background-color: red;
+  top: 17.2%;
+  left: 21.4%;
+  width: 58.5%;
+  height: 50.4%;
+  background-color: #000;
 }
 /* 스크린박스 하위 아이프레임 */
-.screen iframe{
+.screen iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
 /*************** 3. 하단영역 ***************/
-.bottom-area{
+.bottom-area {
   height: 100px;
 }
