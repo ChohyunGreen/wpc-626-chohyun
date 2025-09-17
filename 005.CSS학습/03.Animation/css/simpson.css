@@ -3,14 +3,41 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
 
+html,body{
+    /* 높이값 보이는 화면에 맞춤! */
+    height: 100%;
+}
+
+body{
+    /* padding-top: 46px; */
+    /* 배경이미지넣기 - 이미지 중앙, 높이는 모두 나옴 */
+    background: #000 url(../images/oldTVON.png) no-repeat center/auto 100%;
+}
+/* 타이틀 */
+.tit{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50%;
+    font-family: 'Black And White Picture', sans-serif;
+    font-size: 100px;
+    color: #fff;
+    white-space: nowrap;
+    font-weight: normal;
+}
+
 /* 전체박스 */
 .house{
-    position: relative;
+    position: absolute;
     /* 부모자격 - 하위 앱솔루트 요소들 */
+    top: 50%;
+    left: 50%;
+    /* 정중앙이동 */
+    translate: -50% -50%;
+
     width: 800px;
     height: 441px;
-
-    margin: 0 auto;
+    /* margin: 0 auto; */
 
     /* 배경이미지 */
     background: url(../images/house.png) no-repeat;
@@ -23,66 +50,19 @@
     */
     perspective: 480px;
 
-/* 넘치는 자식요소 숨기기 */
-overflow: hidden;
-}
-
-/* 말풍선 */
-.words {
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    /* 부모는? .house */
-
-    /* 박스설정 */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 50%;
-    border: 6px dashed #fc9c20;
-    text-align: center;
-
-    /* 글자설정 */
-    font: 24px/1.6 Poppins sans-serif;
-    text-transform: uppercase;
-}
-
-
-/* 말풍선 삼각형 가상요소로 만들기 */
-.words::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-
-    /* border로 삼각형만들기 
-    -> 가로,세로는 모두 0
-    -> 위 또는 아래 border주기
-    -> 양쪽보다는 동일하고 투명색설정
-    */
-
-    /* 트랜스폼으로 위치이동 및 회전 */
-
-    /* translate : x축이동 y축이동 */
-    translate: -70px -8px;
-    /* rotate: 각도deg */
-    rotate: 25deg;
-
-    width: 0;
-    height: 0;
-    border-top: 30px solid #fc9c20;
-    border-right: 30px solid transparent;
-    border-left: 30px solid transparent;
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
 }
 
 /* 임시로 숨기기 */
-.maggie ~ * {
+/* .maggie ~ * {
     display: none;
-}
+} */
 
 /* 1. 심슨 */
 .simpson{
     position: absolute;
-top: 305px; 
+    top: 305px;
     left: 351px;
     /* 부모는? .house */
     width: 31px;
@@ -101,40 +81,121 @@ top: 305px;
     /* rotate: y 130deg; */
 }
 
+/* 말풍선 */
+.words {
+    /* 앱솔루트 poa */
+    position: absolute;
+    top: -11px;
+    left: 140px;
+    /* 부모는? .house */
+
+    /* 트랜스폼 스케일로 축소 */
+    scale: .85;
+    /* transform: scale(.85); */
+
+    /* 박스설정 */
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 50%;
+    border: 10px solid #738aff;
+    text-align: center;
+
+    /* 글자설정 
+    font:스두크/줄체->크체 필수! */
+    font: 20px/1.7 Verdana;
+
+    /* 처음에 투명하게 처리 op0 */
+    opacity: 0;
+
+}
+/* 말풍선 삼각형 가상요소로 만들기 */
+.words::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    /* 트랜스폼으로 위치이동 및 회전 */
+    translate: -51px 31px;
+    /* translate: x축이동 y축이동 */
+    rotate: -22deg;
+    /* rotate: 각도deg */
+
+    /* 보더로 삼각형모양 만들기
+    -> 가로,세로는 모두 0
+    -> 위또는 아래 보더 주기
+    -> 양쪽보더는 동일하고 투명색설정 */
+    width: 0;
+    height: 0;
+    border-top: 42px solid #738aff;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+/* 삼각형 안쪽 흰색처리 */
+.words::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    /* 트랜스폼으로 위치이동 및 회전 */
+    translate: -59px 11px;
+    /* translate: x축이동 y축이동 */
+    rotate: -22deg;
+    /* rotate: 각도deg */
+
+    /* 보더로 삼각형모양 만들기
+    -> 가로,세로는 모두 0
+    -> 위또는 아래 보더 주기
+    -> 양쪽보더는 동일하고 투명색설정 */
+    width: 0;
+    height: 0;
+    border-top: 49px solid white;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+
 /* 3. 마지심슨 */
-.marge {
+.marge{
     position: absolute;
     bottom: -211px;
-    /* right: -231px; */
-    right: -300px;
-    width: 370px;
+    right: -300px;/* -231px; */
+    width: 424px;
     transform-origin: bottom;
-    /* rotate: -18deg; */
-    rotate: 0deg;
+    rotate: 0deg;/* -18deg; */
 }
-
 /* 4. 리사심슨 */
-.lisa {
+.lisa{
     position: absolute;
-    top: 0;
-    left: -200px;
-    width: 170px;
-    transform-origin: top;
+    top: 64px;
+    left: -236px;/* -37px; */
+    width: 173px;
     rotate: 90deg;
-    /* 애니메이션: 이시이지반방마 */
-    animation: lisa .6s ease-in-out 13.6s forwards;
 }
 
-
-/* 5. 매기심슨 */
-.maggie {
+/* 5. 메기심슨 */
+.maggie{
     position: absolute;
-    bottom: -80px;
-    left: 10px;
-    width: 163px;
-    transform-origin: top;
-    rotate: 0;
-    /* 애니메이션: 이시이지반방마 */
-    animation: lisa .6s ease-in-out 13.6s forwards;
+    bottom: -230px;/* -55px; */
+    left: 77px;
+    width: 165px;
+}
+/* 6. 바트심슨 */
+.bart{
+    position: absolute;
+    top: -320px;/* -149px; */
+    right: 147px;
+    width: 229px;
+
+    /* 거꾸로 돌리기 */
+    rotate: 180deg;
 }
 
+/* 7. TV */
+#tv{
+    position: absolute;
+    top: 51%;
+    left: 55%;
+    translate: -50% -50%;
+    width: 1052px;
+}

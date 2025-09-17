@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+/* CGV PJ 메인페이지 CSS - main.css */
+
+/* 외부CSS 불러오기 */
+/* 리셋CSS */
+@import url(./reset.css);
+/* 공통CSS */
+@import url(./core.css);
+
+/* 전체 디자인 */
+body {
+  background-color: #000;
+}
+
+/* 공사중 표시 : 구현시 박스표시 */
+/* *별표시는 모든요소를 선택함 */
+/* body * {
+  outline: 2px dashed #ccc;
+} */
+
+/*************** 1. 상단영역 ***************/
+.top-area {
+  height: 80px;
+}
+
+/*************** 2. 메인영역 ***************/
+.main-area {
+  position: relative;
+  /* 부모자격 - 자식요소들 */
+  /* height: 788px; */
+
+  /* 최대높이값 지정 */
+  max-height: 788px;
+
+  /* 높이값을 주지않고 비율설정을 해서 비율박스 생성 */
+  aspect-ratio: 1200/788;
+
+  /* 극장 배경이미지 넣기 */
+  background: url(../images/bg.jpg) no-repeat center top/cover;
+}
+/* 스크린박스 */
+.screen {
+  position: absolute;
+  top: 17.2%;
+  left: 21.4%;
+  width: 58.5%;
+  height: 50.4%;
+  background-color: #000;
+}
+/* 스크린박스 하위 아이프레임 */
+.screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 2-2. 포스터 메뉴박스 */
+.poster-menu-box{
+  position: absolute;
+  bottom: 5%;
+  width: 66%;
+  /* 가로방향중앙 */
+  left: 50%;
+  translate: -50%;
+}
+/* 포스터 메뉴박스 ul */
+.poster-menu-box ul{
+  display: flex;
+  gap: 1.5%;
+  /* 자식 li 입체를 위한 원근설정 */
+  perspective: 70vh;
+}
+
+/* 포스터 이미지 */
+.poster-menu-box img{
+  width: 100%;
+  aspect-ratio: 99/140;
+}
+
+/* 영화포스트 리스트 li */
+.poster-menu-box li{
+  position: relative;
+  /* 영화정보박스의 부모! */
+  /* 넘치는 자식 숨기기 */
+  overflow: hidden;
+  
+  /* x축회전, 기준축 하단
+  -> 단, 원근설정은 부모박스에게! */
+    rotate: x 40deg;
+    transform-origin: bottom;
+
+    /* 트랜지션 */
+    transition: rotate .3s ease-out;
+}
+/* li에 오버시 변경 */
+.poster-menu-box li:hover{
+  /* 일어남! */
+  rotate: x 0deg;
+  /* 외곽선 */
+  outline: 1px solid aqua;
+  /* z-index 위 */
+  z-index: 1;
+}
+
+/* 영화정보박스 */
+.movie-info{
+  position: absolute;
+  /* 아래쪽에 내려가 있음! */
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 반투명 검정배경 */
+  background-color: rgb(0 0 0 / 0.7);
+  text-align: center;
+
+  /* 플렉스 박스 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5%;
+
+  /* 웹폰트체 적용 */
+  font-family: 'Cute Font', cursive;
+  /* 글자크기 */
+  font-size: min(1.2vw,17px);
+  /* 줄바꿈방지 */
+  white-space: nowrap;
+
+  /* 트랜지션 - li박스 x축 0.3초 회전후 작동 */
+  transition: top .3s ease-out .3s;
+
+}
+
+/* 영화정보박스 li:hover */
+.poster-menu-box li:hover .movie-info{
+  top: 0;
+}
+
+/* 영화정보 중 타이틀 */
+.movie-info h2{
+  color: aqua;
+  font-size: min(1.5vw,19px);
+}
+/* 기본 두꺼운체 해제! */
+.movie-info h2,
+.movie-info h3,
+.movie-info h4{
+  font-weight: normal;
+}
+
+/*************** 3. 하단영역 ***************/
+.bottom-area {
+  height: 100px;
+}

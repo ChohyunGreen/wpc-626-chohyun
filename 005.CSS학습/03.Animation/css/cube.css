@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* 큐브 애니메이션 CSS - cube.css */
+
+/**************************************** 
+    [ CSS에서 변수 사용하기 ]
+
+    1. 변수 셋팅법
+    :root{
+        --변수명1: 값1;
+        --변수명2: 값2;
+        --변수명3: 값3;
+    }
+
+    2. 변수 호출 사용법
+    var(--변수명)
+
+    ->>> 변수는 언제 사용하나?
+    - 같은 값이 여러부분에서 사용될때
+    미디어쿼리 등에서 변경이 필요한 경우
+    변수값만 변경하면 복잡한 값변경이 대체됨!
+
+****************************************/
+
+:root {
+  /* 큐브사이즈 지정 */
+  --cube-size: 300px;
+  /* 큐브 트랜지션 값 */
+  --cube-transition: .8s cubic-bezier(0.32, -0.99, 0.82, 2.21)
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: linear-gradient(to bottom, #a4ffdc, rgb(255, 190, 247));
+  height: 100vh;
+  /*************************************** 
+  [ 기존 기본커서 대신 이미지나오게 하기 ]
+  cursor: url(이미지경로) 핫스팟, auto;
+  -> 핫스팟은 커서 포인트위치 지정
+  아무것도 안주면 0 0 설정됨
+  설정된 값이 커서 포인터 위치값이 됨
+  예)
+  cursor: url("../images/cursor.png") 10 10, auto;
+  참고설명:
+  https://cerulean-spy-f57.notion.site/17-265e4c9eb928809993f1c5c8511af64a
+  ***************************************/
+  /* cursor: url("../images/cursor.png") 128 128, auto; */
+  cursor: url("../images/cursor.png"), auto;
+
+  /* 회전하는 큐브를 더 입체적으로 
+  보이게 하기위해 원근설정하기 */
+  perspective: 50vh;
+}
+
+/* 큐브 크기변경 버튼 */
+.btn-size{
+    font-size: 4vw;
+    padding: 1vw;
+    margin: 1vw;
+    border-radius: 1vw;
+}
+
+/* 큐브박스 */
+.cube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  /* outline: 1px solid red; */
+
+  /* 입체가 잘보이도록 살짝회전 x축 10도, y축 30도
+    transform: rotateX(x축각도) rotateY(y축각도) */
+  transform: rotateX(10deg) rotateY(30deg);
+
+  /******************************************* 
+        [ 입체로 설정하기 ]
+        - 입체로 설절할 요소의 부모박스에
+        아래와 같이 설정해준다!
+        (부모는 싸고 있는 요소)
+        transform-style 속성값은 아래 2가지
+        1. flat (기본값) : 2D
+        2. preserve-3d : 3D -> 이 값으로 설정함!
+    *******************************************/
+  transform-style: preserve-3d;
+
+  /* 사이즈 변경 애니를 위해 트랜지션넣기 */
+  transition: var(--cube-transition);
+}
+
+/* 큐브 각면 공통 */
+.cube span {
+  position: absolute;
+  /* 앱솔루트는 자동블록 */
+  width: 100%;
+  height: 100%;
+
+  /* 반투명 */
+  opacity: 0.8;
+
+  border: 1px solid gray;
+  /* 보더박스는 패딩,보더 내부포함 */
+  box-sizing: border-box;
+
+  /* 사이즈 변경 애니를 위해 트랜지션넣기 */
+  transition: var(--cube-transition);
+}
+
+/* 첫번째 큐브 앞면 */
+.cube span:nth-child(1) {
+  /* 화면방향(z축)으로 이동하기 */
+  transform: translateZ(calc(var(--cube-size) / 2));
+
+  /* 배경이미지 */
+  background: url(../images/seoulCity.jpg) no-repeat center/cover;
+}
+/* 두번째 큐브 오른쪽면 */
+.cube span:nth-child(2) {
+  /* Y축회전 +  화면방향(z축)으로 이동하기
+    적용순서에 따라 결과가 달라진다! 회전부터해라!*/
+  transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2));
+
+  /* 배경이미지 */
+  background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
+}
+/* 세번째 큐브 뒷쪽면 */
+.cube span:nth-child(3) {
+  /* Y축회전 +  화면방향(z축)으로 이동하기
+    적용순서에 따라 결과가 달라진다! 회전부터해라!*/
+  transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2));
+
+  /* 배경이미지 */
+  background: url(../images/parisCity.jpg) no-repeat center/cover;
+}
+/* 네번째 큐브 왼쪽면 */
+.cube span:nth-child(4) {
+  /* Y축회전 +  화면방향(z축)으로 이동하기
+    적용순서에 따라 결과가 달라진다! 회전부터해라!*/
+  transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2));
+
+  /* 배경이미지 */
+  background: url(../images/cityMain.jpg) no-repeat center/cover;
+}
+/* 다섯번째 큐브 위쪽면 */
+.cube span:nth-child(5) {
+  /* X축회전 +  화면방향(z축)으로 이동하기
+    적용순서에 따라 결과가 달라진다! 회전부터해라!*/
+  transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2));
+
+  /* 배경이미지 */
+  background: url(../images/citys.jpg) no-repeat center/cover;
+}
+/* 여섯번째 큐브 아래쪽면 */
+.cube span:nth-child(6) {
+  /* X축회전 +  화면방향(z축)으로 이동하기
+    적용순서에 따라 결과가 달라진다! 회전부터해라!*/
+  transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2));
+
+  /* 배경이미지 */
+  background: url(../images/London_city.jpg) no-repeat center/cover;
+}
+
+/* 애니적용 클래스 - animation:이시이지반방마 */
+.rotate-cube {
+  animation: cube-ani 3s infinite linear;
+}
+/* 애니적용 클래스요소에 오버시 애니멈춤 */
+.rotate-cube:hover {
+  animation-play-state: paused;
+}
+
+/* 큐브 회전 키프레임 */
+@keyframes cube-ani {
+  to {
+    transform: rotateX(370deg) rotateY(-330deg);
+    /* x축은 양의방향, y축은 음의 방향으로 회전 */
+  }
+}
+/* [ 같은위치까지 360도 회전하는 계산법 ]
+
+    x축 양의 방향으로 10도에서 출발
+    양의 방향 360도+10도=370도
+    음의 방향 -360도+10도=-350도
+    ____________________________
+
+    y축 양의 방향으로 30도에서 출발
+    양의 방향 360도+30도=390도
+    음의 방향 -360도+30도=-330도
+*/
+
+/* 큐브의 바닥 그림자박스 */
+.shadow {
+  position: absolute;
+  bottom: 0; /* 바닥에 위치 */
+  left: 50%;
+  translate: -50% 0;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20%;
+  transform: rotateX(90deg) scale(1.2, 0.6); /* 납작하게 눌림 */
+  filter: blur(25px);
+  animation: shadow-ani 3s linear infinite;
+
+  /* 사이즈 변경 애니를 위해 트랜지션넣기 */
+  transition: var(--cube-transition);
+}
+
+/* 큐브 바닥 그림자 키프레임 */
+@keyframes shadow-ani {
+  0% {
+    transform: rotateX(90deg) scale(1.5, 0.6) rotateZ(0);
+  }
+  50% {
+    transform: rotateX(90deg) scale(1.8, 0.4) rotateZ(180deg);
+  }
+  100% {
+    transform: rotateX(90deg) scale(1.5, 0.6) rotateZ(360deg);
+  }
+}

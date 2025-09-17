@@ -1,0 +1,278 @@
+@charset "utf-8";
+/* 아이폰 회전 애니 CSS */
+
+/* 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #fff 20%, skyblue 40%, #fff);
+  /* 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+
+  /* 회전하는 아이폰을 더 입체적으로 
+  보이게 하기위해 원근설정하기 */
+  perspective: 100vh;
+}
+
+/* 아이폰박스 */
+.iphone {
+  position: absolute;
+  /* 박스 정중앙 보내기 */
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  /* width: 200px; -> 가로크기 설정하지 않음! */
+
+  /* 높이값이 보이는 화면의 60%크기이고
+  가로 세로비가 1:2 */
+  aspect-ratio: 1/2;
+  height: 60vh;
+
+  /* 입체적용설정 */
+  transform-style: preserve-3d;
+
+  /* 회전적용 : x축 10도, y축 30도 */
+  transform: rotateX(10deg) rotateY(30deg);
+  /* outline: 1px solid red; */
+}
+/* 아이폰 각면 공통 */
+.iphone span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  /* 배경공통 */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* 배경 투명부분을 흰색으로 채움 */
+  background-color: #fff;
+}
+
+/* 1. 앞면 */
+.iphone span:nth-child(1) {
+  background-image: url(../images/ip01.png);
+
+  /* z축으로 10px 앞으로 이동하기 */
+  translate: 0 0 10px;
+}
+/* 2. 뒷면 */
+.iphone span:nth-child(2) {
+  background-image: url(../images/ip02.png);
+
+  /* z축으로 10px 뒤로 이동하기 */
+  translate: 0 0 -10px;
+  /* 뒷면에서 바로 보여야하므로 y축 180도회전 */
+  rotate: y 180deg;
+}
+/* 3. 오른쪽면 */
+.iphone span:nth-child(3) {
+  background-image: url(../images/ip03.png);
+
+  /* 가로크기 재설정 */
+  width: 20px;
+
+  /* 오른쪽 끝으로 위치이동 */
+  right: -10px;
+  /* y축 90도 회전 */
+  rotate: y 90deg;
+}
+/* 4. 왼쪽면 */
+.iphone span:nth-child(4) {
+  background-image: url(../images/ip04.png);
+
+  /* 가로크기 재설정 */
+  width: 20px;
+
+  /* 왼쪽 끝으로 위치이동 */
+  left: -10px;
+  /* y축 -90도 회전 */
+  rotate: y -90deg;
+}
+/* 5. 아랫면 */
+.iphone span:nth-child(5) {
+  background-image: url(../images/ip05.png);
+
+  /* 세로크기 재설정 */
+  height: 20px;
+
+  /* 아래쪽 끝으로 위치이동 */
+  bottom: -10px;
+  /* x축 90도 회전 */
+  rotate: x 90deg;
+}
+
+/* 6. 아랫면 */
+.iphone span:nth-child(6) {
+  background-image: url(../images/ip06.png);
+
+  /* 세로크기 재설정 */
+  height: 20px;
+
+  /* 윗쪽 끝으로 위치이동 */
+  top: -10px;
+  /* x축 90도 회전 */
+  rotate: x 90deg;
+}
+
+/* 아이폰 애니 클래스 */
+.rotate-iphone {
+  animation: iphone-ani 2s ease-in-out 1s 2 alternate;
+  /* 2초간 처음과끝천천히 1초기다린후 2번실행 반대방향애니셋팅 */
+}
+
+/* 아이폰 회전 애니 키프레임 */
+@keyframes iphone-ani {
+  to {
+    transform: rotateX(-350deg) rotateY(390deg);
+  }
+}
+
+/* 흘러가는 글자 박스 */
+.flow-box {
+  /* 박스 포지션 */
+  position: fixed;
+  top: 2vh;
+}
+/* 글자박스 */
+.text-box {
+  /* 플렉스박스 : ul과 ul도 옆으로 흐르게함 */
+  display: flex;
+
+  /* 보이는 화면만큼 가로폭 */
+  width: 100vw;
+
+  /* 애니메이션 호출 : 이시이지반방마 */
+  animation: flow-ani 5s linear infinite;
+  /* 애니메이션을 반대방향으로 보내려면 reverse! */
+  /* animation: flow-ani 5s linear infinite reverse; */
+}
+
+/* 두번째 박스 */
+.flow-box.box2 {
+  /* 위치를 하단으로 이동 */
+  top: auto;
+  bottom: 2vh;
+}
+/* 두번째 박스의 글자박스 */
+.box2 .text-box {
+  /* 반대방향으로 보내려면 reverse!
+  animation-direction 속성만 덮어쓴다! */
+  animation-direction: reverse;
+}
+
+/* 글자박스 ul */
+.text-box ul {
+  /* 플렉스박스 */
+  display: flex;
+  /* 부모박스채우기 
+  -> flex-shrink값을 0이여야만 적용됨!!! */
+  width: 100%;
+  /* 부모에 맞춰서 줄어드는 flex자식속성인
+  flex-shrink 기본값이 1이므로 내가 원하는
+  크기를 설정하려면 이 속성값을 0으로 해야
+  자동으로 줄어드는 속성을 없앨 수 있다! */
+  flex-shrink: 0;
+
+  /* 초기화 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* 글자박스 ul li */
+.text-box ul li {
+  /* 가로크기 4등분 */
+  /* width: calc(100vw/4); */
+
+  /* 가로크기 계산보다 flex:1 셋팅이 
+  더 플렉스스러운 셋팅임! */
+  flex: 1;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-size: 4vw;
+  /* outline: 2px dashed red; */
+
+  /* 글자에 그라데이션 넣기 : 3가지 셋팅필수! */
+  /* (1) 배경색 그라데이션 넣기(또는 이미지) */
+  background-image: linear-gradient(to right, darkorange, darkgreen);
+  /* (2) 배경 클리핑 값 text로 설정 */
+  background-clip: text;
+  /* (3) 글자색 투명으로 설정 */
+  color: transparent;
+  /* 아래와 같이 글자색 투명 설정해도 유효함 */
+  /* -webkit-text-fill-color: transparent; */
+
+  /* 글자그림자를 text-shadow로 넣으면
+  그라데이션 색 넣기 글자이므로 그림자가
+  앞으로보임(이유는 글자색이 투명해서!)
+  그래서 filter속성의 drop-shadow를
+  사용하면 된다! filter효과는 요소 전체에
+  종합적인 효과를 주는 속성이다! */
+  filter: drop-shadow(2px 4px 3px rgb(0 0 0 / 0.5));
+}
+
+/* 글자이동 애니메이션 키프레임 : .text-box에서 호출! */
+@keyframes flow-ani {
+  to {
+    /* x축으로 내크기의 절반만큼 왼쪽으로 이동함! */
+    translate: -50%;
+  }
+}
+
+/* 아이폰 미리보기 중앙흘러가는 박스 */
+.preview-box {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  translate: 0 -50%;
+  text-align: center;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+}
+/* 무빙박스 */
+.moving-box {
+  /* 플렉스박스 */
+  display: flex;
+  /* 가로크기 */
+  width: 200%;
+  /* 애니메이션 호출 : 이시이지반방마 */
+  animation: flow-ani 20s linear infinite;
+}
+/* 파트박스 : 무빙박스의 자식박스 2개  */
+.part-box {
+  /* 플렉스박스 */
+  display: flex;
+  flex: 1;
+  /* 자식요소간 간격 -> flex의 간격은 gap!
+  gap: 줄간격 열간격 -> 값을 하나만 쓰면 동시셋팅! */
+  gap: 4vw;
+  /* 박스 앞뒤패딩 */
+  padding: 0 4vw;
+}
+/* 개별박스 */
+.part-box div {
+  position: relative;
+  /* 부모자격! */
+  flex: 1;
+}
+/* 개별박스의 이미지 공통 */
+.part-box div img {
+  width: 100%;
+}
+/* 두번째 이미지를 앱솔루트로 변경! */
+.part-box div img:last-child {
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  width: 92%;
+  border-radius: 2vw;
+  /* 프레임 이미지 보다 아래에 위치! */
+  z-index: -1;
+}

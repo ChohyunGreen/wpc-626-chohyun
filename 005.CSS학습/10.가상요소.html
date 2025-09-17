@@ -55,33 +55,38 @@
              */
       /* h2요소 맨앞에 이미지 넣기 */
       h2::before {
-        content: "🥨";
-      }
-      h2::after {
-        content: 🍖;
+        content: url(./imgs/blogo.png);
+        width: 300px;
+        height: 10px;
+        /* 이미지 크기 적용안됨! */
+
+        /* 마진적용 */
+        margin-right: 20px;
+        /* 인라인요소간 세로정렬 va */
+        vertical-align: -6px;
       }
 
       /* 맨뒤 추가요소 ::after */
-      h2::after{
-        content: url(./imgs/bg_logo_a_01.png);
+      h2::after {
+        content: "";
         /* 디자인 적용위해 inline-block */
         display: inline-block;
         width: 40px;
-        border: 2px solid gainsboro;
+        height: 60px;
+        border: 2px solid gray;
         /* 둥근모서리 bdrs */
         border-radius: 5px;
 
         /* 배경넣기 */
-        background: thistle url(./imgs/bg_logo_a_01.png) no-repeat center/90%;
+        background: pink url(./imgs/bg_logo_a_01.png) no-repeat center/90%;
 
         /* 박스그림자 bxsh */
-        box-shadow: 5px 5px 3px darkmagenta,
-        10px 10px 5px 2px seagreen;
+        box-shadow: 0 0 10px purple, 10px 10px 5px 2px navy;
 
         /* 인라인요소간 세로정렬 va */
         vertical-align: middle;
-        /* 왼쪽마진 ml */
-        margin-left: 30px;
+        /* 왼쪽마진 ml20 */
+        margin-left: 20px;
       }
 
       /* dl요소 디자인 */
@@ -100,75 +105,70 @@
 
       /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
       dt::before {
-        content: 🍔;
-        /* 글자크기변경 fz30 */
+        content: "🍓★";
+        /* 글자크기변경 */
         font-size: 30px;
-        vertical-align: 3px;
-        color: lightcyan;
+        vertical-align: 2px;
+        color: blue;
       }
       /* dt아이콘 변경 */
-      dt::after {
-        content: 🍔;
-        /* 글자크기변경 fz30 */
-        font-size: 30px;
-        vertical-align: 3px;
-        color: lightcyan;
-      }
       /* dt중 두번째 */
-      dt::before{
-        content: '';
+      dt:nth-of-type(2)::before {
+        content: "🏺🍑";
       }
       /* dt중 세번째 */
-      
+      dt:nth-of-type(3)::before {
+        content: "🍅";
+      }
       /* dt중 네번째 */
-      
+      dt:nth-of-type(4)::before {
+        content: "🍳";
+      }
 
       /* dd전체 before적용하기 */
       dd::before {
-        content: 🌻;
-        font-size: 40px;
-        vertical-align: 5px;
+        content: "🧑";
+        font-size: 28px;
+        margin-right: 15px;
       }
       /* 여자인 경우 이모지 변경 */
       dd:nth-of-type(3)::before,
-      dd:nth-of-type(4)::before,
-      dd:nth-of-type(5)::before,
-      dd:nth-of-type(6)::before,
-      dd:nth-of-type(7)::before{
-        content: ☕;
+      dd:nth-of-type(8)::before,
+      dd:nth-of-type(9)::before,
+      dd:nth-of-type(11)::before,
+      dd:nth-of-type(12)::before {
+        content: "👧";
       }
       /* 남자,여자 같이 출력
       "찬열,펀치" */
-      
+      dd:nth-of-type(13)::before {
+        content: "🧑👧";
+      }
 
-      
       /* 스토리의 dd는 가상요소 없애기 */
-      dd.story::before{
+      dd.story::before {
         display: none;
       }
 
       /* 스토리의 dd 아래 h3 이모지넣기 */
-      dd.story h3::before{
-        content: 🍦🍦;
+      dd.story h3::before {
+        content: "🎬";
         margin-right: 20px;
       }
-      .story p:nth-of-type(1)::first-letter {
-          font-size: 50px;
-          color: burlywood;
-          font-weight: bold;
-      }
-      .story p:nth-of-type(1)::first-line {
-          font-size: 50px;
-          color: burlywood;
-          font-weight: bold;
-      }
-      
 
       /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-      
+      .story p:nth-of-type(1)::first-letter {
+        font-size: 50px;
+        color: hotpink;
+        font-weight: bold;
+      }
 
       /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-      
+      .story p:nth-of-type(1)::first-line {
+        font-size: 22px;
+        color: blue;
+        font-family: "궁서";
+      }
 
       /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
@@ -182,20 +182,15 @@
             font-family: '궁서';
         }
 
-
       /* 기타 가상요소 ::selection */
       /* 드래그 선택시 글자색 배경색 설정변경! */
 
-      p::selection {
-        color: cadetblue;
-        background-color: blanchedalmond;
+      /* p::selection{ */
+      ::selection{
+        color: lime;
+        background-color: hotpink;
       }
-      /* 전체적용 하고 싶으면 앞에 선택자 없이 바로 ::selection을 사용 */
-      ::selection {
-        color:darkmagenta;
-        background-color:thistle ;
-      }
-      
+      /* 전체에 적용하고 싶으면 바로 ::selection을 사용! */
     </style>
   </head>
 

@@ -1,0 +1,208 @@
+@charset "utf-8";
+/* 심슨 가족 인사 애니메이션 CSS - spongebob.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
+
+html,body{
+    /* 높이값 보이는 화면에 맞춤! */
+    height: 100%;
+}
+
+body{
+    /* padding-top: 46px; */
+    /* 배경이미지넣기 - 이미지 중앙, 높이는 모두 나옴 */
+    background: #000 url(../images/oldTVON.png) no-repeat center/auto 100%;
+}
+/* 타이틀 */
+.tit{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    font-family: "Sigmar One", sans-serif;
+    font-size: 60px;
+    color: aquamarine;
+    white-space: nowrap;
+    font-weight: normal;
+    margin: 0;
+
+    -webkit-text-stroke: 2px salmon;
+}
+
+/* 전체박스 */
+.house{
+    position: absolute;
+    /* 부모자격 - 하위 앱솔루트 요소들 */
+    top: 50%;
+    left: 50%;
+    /* 정중앙이동 */
+    translate: -50% -50%;
+
+    width: 800px;
+    height: 441px;
+    /* margin: 0 auto; */
+
+    /* 배경이미지 */
+    background: url(../images/house.png) no-repeat;
+
+    /* 문짝(.door)을 원근 입체로 보이게 하기위해
+    부모요소인 .house에 원근 설정을 한다!
+        perspective: 수치값;
+        -> 수치값의 의미는 기준축으로 부터 소실점까지의 거리!
+        -> 이 값이 어떤 기준수치값 보다 작으면 원근이 커진다!
+    */
+    perspective: 480px;
+
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
+}
+
+/* 임시로 숨기기 */
+/* .maggie ~ * {
+    display: none;
+} */
+
+/* 1. 스폰지밥 */
+.spongebob{
+    position: absolute;
+    top: 305px;
+    left: 381px;
+    /* 부모는? .house */
+    width: 31px;
+}
+
+/* 2. 문짝 */
+.door{
+    position: absolute;
+    top: 274px;
+    left: 372px;
+    /* 부모는? .house */
+
+    /* 문 회전축 오른쪽끝으로 변경 */
+    transform-origin: right;
+    /* 문 y축회전 테스트 */
+    /* rotate: y 130deg; */
+}
+
+/* 말풍선 */
+.words {
+    /* 앱솔루트 poa */
+    position: absolute;
+    top: -38px;
+    left: 0;
+    /* 부모는? .house */
+
+    /* 트랜스폼 스케일로 축소 */
+    scale: 0.7;
+    /* transform: scale(.85); */
+
+    /* 박스설정 */
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 50%;
+    border: 10px solid hotpink;
+    text-align: center;
+    background-color: aqua;
+
+    /* 글자설정 
+    font:스두크/줄체->크체 필수! */
+    font: 20px/1.7 "Sigmar One";
+    color: darkblue;
+    text-shadow: 2px 2px 2px #0000005c;
+
+    /* 처음에 투명하게 처리 op0 */
+    opacity: 0;
+
+}
+/* 말풍선 삼각형 가상요소로 만들기 */
+.words::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    /* 트랜스폼으로 위치이동 및 회전 */
+    translate: -51px 31px;
+    /* translate: x축이동 y축이동 */
+    rotate: -22deg;
+    /* rotate: 각도deg */
+
+    /* 보더로 삼각형모양 만들기
+    -> 가로,세로는 모두 0
+    -> 위또는 아래 보더 주기
+    -> 양쪽보더는 동일하고 투명색설정 */
+    width: 0;
+    height: 0;
+    border-top: 42px solid hotpink;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+/* 삼각형 안쪽 흰색처리 */
+.words::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    /* 트랜스폼으로 위치이동 및 회전 */
+    translate: -59px 11px;
+    /* translate: x축이동 y축이동 */
+    rotate: -22deg;
+    /* rotate: 각도deg */
+
+    /* 보더로 삼각형모양 만들기
+    -> 가로,세로는 모두 0
+    -> 위또는 아래 보더 주기
+    -> 양쪽보더는 동일하고 투명색설정 */
+    width: 0;
+    height: 0;
+    border-top: 49px solid aqua;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+
+/* 3. 징징이 */
+.gingging{
+    position: absolute;
+    bottom: -211px;
+    right: -300px;/* -231px; */
+    width: 200px;
+    transform-origin: bottom;
+    rotate: 0deg;/* -18deg; */
+}
+/* 4. 리사심슨 */
+.lisa{
+    position: absolute;
+    top: 64px;
+    left: -236px;/* -37px; */
+    width: 173px;
+    rotate: 90deg;
+}
+
+/* 5. 메기심슨 */
+.maggie{
+    position: absolute;
+    bottom: -230px;/* -55px; */
+    left: 77px;
+    width: 165px;
+}
+/* 6. 바트심슨 */
+.bart{
+    position: absolute;
+    top: -320px;/* -149px; */
+    right: 147px;
+    width: 229px;
+
+    /* 거꾸로 돌리기 */
+    rotate: 180deg;
+}
+
+/* 7. TV */
+#tv{
+    position: absolute;
+    top: 51%;
+    left: 55%;
+    translate: -50% -50%;
+    width: 1052px;
+}

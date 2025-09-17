@@ -1,0 +1,225 @@
+@charset "utf-8";
+
+/* 스폰지밥 가족 애니메이션 코드 : simpson_ani.css */
+
+/* 
+    [ 트랜스폼 사용법 ]
+    ((y축회전))
+    transform: rotateY(각도deg)
+    -> 같은셋팅 
+    rotate: y 각도deg
+*/
+
+/* 1-1. 문짝에 애니메이션 호출적용! */
+.door {
+  /* 애니메이션 - animation:이시이지반방마 */
+  animation: door-ani 2s ease-in-out;
+
+  /* animation: door-ani 1s ease-in-out 1s 3 alternate forwards; */
+  /* 
+        alternate는 from->to 경로 애니를
+        반대방향도 진행해주는 옵션값임
+
+        forwards는 애니가 끝나면 처음값으로
+        돌아가는 기본값(backwards)이 아닌
+        끝나는 값으로 유지하게 하는 옵션값임
+    */
+}
+/* 1-2. 문열기 애니 키프레임 */
+@keyframes door-ani {
+  0% {
+    rotate: y 0deg;
+  }
+  30% {
+    rotate: y 130deg;
+  }
+  70% {
+    rotate: y 130deg;
+  }
+  100% {
+    rotate: y 0deg;
+  }
+}
+
+/* 2-1.스폰지밥 애니호출 설정 */
+.spongebob {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: spongebob-ani 5s 0.5s forwards;
+}
+
+/* 2-2. 스폰지밥 걸어나오기 키프레임 */
+@keyframes spongebob-ani {
+  0% {
+    top: 305px;
+    left: 381px;
+    width: 31px;
+  }
+  5% {
+    top: 307px;
+    left: 386px;
+    width: 33px;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  10% {
+    top: 313px;
+    left: 376px;
+    width: 39px;
+    rotate: 0deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  20% {
+    top: 322px;
+    left: 385px;
+    width: 48px;
+    rotate: -10deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  40% {
+    top: 336px;
+    left: 368px;
+    width: 58px;
+    rotate: 3deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  60% {
+    top: 338px;
+    left: 357px;
+    width: 76px;
+    rotate: -8deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  70% {
+    top: 343px;
+    left: 333px;
+    width: 101px;
+    rotate: 5deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  80% {
+    top: 319px;
+    left: 310px;
+    width: 130px;
+    rotate: -8deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  100% {
+    top: 155px;
+    left: 223px;
+    width: 351px;
+    rotate: 0deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+}
+
+/* 2.5-1. 말풍선 등장하기 애니메이션 호출 설정 */
+.words {
+  /* 애니메이션 animation: 이시이지반방마 */
+  animation: words-ani 0.5s ease-out 5.5s forwards;
+}
+/* 2.5-2. 말풍선 키프레임 */
+@keyframes words-ani {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 3-1. 징징이 애니메이션 호출설정 */
+.gingging {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: gingging-ani 0.8s ease-out 5.5s forwards;
+}
+/* 3-2. 징징이 애니 키프레임 */
+@keyframes gingging-ani {
+  /* from 혹은 0% 설정이 원본셋팅과 같다면
+    생략할 수 있다! */
+  /* to 혹은 100% 셋팅만 설정 */
+  to {
+    right: -131px;
+    rotate: -18deg;
+  }
+}
+
+/* 4-1. 리사스폰지밥 애니메이션 호출 설정 */
+.lisa {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: lisa-ani 0.8s ease-out 6s forwards;
+}
+/* 4-2. 리사스폰지밥 애니 키프레임 */
+@keyframes lisa-ani {
+  to {
+    left: -37px;
+  }
+}
+
+/* 5-1. 메기스폰지밥 애니메이션 호출설정 */
+.maggie {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: 
+    /* 등장애니 */ 
+    maggie-ani 0.8s ease-out 6.5s forwards,
+    /* 업다운애니 */ 
+    maggie-updown-ani 0.5s ease-in-out 7.3s infinite alternate,
+    /* 왔다갔다애니 */ 
+    maggie-comego-ani 8s ease-in-out 17s infinite alternate;
+}
+/* 5-2-1. 메기스폰지밥 애니 키프레임 : 등장애니 */
+@keyframes maggie-ani {
+  to {
+    bottom: -55px;
+  }
+}
+/* 5-2-2. 메기스폰지밥 애니 키프레임 : 오르락내리락 애니 */
+@keyframes maggie-updown-ani {
+  to {
+    translate: 0 5%;
+  }
+}
+/* 5-2-3. 메기스폰지밥 애니 키프레임 : 왔다갔다 애니 */
+@keyframes maggie-comego-ani {
+  to {
+    left: 633px;
+  }
+}
+
+/* 6-1. 바트스폰지밥 애니메이션 설정하기 */
+.bart {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: 
+  /* 바트등장 */
+  bart-ani .7s ease-out 7s forwards,
+  /* 바트떨어짐 */
+  bart-falling-ani .5s ease-in 12s forwards,
+  /* 바트올라옴 */
+  bart-up-ani 1s ease-in 17s forwards;
+}
+/* 6-2-1. 바트스폰지밥 키프레임 : 등장 애니 */
+@keyframes bart-ani {
+  to {
+    top: -149px;
+  }
+}
+/* 6-2-2. 바트스폰지밥 키프레임 : 떨어지는 애니 */
+@keyframes bart-falling-ani {
+  to {
+    top: 458px;
+    rotate: -36deg;
+  }
+}
+/* 6-2-3. 바트스폰지밥 키프레임 : 다시올라오는 애니 */
+@keyframes bart-up-ani {
+  to {
+    top: 197px;
+    right: 118px;
+    z-index: 1;
+    rotate: 0deg;
+    scale: 1.3;
+  }
+}

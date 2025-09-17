@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .sample {
+                font-weight: 900;
+                margin: 0;
+                background: linear-gradient(88.89deg, #2bf2ff 0.48%, #2f76ff 42.46%, #2bf2ff 84.45%);
+                background-size: auto;
+                background-clip: border-box;
+                color: transparent;
+                -webkit-background-clip: text;
+                background-size: auto auto;
+                background-clip: border-box;
+                background-size: 200% auto;
+                color: #fff;
+                background-clip: text;
+                text-fill-color: transparent;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: textclip 2s linear infinite;
+                display: block;
+                letter-spacing: -0.02em;
+                font-size: 120px;
+            }
+
+            @keyframes textclip {
+                to {
+                    background-position: 200% center;
+                }
+            }
+
+            .sample_2 {
+                font-weight: 900;
+                margin: 0;
+                background: linear-gradient(88.89deg, #099aa7 0.48%, #1f2f31 42.46%, #23ce9b 70.22%);
+                background-size: auto;
+                background-clip: border-box;
+                color: transparent;
+                -webkit-background-clip: text;
+                background-size: auto auto;
+                background-clip: border-box;
+                background-size: 200% auto;
+                color: #fff;
+                background-clip: text;
+                text-fill-color: transparent;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                animation: textclip_2 2s linear infinite;
+                display: block;
+                letter-spacing: -0.02em;
+                font-size: 120px;
+            }
+
+            @keyframes textclip_2 {
+                to {
+                    background-position: 200% center;
+                }
+            }
+
+
+
+
+
+.typing-container {
+  font-size: 95px;
+  font-weight:700;
+  font-family:'Pretendard';
+  margin: 50px;
+  color: darkseagreen;
+  width:450px;
+  word-break:keep-all;
+  
+}
+
+#cursor {
+  border-left: 2px solid salmon; /* 커서 스타일 */
+  animation: blink 0.7s infinite;
+  display: inline-block;
+  margin-left: 2px;
+  height: 35px; /* 폰트 크기와 동일하게 설정 */
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+        </style>
+    </head>
+
+
+
+    <body>
+        
+        <div class="typing-container">
+        <span id="text"></span><span id="cursor"></span>
+        </div>
+
+        <p class="sample">텍스트연습 입니다.</p>
+        <p class="sample_2">텍스트연습 입니다.</p>
+    </body>
+
+
+
+<script>
+const text = "역시 자바스크립트는 어려워..."; // 타이핑할 문구
+let index = 0;
+let speed = 100; // 글자 타이핑 속도 (밀리초 단위)
+
+function typeWriter() {
+  if (index < text.length) {
+    document.getElementById("text").textContent += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+
+</script>    
+</html>
+

@@ -1,0 +1,141 @@
+/* 전체 레이아웃 */
+#wrap {
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* 배너 슬라이드 스타일 */
+#banner-slide.slider {
+    position: relative;
+    width: 1300px;
+    height: 500px;
+}
+.slider ul {
+    width: 300%;
+    transition: transform 0.5s ease-in-out;
+}
+.slider ul li {
+    width: 1300px;
+    float: left;
+}
+.slider ol {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.slider button {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    cursor: pointer;
+}
+.slider button:hover ~ .dot {
+    background-color: #fff;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+/* 섬네일 아이콘 스타일 */
+#thumbnail-icons img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+/* 상품 영역 스타일 */
+#product-area-1 div {
+    float: left;
+    margin-bottom: 20px;
+}
+#product-area-1 img {
+    width: 200px;
+    height: 200px;
+}
+
+/* 유튜브 동영상 영역 스타일 */
+#youtube-video {
+    margin-top: 20px;
+}
+#youtube-video video {
+    width: 320px;
+    height: 180px;
+}
+#youtube-video div {
+    padding-left: 330px;
+}
+
+/* 이벤트 슬라이드 스타일 */
+#event-slide.event-slider {
+    position: relative;
+    width: 520px;
+    height: 340px;
+}
+.event-slider ul {
+    position: absolute;
+    width: 260%;
+    transition: transform 0.5s ease-in-out;
+}
+.event-slider li {
+    width: 520px;
+    height: 340px;
+    float: left;
+}
+.event-slider button {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* 탭 형식 슬라이드 스타일 */
+#tab-slide {
+    margin-top: 20px;
+}
+#tab-slide ul {
+    display: flex;
+    justify-content: space-between;
+}
+#tab-slide li {
+    cursor: pointer;
+}
+#tab-slide div {
+    padding: 20px;
+}
+
+/* 제품 후기 스타일 */
+#product-review ul {
+    list-style-type: none;
+    padding: 0;
+}
+#product-review li {
+    margin-bottom: 20px;
+}
+
+/* 인스타그램 스타일 */
+#instagram img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+/* 푸터 스타일 */
+footer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
