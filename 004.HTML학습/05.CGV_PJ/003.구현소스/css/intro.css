@@ -10,6 +10,7 @@ body{
     height: 100vh;
     /* 스크롤바 없앰 */
     overflow: hidden;
+    background-color: black;
 }
 
 /* 1.비디오 */
@@ -98,6 +99,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
 
     width: 100vw;
     height: 100vh;
@@ -106,37 +108,67 @@ body{
 
     /* 원근설정 */
     perspective: 100vh;
+    
+    /* 트랜지션 - 2초후 작동 */
+    transition: 1s ease-in-out 2s;
 
 }
+/* 영화관문 이미지 */
 .door img{
     /* 부모박스가 특정%보다 작아지면 
     %로 이미지 가로크기 적용! */
-    max-width: 40%;
+    max-width: 49%;
 
     height: 100%;
     object-fit: cover;
+
+    /* 트랜지션 - 2초후 작동 */
+    transition: 1s ease-in-out 2s;
 }
 
 /* 왼쪽문 */
 .left{
     transform-origin: left;
     rotate: y 0deg;
+    /* 문의 오른쪽 끝(문중앙)이 무조건 보이게함 */
+    object-position: right;
 }
 /* 오른쪽문 */
 .right{
     transform-origin: right;
     rotate: y 0deg;
+    /* 문의 왼쪽 끝(문중앙)이 무조건 보이게함 */
+    object-position: left;
 }
 
 /* 클래스 on 셋팅시 애니메이션 설정하기 */
-body #enter ,
-body #myvid {
+body #enter{
     transition: opacity 1s ease-in-out;
 }
+
+/* 비디오는 들어가기 버튼 보다 0.5초 지연함! */
+body #myvid {
+    transition: opacity 1s ease-in-out .5s;
+}
+/* body태그에 클래스 on 셋팅시 */
 body.on #enter ,
 body.on #myvid {
     opacity: 0;
 }
+
+/* body태그에 클래스 on 셋팅시 문 열기 */
+body.on .door .left{
+    rotate: y 90deg;
+}
+body.on .door .right{
+    rotate: y -90deg;
+}
+/* body태그에 클래스 on 셋팅시 문박스 확대&사라짐 */
+body.on .door{
+    scale: 2;
+    opacity: 0;
+}
+
 
 
 

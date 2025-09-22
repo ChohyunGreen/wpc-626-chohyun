@@ -15,7 +15,15 @@
 
     <!-- 2. 들어가기 버튼 -->
     <h1 id="enter">
-        <a href="main.html">
+        <a href="#"
+        onclick="
+            // 1. body에 on클래스 넣기
+            document.body.classList.add('on');
+            // 2. 3초후 main.html페이지로 이동하기!
+            setTimeout(() => {
+                location.href='./main.html';
+            }, 3000);        
+        ">
             <img src="./images/logo_cgv.png" alt="CGV로고">
             <span>Click Here!</span>
         </a>
