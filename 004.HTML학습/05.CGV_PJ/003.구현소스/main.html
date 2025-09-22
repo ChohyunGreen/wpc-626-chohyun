@@ -15,109 +15,224 @@
     <!-- 미디어쿼리 CSS : 
      덮어쓸 수 있게 메인 CSS 아래쪽에 위치해야함! -->
     <link rel="stylesheet" href="./css/media.css" />
-    
 
     <!-- 추가 기능 JS 외부파일
      defer속성은 html태그 로딩후 실행함! -->
-     <script src="./js/main.js" defer></script>
+    <script src="./js/main.js" defer></script>
   </head>
   <body>
     <!-- 1. 상단영역 -->
     <div id="top-area">
-      <header class="top-area inbox"></header>
+      <header class="top-area inbox">
+        <!-- 1-1.타이틀 -->
+        <h1 class="tit">CGV 예고편 상영관</h1>
+        <!-- 1-2.GNB 메뉴 -->
+        <nav class="gnb">
+          <ul>
+            <li>
+              <a href="#">영화</a>
+              <!-- 서브메뉴 -->
+              <div class="smenu">
+                <ol>
+                  <li>
+                    <a href="#">무비차트</a>
+                  </li>
+                  <li>
+                    <a href="#">HD 트레일러</a>
+                  </li>
+                  <li>
+                    <a href="#">무비파인더</a>
+                  </li>
+                  <li class="bd-top">
+                    <a href="#">CGV아트하우스</a>
+                  </li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <a href="#">예매</a>
+              <!-- 서브메뉴 -->
+              <div class="smenu">
+                <ol>
+                  <li>
+                    <a href="#">빠른예매</a>
+                  </li>
+                  <li>
+                    <a href="#">상영시간표</a>
+                  </li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <a href="#">극장</a>
+              <!-- 서브메뉴 -->
+              <div class="smenu">
+                <ol>
+                  <li>
+                    <a href="#">CGV 극장</a>
+                  </li>
+                  <li>
+                    <a href="#">특별관</a>
+                  </li>
+                  <li class="bd-top">
+                    <a href="#">CLUB 서비스</a>
+                  </li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <a href="#">이벤트&amp;컬처</a>
+              <!-- 서브메뉴 -->
+              <div class="smenu">
+                <ol>
+                  <li>
+                    <a href="#">이벤트</a>
+                  </li>
+                  <li>
+                    <a href="#">기프트샵</a>
+                  </li>
+                  <li>
+                    <a href="#">매거진</a>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ul>
+          <!-- 영사기 박스 -->
+          <aside class="cam">
+            <!-- 영사기 이미지 -->
+            <img src="./images/gnb.png" alt="영사기" />
+            <!-- 빔박스 -->
+            <div class="beam"></div>
+          </aside>
+        </nav>
+      </header>
     </div>
     <!-- 2. 메인영역 -->
     <div id="main-area">
       <main class="main-area inbox">
         <!-- 2-1. 스크린박스 -->
-         <div class="screen">
+        <div class="screen">
           <!-- 유튜브 아이프레임 -->
-           <iframe src="https://www.youtube.com/embed/8p1VNDiI4WM?autoplay=1&mute=1&loop=1&playlist=8p1VNDiI4WM" allow="autoplay"></iframe>
-         </div>
-         <!-- 2-2. 메뉴 박스 -->
-          <nav class="poster-menu-box">
-            <ul>
-              <li>
-                <a href="#"
-                onclick="
-                // ckHwZNuV-wQ
-                document.querySelector('.screen iframe')
-                .src = `https://www.youtube.com/embed/ckHwZNuV-wQ?autoplay=1`;
-                "
-                >
-                  <img src="./images/m1.jpg" alt="영화명">
-                  <!-- 영화개요박스 -->
-                   <hgroup class="movie-info">
-                    <h2>어쩔수가없다</h2>
-                    <h3>이병헌, 손예진</h3>
-                    <h4>스릴러, 코미디</h4>
-                   </hgroup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./images/m2.jpg" alt="영화명">
-                  <!-- 영화개요박스 -->
-                   <hgroup class="movie-info">
-                    <h2>귀멸의 칼날: 무한성편</h2>
-                    <h3>소토자키 하루오</h3>
-                    <h4>애니메이션</h4>
-                   </hgroup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./images/m3.jpg" alt="영화명">
-                  <!-- 영화개요박스 -->
-                   <hgroup class="movie-info">
-                    <h2>얼굴</h2>
-                    <h3>박정민, 권해효</h3>
-                    <h4>미스터리</h4>
-                   </hgroup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./images/m4.jpg" alt="영화명">
-                  <!-- 영화개요박스 -->
-                   <hgroup class="movie-info">
-                    <h2>모노노케 히메</h2>
-                    <h3>미야자키 하야오</h3>
-                    <h4>애니메이션</h4>
-                   </hgroup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./images/m5.jpg" alt="영화명">
-                  <!-- 영화개요박스 -->
-                   <hgroup class="movie-info">
-                    <h2>F1 더 무비</h2>
-                    <h3>브래드 피트</h3>
-                    <h4>드라마, 액션</h4>
-                   </hgroup>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./images/m6.jpg" alt="영화명">
-                  <!-- 영화개요박스 -->
-                   <hgroup class="movie-info">
-                    <h2>보스</h2>
-                    <h3>조우진, 정경호</h3>
-                    <h4>코미디, 액션</h4>
-                   </hgroup>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <iframe
+            src="https://www.youtube.com/embed/8p1VNDiI4WM?autoplay=1&mute=1&loop=1&playlist=8p1VNDiI4WM"
+            allow="autoplay"
+          ></iframe>
+        </div>
+        <!-- 2-2. 메뉴 박스 -->
+        <nav class="poster-menu-box">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="./images/m1.jpg" alt="영화명" />
+                <!-- 영화개요박스 -->
+                <hgroup class="movie-info">
+                  <h2>어쩔수가없다</h2>
+                  <h3>이병헌, 손예진</h3>
+                  <h4>스릴러, 코미디</h4>
+                </hgroup>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/m2.jpg" alt="영화명" />
+                <!-- 영화개요박스 -->
+                <hgroup class="movie-info">
+                  <h2>귀멸의 칼날: 무한성편</h2>
+                  <h3>소토자키 하루오</h3>
+                  <h4>애니메이션</h4>
+                </hgroup>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/m3.jpg" alt="영화명" />
+                <!-- 영화개요박스 -->
+                <hgroup class="movie-info">
+                  <h2>얼굴</h2>
+                  <h3>박정민, 권해효</h3>
+                  <h4>미스터리</h4>
+                </hgroup>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/m4.jpg" alt="영화명" />
+                <!-- 영화개요박스 -->
+                <hgroup class="movie-info">
+                  <h2>모노노케 히메</h2>
+                  <h3>미야자키 하야오</h3>
+                  <h4>애니메이션</h4>
+                </hgroup>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/m5.jpg" alt="영화명" />
+                <!-- 영화개요박스 -->
+                <hgroup class="movie-info">
+                  <h2>F1 더 무비</h2>
+                  <h3>브래드 피트</h3>
+                  <h4>드라마, 액션</h4>
+                </hgroup>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/m6.jpg" alt="영화명" />
+                <!-- 영화개요박스 -->
+                <hgroup class="movie-info">
+                  <h2>보스</h2>
+                  <h3>조우진, 정경호</h3>
+                  <h4>코미디, 액션</h4>
+                </hgroup>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </main>
     </div>
-    
+
     <!-- 3. 하단영역 -->
     <div id="bottom-area">
-      <footer class="bottom-area inbox"></footer>
+      <footer class="bottom-area inbox">
+        <!-- 3-1.하단로고 -->
+        <div class="logo">
+          <img src="./images/blogo.png" alt="하단로고" />
+        </div>
+        <!-- 3-2.회사정보 -->
+        <div class="co-info">
+          <address>
+            (04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)
+            <br />
+            대표이사 : 최병환사업자등록번호 : 104-81-45690통신판매업신고번호 :
+            2017-서울용산-0662 <br />
+            개인정보보호 책임자 : 정종민대표이메일 :
+            cjcgvmaster@cj.netCGV고객센터 : 1544-1122
+          </address>
+        </div>
+        <!-- 3-3.SNS -->
+        <div class="sns-box">
+          <ol>
+            <!-- 페이스북 -->
+            <li>
+              <a class="fa-brands fa-square-facebook" href="#"></a>
+            </li>
+            <!-- 트위터X -->
+            <li>
+              <a class="fa-brands fa-square-x-twitter" href="#"></a>
+            </li>
+            <!-- 인스타그램 -->
+            <li>
+              <a class="fa-brands fa-square-instagram" href="#"></a>
+            </li>
+            <!-- 유튜브 -->
+            <li>
+              <a class="fa-brands fa-square-youtube" href="#"></a>
+            </li>
+          </ol>
+        </div>
+      </footer>
     </div>
-    
   </body>
 </html>
