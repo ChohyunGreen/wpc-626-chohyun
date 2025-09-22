@@ -37,15 +37,37 @@
 }
 /* 로고타이틀박스 */
 h1.logo {
+  position: relative;
+  /* 부모자격 */
   height: 100%;
-  background-image: radial-gradient(#00000054, transparent 71%, transparent);
-  /* 애니메이션호출 */
-  /* animation: logo-shadow-ani 2s infinite alternate; */
+
+  /* background-image: radial-gradient(#00000054, transparent 71%, transparent); -> 확정된 그라데이션
+  이미지 비트맵으로 출력하기 때문에 애니메이션 불가! */
 }
+
+/* 가상요소 박스 그림자 */
+h1.logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 박스그림자로 대체 - 왜? 애니메이션 때문! */
+  box-shadow: 0 0 50px 10px #ff00005c;
+  /* 원형 */
+  border-radius: 50%;
+  /* 축소 */
+  scale: 0.5;
+
+  /* 애니메이션호출 */
+  animation: logo-shadow-ani 0.6s ease-in-out infinite alternate;
+}
+
 /* 로고그림자효과 키프레임 */
 @keyframes logo-shadow-ani {
   to {
-    background-image: radial-gradient(#00000054, transparent 71%, transparent);
+    box-shadow: 0 0 40px 30px #ff00005c;
   }
 }
 
@@ -284,7 +306,170 @@ h1.logo {
 
 /***************** 2-2. 캐릭터영역 *****************/
 .cat-part {
-  height: 188px;
+  position: relative;
+  /* 형제 배너박스보다 밑에 깔리므로
+  포지션을 줘서 나중에 오는 박스가 위로 오게함! */
+
+  /* 비율적용을 위해 높이값을 없앤다! */
+  height: auto;
+  aspect-ratio: 1320/190;
+}
+/* 캐릭터박스 */
+.cat-box {
+  /* 플렉스박스 */
+  display: flex;
+  /* 사이간격 */
+  gap: 1%;
+}
+/* 직계자식요소 div 4개 */
+.cat-box > div {
+  /* 플렉스자식 등분할설정 */
+  flex: 1;
+}
+/* 캐릭터 이미지박스 */
+.cat-box figure {
+  /* 트랜지션 */
+  transition: 0.4s ease-out;
+}
+/* 캐릭터 각 박스 오버시 캐릭터박스
+마진탑 올리기 */
+.cat-box > div:hover figure {
+  /* 브라우저 화면크기를 중앙속박스 크기로 맞추고
+  최대크기 px,vw를 조정한다! 이때 마이너스니까
+  min이 아니고 max로 조정함! */
+  margin-top: max(-200px, -15vw);
+}
+/* 캐릭터 이미지만 선택 */
+.cat-box figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 캐릭터 이름 이미지박스 */
+.cat-box figcaption {
+  text-align: center;
+  margin-top: -17%;
+}
+/* 이름이미지 공통 */
+.cat-box figcaption img {
+  width: 35%;
+}
+/* 첫번째 이름이미지 처음에 안보임 */
+.cat-box figcaption img:first-child {
+  display: none;
+}
+/* 캐릭터 개별박스에 오버시 이름변경
+-> 첫번째 보이고 두번째 숨기기 */
+.cat-box > div:hover figcaption img:first-child {
+  display: inline;
+}
+.cat-box > div:hover figcaption img:last-child {
+  display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cat-box aside {
+  height: 0;
+  overflow: auto;
+  /* 배경 */
+  background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+  /* 트랜지션 */
+  transition: 0.4s ease-out;
+  /* 둥근모서리 설정 */
+  border-radius: 10px 5px 5px 10px;
+  margin-top: 10px;
+}
+/* 각 캐릭터박스에 오버시 설명박스 보이기 */
+.cat-box > div:hover aside {
+  /* 중앙박스 최대크기에서 px과 vw크기를 맞추고
+  최소크기 출력을 테스트하면 잘된다! */
+  height: min(200px, 15vw);
+}
+/* 캐릭터 타이틀 */
+.cat-box aside h3 {
+  font-family: "Gugi";
+  /* 글자 최대크기를 min으로 설정 */
+  font-size: min(2.4rem, 1.8vw);
+  font-weight: normal;
+  padding: 1.5rem 1rem 0.5rem;
+  /* 자간 letter-spacing */
+  letter-spacing: -1px;
+}
+/* 캐릭터 설명 */
+.cat-box aside p {
+  font-family: "Single Day";
+  /* 글자 최대크기를 min으로 설정 */
+  font-size: min(1.8rem, 1.3vw);
+  padding: 1.5rem;
+  line-height: 1.6;
+  /* 양쪽정렬 justify */
+  text-align: justify;
+}
+/************* 2-2.5. 드라마파트메뉴 : 스티키메뉴 ***************/
+#spart-menu {
+  /* 스티키 포지션 - 상단스크롤 걸림! */
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 999;
+}
+/* 인박스 높이값 초기화 */
+.spart-menu.inbox {
+  height: auto;
+}
+.spart-menu ul {
+  /* 플렉스박스 */
+  display: flex;
+  padding: 12px 0;
+  transition: 0.4s ease-out;
+}
+/* 도깨비메뉴 상위메뉴a */
+.spart-menu ul > li > a {
+  color: #999;
+  font-size: 1.8rem;
+  display: block;
+  padding: 9px 24px;
+  /* 줄바꿈방지 */
+  white-space: nowrap;
+}
+/* 도깨비메뉴 상위li 오버시 a */
+.spart-menu ul > li:hover > a {
+  color: #222;
+}
+/* 하위메뉴가 있는 li만 하위 표시하기 */
+.spart-menu ul > li.be-sub > a::after {
+  content: "∨";
+  display: inline-block;
+  transform: scale(0.5, 0.3);
+  margin-left: 3px;
+}
+/* 현재 선택된 메뉴 li.on 클래스 */
+.spart-menu ul > li.on > a {
+  background-color: red;
+  color: #fff;
+  border-radius: 30px;
+}
+
+/* 도깨비 서브메뉴 */
+.spart-sub-menu {
+  position: absolute;
+  border: 1px solid red;
+  border-radius: 20px;
+  width: 180px;
+  background-color: #fff;
+
+  /* 처음에 숨김 */
+  display: none;
+}
+/* 상위li에 마우스 오버시 서브 보이기 */
+.spart-menu ul > li:hover .spart-sub-menu {
+  display: block;
+}
+/* 도깨비 서브메뉴 a */
+.spart-sub-menu a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 1.8rem;
 }
 /***************** 2-3. 드라마소개영역 *****************/
 .intro-part {
