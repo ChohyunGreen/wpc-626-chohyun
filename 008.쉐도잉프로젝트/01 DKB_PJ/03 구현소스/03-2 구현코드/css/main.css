@@ -275,6 +275,9 @@ h1.logo::before {
 }
 /* 배너박스 */
 .banner-box {
+  position: relative;
+  /* 부모자격 - 이동버튼 등 */
+
   /* 배너이미지크기 */
   height: 100%;
   /* 넘치는 배너 숨기기 */
@@ -284,15 +287,25 @@ h1.logo::before {
 .banner-slide {
   /* 플렉스박스 */
   display: flex;
-  /* 슬라이드 개수만큼 크기를 설정해준다! */
-  width: calc(100% * 3);
+  /* 슬라이드를 부모크기만큼 셋팅 - 변경! */
+  width: 100%;
+
+  /* 슬라이드 개수만큼 크기를 설정해준다!-주석 */
+  /* width: calc(100% * 3); */
+
   /* 배너이미지크기 */
   height: 100%;
 }
 /* 배너 슬라이드 li */
 .banner-slide li {
-  /* 등분할 설정 */
-  flex: 1;
+  /* 자식요소 크기 부모와 동일 100% */
+  width: 100%;
+  /* 플렉스 줄어드는 설정 0
+  -> 그래야 자식요소가 크기설정 적용됨! */
+  flex-shrink: 0;
+
+  /* 등분할 설정 - 주석 */
+  /* flex: 1; */
 }
 /* 배너이미지 */
 .banner-slide img {
@@ -302,6 +315,24 @@ h1.logo::before {
     일반 이미지를 배경처럼 처리해준다!
     비율에 맞게 박스를 가득 채움! */
   object-fit: cover;
+}
+
+/*이동버튼*/
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /*Y축 중앙이동*/
+}
+
+/*왼쪽버튼*/
+.ab1 {
+    left: 50px;
+}
+
+/*오른쪽버튼*/
+.ab2 {
+    right: 50px;
 }
 
 /***************** 2-2. 캐릭터영역 *****************/

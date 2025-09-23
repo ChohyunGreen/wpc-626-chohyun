@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>animate_stop()</title>
+
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script></script>
+
+    <style type="text/css">
+      div {
+        margin-bottom: 50px;
+      }
+      a {
+        text-decoration: none;
+      }
+      #box1 {
+        background: #f00;
+        height: 50px;
+        width: 50px;
+        position: relative;
+      }
+      #box2 {
+        background: #ff0;
+        height: 50px;
+        width: 50px;
+        position: relative;
+      }
+      #box3 {
+        background: #f0f;
+        height: 50px;
+        width: 50px;
+        position: relative;
+      }
+      #box4 {
+        background: #0ff;
+        height: 50px;
+        width: 50px;
+        position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    효과 순서<br />
+    .animate({opacity: "0.1", left: "500"}, 1000)<br />
+    .animate({opacity: "0.4", top: "0", left: 0, height: "100", width: "100"},
+    1000)<br />
+    .slideUp(1000)<br />
+    .slideDown(1000)<br />
+    .animate({left: "0"}, 1000)<br />
+    <br />
+    <br />
+
+    <a href="#" id="startbtn1">효과시작</a> &nbsp;
+    <a href="#" id="stopbtn1">stop(true,true)</a>
+    <div id="box1"></div>
+    <a href="#" id="startbtn2">효과시작</a> &nbsp;
+    <a href="#" id="stopbtn2">stop(true,false)</a>
+    <div id="box2"></div>
+    <a href="#" id="startbtn3">효과시작</a> &nbsp;
+    <a href="#" id="stopbtn3">stop(false,true)</a>
+    <div id="box3"></div>
+    <a href="#" id="startbtn4">효과시작</a> &nbsp;
+    <a href="#" id="stopbtn4">stop(false,false)</a>
+    <div id="box4"></div>
+
+    <script type="text/javascript"></script>
+  </body>
+</html>

@@ -485,8 +485,7 @@ const 공유 = {
 
 // 툴팁 띄우기 &
 // 공유 객체의 팬레터메서드를 클릭할때 실행
-출력박스[4].title = 
-`여기를 클릭하여 ${공유.name} 팬레터를 확인하세요!`;
+출력박스[4].title = `여기를 클릭하여 ${공유.name} 팬레터를 확인하세요!`;
 출력박스[4].style.cursor = "pointer";
 
 // 이벤트설정 메서드를 사용하여 이벤트 설정하기
@@ -500,14 +499,13 @@ const 공유 = {
 // 이벤트설정 메서드로 이벤트 설정하기!
 // -> 여기서는 공유.msgFn()에 값을 보내야 하므로
 // 익명함수에 안에 호출을 구현한다!
-출력박스[4].addEventListener("click", function(){
-  공유.msgFn("공유 오빠, 오징어 게임 싸다구 멋쪘어요! /n차기작도 기대해요! 화이팅!!!",this);
+출력박스[4].addEventListener("click", function () {
+  공유.msgFn(
+    "공유 오빠, 오징어 게임 싸다구 멋쪘어요! /n차기작도 기대해요! 화이팅!!!",
+    this
+  );
   // 이벤트 설정이된 자기자신을 this로 보낸다!
 }); /// addEventListener() ///
-
-
-
-
 
 /***************************************************
     [ 미션 :  내가 만든 객체 활용하기 ]
@@ -518,161 +516,39 @@ const 공유 = {
     3.  객체를 쌤과 모두에게 공유하기!(라이브에 쏘기!)
 ***************************************************/
 
-// chohyun의 오브젝트!!!
+// 탐쌤의 오브젝트!!!
 // 변경 가능하도록 let으로 선언!
-let chohyun = {};
+let 탐쌤 = {};
 // 오브젝트 형만 리터럴로 만들고 객체내용은 아래에서 생성!
 
 // 1. 영화제목
-chohyun.title = "바다 탐험대 옥토넛 어보브 앤 비욘드 : 콰지의 깜짝 어드벤처";
+탐쌤.title = "외계+인 2부";
 // 2. 감독
-chohyun.director = "패트리스 베루베";
+탐쌤.director = "최동훈";
 // 3. 배우
-chohyun.actor = "애니메이션";
+탐쌤.actor = "류준열, 김태리, 김우빈";
 // 4. 장르
-chohyun.genre = "애니메이션, 액션, 어드벤쳐";
+탐쌤.genre = "액션,다크 판타지,코미디";
 // 5. 관람가
-chohyun.ratings = "전체관람가";
+탐쌤.ratings = "12세";
 // 6. 예고편
-chohyun.trailer = function(){
-    console.log("예고편:영화아이디");
+탐쌤.trailer = function () {
+  console.log("예고편:영화아이디");
   // 예고편 플레이 함수호출!
-  playMovie("YGLrpdqsFvc");
+  playMovie("4uSn4Dem9i0");
 };
+// 처음에 자기 객체정보가 나오게 하려면
+// 아래와 같이 탐쌤 객체변수에 자신을 객체를
+// 재할당해 준다!
 
-
-///////////////////////////////
-// 화면에 정보를 보여주는 함수 //
-///////////////////////////////
-const 영화정보보여줘 = function () {
-  // 함수호출 확인
-  console.log("영화정보!!!");
-
-  // 1. 출력대상: 출력박스[5]
-  // 2. 내용넣기
-  출력박스[5].innerHTML = `
-      ♣ 영화명 : ${chohyun.title}
-      ♣ 감독 : ${chohyun.director} <br>
-      ♣ 배우 : ${chohyun.actor}
-      ♣ 장르 : ${chohyun.genre}
-      ♣ 등급 : ${chohyun.ratings}
-    `;
-
-  // 툴팁 보이기
-  출력박스[5].title = `클릭하시면 ${chohyun.title} 예고편을 보실 수 있습니다!`;
-
-  // 예고편 메서드 호출
-  출력박스[5].onclick = chohyun.trailer;
-}; ////// showMovieInfo 함수 //////////
-
-
-// 출력박스 CSS조정하기
-출력박스[5].style.lineHeight = "34px";
-출력박스[5].style.cursor = "pointer";
-출력박스[5].style.fontSize = "20px";
-
-
-// 여섯번째 박스에 영화정보 나오도록
-// 영화정보보여줘 함수 실행
-영화정보보여줘();
-
-
-
-
-/*****************************************
-    함수명 : playMovie
-    기능 : 영화예고편 화면 띄우기
-*****************************************/
-function playMovie(mcode) {
-  // mcode 영화아이디
-  // 함수호출 및 전달값 확인
-  console.log(
-    "예고편상영이요~~!",
-    mcode
-  );
-
-  // 1. 대상선정 : #mvbox
-  let mvbox =
-    document.querySelector("#mvbox");
-
-  // 2. 영화박스에 아이프레임 넣기
-  mvbox.innerHTML = `
-    <div id="mv">
-      <!-- 유튜브 아이프레임 -->
-      <iframe src="https://www.youtube.com/embed/${mcode}?autoplay=1" allow="autoplay"></iframe>
-      <!-- 닫기버튼 -->
-      <button class="cbtn">×</button>
-    </div>
-            `;
-
-  // 3. 삽입된 동영상 박스 CSS설정하기
-  let mv =
-    document.querySelector("#mv");
-  let css = mv.style;
-
-  css.position = "fixed";
-  css.top = "50%";
-  css.left = "50%";
-  css.transform =
-    "translate(-50%, -50%)";
-  css.width = "700px";
-  css.height = "450px";
-  css.backgroundColor = "#000";
-
-  // 4. 아이프레임 CSS설정
-  let ifr = mv.querySelector("iframe");
-  let ifrcss = ifr.style;
-  ifrcss.border = "none";
-  ifrcss.width = "100%";
-  ifrcss.height = "100%";
-
-  // 5. 닫기버튼  CSS셋팅하기
-  let cbtn = mv.querySelector(".cbtn");
-  // style.cssText 로 셋팅하자!
-  // 개별셋팅과 차이점은 이 설정은 모든 style속성의
-  // CSS 설정을 덮어씀! 주의!!!
-  // 반면 한 속성씩 셋팅하는 것은 한껀씩 개별 업데이트됨!
-  cbtn.style.cssText = `
-    position : absolute;
-    top : 0;
-    right : -70px;
-    width : 50px;
-    height : 50px;
-    border : none;
-    color : #fff;
-    background-color : blue;
-    font-size : 40px;
-    font-weight : bold;
-    border-radius: 50%;
-    cursor : pointer;
-    line-height : 50px;
-  `;
-
-  // 6. 닫기버튼 클릭시 #mv 제거하기
-  cbtn.onclick = function () {
-    mv.remove();
-    // remove() 는 DOM 메서드임!
-    // 선택요소를 제거함!
-
-    // body 암전효과 클래스 on 제거하기
-    document.body.classList.remove(
-      "on"
-    );
-  }; //////// 닫기버튼 이벤트함수 ///////
-
-  // 7. body 요소에 클래스 on주기
-  // 동영상 배경 암전효과
-  document.body.classList.add("on");
-} ///////////// playMovie 함수 ///////////
-///////////////////////////////////////////
-
+// 탐쌤 = 손종준;
 
 //////////////////////////////////
 // 초이스 파트 버튼 만들기 ////////
 //////////////////////////////////
 // 버튼에 사용할 이름 배열만들기
 const choiceName = [
-  "탐쌤",
+  "탐쌤", // 첫번째가 하일라이팅 되어 있음!
   "손종준",
   "강지희",
   "성은",
@@ -684,7 +560,7 @@ const choiceName = [
 // 배열확인
 console.log("버튼배열:", choiceName);
 
-// 버튼을 넣을 대상 : target[6]
+// 버튼을 넣을 대상 : 출력박스[6]
 
 // 버튼을 어떻게 넣지?
 // 대답: 버튼이름 배열의 수만큼 버튼을 넣는다
@@ -713,7 +589,7 @@ for (let i = 0; i < cnt; i++) {
       ${choiceName[i]}초이스</button>`;
 
   // 줄바꿈태그는 5번째,10번째에서 넣기
-  if (i == 3 || i == 9) {
+  if (i == 3) {
     출력박스[6].innerHTML += "<br>";
   } /// if ///
 } /////////// for문 ////////
@@ -748,7 +624,7 @@ for (let i = 0; i < cntBtn; i++) {
 
     // 영화정보 변경전 찍어보기
     // 각자 자기의 변수를 찍는다!
-    console.log("변경전영화객체", chohyun);
+    console.log("변경전영화객체", 탐쌤);
 
     switch (버튼텍스트) {
       // 자기자신 오브젝트
@@ -803,6 +679,38 @@ for (let i = 0; i < cntBtn; i++) {
 } ////////// for문 ////////////
 /////////////// 초이스 버튼 셋팅하기 //////////////
 
+///////////////////////////////
+// 화면에 정보를 보여주는 함수 //
+///////////////////////////////
+const 영화정보보여줘 = function () {
+  // 함수호출 확인
+  console.log("영화정보!!!");
+
+  // 1. 출력대상: 출력박스[5]
+  // 2. 내용넣기
+  출력박스[5].innerHTML = `
+      ♣ 영화명 : ${탐쌤.title}
+      ♣ 감독 : ${탐쌤.director} <br>
+      ♣ 배우 : ${탐쌤.actor}
+      ♣ 장르 : ${탐쌤.genre}
+      ♣ 등급 : ${탐쌤.ratings}
+    `;
+
+  // 툴팁 보이기
+  출력박스[5].title = `클릭하시면 ${탐쌤.title}예고편을 보실 수 있습니다!`;
+
+  // 예고편 메서드 호출
+  출력박스[5].onclick = 탐쌤.trailer;
+}; ////// 영화정보보여줘 함수 //////////
+
+// 출력박스 CSS조정하기
+출력박스[5].style.lineHeight = "34px";
+출력박스[5].style.cursor = "pointer";
+출력박스[5].style.fontSize = "20px";
+
+// 여섯번째 박스에 영화정보 나오도록
+// 영화정보보여줘 함수 실행
+영화정보보여줘();
 
 /*****************************************
     함수명 : playMovie

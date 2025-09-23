@@ -8,6 +8,15 @@
     <link rel="shortcut icon" href="./images/favicon.ico" />
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 제이쿼리 라이브러리 불러오기 
+     제이쿼리를 사용하는 JS파일 위에 불러와야한다! -->
+     <script src="./js/jquery-3.6.3.min.js"></script>
+
+     <!-- 외부JS 제이쿼리버전 - defer필수! -->
+    <script src="./js/main1_jquery.js" defer></script>
+
+
     <!--  메인 JS -->
     <script src="./js/main.js" defer></script>
   </head>
@@ -182,6 +191,14 @@
                 /></a>
               </li>
             </ul>
+
+            <!--이동버튼-->
+            <a href="#" class="abtn ab1">
+              <img src="./images/banner/etc/left_btn.png" alt="왼쪽이동버튼" />
+            </a>
+            <a href="#" class="abtn ab2">
+              <img src="./images/banner/etc/right_btn.png" alt="오른쪽이동버튼" />
+            </a>
           </div>
         </section>
 
@@ -332,58 +349,56 @@
           </article>
         </section>
 
-        
-    <!-- 2-2.5. 드라마파트메뉴 : 스티키메뉴 -->
-    <div id="spart-menu">
-      <nav class="spart-menu inbox">
-        <ul>
-          <li class="on">
-            <a href="#">메인</a>
-          </li>
-          <li class="be-sub">
-            <a href="#intro-part">프로그램 소개</a>
-            <!-- 서브메뉴 -->
-            <div class="spart-sub-menu">
-              <ol>
-                <li>
-                  <a href="#intro-part">프로그램 소개</a>
-                </li>
-                <li>
-                  <a href="#">인물 소개</a>
-                </li>
-                <li>
-                  <a href="#">인물 관계도</a>
-                </li>
-              </ol>
-            </div>
-          </li>
-          <li>
-            <a href="#preview-part">미리보기</a>
-          </li>
-          <li>
-            <a href="#clip-area">동영상</a>
-          </li>
-          <li class="be-sub">
-            <a href="#live-photo-area">사진첩</a>
-            <!-- 서브메뉴 -->
-            <div class="spart-sub-menu">
-              <ol>
-                <li>
-                  <a href="#live-photo-area">현장 포토</a>
-                </li>
-                <li>
-                  <a href="#poster-area">대표 포스터</a>
-                </li>
-              </ol>
-            </div>
-          </li>
-          <li>
-            <a href="#clip-area">OST</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
+        <!-- 2-2.5. 드라마파트메뉴 : 스티키메뉴 -->
+        <div id="spart-menu">
+          <nav class="spart-menu inbox">
+            <ul>
+              <li class="on">
+                <a href="#">메인</a>
+              </li>
+              <li class="be-sub">
+                <a href="#intro-part">프로그램 소개</a>
+                <!-- 서브메뉴 -->
+                <div class="spart-sub-menu">
+                  <ol>
+                    <li>
+                      <a href="#intro-part">프로그램 소개</a>
+                    </li>
+                    <li>
+                      <a href="#">인물 소개</a>
+                    </li>
+                    <li>
+                      <a href="#">인물 관계도</a>
+                    </li>
+                  </ol>
+                </div>
+              </li>
+              <li>
+                <a href="#preview-part">미리보기</a>
+              </li>
+              <li>
+                <a href="#clip-area">동영상</a>
+              </li>
+              <li class="be-sub">
+                <a href="#live-photo-area">사진첩</a>
+                <!-- 서브메뉴 -->
+                <div class="spart-sub-menu">
+                  <ol>
+                    <li>
+                      <a href="#live-photo-area">현장 포토</a>
+                    </li>
+                    <li>
+                      <a href="#poster-area">대표 포스터</a>
+                    </li>
+                  </ol>
+                </div>
+              </li>
+              <li>
+                <a href="#clip-area">OST</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
         <!-- 2-3. 드라마소개영역 -->
         <section class="intro-part inbox">
