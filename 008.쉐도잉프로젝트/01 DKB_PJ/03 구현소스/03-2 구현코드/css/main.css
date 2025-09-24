@@ -319,20 +319,20 @@ h1.logo::before {
 
 /*이동버튼*/
 .abtn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /*Y축 중앙이동*/
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /*Y축 중앙이동*/
 }
 
 /*왼쪽버튼*/
 .ab1 {
-    left: 50px;
+  left: 50px;
 }
 
 /*오른쪽버튼*/
 .ab2 {
-    right: 50px;
+  right: 50px;
 }
 
 /***************** 2-2. 캐릭터영역 *****************/
@@ -503,12 +503,135 @@ h1.logo::before {
   font-size: 1.8rem;
 }
 /***************** 2-3. 드라마소개영역 *****************/
-.intro-part {
-  height: 500px;
+.main .intro-part .partbox {
+  height: 455px;
+  padding: 10px;
 }
+/* 서브타이틀 */
+.intro-part .stit {
+  padding-bottom: 0;
+}
+/* 하위제목+아이콘 박스 */
+.intro-desc {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 2.5rem;
+}
+.intro-desc h3 {
+  margin-right: 10px;
+}
+.intro-desc ul {
+  display: flex;
+  gap: 0 15px;
+}
+/* 설명박스 */
+.intro-txt {
+  padding: 20px;
+  font-size: 2.2rem;
+  line-height: 2;
+  color: #555;
+}
+/* 인트로버튼 */
+.intro-btn {
+  padding: 20px 50px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  background-color: transparent;
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+/* 인트로 동영상 박스 */
+.intro-mv-img {
+  position: relative;
+  /* 부모자격 */
+  aspect-ratio: 2/1.1;
+}
+/* 가상요소로 플레이버튼 만들기
+-> .off를 준 경우에만 가상요소 버튼보임
+따라서 비디오태그 넣을 경우 .off 지울것! */
+.intro-mv-img.off::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background: url(../images/icon_play.png) no-repeat;
+  cursor: pointer;
+}
+
+/* 하위 이미지/동영상 */
+.intro-mv-img img,
+.intro-mv-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+/* 동영상 설명박스 */
+.intro-mv-box figcaption {
+  font-size: 2rem;
+  padding-top: 10px;
+}
+
 /***************** 2-4. 미리보기영역 *****************/
-.view-part {
-  height: 660px;
+.preview-area {
+  min-height: 660px;
+}
+
+/* 영역 서브제목 아이콘 가상요소로 앞에 넣기 */
+.preview-area .stit::before {
+  background-image: url(../images/icons/icon1.png);
+}
+
+/* 미리보기 컨텐츠 리스트 ul */
+.preview-area ul.cont-box {
+  gap: 2vh 1.5%;
+}
+/* 미리보기 컨텐츠 리스트 li */
+.preview-area li {
+  width: calc((100% - 1.5% * 3) / 4);
+  /* 가로크기는 4등분(단, 갭3개의 값을 뺀다!) */
+
+  aspect-ratio: 320/270;
+  box-shadow: 0 0 10px #ccc;
+  /* 보더박스 */
+  box-sizing: border-box;
+  padding: 24px 20px;
+
+  /* 커서 손가락 */
+  cursor: pointer;
+
+  /* 투명도 0.6 */
+  opacity: 0.6;
+
+}
+/* li오버시 투명도 복원 */
+.preview-area li:hover {
+  opacity: 1;
+}
+
+/* 미리보기 타이틀 */
+.preview-area li h3 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+/* 미리보기 내용 */
+.preview-area li p {
+  font-size: 1.5rem;
+  line-height: 1.9;
+  color: #555;
+  height: 77%;
+
+  /* 여러줄 말줄임처리 */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 여러줄 처리 줄수 */
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 /***************** 2-5. 현장포토영역 *****************/
 .real-part {

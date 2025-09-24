@@ -31,3 +31,12 @@
     flex-wrap: wrap;
     height: 100%;
 }
+
+/* 컨텐트 박스 컬럼형
+-> 플렉스 박스는 싸고 있는 부모를 설정함! */
+.cont-box-col{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+}
