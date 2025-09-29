@@ -19,99 +19,74 @@
 
 ********************************************/
 
-// 전역변수 //////
-// 슬라이드 번호 변수
-let sNum = 0;
+// 1. 대상
+// 1-1. 이벤트 대상 : 이동버튼 2개 - .ab1, .ab2
+// 1-2. 변경 대상 : 슬라이드 박스 - .slide
+const $slide = $(".slide");
+// 보통 제이쿼리 선택할당은 변수명 앞에 $로 시작
 
-// 1. 슬라이드 대상선정
-const $slide = $(".slide>li");
-// 슬라이드개수(length속성)
-const SLIDE_CNT = $slide.length;
+// 블릿 대상 선정
+const $indic = $(".indic li");
 
-// 블릿대상
-const $indic = $(".indic>li");
+// 슬라이드 개수를 직접 넣지 말고
+// JS가 알아서 개수를 파악하게 한다!
+const SLIDE_NUM = $slide.find("li").length;
+console.log("슬라이드개수:", SLIDE_NUM);
+// 상수의 이름은 보통 대문자와 언더바를 사용한다!
 
-// 2. 이벤트 설정 및 기능구현 ////
-// 2-1. 오른쪽 버튼 ///////////
-$(".ab2").click(() => {
-  // 광클금지
-  if (blockCode()) return;
+// 2. 구현하기
+// 2-1. 오른쪽 이동버튼 클릭시 기능구현
 
-  // 슬라이드 번호증가(한계값 설정)
-  sNum++;
-  if (sNum == SLIDE_CNT) sNum = 0;
+// 슬라이드 순번 전역변수
+let seq = 0;
 
-  // 공통처리함수 호출
-  comFn();
+// 클릭이벤트 설정하기 ///
+// 버튼 공통 클래스 .abtn 을 사용하여
+// 클릭시 오른쪽버튼인 .ab2인지 검사하여 분기한다!
+$(".abtn").click((e) => {
+  // 오른쪽 버튼인지 물어본다!
+  // 이때 is() 메서드 사용!
+  // -> 선택요소.is(클래스명) -> true/false 반환
+  let isR = $(e.currentTarget).is(".ab2");
+  console.log("오른쪽 버튼인가?", isR);
+
+  // 현재 순번 슬라이드 클래스 on 제거
+  $slide.find("li").eq(seq).removeClass("on");
+  // find() -> 자식요소 찾기 메서드
+  // eq(순번) -> 순번요소 선택 메서드
+  // removeClass(클래스명) -> 클래스 제거 메서드
+
+  // 슬라이드 순번 전역변수 1증가/1감소
+  // 삼항연산자로 더욱 간단히 처리!
+  // 비 ? 집 : 놀이동산
+  isR ? seq++ : seq--;
+
+  // 슬라이드 계수를 고려하여 맨처음/맨끝 처리
+  if (seq >= SLIDE_NUM) seq = 0;
+  else if (seq < 0) seq = SLIDE_NUM - 1;
+  // 맨끝 순번은 개수-1
+
+  // 다음순번 슬라이드 클래스 on 넣기
+  $slide.find("li").eq(seq).addClass("on");
+
+  // 블릿 현재 순번 li에 클래스 on넣기, 나머지는 제거
+  $indic.eq(seq).addClass('on').siblings().removeClass('on');
+  // eq(순번) -> 순번요소 선택 메서드
+  // siblings() -> 형제요소 선택 메서드
+  // removeClass(클래스명) -> 클래스 제거 메서드
 }); /// click ///
 
-// 2-2. 왼쪽 버튼 /////////
-$(".ab1").click(() => {
-  // 광클금지
-  if (blockCode()) return;
+// 클릭이벤트 설정하기 ///
+// $('.ab1').click(()=>{
 
-  // 슬라이드 번호감소(한계값 설정)
-  sNum--;
-  if (sNum == -1) sNum = SLIDE_CNT - 1;
+//     // 현재 순번 슬라이드 클래스 on 제거
+//     $slide.find('li').eq(seq).removeClass('on');
 
-  // 공통처리함수 호출
-  comFn();
-}); /// click ///
+//     // 슬라이드 순번 전역변수 1감소
+//     seq--;
+//     // 0이 한계이므로 처리
+//     if(seq<0) seq=4;
 
-// 3. 공통처리함수 만들기 ////////
-function comFn() {
-  // 슬라이드에 클래스 넣기 (지우기)
-  $slide.eq(sNum).addClass("on").siblings().removeClass("on");
-
-  // 블릿변경
-  $indic.eq(sNum).addClass("on").siblings().removeClass("on");
-} /////// comFn 함수 ///////////////
-
-// 광클금지 상태변수
-let clickSts = false;
-
-/////// 광클 금지 함수 /////
-function blockCode() {
-  // 1. 광클상태 true 이면 리턴 true
-  if (clickSts) return true;
-
-  // 2. 클릭상태 전역변수 셋팅 ///
-  clickSts = true; //잠금
-  setTimeout(() => {
-    clickSts = false; //잠금 해제
-  }, 400); // 0.4초후 실행
-
-  // 3. 광클상태 false이면 전역셋팅후 리턴 false
-  return false;
-} //////// blockCode 함수 //////
-
-////////////////////////////////
-//////// 자동넘김 셋팅 하기 /////
-////////////////////////////////
-// 인터발, 타임아웃 저장용 변수
-let autoI, autoT;
-
-// 최초호출
-slideAuto();
-
-// 1. 자동호출함수 ///
-function slideAuto() {
-  autoI = setInterval(() => {
-    // 슬라이드 번호증가(한계값 설정)
-    sNum++;
-    if (sNum == SLIDE_CNT) sNum = 0;
-
-    // 공통처리함수 호출
-    comFn();
-  }, 2000);
-} /// slideAuto함수 ///
-
-// 2. 지우기 함수 ////
-function clearAuto() {
-  clearInterval(autoI);
-  clearTimeout(autoT);
-  autoT = setTimeout(slideAuto, 5000);
-} /// clearAuto 함수 ////
-
-// 3. 버튼 클릭시 지우기 함수 호출 셋팅 ///
-$(".abtn").click(clearAuto);
+//     // 다음순번 슬라이드 클래스 on 넣기
+//     $slide.find('li').eq(seq).addClass('on');
+// }); /// click ///

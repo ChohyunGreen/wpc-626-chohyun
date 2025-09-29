@@ -6,7 +6,28 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script>
-
+      $(() => {
+        //미션: li중 하나를 클릭하면  그 뒤의 형제요소의
+        //  li들이 모두 width: 500px, height: 300px로
+        //  변경되고 배경이미지를 넣으시오.(배경이미지는
+        //  웹경로로 넣고 트랜지션 설정도 하시오.)
+        $("li")
+          .css({
+            // 초기값 가로 100px, 세로 50px
+            width: "100px",
+            height: "50px",
+          })
+          // 여기에 이어서 click 설정하기!
+          .click((e) => {
+            $('~li', e.target)
+            .css({
+              width: "500px",
+              height: "300px",
+              background: "url(https://dimg.donga.com/wps/NEWS/IMAGE/2025/09/09/132350458.1.png) no-repeat center/cover",
+              transition: "all .4s",
+            });
+          }); ///// click ///
+      }); /// 제이쿼리 코드 블록 ///////
     </script>
   </head>
 
