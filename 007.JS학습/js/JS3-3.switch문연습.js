@@ -14,10 +14,12 @@ var scene = document.querySelector("#scene");
 console.log("대상:",btns,scene);
 
 // 2. 이벤트 걸기 ////////
-btns[0].onclick = changeImage;
-btns[1].onclick = changeImage;
-btns[2].onclick = changeImage;
-btns[3].onclick = changeImage;
+btns.forEach(el=>el.onclick=changeImage);
+
+// btns[0].onclick = changeImage;
+// btns[1].onclick = changeImage;
+// btns[2].onclick = changeImage;
+// btns[3].onclick = changeImage;
 
 
 // 3. 함수만들기

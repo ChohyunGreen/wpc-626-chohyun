@@ -6,7 +6,6 @@
 // 외부 JS호출시 defer를 사용하지 않으면 아래와 같이
 // 이벤트 셋팅해야한다!
 
-
 window.addEventListener("DOMContentLoaded",()=>{
     console.log("로딩완료!");
 

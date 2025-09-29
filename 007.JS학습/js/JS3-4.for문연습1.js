@@ -69,9 +69,13 @@ let rbtn = document.querySelector('.rbtn');
 // 전체 mini개수
 const miniCnt = mini.length;
 
-for (let i = 0; i < miniCnt; i++) {
-  mini[i].onclick = insertMini;
-} /// for ///
+// forEach메서드로 셋팅하기
+mini.forEach(el =>el.onclick = insertMini);
+
+// 오리지널 for문으로 셋팅하기
+// for (let i = 0; i < miniCnt; i++) {
+//   mini[i].onclick = insertMini;
+// } /// for ///
 
 
 // 3. 함수 만들기 ///////////////////////////
@@ -85,6 +89,7 @@ function insertMini() {
 
   // 1. 호출한 요소의 개수속성 읽어오기 : data-num
   let num = this.getAttribute('data-num');
+
   
   // [속성값 읽어오기 2가지]
   // 1) 선택요소.속성명
