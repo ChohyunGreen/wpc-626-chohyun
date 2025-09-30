@@ -17,15 +17,6 @@
     font-family: 'Nanum Gothic', sans-serif;
 */
 
-/* 전체 글자크기 */
-html{
-    font-size: 10px;
-    /* rem단위 계산편의를 위함 */
-}
-body{
-    /* 글자체 */
-    font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
-}
 
 /********* 공통 클래스 *********/
 /* 임시표시타이틀 */
