@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* 도깨비 PJ 메인 페이지 미디어쿼리 - media_main.css */
+
+/* 1360px 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1360px) {
+  /* 전체 inbox 양쪽패딩 */
+  .inbox {
+    padding: 0 2vw;
+  }
+}
+/* 1360px 이하 미디어쿼리 종료 */
+
+/* 1200px 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1200px) {
+  /* 전체 글자 크기 변경 */
+  html {
+    font-size: 9px;
+  }
+}
+/* 1200px 이하 미디어쿼리 종료 */
+
+/* 1024px 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1024px) {
+  /* 전체 글자 크기 변경 */
+  html {
+    font-size: 8px;
+  }
+
+  /* 미리보기 파트 : 한줄에 3개씩 */
+  .preview-area li {
+    width: calc((100% - 1.5% * 2) / 3);
+  }
+}
+/* 1024px 이하 미디어쿼리 종료 */
+
+/* 800px 이하 미디어쿼리 시작 */
+@media screen and (max-width: 800px) {
+  /* 드라마소개파트 : 한줄에 하나씩 세로방향 */
+  .intro-part .cont-box {
+    flex-direction: column;
+  }
+  
+  /* 미리보기 파트 : 한줄에 2개씩 */
+  .preview-area li {
+    width: calc((100% - 1.5% * 1) / 2);
+  }
+}
+/* 800px 이하 미디어쿼리 종료 */

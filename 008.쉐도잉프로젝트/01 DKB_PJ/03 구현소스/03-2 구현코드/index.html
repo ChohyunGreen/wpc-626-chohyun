@@ -11,8 +11,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
+    <!-- 스와이퍼 CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="./css/swiper-bundle.min.css"
+    />
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 스와이퍼 JS -->
+     <script src="./js/swiper-bundle.min.js"></script>
 
     <!-- 제이쿼리 라이브러리 불러오기 
      제이쿼리를 사용하는 JS파일 위에 불러와야한다! -->
@@ -729,9 +737,18 @@
         <section id="video-part" class="video-part inbox">
           <h2 class="stit">최신 동영상</h2>
           <div class="cont-box">
+            <!--******************************************* 
+            스와이퍼는 3중 박스 구조를 가진다!
+            .clip-box(부모박스 이름은 자유!)
+              ㄴ.swiper-wrapper(클래스명고정!)
+                ㄴ.swiper-slide(클래스명고정!)
+            *******************************************-->
+            <!-- 스와이퍼 적용 부모박스 : .clip-box -->
             <div class="clip-box col-12">
-              <ul class="slide" data-db="clipData">
-                <li data-idx="1" data-seq="0">
+              <!-- 스와이퍼 랩퍼박스 : .swiper-wrapper -->
+              <ul class="slide swiper-wrapper" data-db="clipData">
+                <!-- 스와이퍼 리스트 : .swiper-slide -->
+                <li class="swiper-slide" data-idx="1" data-seq="0">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/1.jpg"
@@ -744,7 +761,7 @@
                   <h3>도깨비1화</h3>
                 </li>
 
-                <li data-idx="2" data-seq="1">
+                <li class="swiper-slide" data-idx="2" data-seq="1">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/2.jpg"
@@ -755,7 +772,7 @@
                   <h3>도깨비2화</h3>
                 </li>
 
-                <li data-idx="3" data-seq="2">
+                <li class="swiper-slide" data-idx="3" data-seq="2">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/3.jpg"
@@ -766,7 +783,7 @@
                   <h3>도깨비3화</h3>
                 </li>
 
-                <li data-idx="4" data-seq="3">
+                <li class="swiper-slide" data-idx="4" data-seq="3">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/4.jpg"
@@ -777,7 +794,7 @@
                   <h3>도깨비4화</h3>
                 </li>
 
-                <li data-idx="5" data-seq="4">
+                <li class="swiper-slide" data-idx="5" data-seq="4">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/5.jpg"
@@ -788,7 +805,7 @@
                   <h3>도깨비5화</h3>
                 </li>
 
-                <li data-idx="6" data-seq="5">
+                <li class="swiper-slide" data-idx="6" data-seq="5">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/6.jpg"
@@ -802,7 +819,7 @@
                   <h3>도깨비6화</h3>
                 </li>
 
-                <li data-idx="7" data-seq="6">
+                <li class="swiper-slide" data-idx="7" data-seq="6">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/7.jpg"
@@ -816,7 +833,7 @@
                   <h3>도깨비7화</h3>
                 </li>
 
-                <li data-idx="8" data-seq="7">
+                <li class="swiper-slide" data-idx="8" data-seq="7">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/8.jpg"
@@ -829,7 +846,7 @@
                   <h3>도깨비8화</h3>
                 </li>
 
-                <li data-idx="9" data-seq="8">
+                <li class="swiper-slide" data-idx="9" data-seq="8">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/9.jpg"
@@ -840,7 +857,7 @@
                   <h3>도깨비9화</h3>
                 </li>
 
-                <li data-idx="10" data-seq="9">
+                <li class="swiper-slide" data-idx="10" data-seq="9">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/10.jpg"
@@ -854,7 +871,7 @@
                   <h3>도깨비10화</h3>
                 </li>
 
-                <li data-idx="11" data-seq="10">
+                <li class="swiper-slide" data-idx="11" data-seq="10">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/11.jpg"
@@ -865,7 +882,7 @@
                   <h3>도깨비11화</h3>
                 </li>
 
-                <li data-idx="12" data-seq="11">
+                <li class="swiper-slide" data-idx="12" data-seq="11">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/12.jpg"
@@ -878,7 +895,7 @@
                   <h3>도깨비12화</h3>
                 </li>
 
-                <li data-idx="13" data-seq="12">
+                <li class="swiper-slide" data-idx="13" data-seq="12">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/13.jpg"
@@ -891,7 +908,7 @@
                   <h3>도깨비13화</h3>
                 </li>
 
-                <li data-idx="14" data-seq="13">
+                <li class="swiper-slide" data-idx="14" data-seq="13">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/14.jpg"
@@ -902,7 +919,7 @@
                   <h3>도깨비14화</h3>
                 </li>
 
-                <li data-idx="15" data-seq="14">
+                <li class="swiper-slide" data-idx="15" data-seq="14">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/15.jpg"
@@ -916,7 +933,7 @@
                   <h3>도깨비15화</h3>
                 </li>
 
-                <li data-idx="16" data-seq="15">
+                <li class="swiper-slide" data-idx="16" data-seq="15">
                   <div class="clip-mv-box">
                     <img
                       src="./images/clip_img/16.jpg"
