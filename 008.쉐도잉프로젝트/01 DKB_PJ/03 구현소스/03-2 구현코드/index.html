@@ -19,6 +19,9 @@
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
 
+    <!-- 미디어쿼리는 반드시 일반css아래 위치함! -->
+     <link rel="stylesheet" href="./css/media_main.css">
+
     <!-- 스와이퍼 JS -->
      <script src="./js/swiper-bundle.min.js"></script>
 
@@ -181,7 +184,19 @@
           </section>
         </div>
       </header>
-    </div>
+      <!-- 1-2-3. 버튼그룹박스 -->
+      <div class="btn-group">
+        <!-- 검색버튼 -->
+          <button class="btn-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <!-- 햄버거/닫기버튼 -->
+          <button class="btn-ham">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+      </div><!-- #btn-group -->
+    </div><!-- #top-area -->
 
     <!-- 2. 메인영역 -->
     <div id="main-area">

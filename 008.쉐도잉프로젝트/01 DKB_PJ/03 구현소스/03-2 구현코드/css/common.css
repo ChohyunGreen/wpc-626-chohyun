@@ -6,20 +6,15 @@
 html{
     /* 부드러운 스크롤 셋팅 */
     scroll-behavior: smooth;
-    /* 전체 글자 크기 셋팅 rem단위 계산편의를 위함 */
+    /* 전체 글자 크기 셋팅
+    -> rem단위 계산편의를 위해 10px로 셋팅 */
     font-size: 10px;
 }
 
-
-
-/* 전체 글자크기 */
 body{
     /* 글자체 */
     font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
 }
-
-
-
 
 /***************** 1. 상단영역 *****************/
 /* 상단영역 최상위 부모박스 */
@@ -231,12 +226,18 @@ h1.logo::before {
   /* 트랜지션 */
   transition: 0.4s ease-out;
 }
-/* 부모 li에 마우스 오버시 .sub-menu 높이값 변경하기 */
-.gnb-menu > ul > li:hover .sub-menu {
-  max-height: 400px;
-  /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
-    오버시 높이값이 내용만큼만 커지게 된다! */
-}
+
+/* 1024px 이상인 DT에서만 오버 셋팅적용 시작
+-> 미디어쿼리 구역으로 감싸준다! (min-width:1024px) */
+@media screen and (min-width: 1024px) {
+  /* 부모 li에 마우스 오버시 .sub-menu 높이값 변경하기 */
+  .gnb-menu > ul > li:hover .sub-menu {
+    max-height: 400px;
+    /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
+      오버시 높이값이 내용만큼만 커지게 된다! */
+  }
+  
+}/* 1024px 이상인 DT에서만 오버 셋팅적용 종료 */
 
 /* 패딩만 내부에 다른 블록요소를 사용함!
 -> 자식요소 숨기기 부모박스엔 패딩을 줄 수 없다! */
@@ -289,6 +290,40 @@ h1.logo::before {
 /* 세줄 클래스 */
 .three-line {
   height: 13.8rem;
+}
+
+/* 모바일용 버튼 그룹박스 */
+.btn-group{
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  right: 3vw;
+  /* 플렉스 */
+  /* display: flex; */
+  display: none;
+  gap: 20px;
+}
+/* 버튼 디자인 */
+.btn-group button{
+  background-color: transparent;
+  border: none;
+  /* 아이콘설정(글자와 같음) */
+  font-size: 3rem;
+  cursor: pointer;
+  color: #222;
+}
+/* 햄버거 버튼 셋팅 : 처음에 두번째 i태그인 x버튼 안보임 */
+.btn-ham i:nth-child(2){
+  display: none;
+}
+
+/* 상단영역 최상위 부모인  #top-area에 클래스 on을 주면
+  x버튼보이기/햄버거숨기기 */
+  #top-area.on .btn-ham i:nth-child(2){
+  display: block;
+}
+#top-area.on .btn-ham i:nth-child(1){
+  display: none;
 }
 
 /***************** 1.5. 드라마파트메뉴 *****************/
