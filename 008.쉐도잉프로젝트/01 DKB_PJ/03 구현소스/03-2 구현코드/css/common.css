@@ -257,6 +257,15 @@ h1.logo::before {
   font-size: 3.6rem;
   margin-bottom: 2.4rem;
 }
+
+/* 타이틀바 소속 버튼 */
+.title-bar button {
+  background-color: transparent;
+  border: none;
+  font-size: 2.5vh;
+  cursor: pointer;
+}
+
 /* 서브리스트 ul */
 .sub-list ul {
   display: flex;
@@ -406,6 +415,8 @@ h1.logo::before {
 /* 인박스 높이값 초기화 */
 .spart-menu.inbox {
   height: auto;
+  /* 모바일 화면에서 좁아질때 가로스크롤생성 */
+  overflow-x: auto;
 }
 .spart-menu ul {
   /* 플렉스박스 */

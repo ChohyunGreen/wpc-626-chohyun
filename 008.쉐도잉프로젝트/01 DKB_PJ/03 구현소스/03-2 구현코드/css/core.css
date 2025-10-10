@@ -67,9 +67,21 @@
 
 /* 공통 서브타이틀 */
 .stit{
+    margin-top: 80px;
     padding-bottom: 32px;
     font-size: 3.8rem;
     font-weight: normal;
+}
+
+/* 공통 서브타이틀 아이콘 가상요소 */
+.stit::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  vertical-align: -6px;
+  background: url(../images/icons/icon1.png) no-repeat center/cover;
 }
 
 /* IR(Images Replacement) 

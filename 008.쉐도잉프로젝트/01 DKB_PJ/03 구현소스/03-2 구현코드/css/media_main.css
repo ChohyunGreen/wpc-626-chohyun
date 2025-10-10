@@ -45,6 +45,10 @@
   /* 전체 메뉴 박스 변경 */
   .menu-box {
     position: fixed;
+    /* z-index: 1; */
+    /* 상단 로고와 메뉴보다 위에 오도록 설정
+    -> 그러나 하위메뉴 클릭전엔 상단이 보여야한다!
+    따라서 여기서 주지말고 JS에서 처리하도록 하자! */
     top: 0;
     /* 오른쪽 바깥에 나가있음! 
     -> 햄버거 버튼 클릭시 0으로 변경*/
@@ -86,10 +90,50 @@
     font-size: 2.5vh;
   }
 
+  /* GNB메뉴 가로크기 변경 */
+  nav.gnb-menu {
+    width: 100%;
+  }
+
+  /* GNB 메뉴 아이콘 크기위치변경 */
+  .gnb-menu i {
+    float: right;
+    rotate: -90deg;
+    scale: 2;
+    translate: 0 150%;
+  }
+
+  /* 서브메뉴 화면 채우기 설정변경 */
+  .sub-menu {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /* 왼쪽 바깥에 나가있음! */
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    max-height: none;
+  }
+
+  /* 서브메뉴에 클래스 on을 주면 left값을 0으로 변경 */
+  .sub-menu.on {
+    left: 0;
+  }
+
+  /* GNB메뉴 기존 높이값 해제 */
+  .gnb-menu ul {
+    height: auto;
+  }
+  /* GNB메뉴 li 기존 가로값 해제 */
+  .sub-list li {
+    width: auto;
+  }
+
   /* 배너버튼 스케일변경 */
   .abtn {
-    transform: translateY(-50%) scale(.6);
-}
+    transform: translateY(-50%) scale(0.6);
+  }
 
   /* 미리보기 파트 : 한줄에 3개씩 */
   .preview-area li {

@@ -12,18 +12,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
     <!-- 스와이퍼 CDN CSS -->
-    <link
-      rel="stylesheet"
-      href="./css/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
 
     <!-- 미디어쿼리는 반드시 일반css아래 위치함! -->
-     <link rel="stylesheet" href="./css/media_main.css">
+    <link rel="stylesheet" href="./css/media_main.css" />
 
     <!-- 스와이퍼 JS -->
-     <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
 
     <!-- 제이쿼리 라이브러리 불러오기 
      제이쿼리를 사용하는 JS파일 위에 불러와야한다! -->
@@ -85,8 +82,15 @@
                       <div class="padding-box">
                         <div class="inbox">
                           <aside class="title-bar">
+                            <!-- 이전이동버튼 -->
+                            <button class="btn-up-menu">
+                              <b class="fa-solid fa-chevron-left"></b>
+                            </button>
                             <h2>드라마</h2>
-                            <div class="close-btn">×</div>
+                            <!-- 검색버튼 -->
+                            <button class="btn-search">
+                              <b class="fa-solid fa-magnifying-glass"></b>
+                            </button>
                           </aside>
                           <aside class="sub-list">
                             <ul class="two-line">
@@ -112,8 +116,15 @@
                       <div class="padding-box">
                         <div class="inbox">
                           <aside class="title-bar">
+                            <!-- 이전이동버튼 -->
+                            <button class="btn-up-menu">
+                              <b class="fa-solid fa-chevron-left"></b>
+                            </button>
                             <h2>연예오락</h2>
-                            <div class="close-btn">×</div>
+                            <!-- 검색버튼 -->
+                            <button class="btn-search">
+                              <b class="fa-solid fa-magnifying-glass"></b>
+                            </button>
                           </aside>
                           <aside class="sub-list">
                             <ul class="three-line">
@@ -152,8 +163,15 @@
                       <div class="padding-box">
                         <div class="inbox">
                           <aside class="title-bar">
+                            <!-- 이전이동버튼 -->
+                            <button class="btn-up-menu">
+                              <b class="fa-solid fa-chevron-left"></b>
+                            </button>
                             <h2>인사이트</h2>
-                            <div class="close-btn">×</div>
+                            <!-- 검색버튼 -->
+                            <button class="btn-search">
+                              <b class="fa-solid fa-magnifying-glass"></b>
+                            </button>
                           </aside>
                           <aside class="sub-list">
                             <ul class="three-line">
@@ -187,16 +205,18 @@
       <!-- 1-2-3. 버튼그룹박스 -->
       <div class="btn-group">
         <!-- 검색버튼 -->
-          <button class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <!-- 햄버거/닫기버튼 -->
-          <button class="btn-ham">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-      </div><!-- #btn-group -->
-    </div><!-- #top-area -->
+        <button class="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <!-- 햄버거/닫기버튼 -->
+        <button class="btn-ham">
+          <i class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- #btn-group -->
+    </div>
+    <!-- #top-area -->
 
     <!-- 2. 메인영역 -->
     <div id="main-area">

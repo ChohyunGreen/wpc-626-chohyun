@@ -126,3 +126,54 @@ const $topArea = $("#top-area");
 $btnHam.on("click", () => {
   $topArea.toggleClass("on");
 }); /// click ///
+
+
+/************************************************ 
+    4. 상위메뉴 li 클릭시 서브메뉴에 클래스 넣기
+    ->  클래스 on 을 넣어서 서브메뉴가 등장함!
+************************************************/
+// (1) 이벤트 대상 : .gnb-menu > ul > li
+const $gnbList = $(".gnb-menu > ul > li").has('.sub-menu');
+// has(선택요소) 메서드 -> 자식으로 선택요소가 있는 요소를 선택
+// -> .sub-menu가 있는 li를 선택
+// console.log($gnbList);
+
+// 하위 메뉴 보이기 숨기기 할때 메뉴박스의 z-index:1 처리위해 대상선정
+const $menuBox = $(".menu-box");
+
+// (2) 이벤트 함수 구현하기 ////
+$gnbList.click(function(){
+  // this 키워드로 클릭된 li 자신을 선택하여
+  // 하위의 .sub-menu에 클래스 on을 넣기
+  $(this).find(".sub-menu").addClass("on");
+  // addClass() 메서드 -> 선택된 요소에 클래스를 넣기
+
+  // 메뉴박스 z-index:1처리
+  $menuBox.css("z-index", "1");
+
+}); /// click ///
+
+// (3) 리스트 하위의 a요소 클릭시 페이지이동 특성막기!
+$gnbList.find('a').click(e=>e.preventDefault());
+
+// (4) 이전 이동버튼 클릭시 부모 .sub-menu의 클래스 on 제거하기
+$('.btn-up-menu').click(function(e){ // e - 이벤트 전달변수
+  // console.log('이전 이동버튼 클릭');
+  // 클릭된 버튼의 부모들중 .sub-menu에 클래스 on 제거
+  $(this).parents('.sub-menu').removeClass('on');
+  // parents(특정부모요소) 메서드 -> 부모요소들 중 특정부모요소를 선택
+  // 비교) parent() 메서드 -> 바로 상위 직계부모요소 선택
+  // removeClass() 메서드 -> 선택된 요소에 클래스를 제거
+
+  // 주의! 이전 이동버튼은 부모 li의 자식이므로 클릭시
+  // 이벤트 버블링이 일어나서 부모 li가 다시 클릭된다!
+  // 따라서 on을 제거후 다시 on이 추가되어 아무일도 없는 것처럼 보인다!
+  // 여기서 이벤트 버블링 막기가 필요하다!
+  e.stopPropagation();
+  
+  // 메뉴박스 z-index:0처리
+  $menuBox.css("z-index", "0");
+
+}); /// click ///
+
+
