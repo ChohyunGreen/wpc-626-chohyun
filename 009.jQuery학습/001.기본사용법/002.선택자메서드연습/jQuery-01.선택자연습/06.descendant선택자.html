@@ -5,26 +5,83 @@
     <title>descendant 선택자</title>
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
+    <style>
+      body {
+        font-size: 4vw;
+      }
+    </style>
     <script>
+      $(() => {
+        // 미션:
+        // (1) 아래의 각 li에 미니언즈 이미지를 웹으로 찾아서 html로 넣고
+        // '<img src="https://hercanberra.com.au/wp-content/uploads/2019/06/Minions_feature.jpg" alt="미니언즈">'
+        // '<img src="https://www.partyrama.co.uk/wp-content/uploads/2017/06/minions-kevin-lifesize-cardboard-cutout-180cms-product-image.jpg" alt="미니언즈">'
+        // '<img src="https://5.imimg.com/data5/XQ/KP/MY-40305254/kids-toy-500x500.jpg" alt="미니언즈">'
+       
+
+        //  대상: #first, #second, #third
+        //  메서드: html()
+        $("#first").html(
+          '<img src="https://hercanberra.com.au/wp-content/uploads/2019/06/Minions_feature.jpg" alt="미니언즈" width="100px">'
+        );
+        $("#second").html(
+          '<img src="https://www.partyrama.co.uk/wp-content/uploads/2017/06/minions-kevin-lifesize-cardboard-cutout-180cms-product-image.jpg" alt="미니언즈" width="100px">'
+        );
+        $("#third").html(
+          '<img src="https://5.imimg.com/data5/XQ/KP/MY-40305254/kids-toy-500x500.jpg" alt="미니언즈" width="100px">'
+        ); 
+        
+        // 모든 이미지크기를 width: 20vw로 고정한다.
+        $("img").css({ width: "20vw" });
+        
+        // (2) 각 이미지 클릭시 이미지크기가 
+        // 클릭할때마다 1vw씩 커지게함과
+        // 동시에 한번은 오른쪽, 한번은 왼쪽으로 10도씩 기울어지게 애니메이션 하시오.
+        // 대상: img
+        // 이벤트: click
+        // 변경내용: css()
+        $("img").click(function () {
+          // 기존 회전각도를 읽어옴
+          let ang = $(this).css("rotate");
+          console.log('각도:',ang);
+          // 처음에 아무것도 없을땐 'none'으로 나옴
+          // 이후엔 '10deg' 이런식으로 나옴
+          // 만약 'none'이거나 '-10deg'이면 '10deg'로 변경
+          // 그렇지 않으면 '-10deg'로 변경
+          // 삼항연산자를 사용하자! 비?집:놀이동산
+
+          // 클릭된 이미지 CSS변경 ////
+          // 트랜지션 대신 애니메이션주기!
+          // $(선택자).animate({속성:값},시간)
+          $(this).animate({
+            // +=숫자 값을 쓰면 기존값에 더함!
+            width: "+=1vw",
+            // rotate로 10도/-10도 기울이기
+            rotate: ang == '10deg' ? '-10deg' : '10deg',
+          },300); /// animate ////
+        }); /// click ////
+      }); ////////// jQB ////////////
+
+
     </script>
   </head>
 
   <body>
     <div id="container">
       <header>
-        <h2>Welcome mySite</h2>
-        <p>Lorem Ipsum is simply</p>
+        <h2>와우~~! 미니언즈들아! 환영한다!</h2>
+        <p>클릭하시면 미니언즈가 다가옵니다!</p>
       </header>
 
       <nav>
         <ul class="list">
-          <li id="first">One</li>
-          <li id="second">Two</li>
-          <li id="third">Three</li>
+          <li id="first">미니언즈</li>
+          <li id="second">미니언즈</li>
+          <li id="third">미니언즈</li>
         </ul>
       </nav>
 
-      <p>Lorem Ipsum is simply</p>
+      <p>클릭하시면 미니언즈가 다가옵니다!</p>
     </div>
 
     <!---------- jQuery code Start ---------->

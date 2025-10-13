@@ -7,6 +7,11 @@
     <script src="../jquery-3.6.3.min.js"></script>
     <!-- 이징과 색상 애니메이션을 위해 제이쿼리 UI 넣기! -->
     <script src="../jquery-ui.min.js"></script>
+    <style>
+      body {
+        font-size: 4vw;
+      }
+    </style>
     <script>
       /******************************************************* 
     [ 제이쿼리 글자넣기 메서드 : text() ]
@@ -46,9 +51,40 @@
     ->>> animate(), fadeIn(), slideDown() 등 앞에서 작동!
 
 
-  *******************************************************/
+    *******************************************************/
 
-      ///// 제이쿼리 코드 블록 //////////
+$(()=>{
+  // 미션: h2를 클릭하면 아이디 one, two, three를 
+  // 배경색, 글자색, 글자크기(5vw이상), 보더, 트랜지션을 각각 원하는것으로 바꾸시오!
+  // 각각 글자도 바꾸시오.text() 메서드 사용
+  
+  $('h2').click(()=>{
+    $('#sub').css({
+      backgroundColor: 'lightgreen',
+      color: 'darkgreen',
+      fontSize: '5vw',
+      borderWidth: '10px',
+      transition: 'all .4s'
+    }).text('어쩔수가없다');
+
+    $('#main').css({
+      backgroundColor: 'lightcoral',
+      color: 'darkred',
+      fontSize: '6vw',
+      borderWidth: '20px',
+      transition: 'all .4s .4s'
+    }).text('이병헌');
+
+    $('#total').css({
+      backgroundColor: 'lightblue',
+      color: 'darkblue',
+      fontSize: '7vw',
+      borderWidth: '30px',
+      transition: 'all .4s .8s'
+    }).text('대박나라!');
+    
+  }); /// click ////
+}); /////// 제이쿼리 코드 블록 //////////
     </script>
   </head>
 

@@ -52,18 +52,21 @@ window.addEventListener('scroll',()=>{
     b3Span.innerText = b3Top;
 
     // 해당위치에 비행기박스 올때 클래스 action주기!
+    // 첫번째 비행기박스의 top값 < 윈도우 높이 2/3
     if(b1Top < winH){
         bangi[0].classList.add('action');
     }else{
         bangi[0].classList.remove('action');
     }
 
+    // 두번째 비행기박스의 top값 < 윈도우 높이 2/3
     if(b2Top < winH){
         bangi[1].classList.add('action');
     }else{
         bangi[1].classList.remove('action');
     }
-    
+
+    // 세번째 비행기박스의 top값 < 윈도우 높이 2/3
     if(b3Top < winH){
         bangi[2].classList.add('action');
     }else{
