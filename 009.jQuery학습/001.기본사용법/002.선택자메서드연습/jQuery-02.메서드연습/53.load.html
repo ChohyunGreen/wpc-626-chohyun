@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>53. load 메서드 </title>
+    <title>53. load 메서드</title>
     <style>
         body{
             font-size: 4vw;
         }
     </style>
-    <!-- jQuery library -->
-    <script src="../jquery-3.6.0.min.js"></script>
+    <!-- 제이쿼리 라이브러리 -->
+    <script src="../jquery-3.6.3.min.js"></script>
     <!-- JS코드구역 -->
-     <script>
-        $(function(){
-            // load() 메서드
-            // - 선택한 요소에 외부 파일을 불러와서 삽입한다.
-            // - load(파일경로, 콜백함수)
-            // - HTML, TXT, PHP, ASP, JSP 등등 모든 확장자 사용 가능
-            // - jQuery 라이브러리 필요
+    <script>
+        $(()=>{
+            // 제이쿼리 load() 메서드 ///
+            // 기존 파일을 불러와서 특정
+            // 요소에 넣을 수 있다!
+            // - 형식 : $(선택자).load(파일경로)
+            // - 불러올 수 있는 파일형식 : html, txt, inc 등
+            // -> 단, html형식이 아니면 코딩시 자동완성지원 불가!
+            // - inc형식은 text파일 형식과 유사함
+            // (부분소스파일로 많이 쓰임)
 
-            // 헤더영역 불러오기
-            $('.header-section').load('inc/header.html');
-            // 푸터영역 불러오기
-            $('.footer-section').load('inc/footer.html');
-            // 추가영역 불러오기
-            $('.add-section').load('inc/add.txt', function(){
-                // load() 메서드가 완료된 후 실행할 코드 작성
-                console.log('추가 영역 불러오기 완료!');
-            });
-        });
-     </script>
+            $('.header-section').load('./inc/header.html');
+            $('.footer-section').load('./inc/footer.html');
+            // 텍스트형식 문서도 불러올 수 있다!
+            $('.add-section').load('./inc/add.txt');
+        }); ///////// 로드구역 ///////////
+
+    </script>
 </head>
 <body>
-    <!-- include header -->
+    <!-- 헤더 들어갈 태그 -->
      <div class="header-section"></div>
-     <!-- include main -->
-      <main>나는 메인이야</main>
-     <!-- include footer -->
+     <!-- 메인 영역 -->
+    <main>나는 메인이야!</main>
+    <!-- 푸터 들어갈 태그 -->
      <div class="footer-section"></div>
      <!-- 추가 불러오기 -->
-    <div class="add-section"></div>
+     <div class="add-section"></div>
+    
 </body>
 </html>

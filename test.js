@@ -1,0 +1,60 @@
+// 모달 팝업창을 생성하고 띄우는 스크립트
+
+// 모달 HTML 요소를 생성
+function createModal() {
+  // 모달 배경
+  const modalBg = document.createElement('div');
+  modalBg.style.position = 'fixed';
+  modalBg.style.top = 0;
+  modalBg.style.left = 0;
+  modalBg.style.width = '100vw';
+  modalBg.style.height = '100vh';
+  modalBg.style.backgroundColor = 'rgba(0,0,0,0.4)';
+  modalBg.style.display = 'flex';
+  modalBg.style.alignItems = 'center';
+  modalBg.style.justifyContent = 'center';
+  modalBg.style.zIndex = 10000;
+
+  // 모달 컨텐츠 박스
+  const modalBox = document.createElement('div');
+  modalBox.style.background = '#fff';
+  modalBox.style.padding = '32px 24px 24px';
+  modalBox.style.borderRadius = '10px';
+  // boxShadow의 색상을 하늘색(rgba(135,206,250, 0.22), 즉 lightskyblue)으로 변경
+  modalBox.style.boxShadow = '0 6px 32px rgba(135,206,250,0.22)';
+  modalBox.style.maxWidth = '90vw';
+  modalBox.style.maxHeight = '90vh';
+  modalBox.style.position = 'relative';
+
+  // 닫기 버튼
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = '닫기';
+  closeBtn.style.position = 'absolute';
+  closeBtn.style.top = '12px';
+  closeBtn.style.right = '12px';
+  closeBtn.style.background = '#d84e4e';
+  closeBtn.style.color = '#fff';
+  closeBtn.style.border = 'none';
+  closeBtn.style.borderRadius = '3px';
+  closeBtn.style.padding = '6px 14px';
+  closeBtn.style.cursor = 'pointer';
+  closeBtn.onclick = () => {
+    document.body.removeChild(modalBg);
+  };
+
+  // 모달 내용(원하는 텍스트/HTML로 변경)
+  const modalContent = document.createElement('div');
+  modalContent.innerHTML = `<h2>환영합니다!</h2>
+    <p>이것은 접속하자마자 보이는 모달 팝업창입니다.</p>`;
+
+  // 조립
+  modalBox.appendChild(closeBtn);
+  modalBox.appendChild(modalContent);
+  modalBg.appendChild(modalBox);
+  document.body.appendChild(modalBg);
+}
+
+// 페이지가 완전히 로드된 후 모달 표시
+window.addEventListener('DOMContentLoaded', createModal);
+
+
