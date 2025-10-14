@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>53. load 메서드 </title>
+    <style>
+        body{
+            font-size: 4vw;
+        }
+    </style>
+    <!-- jQuery library -->
+    <script src="../jquery-3.6.0.min.js"></script>
+    <!-- JS코드구역 -->
+     <script>
+        $(function(){
+            // load() 메서드
+            // - 선택한 요소에 외부 파일을 불러와서 삽입한다.
+            // - load(파일경로, 콜백함수)
+            // - HTML, TXT, PHP, ASP, JSP 등등 모든 확장자 사용 가능
+            // - jQuery 라이브러리 필요
+
+            // 헤더영역 불러오기
+            $('.header-section').load('inc/header.html');
+            // 푸터영역 불러오기
+            $('.footer-section').load('inc/footer.html');
+            // 추가영역 불러오기
+            $('.add-section').load('inc/add.txt', function(){
+                // load() 메서드가 완료된 후 실행할 코드 작성
+                console.log('추가 영역 불러오기 완료!');
+            });
+        });
+     </script>
+</head>
+<body>
+    <!-- include header -->
+     <div class="header-section"></div>
+     <!-- include main -->
+      <main>나는 메인이야</main>
+     <!-- include footer -->
+     <div class="footer-section"></div>
+     <!-- 추가 불러오기 -->
+    <div class="add-section"></div>
+</body>
+</html>
