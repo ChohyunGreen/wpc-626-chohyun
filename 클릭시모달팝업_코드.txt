@@ -1,0 +1,78 @@
+    <!-- 무단수집거부내용(모달팝업) -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>
+                <h3>컨텐츠 무단수집 및 무단사용거부</h3>
+                <span>무단으로사용하다 걸리면 탐샘한테 일를거야 ~~~ <br>ㅋㅋㅋㅋㅋ</span>
+            </p>
+        </div>
+    </div>
+
+
+
+
+        /* 무단수집거부내용(모달팝업) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 1350px;
+            max-width: 100%;
+            color: var(--black);
+        }
+
+        .modal .modal .close {
+            color: #aaa;
+            float: right;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: -15px;
+        }
+
+        .modal .modal-content h3 {
+            font-size: 1.3rem;
+        }
+        .modal .modal-content span {
+            font-size: 1rem;
+        }
+
+
+
+
+
+
+
+
+
+        // 무단수집거부내용(모달팝업)
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // 모달 외부 클릭 시 닫기
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+        
+        
+
+
