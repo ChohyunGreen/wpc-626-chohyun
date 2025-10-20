@@ -130,6 +130,11 @@
     width: auto;
   }
 
+  /* 타이틀바 소속 버튼 - 모바일에서 보임 */
+  .title-bar button {
+    display: block;
+  }
+
   /* 배너버튼 스케일변경 */
   .abtn {
     transform: translateY(-50%) scale(0.6);
@@ -162,6 +167,42 @@
 
 /* 800px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 800px) {
+  /* 캐릭터 소개 파트 */
+  /* 캐릭터박스 */
+  .cat-box {
+    flex-wrap: wrap;
+  }
+  /* 직계자식요소 div 4개 */
+  .cat-box > div {
+    flex-basis: 49.5%;
+  }
+
+  /* 캐릭터 이미지박스 변경 */
+  .cat-box > div:hover figure {
+    margin-top: 0;
+    opacity: 0.3;
+  }
+
+  /* 캐릭터 글자박스 변경 */
+  .cat-box > div:hover aside {
+    /* 글자박스가 캐릭터 박스보다 위! */
+    position: relative;
+    z-index: 1;
+    background: none;
+    height: 27vw;
+    margin-top: -27vw;
+  }
+
+  /* 캐릭터 타이틀 변경 */
+  .cat-box > div:hover aside h3 {
+    font-size: 3.5vw;
+  }
+
+  /* 캐릭터 설명 변경 */
+  .cat-box > div:hover aside p {
+    font-size: 2.6vw;
+  }
+
   /* 드라마소개파트 : 한줄에 하나씩 세로방향 */
   .intro-part .cont-box {
     flex-direction: column;

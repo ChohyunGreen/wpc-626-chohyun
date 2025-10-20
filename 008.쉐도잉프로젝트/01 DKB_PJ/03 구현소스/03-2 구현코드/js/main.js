@@ -1,38 +1,107 @@
 // 도깨비 PJ 메인 페이지 JS - main.js /////////
 
-///////////////////////////////////////////////////
-// 1. 큐브로고박스 일정간격으로 클래스 넣었다 빼기 ///
-//////////////////////////////////////////////////
+// 도깨비 데이터 불러오기 ////
+import { previewData, catData } from "../data/dkb_data.js";
+console.log(catData);
 
-// -> 로고가 일정 간격으로 회전함!
-// 지금은 1.5초씩 alternate하였으므로 총 3초걸림
-
-// 1-1. 대상선정 : .cube-logo
-const cubeLogo = document.querySelector(".cube-logo");
-
-// 1-2. 클래스 셋팅함수 ////////////////
-const setClass = () => {
-  // 클래스넣기
-  cubeLogo.classList.add("rotate-cube");
-
-  // 3초후 클래스 제거하기
-  // setTimeout(함수, 시간);
-  setTimeout(() => {
-    cubeLogo.classList.remove("rotate-cube");
-  }, 3000);
-}; /////////// setClass 함수 //////////
-
-// 1-3. 일정간격으로 클래스 셋팅함수 호출하기 ///////
-// setInterval(함수, 시간);
-// 일정시간 간격으로 함수가 실행됨!
-setInterval(setClass, 10000);
-/// 10초간격으로 실행됨! //////
-
-// 1-4. 처음에 회전하도록 클래스 셋팅함수 호출하기
-setClass();
 
 /************************************************ 
-    2. 최신 동영상 파트에 스와이퍼 적용하기
+    1. 미리보기 데이터 바인딩 하기
+************************************************/
+// 데이터를 요소에 넣어서 화면에 출력하는 것을
+// 데이터 바인딩 이라고 한다!
+// (1) 바인딩 대상 : .preview-box ul.cont-box
+const previewArea = 
+document.querySelector('.preview-area ul.cont-box');
+console.log(previewArea);
+// (2) 바인딩 데이터 : previewData
+
+/* (3) 반복 구조
+<li>
+    <h3>제목</h3>
+    <p>내용</p>
+  </li>
+*/
+// (4) 데이터 바인딩하기 : map().join('')사용!
+// 배열.map((배열값,순번)=>리턴값) -> 새로운배열 생성!
+// -> 새로운 배열값 만들기는 맵조잉~!!!(map().join(''))
+previewArea.innerHTML = 
+previewData.map(v=>`
+  <li>
+    <h3>${v.title}</h3>
+    <p>${v.story}</p>
+  </li>
+  `).join('');
+
+/************************************************ 
+    2. 캐릭터 소개 영역 데이터 바인딩하기
+************************************************/
+// 바인딩 대상 : .cat-box
+const catBox = 
+document.querySelector('.cat-box');
+console.log(catBox);
+
+// 데이터 바인딩 태그구조
+/* 
+<!-- 공유박스 -->
+<div>
+  <!-- 이미지박스 -->
+  <figure>
+    <img src="./images/dc1.png" alt="공유" />
+    <figcaption>
+      <img src="./images/d01.png" alt="도깨비진한글자" />
+      <img src="./images/d011.png" alt="도깨비흐린글자" />
+    </figcaption>
+  </figure>
+  <!-- 글박스 -->
+  <aside class="scbar">
+    <!-- 타이틀 -->
+    <h3>도깨비(김신), 939세</h3>
+    <!-- 내용 -->
+    <p></p>
+  </aside>
+</div>  
+*/
+
+// 데이터 바인딩하기 -> 맵죠잉~~!
+catBox.innerHTML = 
+catData.map(v=>`
+  <!-- ${v.actorName}박스 -->
+<div>
+  <!-- 이미지박스 -->
+  <figure>
+    <img src="./images/dc${v.idx}.png" alt="${v.actorName}" />
+    <figcaption>
+      <img src="./images/d0${v.idx}.png" alt="${v.actorName}진한글자" />
+      <img src="./images/d0${v.idx+v.idx}.png" alt="도깨비흐린글자" />
+    </figcaption>
+  </figure>
+  <!-- 글박스 -->
+  <aside class="scbar">
+    <!-- 타이틀 -->
+    <h3>${v.catTitle}</h3>
+    <!-- 내용 -->
+    <p>${v.catContent.replace(/\n/g,'<br />')}</p>
+  </aside>
+</div>  
+  `).join('');
+
+  // [ 기존 캐릭터 소개글에서 엔터부분에 br태그 넣기 ]
+  // 문자열중 특정문자를 변경해주는 메서드는? replace()
+  // 문자열.replace(바꿀문자열,바뀔문자열)
+  // -> 이렇게 하면 문자 하나만 변경되므로
+  // 정규식을 사용해서 선택해야 모두 변경된다!
+  // 정규식은 문자열의 패턴을 찾아주는 문법!
+  // -> .replace(/선택문자열/g,'바뀔문자열')
+  // -> 정규식은 슬래쉬 사이에 씀
+  // -> 정규식 슬래쉬 뒤에 g문자는 global(전체)라는 의미
+  // -> 그러면 모두 찾아서 변경함
+  // -> \n은 엔터기호를 찾아냄
+  // .replace(/\n/g,'<br/>')
+
+
+/************************************************ 
+    3. 최신 동영상 파트에 스와이퍼 적용하기
 ************************************************/
 const videoSwiper = new Swiper(".clip-box", {
   // 자동플레이설정
@@ -110,70 +179,3 @@ videoSwiper.on("slideChange", () => {
     btnPrev.style.display = "block";
   } /// else ////
 }); ///// slideChange //////
-
-
-
-/************************************************ 
-    3. 햄버거 버튼 클릭시 상단영역에 클래스넣기
-************************************************/
-// (1) 이벤트 대상 : .btn-ham
-const $btnHam = $(".btn-ham");
-// (2) 변경 대상 : #top-area
-const $topArea = $("#top-area");
-
-// (3) 이벤트 대상 클릭시 
-// 변경대상에 클래스 토글로 on넣기
-$btnHam.on("click", () => {
-  $topArea.toggleClass("on");
-}); /// click ///
-
-
-/************************************************ 
-    4. 상위메뉴 li 클릭시 서브메뉴에 클래스 넣기
-    ->  클래스 on 을 넣어서 서브메뉴가 등장함!
-************************************************/
-// (1) 이벤트 대상 : .gnb-menu > ul > li
-const $gnbList = $(".gnb-menu > ul > li").has('.sub-menu');
-// has(선택요소) 메서드 -> 자식으로 선택요소가 있는 요소를 선택
-// -> .sub-menu가 있는 li를 선택
-// console.log($gnbList);
-
-// 하위 메뉴 보이기 숨기기 할때 메뉴박스의 z-index:1 처리위해 대상선정
-const $menuBox = $(".menu-box");
-
-// (2) 이벤트 함수 구현하기 ////
-$gnbList.click(function(){
-  // this 키워드로 클릭된 li 자신을 선택하여
-  // 하위의 .sub-menu에 클래스 on을 넣기
-  $(this).find(".sub-menu").addClass("on");
-  // addClass() 메서드 -> 선택된 요소에 클래스를 넣기
-
-  // 메뉴박스 z-index:1처리
-  $menuBox.css("z-index", "1");
-
-}); /// click ///
-
-// (3) 리스트 하위의 a요소 클릭시 페이지이동 특성막기!
-$gnbList.find('a').click(e=>e.preventDefault());
-
-// (4) 이전 이동버튼 클릭시 부모 .sub-menu의 클래스 on 제거하기
-$('.btn-up-menu').click(function(e){ // e - 이벤트 전달변수
-  // console.log('이전 이동버튼 클릭');
-  // 클릭된 버튼의 부모들중 .sub-menu에 클래스 on 제거
-  $(this).parents('.sub-menu').removeClass('on');
-  // parents(특정부모요소) 메서드 -> 부모요소들 중 특정부모요소를 선택
-  // 비교) parent() 메서드 -> 바로 상위 직계부모요소 선택
-  // removeClass() 메서드 -> 선택된 요소에 클래스를 제거
-
-  // 주의! 이전 이동버튼은 부모 li의 자식이므로 클릭시
-  // 이벤트 버블링이 일어나서 부모 li가 다시 클릭된다!
-  // 따라서 on을 제거후 다시 on이 추가되어 아무일도 없는 것처럼 보인다!
-  // 여기서 이벤트 버블링 막기가 필요하다!
-  e.stopPropagation();
-  
-  // 메뉴박스 z-index:0처리
-  $menuBox.css("z-index", "0");
-
-}); /// click ///
-
-

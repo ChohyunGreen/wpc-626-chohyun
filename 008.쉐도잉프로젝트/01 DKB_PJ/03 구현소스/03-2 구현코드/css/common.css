@@ -264,6 +264,8 @@ h1.logo::before {
   border: none;
   font-size: 2.5vh;
   cursor: pointer;
+  /* DT에서 안보임 */
+  display: none;
 }
 
 /* 서브리스트 ul */

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쓸쓸하고 찬란하神 도깨비 드라마 소개</title>
+    <!-- 파비콘 넣기 -->
+    <link rel="shortcut icon" href="./images/favi_new.png" />
+    <!-- 폰트어썸 CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- 스와이퍼 CDN CSS -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- 인물관계도 페이지 CSS -->
+    <link rel="stylesheet" href="./css/relationship.css" />
+
+    <!-- 미디어쿼리는 반드시 일반css아래 위치함! -->
+    <link rel="stylesheet" href="./css/media_main.css" />
+
+    <!-- 스와이퍼 JS -->
+    <script src="./js/swiper-bundle.min.js"></script>
+
+    <!-- 제이쿼리 라이브러리 불러오기 
+     제이쿼리를 사용하는 JS파일 위에 불러와야한다! -->
+    <script src="./js/jquery-3.6.3.min.js"></script>
+
+    <!-- 외부JS 제이쿼리버전 - defer필수! -->
+    <!-- <script src="./js/main1_jquery.js" defer></script> -->
+
+    <!-- 공통 JS : import 문법을 사용하려면
+     반드시 type='module'을 써야한다! -->
+    <script type="module" src="./js/common.js"></script>
+    <!--  메인 JS -->
+    <!-- <script src="./js/main.js" defer></script> -->
+  </head>
+  <body>
+    <!-- 1. 상단영역 -->
+    <div id="top-area"></div>
+    <!-- #top-area -->
+
+    <!-- 2. 메인영역 -->
+    <div id="main-area">
+      <main class="main-area">
+        <!-- 2-1. 배너영역 -->
+        <section class="banner-part"></section>
+
+        <!-- 2-2.5. 드라마파트메뉴 : 스티키메뉴 -->
+        <div id="spart-menu"></div>
+
+        <!-- 2-3. 인물관계도 박스 -->
+         <section class="relation-box">
+          <h2 class="stit">인물 관계도</h2>
+          <img src="./images/cat.png" alt="인물관계도">
+         </section>
+
+        
+      </main>
+    </div>
+    <!-- 3. 하단영역 -->
+    <div id="bottom-area"></div>
+  </body>
+</html>
