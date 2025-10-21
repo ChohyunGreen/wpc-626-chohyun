@@ -40,26 +40,29 @@ import bannerFn from "./main1_jquery.js";
 
 /// 2. 상단파트에서 실행할 함수 /////////////
 function headerFn() {
- /***************************** 
+  /***************************** 
     JS 로 링크 시스템 만들기
  *****************************/
-// 대상 : 상단영역 a요소
-const $topLink = $("#top-area a");
-$topLink.click(function(e){ // e - 이벤트 객체
-  // 기본이동 막기
-  e.preventDefault();
-  // 클릭된 a요소의 글자 읽기
-  let aTxt = $(this).text();
-  console.log(aTxt);
-  // 분기하여 이동
-  // 이동은 location.href = '링크주소';
-  switch(aTxt){
-    case "로그인" : location.href = 'login.html'; break;
-    case "회원가입" : location.href = 'member.html'; break;
-  } //// switch문 //////////
-}); /////// click 이벤트 //////////////
-
-
+  // 대상 : 상단영역 a요소
+  const $topLink = $("#top-area a");
+  $topLink.click(function (e) {
+    // e - 이벤트 객체
+    // 기본이동 막기
+    e.preventDefault();
+    // 클릭된 a요소의 글자 읽기
+    let aTxt = $(this).text();
+    console.log(aTxt);
+    // 분기하여 이동
+    // 이동은 location.href = '링크주소';
+    switch (aTxt) {
+      case "로그인":
+        location.href = "login.html";
+        break;
+      case "회원가입":
+        location.href = "member.html";
+        break;
+    } //// switch문 //////////
+  }); /////// click 이벤트 //////////////
 
   ///////////////////////////////////////////////////
   // 1. 큐브로고박스 일정간격으로 클래스 넣었다 빼기 ///
@@ -152,4 +155,52 @@ $topLink.click(function(e){ // e - 이벤트 객체
     // 메뉴박스 z-index:0처리
     $menuBox.css("z-index", "0");
   }); /// click ///
+
+  // 코드의 지역화 //////
+  // (()=>{})()
+
+  ////////// 스크롤시 상단영역 방향별 보이기/숨기기 //////
+  (() => {
+    // 변경대상 : 상단영역 .header
+    const header = document.querySelector("#top-area");
+    const stkMenu = document.querySelector("#spart-menu");
+    // 스티키 셋팅값
+    let sktValue = 122;
+
+    // 스크롤 방향 알아내는 원리:
+    // (1) 아랫방향
+    // 이전 스크롤위치값 < 현재 스크롤위치값
+    // (2) 윗방향
+    // 이전 스크롤위치값 > 현재 스크롤위치값
+
+    // 이전 스크롤 위치값 저장변수
+    let prevScroll = 0;
+
+    // 스크롤 이벤트 설정하기
+    window.addEventListener("scroll", () => {
+      // 스크롤 위치값 구하기
+      let curScroll = window.scrollY;
+      // console.log('스크롤~~~~!', curScroll);
+
+      // (1) 아랫방향
+      // 이전 스크롤위치값 < 현재 스크롤위치값
+      if (prevScroll < curScroll) {
+        console.log("스크롤 내려간다~~!");
+        // 스크롤 내려가면 메뉴 숨기기
+        header.classList.add("hide");
+        stkMenu.style.top = "0px";
+      } /// if ////
+      // (2) 윗방향 : 아랫방향이 아니면 윗방향
+      // 이전 스크롤위치값 > 현재 스크롤위치값
+      else {
+        console.log("스크롤 올라간다~~!");
+        // 스크롤 올라가면 메뉴 보이기
+        header.classList.remove("hide");
+        stkMenu.style.top = sktValue + "px";
+      } /// else ////
+
+      // 중요!!! 마지막에 이전스크롤위치를 저장!
+      prevScroll = curScroll;
+    }); /////////// scroll ///////////////
+  })(); /// 스크롤시 상단영역 방향별 보이기/숨기기 //////
 } ////////////// headerFn ///////////////
