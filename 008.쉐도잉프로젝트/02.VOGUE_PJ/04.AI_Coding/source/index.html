@@ -49,55 +49,102 @@
     <!-- ========== 메인 컨텐츠 ========== -->
     <main>
         <!-- TODAY'S STORIES -->
-        <section>
-            <div class="section-header">
-                <h2>Today's Stories</h2>
-                <span class="view-more">View More +</span>
-            </div>
-            <div class="grid grid-3">
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">
-                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_69008406d8a57-759x500.jpg" alt="">
-                        </div>
+        <section class="todays-stories">
+        <h2 class="section-title">TODAY'S STORIES</h2>
+        
+        <div class="stories-grid">
+            <!-- 메인 스토리 (좌측 큰 카드) -->
+            <article class="main-story">
+                <img class="main-story-image" 
+                     src="https://img.vogue.co.kr/vogue/2025/10/style_6902dda9f1802-960x1440.jpg" 
+                     alt="Martin Rose Interview">
+                <div class="main-story-overlay">
+                    <div class="main-story-meta">
+                        <span class="main-story-category">인터뷰</span>
+                        <span class="main-story-date">2025.10.30</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Fashion</div>
-                        <h3 class="card-title">발렌티노 2024-25 가을·겨울 컬렉션</h3>
-                        <p class="card-subtitle">클래식한 우아함과 모던함의 조화</p>
+                    <h3 class="main-story-title">"사람들이 제 옷을 통해<br>자신을 발견하면 그걸로<br>충분해요," 마틴 로즈</h3>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 1 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_69008406d8a57-759x500.jpg" 
+                         alt="Fashion Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">Fashion</div>
+                    <h3 class="sub-story-title">맥카지가 만들어내는 겨울의 온도</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 최보경</span>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">
-                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_690366086b93b-759x500.jpeg" alt="">
-                        </div>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 2 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_690366086b93b-759x500.jpeg" 
+                         alt="Art Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">아트</div>
+                    <h3 class="sub-story-title">각자의 행성에서, 조금 더 멀리서 온 이들의 전시 3</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 김성희</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Living</div>
-                        <h3 class="card-title">감각적인 공간 디자인</h3>
-                        <p class="card-subtitle">일상에 특별함을 더하는 인테리어</p>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 3 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_6903645a38b60-759x500.jpg" 
+                         alt="Travel Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">여행</div>
+                    <h3 class="sub-story-title">다이버의 섬, 대만 샤오류추</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 엄지희</span>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">
-                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_6903645a38b60-759x500.jpg" alt="">
-                        </div>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 4 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_69032904dcd9d-759x500.jpg" 
+                         alt="Fashion Event">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">패션 이벤트</div>
+                    <h3 class="sub-story-title">릴 입어야 할지 모를 때, 일단 청바지 돌 5!</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 황혜원, Lucrezia Malavolta, E...</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Beauty</div>
-                        <h3 class="card-title">2025 봄 메이크업 트렌드</h3>
-                        <p class="card-subtitle">자연스러움 속의 화려함</p>
-                    </div>
-                </article>
-            </div>
-        </section>
+                </div>
+            </article>
+        </div>
+    </section>
 
         <!-- BEST STORIES -->
         <section>
             <div class="section-header">
-                <h2>Best Stories</h2>
+                <h2 class="section-title">Best Stories</h2>
                 <span class="view-more">View More +</span>
             </div>
             <div class="grid grid-4">
@@ -143,7 +190,7 @@
         <!-- MUST READ -->
         <section>
             <div class="section-header">
-                <h2>Must Read</h2>
+                <h2 class="section-title">Must Read</h2>
                 <span class="view-more">View More +</span>
             </div>
             <div class="grid grid-4">
@@ -189,7 +236,7 @@
         <!-- PEOPLE NOW -->
         <section id="people">
             <div class="section-header">
-                <h2>People Now</h2>
+                <h2 class="section-title">People Now</h2>
                 <span class="view-more">View More +</span>
             </div>
             <div class="people-grid">
@@ -218,101 +265,203 @@
         </section>
 
         <!-- FASHION -->
-        <section id="fashion">
-            <div class="section-header">
-                <h2>Fashion</h2>
-                <span class="view-more">View More +</span>
-            </div>
-            <div class="grid grid-4">
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Runway</div>
+        <section class="todays-stories fashion">
+        <h2 class="section-title">fashion</h2>
+        
+        <div class="stories-grid">
+            <!-- 메인 스토리 (좌측 큰 카드) -->
+            <article class="main-story">
+                <img class="main-story-image" 
+                     src="https://img.vogue.co.kr/vogue/2025/10/style_6902dda9f1802-960x1440.jpg" 
+                     alt="Martin Rose Interview">
+                <div class="main-story-overlay">
+                    <div class="main-story-meta">
+                        <span class="main-story-category">인터뷰</span>
+                        <span class="main-story-date">2025.10.30</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Fashion Week</div>
-                        <h3 class="card-title">파리 패션위크 하이라이트</h3>
+                    <h3 class="main-story-title">"사람들이 제 옷을 통해<br>자신을 발견하면 그걸로<br>충분해요," 마틴 로즈</h3>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 1 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_69034029255a1-595x500.jpg" 
+                         alt="Fashion Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">Fashion</div>
+                    <h3 class="sub-story-title">맥카지가 만들어내는 겨울의 온도</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 최보경</span>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Collection</div>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 2 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_690327b52aa72-759x500.jpg" 
+                         alt="Art Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">아트</div>
+                    <h3 class="sub-story-title">각자의 행성에서, 조금 더 멀리서 온 이들의 전시 3</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 김성희</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Collection</div>
-                        <h3 class="card-title">샤넬 크루즈 컬렉션 2025</h3>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 3 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_6902ee6ea19c3-759x500.jpg" 
+                         alt="Travel Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">여행</div>
+                    <h3 class="sub-story-title">다이버의 섬, 대만 샤오류추</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 엄지희</span>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Designer</div>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 4 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_69032363efbc9-759x500.jpg" 
+                         alt="Fashion Event">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">패션 이벤트</div>
+                    <h3 class="sub-story-title">릴 입어야 할지 모를 때, 일단 청바지 돌 5!</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 황혜원, Lucrezia Malavolta, E...</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Interview</div>
-                        <h3 class="card-title">신진 디자이너를 만나다</h3>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Trend</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-category">Trend</div>
-                        <h3 class="card-title">2025 F/W 트렌드 리포트</h3>
-                    </div>
-                </article>
-            </div>
-        </section>
+                </div>
+            </article>
+        </div>
+    </section>
 
         <!-- BEAUTY -->
-        <section id="beauty">
-            <div class="section-header">
-                <h2>Beauty</h2>
-                <span class="view-more">View More +</span>
-            </div>
-            <div class="grid grid-3">
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Makeup</div>
+        <section class="todays-stories beauty">
+        <h2 class="section-title">beauty</h2>
+        
+        <div class="stories-grid">
+            <!-- 메인 스토리 (좌측 큰 카드) -->
+            <article class="main-story">
+                <img class="main-story-image" 
+                     src="https://img.vogue.co.kr/vogue/2025/10/style_68f05cb88a031-960x1440.jpg " 
+                     alt="Martin Rose Interview">
+                <div class="main-story-overlay">
+                    <div class="main-story-meta">
+                        <span class="main-story-category">인터뷰</span>
+                        <span class="main-story-date">2025.10.30</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Makeup</div>
-                        <h3 class="card-title">글로우 메이크업 튜토리얼</h3>
-                        <p class="card-subtitle">빛나는 피부 표현의 모든 것</p>
+                    <h3 class="main-story-title">"사람들이 제 옷을 통해<br>자신을 발견하면 그걸로<br>충분해요," 마틴 로즈</h3>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 1 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_68fa2d3a1dd57-759x500.jpg" 
+                         alt="Fashion Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">Fashion</div>
+                    <h3 class="sub-story-title">맥카지가 만들어내는 겨울의 온도</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 최보경</span>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Skincare</div>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 2 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_69017c7650e4a-759x500.jpg" 
+                         alt="Art Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">아트</div>
+                    <h3 class="sub-story-title">각자의 행성에서, 조금 더 멀리서 온 이들의 전시 3</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 김성희</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Skincare</div>
-                        <h3 class="card-title">안티에이징 스킨케어 가이드</h3>
-                        <p class="card-subtitle">피부 노화를 늦추는 방법</p>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 3 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_69017ab588de4-759x500.jpg" 
+                         alt="Travel Story">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">여행</div>
+                    <h3 class="sub-story-title">다이버의 섬, 대만 샤오류추</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 엄지희</span>
                     </div>
-                </article>
-                <article class="card">
-                    <div class="card-image">
-                        <div class="placeholder-img">Fragrance</div>
+                </div>
+            </article>
+
+            <!-- 서브 스토리 4 -->
+            <article class="sub-story">
+                <div class="sub-story-image-wrapper">
+                    <img class="sub-story-image" 
+                         src="https://img.vogue.co.kr/vogue/2025/10/style_6901707984b4d-759x500.jpg" 
+                         alt="Fashion Event">
+                </div>
+                <div class="sub-story-content">
+                    <div class="sub-story-category">패션 이벤트</div>
+                    <h3 class="sub-story-title">릴 입어야 할지 모를 때, 일단 청바지 돌 5!</h3>
+                    <div class="sub-story-meta">
+                        <span class="date">2025.10.31</span>
+                        <span class="divider">|</span>
+                        <span class="author">by 황혜원, Lucrezia Malavolta, E...</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-category">Fragrance</div>
-                        <h3 class="card-title">2025 신상 향수 리뷰</h3>
-                        <p class="card-subtitle">가을을 위한 시그니처 향</p>
-                    </div>
-                </article>
-            </div>
-        </section>
+                </div>
+            </article>
+        </div>
+    </section>
 
         <!-- LIVING -->
         <section id="living">
             <div class="section-header">
-                <h2>Living</h2>
+                <h2 class="section-title">Living</h2>
                 <span class="view-more">View More +</span>
             </div>
             <div class="grid grid-4">
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Interior</div>
+                        <div class="placeholder-img">
+                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_68ff1ba0d7506-500x500.jpg" alt="">
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Interior</div>
@@ -321,7 +470,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Design</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_6901d668914b9-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Design</div>
@@ -330,7 +479,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Restaurant</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_68fb393501fee-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Food</div>
@@ -339,7 +488,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Lifestyle</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_68f9b76882988-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Lifestyle</div>
@@ -352,13 +501,13 @@
         <!-- LATEST STORIES -->
         <section>
             <div class="section-header">
-                <h2>Latest Stories</h2>
+                <h2 class="section-title">Latest Stories</h2>
                 <span class="view-more">View More +</span>
             </div>
             <div class="grid grid-3">
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Latest 1</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_6902ecfad96fa-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Fashion</div>
@@ -368,7 +517,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Latest 2</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_6902c2f85c502-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Culture</div>
@@ -378,7 +527,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Latest 3</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_6901dbc1f0e2e-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Shopping</div>
@@ -393,7 +542,9 @@
     <!-- ========== 푸터 ========== -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">VOGUE</div>
+            <div class="footer-logo">
+                <img src="https://www.vogue.co.kr/wp-content/themes/vogue/assets/images/footer_logo.svg" alt="로고">
+            </div>
             <nav class="footer-links">
                 <a href="#">회사 소개</a>
                 <a href="#">이용 약관</a>
