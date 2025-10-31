@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOGUE Korea</title>
+    <!-- 폰트어썸 CDN CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 외부 CSS -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -11,30 +13,36 @@
     <!-- ========== 헤더 ========== -->
     <header>
         <div class="header-top">
-            <div class="logo">VOGUE</div>
-            <div class="header-actions">
-                <button class="search-btn">SEARCH</button>
-                <button class="menu-btn">MENU</button>
+            <div class="logo">
+                <img src="./images/svg/logo.svg" alt="보그로고">
             </div>
+            <div class="header-actions">
+                <button class="lang-btn">Korea</button>
+                <button class="gudok-btn">구독하기</button>
+                <button class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <!-- GNB메뉴 -->
+            <nav class="gnb-menu">
+                <ul class="nav-list">
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#beauty">Beauty</a></li>
+                    <li><a href="#living">Living</a></li>
+                    <li><a href="#people">People</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#shopping">Shopping</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="#fashion">Fashion</a></li>
-                <li><a href="#beauty">Beauty</a></li>
-                <li><a href="#living">Living</a></li>
-                <li><a href="#people">People</a></li>
-                <li><a href="#video">Video</a></li>
-                <li><a href="#shopping">Shopping</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- ========== 히어로 섹션 ========== -->
     <section class="hero">
-        <img class="hero-image" src="data:image/svg+xml,%3Csvg width='1400' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffc4d6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23d4a5ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grad)'/%3E%3C/svg%3E" alt="Hero">
+        <img class="hero-image" src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198" alt="Hero">
         <div class="hero-text">
-            <h1>가장 완벽한 순간에서 찾아낸 매력 그리고 아름다움</h1>
-            <p>COVER STORY</p>
+            <p>셀러브리티 스타일 | 2025.10.16</p>
+            <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
         </div>
     </section>
 
@@ -49,7 +57,9 @@
             <div class="grid grid-3">
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Fashion Show</div>
+                        <div class="placeholder-img">
+                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_69008406d8a57-759x500.jpg" alt="">
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Fashion</div>
@@ -59,7 +69,9 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Interior</div>
+                        <div class="placeholder-img">
+                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_690366086b93b-759x500.jpeg" alt="">
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Living</div>
@@ -69,7 +81,9 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Portrait</div>
+                        <div class="placeholder-img">
+                            <img src="https://img.vogue.co.kr/vogue/2025/10/style_6903645a38b60-759x500.jpg" alt="">
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Beauty</div>
@@ -89,7 +103,7 @@
             <div class="grid grid-4">
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Fashion</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_6901bb81277bb-759x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Fashion</div>
@@ -98,7 +112,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Style</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_690327b52aa72-759x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Fashion</div>
@@ -107,7 +121,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Bags</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/09/style_68da60048331c-759x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Shopping</div>
@@ -116,7 +130,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Jewelry</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_68f9bdc7db7c9-759x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Fashion</div>
@@ -135,7 +149,7 @@
             <div class="grid grid-4">
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Interview</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/09/style_68d971309572c-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">People</div>
@@ -144,7 +158,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Street Style</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_69003fa3ca348-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Fashion</div>
@@ -153,7 +167,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Skincare</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_68fefd718863e-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Beauty</div>
@@ -162,7 +176,7 @@
                 </article>
                 <article class="card">
                     <div class="card-image">
-                        <div class="placeholder-img">Travel</div>
+                        <div class="placeholder-img"><img src="https://img.vogue.co.kr/vogue/2025/10/style_68faccbabd5c9-500x500.jpg" alt=""></div>
                     </div>
                     <div class="card-content">
                         <div class="card-category">Living</div>
@@ -180,21 +194,21 @@
             </div>
             <div class="people-grid">
                 <article class="people-card">
-                    <img src="data:image/svg+xml,%3Csvg width='400' height='533' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e8f4f8'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%23999' text-anchor='middle' dy='.3em'%3ECelebrity 1%3C/text%3E%3C/svg%3E" alt="Celebrity">
+                    <img src="https://img.vogue.co.kr/vogue/2025/09/style_68bbac766b34b-700x1050.jpg" alt="Celebrity">
                     <div class="people-overlay">
                         <div class="people-name">김지원</div>
                         <div class="people-role">배우</div>
                     </div>
                 </article>
                 <article class="people-card">
-                    <img src="data:image/svg+xml,%3Csvg width='400' height='533' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23fce4ec'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%23999' text-anchor='middle' dy='.3em'%3ECelebrity 2%3C/text%3E%3C/svg%3E" alt="Celebrity">
+                    <img src="https://img.vogue.co.kr/vogue/2025/10/style_68ff23fe87683-700x1050.jpg" alt="Celebrity">
                     <div class="people-overlay">
                         <div class="people-name">박서준</div>
                         <div class="people-role">배우</div>
                     </div>
                 </article>
                 <article class="people-card">
-                    <img src="data:image/svg+xml,%3Csvg width='400' height='533' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f3e5f5'/%3E%3Ctext x='50%25' y='50%25' font-size='16' fill='%23999' text-anchor='middle' dy='.3em'%3ECelebrity 3%3C/text%3E%3C/svg%3E" alt="Celebrity">
+                    <img src="https://img.vogue.co.kr/vogue/2025/10/style_68ecabcc66735-700x1050.jpg" alt="Celebrity">
                     <div class="people-overlay">
                         <div class="people-name">한소희</div>
                         <div class="people-role">배우</div>
