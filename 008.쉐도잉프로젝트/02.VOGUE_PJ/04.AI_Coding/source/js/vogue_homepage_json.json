@@ -1,0 +1,153 @@
+{
+  "website": {
+    "name": "보그 코리아 (Vogue Korea)",
+    "url": "https://www.vogue.co.kr/",
+    "lastUpdated": "2025-09-05"
+  },
+  "mainSections": [
+    {
+      "id": "today_stories",
+      "title": "Today's Stories",
+      "description": "오늘의 주요 스토리"
+    },
+    {
+      "id": "best_stories",
+      "title": "Best stories",
+      "description": "인기 스토리 모음"
+    },
+    {
+      "id": "must_read",
+      "title": "Must Read",
+      "description": "필독 콘텐츠"
+    },
+    {
+      "id": "people_now",
+      "title": "PEOPLE NOW",
+      "subtitle": "지금, 보그가 주목하는 인물",
+      "description": "현재 주목받는 인물들의 스토리"
+    }
+  ],
+  "categories": [
+    {
+      "id": "fashion",
+      "name": "fashion",
+      "url": "/fashion/",
+      "hasMore": true
+    },
+    {
+      "id": "beauty",
+      "name": "beauty",
+      "url": "/beauty/",
+      "hasMore": true
+    },
+    {
+      "id": "living",
+      "name": "Living",
+      "url": "/lifestyle/",
+      "hasMore": true
+    },
+    {
+      "id": "culture",
+      "name": "culture",
+      "url": "/culture/",
+      "hasMore": true
+    }
+  ],
+  "latestStories": {
+    "title": "Latest stories",
+    "articles": [
+      {
+        "id": 1,
+        "category": "패션 뉴스",
+        "title": "패션을 재정의한 전설, 조르지오 아르마니 타계",
+        "date": "2025.09.05",
+        "author": "오기쁨"
+      },
+      {
+        "id": 2,
+        "category": "패션 트렌드",
+        "title": "2010년대 감성의 사첼백이 다시 돌아오고 있습니다",
+        "date": "2025.09.05",
+        "author": "김현유, Alice Cary"
+      },
+      {
+        "id": 3,
+        "category": "셀러브리티 스타일",
+        "title": "리한나는 왜 빈티지 백을 고집할까요?",
+        "date": "2025.09.05",
+        "author": "김현유, Emily Chan, Alice Cary"
+      },
+      {
+        "id": 4,
+        "category": "패션 트렌드",
+        "title": "올가을 레이스를 입는 여섯 가지 방식",
+        "date": "2025.09.05",
+        "author": "소피아"
+      },
+      {
+        "id": 5,
+        "category": "패션 아이템",
+        "title": "요리조리 구상해보는 올가을 스타일링 4",
+        "date": "2025.09.04",
+        "author": "하솔휘"
+      },
+      {
+        "id": 6,
+        "category": "패션 뉴스",
+        "title": "디올의 새 얼굴, 마이키 매디슨",
+        "date": "2025.09.04",
+        "author": "오기쁨"
+      },
+      {
+        "id": 7,
+        "category": "패션 아이템",
+        "title": "이번 가을엔 양말이 주인공입니다",
+        "date": "2025.09.04",
+        "author": "하솔휘"
+      },
+      {
+        "id": 8,
+        "category": "패션 뉴스",
+        "title": "레이첼 스콧이 이야기하는 프로엔자 스쿨러의 미래",
+        "date": "2025.09.04",
+        "author": "안건호, Nicole Phelps"
+      },
+      {
+        "id": 9,
+        "category": "패션 뉴스",
+        "title": "리사와 주피터가 함께 선보이는 특별한 경매 프로젝트",
+        "date": "2025.09.04",
+        "author": "오기쁨"
+      },
+      {
+        "id": 10,
+        "category": "패션 트렌드",
+        "title": "니트, 입지 말고 두르세요",
+        "date": "2025.09.04",
+        "author": "소피아"
+      },
+      {
+        "id": 11,
+        "category": "Video",
+        "title": "의외로 수다쟁이? 안효섭에 대한 소문의 실체를 공개합니다",
+        "date": "2025.09.04",
+        "author": "한다혜, 장소라",
+        "type": "video"
+      },
+      {
+        "id": 12,
+        "category": "패션 아이템",
+        "title": "올가을에 살랑일 트렌드 팬츠 7",
+        "date": "2025.09.04",
+        "author": "하솔휘"
+      }
+    ]
+  },
+  "contentTypes": [
+    "패션 뉴스",
+    "패션 트렌드",
+    "셀러브리티 스타일",
+    "패션 아이템",
+    "Video"
+  ]
+}
