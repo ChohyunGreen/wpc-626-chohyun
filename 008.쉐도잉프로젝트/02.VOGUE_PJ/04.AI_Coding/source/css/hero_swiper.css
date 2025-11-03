@@ -1,0 +1,98 @@
+/* 기본 리셋(필요시 통합) */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* 히어로 섹션 크기: 기존 이미지 비율과 유사하게 고정 높이 지정
+   필요하면 px 또는 vh 값 조정하세요. */
+.hero {
+  width: 100%;
+  max-width: 1200px; /* 원하면 조정 또는 제거 */
+  margin: 0 auto;
+}
+
+/* Swiper 컨테이너 크기 설정 */
+.hero-swiper {
+  position: relative;
+  height: 520px; /* 필요시 60vh 등으로 변경 */
+  overflow: hidden;
+}
+
+/* 슬라이드 이미지 */
+.hero-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지가 컨테이너에 맞게 잘림 */
+  display: block;
+}
+
+/* 히어로 텍스트 오버레이 */
+.hero-text {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  color: #fff;
+  z-index: 10;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  max-width: 70%;
+  pointer-events: none;
+}
+
+.hero-text p {
+  font-size: 14px;
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+
+.hero-text h1 {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* 네비게이션 버튼(기본 Swiper 스타일이 있으므로 약간 덮어쓰기) */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* 버튼 아이콘 크게 */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* 페이지네이션 위치: 하단 중앙 (텍스트 바로 아래 여백) */
+.swiper-pagination {
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 15;
+}
+
+/* 페이지 도트 스타일 */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.6);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff;
+  transform: scale(1.15);
+}
+
+/* 반응형 텍스트 조정 */
+@media (max-width: 768px) {
+  .hero-swiper { height: 420px; }
+  .hero-text h1 { font-size: 20px; }
+  .hero-text { left: 16px; bottom: 16px; }
+}
