@@ -23,6 +23,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Custom JS 연결 -->
     <script src="./js/main.js"></script>
+    <!-- 메인 페이지 데이터 바인딩 JS -->
+     <script type="module" src="./js/main_data_binding.js"></script>
   </head>
   <body>
     <!-- ========== 헤더 ========== -->
@@ -57,85 +59,7 @@
       <!-- ========== 히어로 슬라이더 섹션 ========== -->
       <section class="hero-slider">
         <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img
-                class="hero-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_68f05b3bbff97-1920x1080.jpg?x=2459&y=1198"
-                alt="Hero"
-              />
-              <div class="hero-text">
-                <p>셀러브리티 스타일 | 2025.10.16</p>
-                <h1>바람 불 때 진가를 발휘하는 제니퍼 로렌스 출근 룩</h1>
-              </div>
-            </div>
-          </div>
+          <div class="swiper-wrapper"></div>
 
           <!-- 양쪽 네비게이션 버튼 -->
           <div class="swiper-button-next"></div>
@@ -152,180 +76,157 @@
       <section class="todays-stories">
         <h2 class="section-title">TODAY'S STORIES</h2>
 
-        <div class="stories-grid">
-          <!-- 메인 스토리 (좌측 큰 카드) -->
-          <article class="main-story">
-            <img
-              class="main-story-image"
-              src="https://img.vogue.co.kr/vogue/2025/10/style_6902dda9f1802-960x1440.jpg"
-              alt="Martin Rose Interview"
-            />
-            <div class="main-story-overlay">
-              <div class="main-story-meta">
-                <span class="main-story-category">인터뷰</span>
-                <span class="main-story-date">2025.10.30</span>
-              </div>
-              <h3 class="main-story-title">
-                "사람들이 제 옷을 통해<br />자신을 발견하면 그걸로<br />충분해요,"
-                마틴 로즈
-              </h3>
-            </div>
-          </article>
-
-          <!-- 서브 스토리 1 -->
-          <article class="sub-story">
-            <div class="sub-story-image-wrapper">
-              <img
-                class="sub-story-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_69008406d8a57-759x500.jpg"
-                alt="Fashion Story"
-              />
-            </div>
-            <div class="sub-story-content">
-              <div class="sub-story-category">Fashion</div>
-              <h3 class="sub-story-title">맥카지가 만들어내는 겨울의 온도</h3>
-              <div class="sub-story-meta">
-                <span class="date">2025.10.31</span>
-                <span class="divider">|</span>
-                <span class="author">by 최보경</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 서브 스토리 2 -->
-          <article class="sub-story">
-            <div class="sub-story-image-wrapper">
-              <img
-                class="sub-story-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_690366086b93b-759x500.jpeg"
-                alt="Art Story"
-              />
-            </div>
-            <div class="sub-story-content">
-              <div class="sub-story-category">아트</div>
-              <h3 class="sub-story-title">
-                각자의 행성에서, 조금 더 멀리서 온 이들의 전시 3
-              </h3>
-              <div class="sub-story-meta">
-                <span class="date">2025.10.31</span>
-                <span class="divider">|</span>
-                <span class="author">by 김성희</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 서브 스토리 3 -->
-          <article class="sub-story">
-            <div class="sub-story-image-wrapper">
-              <img
-                class="sub-story-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_6903645a38b60-759x500.jpg"
-                alt="Travel Story"
-              />
-            </div>
-            <div class="sub-story-content">
-              <div class="sub-story-category">여행</div>
-              <h3 class="sub-story-title">다이버의 섬, 대만 샤오류추</h3>
-              <div class="sub-story-meta">
-                <span class="date">2025.10.31</span>
-                <span class="divider">|</span>
-                <span class="author">by 엄지희</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 서브 스토리 4 -->
-          <article class="sub-story">
-            <div class="sub-story-image-wrapper">
-              <img
-                class="sub-story-image"
-                src="https://img.vogue.co.kr/vogue/2025/10/style_69032904dcd9d-759x500.jpg"
-                alt="Fashion Event"
-              />
-            </div>
-            <div class="sub-story-content">
-              <div class="sub-story-category">패션 이벤트</div>
-              <h3 class="sub-story-title">
-                릴 입어야 할지 모를 때, 일단 청바지 돌 5!
-              </h3>
-              <div class="sub-story-meta">
-                <span class="date">2025.10.31</span>
-                <span class="divider">|</span>
-                <span class="author">by 황혜원, Lucrezia Malavolta, E...</span>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div class="stories-grid"></div>
       </section>
 
       <!-- BEST STORIES -->
-      <section>
+      <section class="best-stories">
         <div class="section-header">
           <h2 class="section-title">Best Stories</h2>
           <span class="view-more">View More +</span>
         </div>
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="card-image">
-              <div class="placeholder-img">
-                <img
-                  src="https://img.vogue.co.kr/vogue/2025/10/style_6901bb81277bb-759x500.jpg"
-                  alt=""
-                />
+        <div class="best-stories-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/10/style_6901bb81277bb-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Fashion</div>
+                    <h3 class="card-title">세린느 2025 S/S 컬렉션</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/10/style_690327b52aa72-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Fashion</div>
+                    <h3 class="card-title">트렌치코트 스타일링 가이드</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/09/style_68da60048331c-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Shopping</div>
+                    <h3 class="card-title">2025 머스트 해브 백</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/10/style_68f9bdc7db7c9-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Fashion</div>
+                    <h3 class="card-title">주얼리 레이어링 팁</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/10/style_6901bb81277bb-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Beauty</div>
+                    <h3 class="card-title">가을 메이크업 트렌드</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/10/style_690327b52aa72-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Fashion</div>
+                    <h3 class="card-title">레더 재킷 스타일링</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/09/style_68da60048331c-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">People</div>
+                    <h3 class="card-title">셀럽 스트릿 스타일</h3>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="card">
+                  <div class="card-image">
+                    <div class="placeholder-img">
+                      <img
+                        src="https://img.vogue.co.kr/vogue/2025/10/style_68f9bdc7db7c9-759x500.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-category">Fashion</div>
+                    <h3 class="card-title">빈티지 액세서리 가이드</h3>
+                  </div>
+                </article>
               </div>
             </div>
-            <div class="card-content">
-              <div class="card-category">Fashion</div>
-              <h3 class="card-title">세린느 2025 S/S 컬렉션</h3>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-image">
-              <div class="placeholder-img">
-                <img
-                  src="https://img.vogue.co.kr/vogue/2025/10/style_690327b52aa72-759x500.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-category">Fashion</div>
-              <h3 class="card-title">트렌치코트 스타일링 가이드</h3>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-image">
-              <div class="placeholder-img">
-                <img
-                  src="https://img.vogue.co.kr/vogue/2025/09/style_68da60048331c-759x500.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-category">Shopping</div>
-              <h3 class="card-title">2025 머스트 해브 백</h3>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-image">
-              <div class="placeholder-img">
-                <img
-                  src="https://img.vogue.co.kr/vogue/2025/10/style_68f9bdc7db7c9-759x500.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-category">Fashion</div>
-              <h3 class="card-title">주얼리 레이어링 팁</h3>
-            </div>
-          </article>
+            <!-- 양쪽 네비게이션 버튼 -->
+            <div class="swiper-button-next best-stories-next"></div>
+            <div class="swiper-button-prev best-stories-prev"></div>
+          </div>
         </div>
       </section>
+      
 
       <!-- MUST READ -->
-      <section>
+      <section class="must-read">
         <div class="section-header">
           <h2 class="section-title">Must Read</h2>
           <span class="view-more">View More +</span>
@@ -866,7 +767,7 @@
               </article>
             </div>
           </article>
-          <!-- 두번째 파트 : 인스타그램 -->
+          <!-- 두번째 파트 : 인스타그램광고 -->
           <article>
             <a href="#">
                 <img src="./images/vogue_instagram.jpg" alt="보그 인스타그램 광고">
