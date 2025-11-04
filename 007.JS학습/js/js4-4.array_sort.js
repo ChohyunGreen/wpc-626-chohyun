@@ -384,3 +384,124 @@ document.querySelector("#sel2").addEventListener("change", function () {
   }
   showNumFn2(arrString);
 }); /////////////// showNumFn2함수 /////////////////
+
+// [3] 객체데이터 배열의 정렬 //////////////
+// [3-1] 객체데이터 배열
+// - 객체구조 :
+// (1) idx - 순번 / (2) tit - 제목 / (3) cont - 내용
+const list1 = [
+  {
+    idx: 8,
+    tit: "나는 구누?",
+    cont: "공동구매) 슬로건 공구 (계좌와 네이버폼)",
+  },
+  {
+    idx: 4,
+    tit: "여기는 어디?",
+    cont: "총공 공지] 오늘부터 일 2회, 총공 진행합니다",
+  },
+  {
+    idx: 1,
+    tit: "나야나",
+    cont: "연합 갈라 서포트 계좌오픈",
+  },
+  {
+    idx: 15,
+    tit: "이제 얼마나 남은거니?",
+    cont: "음악프로그램에 출연 요청글도 써볼까요?",
+  },
+  {
+    idx: 28,
+    tit: "오늘 점심에 뭐 먹을까?",
+    cont: "마라탕, 짬뽕, 짜장면, 피자 먹자!",
+  },
+]; /////////////// list1 /////////////
+
+console.log(list1);
+
+// [3-2] 데이터 바인딩하기 : 함수화하여 재사용!
+// 바인딩 출력대상
+const showList3 = myFn.qs(".showList3");
+
+const showList3Fn = (newArray) => {
+  // newArray 데이터 바인딩할 배열
+  showList3.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>내용</th>
+            </tr>
+          </thead>
+          <tbody>
+          ${newArray
+            .map(
+              (v) => `            
+                <tr>
+                    <td>${v.idx}</td>
+                    <td>${v.tit}</td>
+                    <td>${v.cont}</td>
+                </tr>
+                `
+            )
+            .join("")}
+            
+            </tbody>
+                </table>
+    
+    `;
+}; //////// showList3Fn 함수 //////////
+
+// 바인딩함수 최초호출!
+showList3Fn(list1);
+console.log("객체배열원본:", list1);
+
+// [3-3] 정렬하기 ////////////////
+// 대상: 기준선택박스 / 정렬선택박스
+const cta3 = myFn.qs("#cta3");
+const sel3 = myFn.qs("#sel3");
+
+// 이벤트 설정하기 : 대상 - sel3
+myFn.addEvt(sel3, "change", function () {
+  // [1] 정렬기준값 읽어오기
+  let cta = cta3.value;
+  console.log("정렬기준값:", cta);
+
+  // [2] 정렬선택값 읽어오기
+  let sel = sel3.value;
+  console.log("정렬선택값:", sel);
+
+  // [3] 배열원본을 변수에 할당하기
+  let newArrey = list1.slice();
+  // 깊은복사2 -> slice()메서드로 복사하기
+  // -> slice(시작순번,끝순번) : 중간배열값 가져오기 용도로도 사용됨!
+  // -> 시작순번부터 끝순번전까지 잘라서 가져옴
+  // -> slice() 아무값도 없으면 전체배열을 가져옴!
+
+  // let newArrey = [...list1];
+  // 깊은복사1 -> 스프레드 연산자(...)로 값을 복사하기
+
+  // let newArrey = list1;
+  // 만약 배열을 일반할당하면 얕은복사가 되어서 주소값이 복사된다!
+  // 이 변수 newArrey를 변경하면 원본이 변경된다!
+  // 깊은 복사로 주소복사가 아닌 값을 복사해야 원본이 보존된다!
+
+  // [3] 정렬 기준값으로 sort() 메서드를 사용하여 정렬을 변경!
+  if (sel === "1") {
+    // 오름차순
+    newArrey.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] < b[cta] ? -1 : 1));
+  } /// if ///
+  else if (sel === "2") {
+    // 내림차순
+    newArrey.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? -1 : 1));
+  } /// else if ///
+  else { // 정렬되기 전 원본으로 돌아가기
+    newArrey = list1;
+  } /// else ///
+
+  console.log("객체배열원본:", list1);
+
+  // [4] 정렬된 배열 데이터 바인딩하기
+  showList3Fn(newArrey);
+}); /////////////// change 이벤트 함수 /////////////////
