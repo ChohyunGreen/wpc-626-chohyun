@@ -505,3 +505,151 @@ myFn.addEvt(sel3, "change", function () {
   // [4] 정렬된 배열 데이터 바인딩하기
   showList3Fn(newArrey);
 }); /////////////// change 이벤트 함수 /////////////////
+
+///////////////////////////////////////////
+// [4] 객체데이터 검색후 배열의 정렬 ////////
+// [4-1] 객체데이터 배열
+// - 객체구조 :
+// (1) idx - 순번 / (2) tit - 제목 / (3) cont - 내용
+const list2 = [
+  {
+    idx: 58,
+    tit: "당근마켓에 가자",
+    cont: "당근마켓이 항상 좋은건 아니야~!!ㅠ.ㅠ",
+  },
+  {
+    idx: 15,
+    tit: "당근마켓에 가자",
+    cont: "당근마켓이 정말로 싸고 좋다구~!",
+  },
+  {
+    idx: 74,
+    tit: "점심에 뭐먹지? 당근이지!",
+    cont: "오스틴님 생일 서포트 안내",
+  },
+  {
+    idx: 18,
+    tit: "직돌이는 쉬고싶다~!",
+    cont: "활동정지에 대한 파생글 무통보 삭제 및 경고",
+  },
+  {
+    idx: 104,
+    tit: "올해는 다른 회사로 이직한다!",
+    cont: "⚜️갈라콘 서포트에 많은 참여 부탁드립니다!",
+  },
+]; /////////////// list1 /////////////
+
+console.log(list2);
+
+// [4-2] 데이터 바인딩하기 : 함수화하여 재사용!
+// 바인딩 출력대상
+const showList4 = myFn.qs(".showList4");
+
+const showList4Fn = (newArray) => {
+  // newArray 데이터 바인딩할 배열
+  showList4.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>내용</th>
+            </tr>
+          </thead>
+          <tbody>
+          ${newArray
+            .map(
+              (v) => `            
+                <tr>
+                    <td>${v.idx}</td>
+                    <td>${v.tit}</td>
+                    <td>${v.cont}</td>
+                </tr>
+                `
+            )
+            .join("")}
+            
+            </tbody>
+                </table>
+    
+    `;
+}; //////// showList4Fn 함수 //////////
+
+// 바인딩함수 최초호출!
+showList4Fn(list2);
+console.log("객체배열원본:", list2);
+
+// [4-3] 정렬하기 ////////////////
+// 대상: 기준선택박스 / 정렬선택박스
+const cta4 = myFn.qs("#cta4");
+const sel4 = myFn.qs("#sel4");
+
+// 정렬할 배열데이터 담을 변수
+let tgArray4 = list2.slice();
+// 처음엔 기본전체배열값 할당함!
+
+// 이벤트 설정하기 : 대상 - sel4
+myFn.addEvt(sel4, "change", function () {
+  // (1) 깊은복사 : 배열 순서를 바꾸는 경우엔 효과있음!
+  const newArray = tgArray4.slice(); // -> slice() 방식!
+  // -> slice(시작순번,끝순번) -> 끝순번 앞에서 잘라서 새배열생성
+  // 예)list1.slice(1,3) -> 1,2번째 배열값만 가져옴
+  // -> slice() 아무것도 안쓰면 전체배열을 새로생성함!(부가기능)
+  // const newArray = [...list1]; -> 스프레드 연산자방식!
+  // const newArray = list1;
+
+  // -> 객체데이터를 변경하는 경우엔
+  // 위의 깊은 복사가 아닌 JASON.parse()방식 써야함
+  // newArray[0].idx = 999;
+
+  // (2) 정렬 기준값 읽어오기 ///////
+  let cta = cta4.value;
+  console.log("정렬기준:", cta);
+
+  // (3) 정렬변경하기 /////////////
+  // (3-1) 오름차순 //////
+  if (this.value == "1")
+    newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] < b[cta] ? -1 : 1));
+  // (3-2) 내림차순 ///////
+  else if (this.value == "2")
+    newArray.sort((a, b) => (a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? -1 : 1));
+
+  // (4) 화면출력 ////////////
+  showList4Fn(newArray);
+  console.log("객체배열원본:", list2);
+}); //////// change 이벤트함수 /////////
+
+// [4-4] 검색하기 ///////////////////////
+// 대상 :
+// 검색항목 : #search-cta4
+const sCta4 = myFn.qs("#search-cta4");
+// 검색입력창 : #stxt
+const stxt = myFn.qs("#stxt");
+// 검색버튼 : .sbtn
+const sbtn = myFn.qs(".sbtn");
+// 전체버튼 : .fbtn
+const fbtn = myFn.qs(".fbtn");
+
+// (1) 버튼 클릭시 이벤트 설정하기 //////
+myFn.addEvt(sbtn, "click", function () {
+  console.log('검색해~~!');
+  // 1) 검색어가 없으면 경고창 띄우기
+  if(stxt.value == '') {
+    alert('검색어를 입력해줘!');
+    return;
+  } /// if ///
+  // 2) 검색어가 있으면 검색
+  else{
+    // 여러 검색 결과를 모으려면 filter() 메서드사용!
+    const newArray = list2.filter(v => {
+      return String(v[sCta4.value]).includes(stxt.value);
+    });
+    // 숫자일 경우도 문자화하여 검색해야함!
+    // 따라서 String()으로 형변환하여 검색한다!
+    // 3) 화면출력
+    showList4Fn(newArray);
+    console.log("객체배열원본:", list2);
+  } /// else ////
+
+  
+}); ////////////// click 이벤트함수 ////////////
