@@ -222,28 +222,44 @@
       "title": "fashion",
       "url": "/fashion/",
       "mainHighlight": {
-        "category": "패션 화보",
-        "date": "2025.11.03",
-        "title": "나 홀로 집에, 극내향인의 홀리데이 파티",
-        "url": "/2025/11/03/나-홀로-집에-극내향인의-홀리데이-파티/",
-        "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fec790d38de-960x1440.jpg"
+        "category": "인터뷰",
+        "date": "2025.10.30",
+        "title": "\"사람들이 제 옷을 통해 자신을 발견하면 그걸로 충분해요,\" 마틴 로즈",
+        "url": "/2025/10/30/마틴-로즈-인터뷰/",
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_6902dda9f1802-960x1440.jpg"
       },
       "articles": [
         {
-          "category": "워치&주얼리",
-          "title": "보석이 시간을 초월하는 법",
-          "date": "2025.11.02",
-          "author": "고주연, 신은지",
-          "url": "/2025/11/02/보석이-시간을-초월하는-법/",
-          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fb1f6f50356-759x500.jpg"
+          "category": "Fashion",
+          "title": "맥카지가 만들어내는 겨울의 온도",
+          "date": "2025.10.31",
+          "author": "최보경",
+          "url": "/2025/10/31/맥카지가-만들어내는-겨울의-온도/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6904541b16aa1-500x500.jpg"
+        },
+        {
+          "category": "아트",
+          "title": "각자의 행성에서, 조금 더 멀리서 온 이들의 전시 3",
+          "date": "2025.10.31",
+          "author": "김성희",
+          "url": "/2025/10/31/각자의-행성에서-조금-더-멀리서-온-이들의-전시-3/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_690327b52aa72-759x500.jpg"
+        },
+        {
+          "category": "여행",
+          "title": "다이버의 섬, 대만 샤오류추",
+          "date": "2025.10.31",
+          "author": "엄지희",
+          "url": "/2025/10/31/다이버의-섬-대만-샤오류추/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6902ee6ea19c3-759x500.jpg"
         },
         {
           "category": "패션 아이템",
-          "title": "짧을수록 좋은 미니 원피스 걱정 없이 입기",
-          "date": "2025.11.01",
-          "author": "소피아, Laura Tortora",
-          "url": "/2025/11/01/짧을수록-좋은-미니-원피스-걱정-없이-입기/",
-          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69043051a80ba-759x500.jpg"
+          "title": "뭘 입어야 할지 모를 때, 일단 청바지 룩 5!",
+          "date": "2025.10.31",
+          "author": "황혜원, Lucrezia Malavolta, Emma Bocchi",
+          "url": "/2025/10/31/뭘-입어야-할지-모를-때-일단-청바지-룩-5/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69032363efbc9-759x500.jpg"
         }
       ]
     },
@@ -255,16 +271,40 @@
         "date": "2025.10.30",
         "title": "키스오브라이프의 쥴리와 나탈이 표현한 '본질적' 아름다움",
         "url": "/2025/10/30/키스오브라이프의-쥴리와-나탈이-표현한-본질적-아/",
-        "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fa2d3a1dd57-960x1440.jpg"
+        "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f05cb88a031-960x1440.jpg"
       },
       "articles": [
         {
           "category": "뷰티 화보",
-          "title": "애프터 블로우 우디 피그와 원필이 그려낸 깊은 여운.",
-          "date": "2025.11.01",
+          "title": "키스오브라이프의 쥴리와 나탈이 표현한 '본질적' 아름다움",
+          "date": "2025.10.30",
           "author": "박채원",
-          "url": "/2025/11/01/애프터-블로우-우디-피그와-원필이-그려낸-깊은-여운/",
-          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69042102c5416-759x500.jpg"
+          "url": "/2025/10/30/키스오브라이프의-쥴리와-나탈이-표현한-본질적-아/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fa2d3a1dd57-759x500.jpg"
+        },
+        {
+          "category": "뷰티 트렌드",
+          "title": "2025 봄 메이크업 트렌드, 자연스러운 글로우가 핵심",
+          "date": "2025.10.29",
+          "author": "김수진",
+          "url": "/2025/10/29/2025-봄-메이크업-트렌드-자연스러운-글로우가-핵심/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69017c7650e4a-759x500.jpg"
+        },
+        {
+          "category": "뷰티 아이템",
+          "title": "겨울철 건조한 피부를 위한 하이드레이션 루틴",
+          "date": "2025.10.28",
+          "author": "이지은",
+          "url": "/2025/10/28/겨울철-건조한-피부를-위한-하이드레이션-루틴/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69017ab588de4-759x500.jpg"
+        },
+        {
+          "category": "웰니스",
+          "title": "셀럽들이 사랑하는 요가 루틴 5가지",
+          "date": "2025.10.27",
+          "author": "박민지",
+          "url": "/2025/10/27/셀럽들이-사랑하는-요가-루틴-5가지/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901707984b4d-759x500.jpg"
         }
       ]
     },
@@ -273,20 +313,36 @@
       "url": "/lifestyle/",
       "articles": [
         {
-          "category": "데코",
-          "title": "이제 도산대로에서 생루이 크리스탈을 만날 수 있다",
-          "date": "2025.11.03",
-          "author": "김나랑",
-          "url": "/2025/11/03/이제-도산대로에서-생루이-크리스탈을-만날-수-있다/",
-          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f71b25523aa-500x500.jpg"
-        },
-        {
           "category": "푸드",
           "title": "청하와 글렌피딕, 하나 되는 속도",
           "date": "2025.10.30",
           "author": "남윤진",
           "url": "/2025/10/30/청하와-글렌피딕-하나-되는-속도/",
           "image": "https://img.vogue.co.kr/vogue/2025/10/style_68ff1ba0d7506-500x500.jpg"
+        },
+        {
+          "category": "여행",
+          "title": "가을 제주, 숨겨진 핫플레이스 탐방기",
+          "date": "2025.10.28",
+          "author": "정수아",
+          "url": "/2025/10/28/가을-제주-숨겨진-핫플레이스-탐방기/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901d668914b9-500x500.jpg"
+        },
+        {
+          "category": "데코",
+          "title": "이제 도산대로에서 생루이 크리스탈을 만날 수 있다",
+          "date": "2025.11.03",
+          "author": "김나랑",
+          "url": "/2025/11/03/이제-도산대로에서-생루이-크리스탈을-만날-수-있다/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fb393501fee-500x500.jpg"
+        },
+        {
+          "category": "라이프",
+          "title": "미니멀 라이프를 위한 정리의 기술",
+          "date": "2025.10.26",
+          "author": "최예린",
+          "url": "/2025/10/26/미니멀-라이프를-위한-정리의-기술/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f9b76882988-500x500.jpg"
         }
       ]
     },
@@ -309,6 +365,123 @@
           "author": "오기쁨",
           "url": "/2025/10/31/두아-리파의-추천-소설-핸드메이즈-테일/",
           "image": "https://img.vogue.co.kr/vogue/2025/10/style_690471c32e823-500x500.jpeg"
+        },
+        {
+          "category": "셀럽 뉴스",
+          "title": "뉴진스 민지, 샤넬 앰버서더로 활약 중",
+          "date": "2025.10.29",
+          "author": "김하늘",
+          "url": "/2025/10/29/뉴진스-민지-샤넬-앰버서더로-활약-중/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69018e2fc6d78-500x500.jpg"
+        },
+        {
+          "category": "뷰 포인트",
+          "title": "패션이 말하는 지속가능성의 미래",
+          "date": "2025.10.27",
+          "author": "안소현",
+          "url": "/2025/10/27/패션이-말하는-지속가능성의-미래/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fec9b4e2a91-500x500.jpg"
+        }
+      ]
+    },
+    "latestStories": {
+      "title": "Latest stories",
+      "articles": [
+        {
+          "category": "패션 뉴스",
+          "title": "구찌의 새로운 크리에이티브 디렉터",
+          "date": "2025.10.31",
+          "author": "오기쁨",
+          "url": "/2025/10/31/구찌의-새로운-크리에이티브-디렉터/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6902ecfad96fa-500x500.jpg"
+        },
+        {
+          "category": "아트",
+          "title": "아트 바젤 2025 프리뷰",
+          "date": "2025.10.30",
+          "author": "김성희",
+          "url": "/2025/10/30/아트-바젤-2025-프리뷰/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6902c2f85c502-500x500.jpg"
+        },
+        {
+          "category": "패션 트렌드",
+          "title": "올 시즌 필수 아이템 10",
+          "date": "2025.10.29",
+          "author": "황혜원",
+          "url": "/2025/10/29/올-시즌-필수-아이템-10/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901dbc1f0e2e-500x500.jpg"
+        },
+        {
+          "category": "셀러브리티 스타일",
+          "title": "리한나는 왜 빈티지 백을 고집할까요?",
+          "date": "2025.10.28",
+          "author": "김현유, Emily Chan",
+          "url": "/2025/10/28/리한나는-왜-빈티지-백을-고집할까요/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69017c7650e4a-500x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "요리조리 구상해보는 올가을 스타일링 4",
+          "date": "2025.10.27",
+          "author": "하솔휘",
+          "url": "/2025/10/27/요리조리-구상해보는-올가을-스타일링-4/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69017ab588de4-500x500.jpg"
+        },
+        {
+          "category": "패션 뉴스",
+          "title": "디올의 새 얼굴, 마이키 매디슨",
+          "date": "2025.10.26",
+          "author": "오기쁨",
+          "url": "/2025/10/26/디올의-새-얼굴-마이키-매디슨/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901707984b4d-500x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "이번 가을엔 양말이 주인공입니다",
+          "date": "2025.10.25",
+          "author": "하솔휘",
+          "url": "/2025/10/25/이번-가을엔-양말이-주인공입니다/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6901d668914b9-500x500.jpg"
+        },
+        {
+          "category": "패션 뉴스",
+          "title": "레이첼 스콧이 이야기하는 프로엔자 스쿨러의 미래",
+          "date": "2025.10.24",
+          "author": "안건호, Nicole Phelps",
+          "url": "/2025/10/24/레이첼-스콧이-이야기하는-프로엔자-스쿨러의-미래/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68fb393501fee-500x500.jpg"
+        },
+        {
+          "category": "패션 뉴스",
+          "title": "리사와 주피터가 함께 선보이는 특별한 경매 프로젝트",
+          "date": "2025.10.23",
+          "author": "오기쁨",
+          "url": "/2025/10/23/리사와-주피터가-함께-선보이는-특별한-경매-프로젝트/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68f9b76882988-500x500.jpg"
+        },
+        {
+          "category": "패션 트렌드",
+          "title": "니트, 입지 말고 두르세요",
+          "date": "2025.10.22",
+          "author": "소피아",
+          "url": "/2025/10/22/니트-입지-말고-두르세요/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_68ff1ba0d7506-500x500.jpg"
+        },
+        {
+          "category": "Video",
+          "title": "의외로 수다쟁이? 안효섭에 대한 소문의 실체를 공개합니다",
+          "date": "2025.10.21",
+          "author": "한다혜, 장소라",
+          "url": "/2025/10/21/안효섭-인터뷰/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_6902ee6ea19c3-500x500.jpg"
+        },
+        {
+          "category": "패션 아이템",
+          "title": "올가을에 살랑일 트렌드 팬츠 7",
+          "date": "2025.10.20",
+          "author": "하솔휘",
+          "url": "/2025/10/20/올가을에-살랑일-트렌드-팬츠-7/",
+          "image": "https://img.vogue.co.kr/vogue/2025/10/style_69032363efbc9-500x500.jpg"
         }
       ]
     }
