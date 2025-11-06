@@ -121,7 +121,7 @@ $(".mz").hide();
 $btns.hide().first().show();
 
 // 예비코드 : 특정순번버튼만 나오게하기
-// $btns.hide().eq(3).show();
+// $btns.hide().eq(4).show();
 
 // 3. 미니언즈 공통 기능함수 ///////////////////
 const actMini = (el, seq, fn) => {
@@ -231,23 +231,25 @@ $btns
             .eq(7)
             .find(".mz") // 좀비선택
             .delay(1000) // 1초후
-            .fadeIn(300, 
+            .fadeIn(
+              300,
               // function() { // 일반익명함수 this는 좀비!
-              () => { // 일반익명함수 this는 좀비!
-              console.log('this의미:', this);
-              // 좀비등장후 콜백
-              // [3] 다음 메시지 나타나기
-              $msg.html(msgTxt[7][1]);
-              // [4] 다음버튼 보이기
-              $(this).next().fadeIn(300);
-            }); /////// fadeIn ////////////
+              () => {
+                // 일반익명함수 this는 좀비!
+                console.log("this의미:", this);
+                // 좀비등장후 콜백
+                // [3] 다음 메시지 나타나기
+                $msg.html(msgTxt[7][1]);
+                // [4] 다음버튼 보이기
+                $(this).next().fadeIn(300);
+              }
+            ); /////// fadeIn ////////////
         }); ///////// fadeIn ////////////
     }; // fn 함수 끝 //////////////
 
     // 3. 미니언즈 공통 기능함수 호출하기
     actMini(this, 7, fn);
   }) /////////// click ////////////////
-
 
   // (4-4) "다시옆방으로!" 버튼 클릭시
   .next()
@@ -266,7 +268,7 @@ $btns
           $msg.html(msgTxt[6][1]);
           // [3] 다음버튼 보이기
           $(this).next().fadeIn(300);
-        })
+        });
     }; // fn 함수 끝 //////////////
 
     // 3. 미니언즈 공통 기능함수 호출하기
@@ -281,25 +283,258 @@ $btns
       // 이동후 콜백함수
       // [1] 여러 메시지를 순차적으로 보이게하기
       $msg
-      .html(msgTxt[4][0][0])
+        .html(msgTxt[4][0][0]) // "무",
         .fadeIn(200)
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][1]))
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][1])) // "무.",
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][2]))
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][2])) // "무.서",
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][3]))
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][3])) // "무.서.",
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][4]))
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][4])) // "무.서.워",
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][5]))
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][5])) // "무.서.워.",
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][6]))
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][6])) // "무.서.워..",
         .delay(500)
-        .fadeIn(200,()=>$msg.html(msgTxt[4][0][7]))
-      
+        .fadeIn(200, () => $msg.html(msgTxt[4][0][7])) // "무.서.워...",
+        .delay(3000)
+        .fadeIn(200, () => $msg.html(msgTxt[4][1]));
+      // `아~악! 물렸다!<br>어서 치료주사방으로!`
+
+      // [2] 7번방의 좀비 윗층으로 뛰어오른후 달겨들기
+      $room
+        .eq(7)
+        .find(".mz")
+        .delay(4000) // 4초후
+        .animate({ top: "-100%" }, 500, "easeOutBounce")
+        .delay(500) // 0.5초후
+        .animate({ right: "123%" }, 1500, "easeOutElastic");
+
+      // [3] 미니언즈 주인공 이미지 좀비로 변경하기 + 회색처리
+      // 7초후 적용하기
+      setTimeout(() => {
+        // 좀비로 변경
+        $mi
+          .find("img")
+          .attr("src", "images/mz1.png")
+          .css("filter", "grayscale(100%)");
+        // [4] 다음버튼 보이기
+        $(this).next().fadeIn(300);
+      }, 7000);
     }; // fn 함수 끝 //////////////
 
     // 3. 미니언즈 공통 기능함수 호출하기
     actMini(this, 4, fn);
   }) /////////// click ////////////////
+
+  // (4-6) "치료주사방으로!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // [1] 주사기 회전하기 : 미니언즈보다 위로 조정
+      $(".inj")
+        .css({ zIndex: 9999 })
+        .animate(
+          {
+            rotate: "-150deg",
+          },
+          400,
+          () => {
+            // 애니후 함수
+            // [2] 미니언즈 이미지 변경하기(눈하나짜리 후유증...)
+            $mi
+              .find("img")
+              .attr("src", "images/m2.png")
+              // 그레이스케일 원상복구
+              .css("filter", "grayscale(0%)");
+
+            // [3] 주사기 없애기
+            $(".inj").hide();
+
+            // [5] 대사날리기
+            $msg.html(msgTxt[2]).fadeIn(300);
+
+            // [6] 다음버튼 보이기
+            $(this).next().fadeIn(300);
+          }
+        );
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 2, fn);
+  }) /////////// click ////////////////
+
+  // (4-7) "3번방으로!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // [1] 대사날리기
+      $msg.html(msgTxt[3]).fadeIn(300);
+
+      // [2] 다음버튼 보이기
+      $(this).next().fadeIn(300);
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 3, fn);
+  }) /////////// click ////////////////
+
+  // (4-8) "1번방으로!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // [1] 대사날리기
+      $msg.html(msgTxt[1]).fadeIn(300);
+
+      // [2] 다음버튼 보이기
+      $(this).next().fadeIn(300);
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 1, fn);
+  }) /////////// click ////////////////
+
+  // (4-9) "헬기를 호출!" 버튼 클릭시
+  .next()
+  .click(function () {
+    // 버튼별 기능구현하기 //////////////
+    let fn = () => {
+      // 마지막 최종 쑈쑈쑈!
+      // [1] 대사날리기
+      $msg.html(msgTxt[0]).fadeIn(300);
+
+      // [2] 1번방의 단체좀비들 달겨들기!
+      $room
+        .eq(1)
+        .find(".mz")
+        .fadeIn(300)
+        .animate({ right: "100%" }, 3000, "easeInCirc");
+
+      // [3] 헬기 등장 : .heli
+      $(".heli")
+        .css({ rotate: "25deg" })
+        .animate(
+          {
+            left: "24%",
+            rotate: "0deg",
+          },
+          3000,
+          "easeOutBack",
+          function () {
+            // 애니후 콜백함수
+            // 여기서 this는 .heli이다!
+            // [4] 헬기 이미지 미니언즈 탄것으로 바꾸기
+            $(this).attr("src", "images/heli2.png");
+
+            // [5] 헬기에 탔으니까 미니언즈 숨기기
+            $mi.hide();
+          }
+        ) //// animate ////
+
+        // [6] 지연후 헬기 계속이동
+        .delay(500) // 0.5초 후
+        .animate(
+          {
+            left: "70%",
+            rotate: "15deg",
+          },
+          4000,
+          "easeInOutCirc",
+          function () {
+            // 애니후 콜백함수
+
+            // [7] 조종사가 좀비된 이미지로 변경
+            $(this).attr("src", "images/heli3.png");
+          }
+        ) ////// animate //////
+
+        // [8] 지연후 헬기 천천히 화면바깥으로 나감!
+        .delay(300) // 0.3초 후
+        .animate(
+          {
+            left: "110%",
+          },
+          10000,
+          "linear",
+          () => {
+            // [9] 최종애니 콜백함수
+            // -> 간판떨어져, 건물무너져~~ 등
+
+            // [9-1] 간판떨어지기
+            let tit = $(".tit");
+            // 1단계: 클래스 'on'주기
+            tit.addClass("on");
+            // 2단계: 클래스 'on2'주기
+            setTimeout(() => {
+              tit.addClass("on2");
+            }, 3000);
+
+            // [9-2] 건물 무너지기 : 6초후
+            setTimeout(() => {
+              $room.parent().addClass("on");
+              // parent()는 li의 부모인 ul로 올라감
+            }, 6000);
+
+            // [9-3] 추가구현 : 20초후 작동시작
+            setTimeout(() => {
+              // 1) 건물무너지고 9번방 좀비가 올라옴
+              // - 건물이 돌아가 있으므로 세워놓고 올라옴
+              $room
+                .parent() // li의 부모 ul건물 박스
+                .attr("style", "transform:rotate(0deg) !important");
+              // 9번방 좀비
+              $room
+                .eq(9)
+                .find(".mz")
+                // 2)지표로 올라오기
+                .animate(
+                  {
+                    bottom: "594%",
+                  },
+                  3000
+                )
+                // 3)기다리기
+                .delay(3000)
+                // 4)오른쪽으로 사라짐(5초간)
+                .animate(
+                  {
+                    right: "-240%",
+                  },
+                  5000,
+                  () => {
+                    // 진짜끝!!!
+                    // 5) 엔딩글자 나옴
+                    $("body").append('<h1 class="ending">THE END</h1>');
+
+                    $(".ending")
+                      .css({
+                        position: "fixed",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%,-50%)",
+                        margin: "0",
+                        padding: "0",
+                        color: "white",
+                        fontSize: "20vh",
+                        textShadow: "0 0 5px #000",
+                        fontFamily: "vladimir script",
+                      })
+                      .hide() // 숨기기
+                      .fadeIn(1000) // 페이드로 보이기
+                      .animate({ color: "red" }, 1000);
+                    // 마지막 글자색 빨간색으로 마무리!!!
+                  }
+                ); /// animate ///
+            }, 20000);
+          }
+        ); //////// animate //////
+    }; // fn 함수 끝 //////////////
+
+    // 3. 미니언즈 공통 기능함수 호출하기
+    actMini(this, 0, fn);
+  }); /////////// click ////////////////
