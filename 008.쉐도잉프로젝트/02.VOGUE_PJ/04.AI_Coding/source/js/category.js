@@ -9,7 +9,7 @@ import articleData from "../data/vogue_articles.json" with { type: "json" };
 
 // [2] 파라미터 키값 읽기 /////////
 let pm = location.search.split("=")[1];
-console.log('파라미터:', pm);
+console.log("파라미터:", pm);
 
 // [3] 데이터 매칭하기 //////////
 
@@ -17,11 +17,10 @@ console.log('파라미터:', pm);
 const lnbData = gnbMenu[pm.toUpperCase()];
 
 // (2) 컨텐츠 아티클 매칭하기
-const selData = articleData.categories
-.find((val) => val.categoryName == pm);
+const selData = articleData.categories.find((val) => val.categoryName == pm);
 
 // 제이슨확인 //
-console.log("매칭데이터:", lnbData,selData);
+console.log("매칭데이터:", lnbData, selData);
 
 // [4] 데이터 바인딩하기 /////////////
 // (1) 대상선정 : .main-area
@@ -53,7 +52,9 @@ mainArea.innerHTML = `
             />
             <div class="main-story-overlay">
               <div class="main-story-meta">
-                <span class="main-story-category">${selData.highlight.category}</span>
+                <span class="main-story-category">${
+                  selData.highlight.category
+                }</span>
                 <span class="main-story-date">${selData.highlight.date}</span>
               </div>
               <h3 class="main-story-title">
@@ -90,9 +91,9 @@ mainArea.innerHTML = `
                   `
                   )
                   .join("")
-              : `<h2 class="no-story">No Story</h2>`  
-              // 없는 경우는 No Story 텍스트 출력        
+              : `<h2 class="no-story">No Story</h2>`
+            // 없는 경우는 No Story 텍스트 출력
           }          
         </div>
       </section>    
-`;
+`; /////////////////// 데이터 바인딩 /////////////////////
