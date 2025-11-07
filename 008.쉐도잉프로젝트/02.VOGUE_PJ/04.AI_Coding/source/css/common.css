@@ -2,8 +2,10 @@
 /* 보그 코리아 공통 CSS - common.css */
 
 /* 공통셋팅 */
-main {
-  overflow: hidden;
+html{
+  overflow-x: hidden;
+  /* 가로스크롤 생김 방지
+  -> 자식요소중 sticky도 이상없음!!! */
 }
 
 /* Header와 Footer 스타일 */
@@ -165,11 +167,6 @@ footer {
 
 /* ========== 반응형: 모바일 (<819px) ========== */
 @media (max-width: 819px) {
-  /* 모바일에서는 
-상단영역 header 태그의 height값은 108px
-패딩은 위 22px, 아래 13px
-.logo의 이미지크기는 height : 33px
-.gnb-menu와 .header-actions의 글자크기는 14px로 변경해줘 */
 
   header {
     left: 0;

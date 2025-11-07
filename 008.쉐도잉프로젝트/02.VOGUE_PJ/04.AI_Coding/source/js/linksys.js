@@ -2,7 +2,7 @@
 
 export default function () {
     // [1] 로고 클릭시 홈으로 가기
-    document.querySelector('.logo').onclick = () => {
+    document.querySelector('.logo img').onclick = () => {
         location.href = 'index.html';
     }; ////////////// click //////////////
 
