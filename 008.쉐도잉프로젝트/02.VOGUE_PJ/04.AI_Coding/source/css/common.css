@@ -67,6 +67,17 @@ header.hidden {
   font-weight: 600;
   border: none;
 }
+/* 로그인버튼 */
+.login-btn i:last-child {
+  display: none;
+}
+/* 클래스 on넣기 */
+.login-btn.on i:first-child {
+  display: none;
+}
+.login-btn.on i:last-child {
+  display: inline;
+}
 
 /* 구독버튼 */
 .header-actions .gudok-btn {

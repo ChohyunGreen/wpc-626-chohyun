@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/* 메인 페이지 CSS - main.css 
+    - 변수셋팅 + 미디어쿼리 포함
+*/
+
+/* 외부공통파일 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+/* 공통변수 셋팅 */
+:root {
+  /* 색상변수 : --이름-color */
+  --main-gray-color: #222;
+  --character-area-color: #fefefe;
+  --company-area-color: #f4f4f4;
+  --contact-area-color: #4a679d;
+
+  /* 사이즈변수 : --이름-size */
+  --top-area-padding-size: 2rem 5rem;
+  --bottom-area-padding-size: 5rem;
+  --contents-box-padding-size: 8.5rem 0 0;
+  --cat-title-padding-size: 1.5rem 1rem;
+}
+
+/* 전체글자 크기기준값 설정하기 : rem단위 */
+html {
+  /* 계산 편의상 10px로 설정! */
+  font-size: 10px;
+}
+
+/* 모바일 모드시 가로스크롤 안생기게 셋팅 */
+html,
+body {
+  overflow-x: hidden;
+}
+

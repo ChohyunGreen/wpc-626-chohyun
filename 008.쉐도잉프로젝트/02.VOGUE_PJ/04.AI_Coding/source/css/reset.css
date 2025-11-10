@@ -2,6 +2,11 @@
 
 /* 보그 JS 초기화 CSS - reset.css */
 
+html {
+  font-size: 10px;
+  /* 1rem = 10px */
+}
+
 /* ========== 기본 리셋 ========== */
 * {
   margin: 0;
