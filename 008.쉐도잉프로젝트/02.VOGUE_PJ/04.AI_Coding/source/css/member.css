@@ -152,3 +152,60 @@
     자동전환된다! 이미지를 박스에 무조건
     보이게 할 경우 이것을 셋팅함! */
 }
+
+/* 미디어쿼리 690px 이하 시작 */
+@media screen and (max-width: 690px) {
+  /* 리스트 li */
+  .scont li {
+    height: auto;
+  }
+
+  /* 라벨공통 타이틀(.itit) */
+  .itit {
+    display: block;
+  }
+
+  /*  입력박스 공통 */
+  .scont input[type="text"],
+  .scont input[type="password"] {
+    width: 100%;
+  }
+
+  /* 가입하기 버튼 */
+  #btnj {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    margin-top: 25px;
+  }
+
+  /* 상대적인 크기 위치변경 */
+  .cont {
+    padding: 3vw !important;
+  }
+
+  /* 로그인 박스 */
+  .scont {
+    padding: 30px 7vw 10vh;
+  }
+
+  /* 이메일 앞주소 */
+  #email1 {
+    width: 30vw;
+  }
+  /* 이메일 선택박스 */
+  #seleml {
+    width: 37.2vw;
+  }
+  /* 이메일 뒷주소 */
+  #email2 {
+    width: 35.4vw;
+    margin-right: 5.1vw;
+  }
+  /* @ 문자 글자크기 */
+  .gol {
+    font-size: 3vw;
+  }
+}
+
+/* 미디어쿼리 690px 이하 끝 */

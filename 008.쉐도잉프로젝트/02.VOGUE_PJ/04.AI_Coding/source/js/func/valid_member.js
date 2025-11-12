@@ -116,7 +116,7 @@ export default function valid_member() {
           // 2. 만약 DB조회하여 같은 아이디가 없다면
           // '멋진 아이디네요~!'와 같은 메시지출력
           // 여기서 우선은 DB조회 못하므로 통과시 메시지로 출력
-          else{
+          else {
             // 메시지 띄우기
             $(this).siblings(".msg").text("멋진 아이디네요~!").addClass("on");
             // -> 비동기 통신 Ajax로 서버쪽에 아이디 중복검사필요!
@@ -428,22 +428,19 @@ export default function valid_member() {
       // 로컬쓰에 넣기
       localStorage.setItem("mem-data", JSON.stringify(temp));
 
-      alert("회원가입을 축하드립니다! 짝짝짝!");
+      alert("회원가입을 축하드립니다! 바로 로그인해주세요!");
       // 원래는 POST방식으로 DB에 회원가입정보를
       // 전송하여 입력후 DB처리완료시 성공메시지나
       // 로그인 페이지로 넘겨준다!
 
       // 로그인 페이지로 리디렉션!
-      //   location.href = 'login.html';
+      // location.href = 'login.html';
 
       // 민감한 입력 데이터 페이지가 다시 돌아와서
       // 보이면 안되기 때문에 히스토리를 지우는
       // replace()로 이동한다!
-      // location.replace("login.html");
+      location.replace("login.html");
       // -> SPA로 변경후에는 MPA처리 불가!!!
-
-
-
     } //////// if : 통과시 ///////////
     else {
       ///// 불통과시 //////

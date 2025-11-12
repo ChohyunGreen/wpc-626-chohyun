@@ -4,7 +4,7 @@ export default function validLogin() {
   console.log("로그인검사~!");
   /**************************************** 
         로그인 페이지 유효성 검사
-    ****************************************/
+  ****************************************/
   // 검사대상 : #mid, #mpw
   const mid = $("#mid");
   const mpw = $("#mpw");
@@ -67,6 +67,11 @@ export default function validLogin() {
         // -> '로그인에 성공하였습니다!'
         else {
           alert("로그인에 성공하였습니다!");
+          // 로그인 성공시 처리내용 :
+          // 1. 세션스에 로그인정보 기록하기
+          sessionStorage.setItem("loginfo", JSON.stringify(result));
+          // 2. 첫페이지로 이동하기
+          location.href = "index.html";
         } /// else : 로그인 성공시 ///
       } ///// else : 아이디가 있는 경우 ////
     } /////// else : 아이디,비번 모두입력시 ////////

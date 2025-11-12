@@ -7,3 +7,9 @@
 font-family: 'Roboto', "Noto Sans KR";
 font-family: 'Roboto Condensed', sans-serif;
 */
+
+/*********** 2. 공통 클래스 ***********/
+.inbox {
+    max-width: 1400px;
+    margin: 0 auto;
+}

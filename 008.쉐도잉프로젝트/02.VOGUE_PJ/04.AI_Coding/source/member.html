@@ -109,15 +109,17 @@
                 <li>
                   <span class="itit">성별</span>
                   <label for="gen1">남성</label>
-                  <input type="radio" name="gen" id="gen1" />
+                  <input type="radio" name="gen" id="gen1" value="m" />
                   <label for="gen2">여성</label>
-                  <input type="radio" name="gen" id="gen2" checked />
+                  <input type="radio" name="gen" id="gen2" checked value="w" />
                   <!-- 
-                        라디오버튼의 name속성을
-                        같은 이름으로 쓰면 그룹핑되어서
-                        하나만 선택된다!
-                        checked 속성은 처음 기본선택옵션임
-                        -->
+                    라디오버튼의 name속성을
+                    같은 이름으로 쓰면 그룹핑되어서
+                    하나만 선택된다!
+                    checked 속성은 처음 기본선택옵션임
+                    (주의: value속성값이 없으면 값을 저장할때
+                    on 이라는 값으로 저장된다!)
+                  -->
                 </li>
                 <!-- 6.이메일 -->
                 <li>

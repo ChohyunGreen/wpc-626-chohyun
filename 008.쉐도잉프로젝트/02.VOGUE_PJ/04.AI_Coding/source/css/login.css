@@ -133,3 +133,46 @@ input:focus {
   text-decoration: underline;
   text-decoration-style: wavy;
 }
+
+/* 미디어쿼리 760px 이하 시작 */
+@media screen and (max-width:760px) {
+
+    /* 입력창 공통라벨 */
+    .minput label {
+        display: block;
+        width: auto;
+    }
+
+    /* 입력양식공통 */
+    .minput input {
+        width: 100%;
+    }
+
+    /* 버튼영역 */
+    .btnbx {
+        position: static;
+    }
+
+    /* 서브밋 버튼 */
+    #sbtn {
+        width: 100%;
+        height: 50px;
+        margin-top: 50px;
+    }
+
+    /* 추가링크박스 */
+    .addbx{
+        line-height: 2.5;
+    }
+
+    /* 추가링크 바숨기기 */
+    .bar2{
+        display: none;
+    }
+    /* 추가링크 바,줄바꿈 보이기 */
+    .bar1,.brk{
+        display: inline;
+    }
+}
+
+/* 미디어쿼리 760px 이하 끝 */
