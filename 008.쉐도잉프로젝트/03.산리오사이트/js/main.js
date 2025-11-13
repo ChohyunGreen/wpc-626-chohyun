@@ -149,3 +149,41 @@ myFn.qs(".recruit-list").innerHTML = `
 
     </ul>
 `;
+
+// 7. 탑 이동 버튼 기능 구현 ///////////////////////
+const topBtn = myFn.qs("#to-top");
+
+// 스크롤 이벤트 리스너
+window.addEventListener("scroll", () => {
+  // 현재 스크롤 위치
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // 100px 이상 스크롤하면 버튼 표시, 그 이하면 숨김
+  if (scrollTop > 100) {
+    topBtn.classList.add("show");
+  } else {
+    topBtn.classList.remove("show");
+  }
+});
+
+// 탑 버튼 클릭 시 상단으로 부드럽게 이동
+topBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  
+  // 부드러운 스크롤로 상단 이동
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+// 키보드 접근성을 위한 Enter 키 지원
+topBtn.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+});
