@@ -24,6 +24,23 @@ const pmemberonly = params.get("memberOnly");
 // (8) 배지
 const pbadge = params.get("badge");
 console.log("파라미터 pname:",pname);
+// (9) 상품코드
+const pcode = params.get("pcode");
+// (10) 재고수량
+const pcount = params.get("count");
+
+/**
+ * 숫자를 세자리마다 콤마로 구분해주는 함수
+ * @param {number|string} num
+ * @returns {string}
+ */
+function addComma(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// 파라미터로 받은 실제 상품 가격과 재고수량을 사용
+const basePrice = parseInt(psaleprice) || 72000;
+const maxStock = parseInt(pcount) || 81;
 
 // 태그 만들기 대상 : 
 document.querySelector(".product-section").innerHTML = `
@@ -60,12 +77,14 @@ document.querySelector(".product-section").innerHTML = `
       <div class="info-row">
         <div class="info-label">정가</div>
         <div class="info-value">
-          <del>96,000원</del>
+          <del>${addComma(poriprice)}원</del>
         </div>
       </div>
       <div class="info-row price-row">
         <div class="info-label">판매가</div>
-        <div class="info-value">72,000원</div>
+        <div class="info-value">
+        ${pmemberonly?'이 제품은 회원가입후 구매가 가능합니다.':addComma(psaleprice) + '원'}
+        </div>
       </div>
       <div class="info-row">
         <div class="info-label">구매제한</div>
@@ -80,7 +99,7 @@ document.querySelector(".product-section").innerHTML = `
       </div>
       <div class="info-row">
         <div class="info-label">상품코드</div>
-        <div class="info-value">1000000297</div>
+        <div class="info-value">${pcode}</div>
       </div>
       <div class="info-row">
         <div class="info-label">신간발행일</div>
@@ -88,13 +107,14 @@ document.querySelector(".product-section").innerHTML = `
       </div>
       <div class="info-row">
         <div class="info-label">상품재고</div>
-        <div class="info-value">81개</div>
+        <div class="info-value">${pcount}개</div>
       </div>
     </div>
     <div class="select-area">
       <div class="info-label" style="margin-bottom: 8px">시작 월</div>
       <select class="select-box">
-        <option>2025-11월호 부터</option>
+        <option>
+        ${new Date().getFullYear()}-${new Date().getMonth() + 1}월호 부터</option>
       </select>
     </div>
     <div class="selected-item">
@@ -103,21 +123,21 @@ document.querySelector(".product-section").innerHTML = `
       </div>
       <div class="item-controls">
         <div class="quantity-control">
-          <button type="button" onclick="decreaseQty()">-</button>
-          <input type="text" id="quantity" value="1" readonly />
-          <button type="button" onclick="increaseQty()">+</button>
+          <button type="button" id="decreaseBtn">-</button>
+          <input type="number" id="quantity" value="1" min="1" max="${maxStock}" />
+          <button type="button" id="increaseBtn">+</button>
         </div>
-        <div class="item-price"><span id="itemPrice">72,000</span>원</div>
+        <div class="item-price"><span id="itemPrice">${addComma(psaleprice)}</span>원</div>
       </div>
     </div>
     <div class="price-summary">
       <div class="summary-row">
         <span>총 상품금액</span>
-        <span id="totalPrice">72,000원</span>
+        <span id="totalPrice">${addComma(psaleprice)}원</span>
       </div>
       <div class="summary-row total">
         <span>총 합계금액</span>
-        <span class="amount" id="finalPrice">72,000원</span>
+        <span class="amount" id="finalPrice">${addComma(psaleprice)}원</span>
       </div>
     </div>
     <div class="button-group">
@@ -130,6 +150,54 @@ document.querySelector(".product-section").innerHTML = `
   </div>
         
 `;
+
+// HTML 생성 후 이벤트 리스너 추가
+document.getElementById("increaseBtn").addEventListener("click", increaseQty);
+document.getElementById("decreaseBtn").addEventListener("click", decreaseQty);
+
+// 수량 입력 필드 이벤트 리스너 추가
+const quantityInput = document.getElementById("quantity");
+quantityInput.addEventListener("input", validateAndUpdateQuantity);
+quantityInput.addEventListener("blur", validateAndUpdateQuantity);
+
+// 장바구니 버튼 이벤트 리스너 추가
+document.querySelector(".btn-cart").addEventListener("click", addToCart);
+
+// 함수들을 전역으로 등록 (onclick 속성 사용을 위해)
+window.increaseQty = increaseQty;
+window.decreaseQty = decreaseQty;
+window.updatePrice = updatePrice;
+window.validateAndUpdateQuantity = validateAndUpdateQuantity;
+window.addToCart = addToCart;
+
+/**
+ * 수량 직접 입력시 유효성 검사 및 업데이트 함수
+ */
+function validateAndUpdateQuantity() {
+  const input = document.getElementById("quantity");
+  let value = parseInt(input.value);
+  
+  // 숫자가 아니거나 빈값인 경우
+  if (isNaN(value) || input.value === "") {
+    input.value = 1;
+    value = 1;
+  }
+  // 최소값 체크
+  else if (value < 1) {
+    input.value = 1;
+    value = 1;
+    alert("최소 구매 수량은 1개입니다.");
+  }
+  // 최대값 체크
+  else if (value > maxStock) {
+    input.value = maxStock;
+    value = maxStock;
+    alert(`최대 구매 가능 수량은 ${maxStock}개입니다.`);
+  }
+  
+  // 가격 업데이트
+  updatePrice();
+}
 
 // [  파라미터를 받는 방법 ]
 // 1) location.search : ?pid=0 형태의 문자열 받기
@@ -156,33 +224,123 @@ document.querySelector(".product-section").innerHTML = `
 //    - document.forms[0] : 첫번째 폼요소 선택
 // 3) .get("키") 메서드로 값 받기
 
-
-const basePrice = 72000;
-
+/**
+ * 수량 변경시 가격을 업데이트하는 함수
+ */
 function updatePrice() {
   const qty = parseInt(document.getElementById("quantity").value);
   const total = basePrice * qty;
-  const formatted = total.toLocaleString("ko-KR");
-
-  document.getElementById("itemPrice").textContent = formatted;
-  document.getElementById("totalPrice").textContent = formatted + "원";
-  document.getElementById("finalPrice").textContent = formatted + "원";
+  
+  // 개별 상품 가격 업데이트
+  document.getElementById("itemPrice").textContent = addComma(basePrice);
+  
+  // 총 상품금액 업데이트
+  document.getElementById("totalPrice").textContent = addComma(total) + "원";
+  
+  // 총 합계금액 업데이트
+  document.getElementById("finalPrice").textContent = addComma(total) + "원";
 }
 
+/**
+ * 수량 증가 함수
+ */
 function increaseQty() {
   const input = document.getElementById("quantity");
   const current = parseInt(input.value);
-  if (current < 81) {
+  
+  // 최대 재고수량까지만 증가 가능
+  if (current < maxStock) {
     input.value = current + 1;
     updatePrice();
+  } else {
+    alert(`최대 구매 가능 수량은 ${maxStock}개입니다.`);
   }
 }
 
+/**
+ * 수량 감소 함수
+ */
 function decreaseQty() {
   const input = document.getElementById("quantity");
   const current = parseInt(input.value);
+  
+  // 최소 1개까지만 감소 가능
   if (current > 1) {
     input.value = current - 1;
     updatePrice();
+  } else {
+    alert("최소 구매 수량은 1개입니다.");
   }
+}
+
+/**
+ * 장바구니에 상품을 추가하는 함수
+ */
+function addToCart() {
+  // 현재 수량 가져오기
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const totalPrice = basePrice * quantity;
+  
+  // 로그인 정보 확인
+  let userInfo = "guest";
+  const logInfo = sessionStorage.getItem("loginfo");
+  
+  if (logInfo) {
+    try {
+      const loginData = JSON.parse(logInfo);
+      userInfo = loginData.userid || "guest";
+    } catch (error) {
+      console.error("로그인 정보 파싱 오류:", error);
+      userInfo = "guest";
+    }
+  }
+  
+  // 장바구니에 추가할 상품 정보 객체 생성
+  const cartItem = {
+    id: params.get("id"),
+    pcode: pcode,
+    name: pname,
+    description: pdesc,
+    image: pimg,
+    originalPrice: parseInt(poriprice),
+    salePrice: basePrice,
+    discount: parseInt(pdiscount),
+    badge: pbadge,
+    memberOnly: pmemberonly === "true",
+    count: parseInt(pcount),
+    quantity: quantity,
+    totalPrice: totalPrice,
+    userId: userInfo,
+    addedDate: new Date().toISOString()
+  };
+  
+  // 기존 장바구니 정보 가져오기
+  let cartInfo = localStorage.getItem("cart-info");
+  let cartArray = [];
+  
+  if (cartInfo) {
+    cartArray = JSON.parse(cartInfo);
+  }
+  
+  // 동일한 상품이고 같은 사용자인지 확인 (상품코드 + 사용자ID)
+  const existingItemIndex = cartArray.findIndex(item => 
+    item.pcode === pcode && item.userId === userInfo
+  );
+  
+  if (existingItemIndex !== -1) {
+    // 기존 상품이 있고 같은 사용자면 수량 업데이트
+    cartArray[existingItemIndex].quantity += quantity;
+    cartArray[existingItemIndex].totalPrice = cartArray[existingItemIndex].salePrice * cartArray[existingItemIndex].quantity;
+    cartArray[existingItemIndex].addedDate = new Date().toISOString();
+    alert(`${pname}의 수량이 ${cartArray[existingItemIndex].quantity}개로 업데이트되었습니다.`);
+  } else {
+    // 새로운 상품이거나 다른 사용자면 새로 추가
+    cartArray.push(cartItem);
+    alert(`${pname}이(가) 장바구니에 추가되었습니다.`);
+  }
+  
+  // 로컬스토리지에 저장
+  localStorage.setItem("cart-info", JSON.stringify(cartArray));
+  
+  console.log("장바구니 정보:", cartArray);
 }
