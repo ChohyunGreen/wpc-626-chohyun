@@ -92,6 +92,39 @@ header.hidden {
     border: 1px solid #000;
 }
 
+/* 장바구니 버튼 */
+.cart-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-btn i {
+    font-size: 18px;
+}
+
+/* 장바구니 개수 표시 */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* 장바구니가 비어있을 때 0은 회색으로 표시 */
+.cart-count.empty {
+    background: #999;
+}
+
 /* GNB 메뉴 리스트 ul */
 .nav-list {
     display: flex;

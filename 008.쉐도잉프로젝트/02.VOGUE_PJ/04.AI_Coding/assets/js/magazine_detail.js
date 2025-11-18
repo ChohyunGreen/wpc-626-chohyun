@@ -332,15 +332,23 @@ function addToCart() {
     cartArray[existingItemIndex].quantity += quantity;
     cartArray[existingItemIndex].totalPrice = cartArray[existingItemIndex].salePrice * cartArray[existingItemIndex].quantity;
     cartArray[existingItemIndex].addedDate = new Date().toISOString();
-    alert(`${pname}의 수량이 ${cartArray[existingItemIndex].quantity}개로 업데이트되었습니다.`);
   } else {
     // 새로운 상품이거나 다른 사용자면 새로 추가
     cartArray.push(cartItem);
-    alert(`${pname}이(가) 장바구니에 추가되었습니다.`);
   }
   
   // 로컬스토리지에 저장
   localStorage.setItem("cart-info", JSON.stringify(cartArray));
   
   console.log("장바구니 정보:", cartArray);
+  
+  // 장바구니 개수 업데이트
+  if (typeof window.updateCartCount === 'function') {
+    window.updateCartCount();
+  }
+  
+  // 사용자 선택지 제공
+  if (typeof window.showCartChoiceModal === 'function') {
+    window.showCartChoiceModal(pname);
+  }
 }
